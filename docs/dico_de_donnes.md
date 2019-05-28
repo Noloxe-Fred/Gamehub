@@ -61,6 +61,7 @@
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Game|
 |name|VARCHAR|NOT NULL|nom du Game|
+|description|TEXT|NOT NULL, DEFAULT = "N/C"|description du Game|
 |cover|VARCHAR|NOT NULL, DEFAUT = logo du site|lien vers la photo de couverture du Game|
 |illustration|VARCHAR|--|lien vers une illustration/screenshot du Game|
 |solo|BOOL|--|indique si le Game se joue seul ou non|
@@ -70,6 +71,8 @@
 |releasedAt|DATETIME|--|date officiel de commercialisation du Game|
 |createdAt|datetime|NOT NULL|date de creation du Game|
 |updatedAt|datetime|NOT NULL|date de mise à jour du Game|
+|igdb_id|INT|UNIQUE, NOT NULL, UNSIGNED|L'identifiant du Game sur IGDB|
+
 
 ## Category
 
