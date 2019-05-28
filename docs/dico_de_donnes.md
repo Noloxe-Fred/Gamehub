@@ -1,23 +1,23 @@
 
 ##User
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'utilisateur|
-|firstname|VARCHAR|-|prenom de l'utilisateur|
-|lastname|VARCHAR|-|nom de l'utilisateur|
+|firstname|VARCHAR|--|prenom de l'utilisateur|
+|lastname|VARCHAR|--|nom de l'utilisateur|
 |pseudo|VARCHAR|NOT NULL|pseudo de l'utilisateur|
-|photo|VARCHAR|-|lien vers l'avatar de l'utilisateur|
-|birthdate|DATETIME|-|date de naissance de l'utilisateur|
+|photo|VARCHAR|--|lien vers l'avatar de l'utilisateur|
+|birthdate|DATETIME|--|date de naissance de l'utilisateur|
 |password|VARCHAR|NOT NULL|mot de pass de l'utilisateur|
 |email|VARCHAR|NOT NULL|email de l'utilisateur|
 |is_active|BOOL|NOT NULL, DEFAULT = 1|status de l'utilisateur (actif/bloqué)|
-|biography|TEXT|-|biography de l'utilisateur|
+|biography|TEXT|--|biography de l'utilisateur|
 |createdAt|datetime|NOT NULL|date de creation de l'utilisateur|
 |updatedAt|datetime|NOT NULL|date de mise à jour de l'utilisateur|
 
 ##Platform
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de la Platform associée|
 |name|VARCHAR|NOT NULL|nom de la Platform associée|
 |createdAt|datetime|NOT NULL|date de creation|
@@ -25,24 +25,24 @@
 
 ##Editor
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'Editor associé|
-|name|VARCHAR|-|nom de l'Editor associé|
-|website|VARCHAR|-|nom de l'Editor associé|
+|name|VARCHAR|--|nom de l'Editor associé|
+|website|VARCHAR|--|nom de l'Editor associé|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
 ##Developper
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'Editor associé|
-|name|VARCHAR|-|nom de la société de Developper|
+|name|VARCHAR|--|nom de la société de Developper|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
 ##Role
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du role|
 |name|VARCHAR|NOT NULL|Nom du role|
 |code|VARCHAR|NOT NULL|Code du Role|
@@ -51,22 +51,22 @@
 
 ##Game
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Game|
 |name|VARCHAR|NOT NULL|nom du Game|
 |cover|VARCHAR|NOT NULL, DEFAUT = logo du site|lien vers la photo de couverture du Game|
-|illustration|VARCHAR|-|lien vers une illustration/screenshot du Game|
-|solo|BOOL|-|indique si le Game se joue seul ou non|
-|multiplayer|BOOL|-|indique si le Game se joue en ligne ou non|
-|pegi|SMALL INT|-|indique l'age minimum requis pour jouer au Game|
-|website|VARCHAR|-|indique le site officiel du Game|
-|releasedAt|DATETIME|-|date officiel de commercialisation du Game|
+|illustration|VARCHAR|--|lien vers une illustration/screenshot du Game|
+|solo|BOOL|--|indique si le Game se joue seul ou non|
+|multiplayer|BOOL|--|indique si le Game se joue en ligne ou non|
+|pegi|SMALL INT|--|indique l'age minimum requis pour jouer au Game|
+|website|VARCHAR|--|indique le site officiel du Game|
+|releasedAt|DATETIME|--|date officiel de commercialisation du Game|
 |createdAt|datetime|NOT NULL|date de creation du Game|
 |updatedAt|datetime|NOT NULL|date de mise à jour du Game|
 
 ##Category
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de la Category|
 |name|VARCHAR|NOT NULL|Nom de la Category|
 |createdAt|datetime|NOT NULL|date de creation|
@@ -74,7 +74,7 @@
 
 ##Comment
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
 |title|VARCHAR|NOT NULL|titre du Comment|
 |content|TEXT|NOT NULL|contenu du Comment|
@@ -84,7 +84,7 @@
 
 ##Score
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
 |value|TINY INT|NOT NULL|score du Comment|
 |createdAt|datetime|NOT NULL|date de creation|
@@ -92,7 +92,7 @@
 
 ##Comment_like
 |Champ|Type|Spécificités|Description|
-|-|-|-|-|
+|--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
 |value|BOOL|NOT NULL, UNIQUE|like ou dislike du Comment|
 |createdAt|datetime|NOT NULL|date de creation|
