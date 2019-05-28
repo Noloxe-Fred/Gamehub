@@ -1,7 +1,7 @@
 
-##User##
-|-|-|-|-|
+##User
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'utilisateur|
 |firstname|VARCHAR|-|prenom de l'utilisateur|
 |lastname|VARCHAR|-|nom de l'utilisateur|
@@ -15,43 +15,43 @@
 |createdAt|datetime|NOT NULL|date de creation de l'utilisateur|
 |updatedAt|datetime|NOT NULL|date de mise à jour de l'utilisateur|
 
-##Platform##
-|-|-|-|-|
+##Platform
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de la Platform associée|
 |name|VARCHAR|NOT NULL|nom de la Platform associée|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Editor##
-|-|-|-|-|
+##Editor
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'Editor associé|
 |name|VARCHAR|-|nom de l'Editor associé|
 |website|VARCHAR|-|nom de l'Editor associé|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Developper##
-|-|-|-|-|
+##Developper
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'Editor associé|
 |name|VARCHAR|-|nom de la société de Developper|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Role##
-|-|-|-|-|
+##Role
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du role|
 |name|VARCHAR|NOT NULL|Nom du role|
 |code|VARCHAR|NOT NULL|Code du Role|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Game##
-|-|-|-|-|
+##Game
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Game|
 |name|VARCHAR|NOT NULL|nom du Game|
 |cover|VARCHAR|NOT NULL, DEFAUT = logo du site|lien vers la photo de couverture du Game|
@@ -64,17 +64,17 @@
 |createdAt|datetime|NOT NULL|date de creation du Game|
 |updatedAt|datetime|NOT NULL|date de mise à jour du Game|
 
-##Category##
-|-|-|-|-|
+##Category
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de la Category|
 |name|VARCHAR|NOT NULL|Nom de la Category|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Comment##
-|-|-|-|-|
+##Comment
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
 |title|VARCHAR|NOT NULL|titre du Comment|
 |content|TEXT|NOT NULL|contenu du Comment|
@@ -82,17 +82,17 @@
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Score##
-|-|-|-|-|
+##Score
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
 |value|TINY INT|NOT NULL|score du Comment|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Comment_like##
-|-|-|-|-|
+##Comment_like
 |Champ|Type|Spécificités|Description|
+|-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
 |value|BOOL|NOT NULL, UNIQUE|like ou dislike du Comment|
 |createdAt|datetime|NOT NULL|date de creation|
