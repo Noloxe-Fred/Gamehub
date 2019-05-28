@@ -7,7 +7,7 @@
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'utilisateur|
 |firstname|VARCHAR|--|prenom de l'utilisateur|
 |lastname|VARCHAR|--|nom de l'utilisateur|
-|pseudo|VARCHAR|NOT NULL|pseudo de l'utilisateur|
+|pseudo|VARCHAR|NOT NULL, UNIQUE|pseudo de l'utilisateur|
 |photo|VARCHAR|--|lien vers l'avatar de l'utilisateur|
 |birthdate|DATETIME|--|date de naissance de l'utilisateur|
 |password|VARCHAR|NOT NULL|mot de pass de l'utilisateur|
@@ -42,6 +42,7 @@
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'Editor associé|
 |name|VARCHAR|--|nom de la société de Developper|
+|website|VARCHAR|--|nom de la société de Developper|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
@@ -61,8 +62,8 @@
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Game|
 |name|VARCHAR|NOT NULL|nom du Game|
-|description|TEXT|NOT NULL, DEFAULT = "N/C"|description du Game|
-|cover|VARCHAR|NOT NULL, DEFAUT = logo du site|lien vers la photo de couverture du Game|
+|description|TEXT|--, DEFAULT = "N/C"|description du Game|
+|cover|VARCHAR|--, DEFAUT = logo du site|lien vers la photo de couverture du Game|
 |illustration|VARCHAR|--|lien vers une illustration/screenshot du Game|
 |solo|BOOL|--|indique si le Game se joue seul ou non|
 |multiplayer|BOOL|--|indique si le Game se joue en ligne ou non|
@@ -108,6 +109,6 @@
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
-|value|BOOL|NOT NULL, UNIQUE|like ou dislike du Comment|
+|value|BOOL|NOT NULL|like ou dislike du Comment|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
