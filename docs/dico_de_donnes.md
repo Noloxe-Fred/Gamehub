@@ -1,5 +1,6 @@
+# Dictionnaire de données
 
-##User
+## User
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
@@ -16,7 +17,7 @@
 |createdAt|datetime|NOT NULL|date de creation de l'utilisateur|
 |updatedAt|datetime|NOT NULL|date de mise à jour de l'utilisateur|
 
-##Platform
+## Platform
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
@@ -25,7 +26,7 @@
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Editor
+## Editor
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
@@ -35,7 +36,7 @@
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Developper
+## Developper
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
@@ -44,7 +45,7 @@
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Role
+## Role
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
@@ -54,7 +55,7 @@
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Game
+## Game
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
@@ -70,7 +71,7 @@
 |createdAt|datetime|NOT NULL|date de creation du Game|
 |updatedAt|datetime|NOT NULL|date de mise à jour du Game|
 
-##Category
+## Category
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
@@ -79,7 +80,7 @@
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Comment
+## Comment
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
@@ -90,7 +91,7 @@
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Score
+## Score
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
@@ -99,7 +100,7 @@
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-##Comment_like
+## Comment_like
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
