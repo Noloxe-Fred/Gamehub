@@ -112,3 +112,12 @@
 |value|BOOL|NOT NULL|like ou dislike du Comment|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
+
+## State
+
+|Champ|Type|Spécificités|Description|
+|--|--|--|--|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Status|
+|status|VARCHAR|NOT NULL, ENUM|possede, veut posseder ou possedera un jeu|
+|createdAt|datetime|NOT NULL|date de creation|
+|updatedAt|datetime|NOT NULL|date de mise à jour|
