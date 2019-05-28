@@ -11,7 +11,7 @@
 |photo|VARCHAR|--|lien vers l'avatar de l'utilisateur|
 |birthdate|DATETIME|--|date de naissance de l'utilisateur|
 |password|VARCHAR|NOT NULL|mot de pass de l'utilisateur|
-|email|VARCHAR|NOT NULL|email de l'utilisateur|
+|email|VARCHAR|NOT NULL, UNIQUE|email de l'utilisateur|
 |is_active|BOOL|NOT NULL, DEFAULT = 1|status de l'utilisateur (actif/bloqué)|
 |biography|TEXT|--|biography de l'utilisateur|
 |createdAt|datetime|NOT NULL|date de creation de l'utilisateur|
