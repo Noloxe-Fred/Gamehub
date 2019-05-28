@@ -1,5 +1,6 @@
 
 ##User
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'utilisateur|
@@ -16,6 +17,7 @@
 |updatedAt|datetime|NOT NULL|date de mise à jour de l'utilisateur|
 
 ##Platform
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de la Platform associée|
@@ -24,6 +26,7 @@
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
 ##Editor
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'Editor associé|
@@ -33,6 +36,7 @@
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
 ##Developper
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'Editor associé|
@@ -41,6 +45,7 @@
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
 ##Role
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du role|
@@ -50,6 +55,7 @@
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
 ##Game
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Game|
@@ -65,6 +71,7 @@
 |updatedAt|datetime|NOT NULL|date de mise à jour du Game|
 
 ##Category
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de la Category|
@@ -73,6 +80,7 @@
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
 ##Comment
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
@@ -83,6 +91,7 @@
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
 ##Score
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
@@ -91,6 +100,7 @@
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
 ##Comment_like
+
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
