@@ -29,7 +29,7 @@ class Game
     private $description;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
+     * @ORM\Column(type="smallint", nullable=true, options={"unsigned"=true})
      */
     private $score;
 
@@ -44,7 +44,7 @@ class Game
     private $illustration;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
+     * @ORM\Column(type="smallint", nullable=true, options={"unsigned"=true})
      */
     private $pegi;
 
@@ -69,22 +69,22 @@ class Game
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="games")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="games", cascade={"persist"})
      */
     private $categories;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Developer", inversedBy="games")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Developer", inversedBy="games", cascade={"persist"})
      */
     private $developers;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Editor", inversedBy="games")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Editor", inversedBy="games", cascade={"persist"})
      */
     private $editors;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Platform", inversedBy="games")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Platform", inversedBy="games", cascade={"persist"})
      */
     private $platforms;
 
