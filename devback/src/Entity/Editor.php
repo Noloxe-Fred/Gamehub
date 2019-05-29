@@ -19,7 +19,7 @@ class Editor
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $name;
 
@@ -39,12 +39,14 @@ class Editor
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="editors")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="editors", cascade={"persist"})
      */
     private $games;
 
     public function __construct()
     {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
         $this->games = new ArrayCollection();
     }
 

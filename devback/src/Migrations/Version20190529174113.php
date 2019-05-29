@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190529125927 extends AbstractMigration
+final class Version20190529174113 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,8 @@ final class Version20190529125927 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE state CHANGE status status ENUM(\'have\', \'want\', \'would_like\')');
         $this->addSql('ALTER TABLE comment_like CHANGE value value ENUM(\'like\', \'dislike\')');
+        $this->addSql('ALTER TABLE state CHANGE status status ENUM(\'have\', \'want\', \'would_like\')');
     }
 
     public function down(Schema $schema) : void

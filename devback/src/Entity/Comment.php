@@ -60,6 +60,9 @@ class Comment
 
     public function __construct()
     {
+        $this->isActive = true;
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
         $this->commentLikes = new ArrayCollection();
     }
 

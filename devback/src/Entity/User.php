@@ -26,7 +26,6 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="json")
-     * @ORM\Column(type="string", length=255)
      */
     private $roles = [];
 
@@ -47,7 +46,7 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $pseudo;
 
@@ -102,7 +101,11 @@ class User implements UserInterface
     private $states;
 
     public function __construct()
-    {
+    {   
+        $this->roles[] = 'ROLE_USER';
+        $this->isActive = true;
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
         $this->comments = new ArrayCollection();
         $this->commentLikes = new ArrayCollection();
         $this->scores = new ArrayCollection();
@@ -138,14 +141,10 @@ class User implements UserInterface
 
     /**
      * @see UserInterface
-     * @
      */
     public function getRoles(): array
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-        return array_unique($roles);
+        return $this->roles;
     }
 
     public function setRoles(array $roles): self

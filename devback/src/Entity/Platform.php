@@ -19,7 +19,7 @@ class Platform
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $name;
 
@@ -34,12 +34,14 @@ class Platform
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="platfroms")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="platforms", cascade={"persist"})
      */
     private $games;
 
     public function __construct()
     {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
         $this->games = new ArrayCollection();
     }
 
@@ -96,7 +98,7 @@ class Platform
     {
         if (!$this->games->contains($game)) {
             $this->games[] = $game;
-            $game->addPlatfrom($this);
+            $game->addPlatform($this);
         }
 
         return $this;
@@ -106,7 +108,7 @@ class Platform
     {
         if ($this->games->contains($game)) {
             $this->games->removeElement($game);
-            $game->removePlatfrom($this);
+            $game->removePlatform($this);
         }
 
         return $this;

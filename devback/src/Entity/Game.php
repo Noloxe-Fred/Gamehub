@@ -86,7 +86,7 @@ class Game
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Platform", inversedBy="games")
      */
-    private $platfroms;
+    private $platforms;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="game")
@@ -105,10 +105,12 @@ class Game
 
     public function __construct()
     {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
         $this->categories = new ArrayCollection();
         $this->developers = new ArrayCollection();
         $this->editors = new ArrayCollection();
-        $this->platfroms = new ArrayCollection();
+        $this->platforms = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->scores = new ArrayCollection();
         $this->states = new ArrayCollection();
@@ -320,24 +322,24 @@ class Game
     /**
      * @return Collection|Platform[]
      */
-    public function getPlatfroms(): Collection
+    public function getPlatforms(): Collection
     {
-        return $this->platfroms;
+        return $this->platforms;
     }
 
-    public function addPlatfrom(Platform $platfrom): self
+    public function addPlatform(Platform $platform): self
     {
-        if (!$this->platfroms->contains($platfrom)) {
-            $this->platfroms[] = $platfrom;
+        if (!$this->platforms->contains($platform)) {
+            $this->platforms[] = $platform;
         }
 
         return $this;
     }
 
-    public function removePlatfrom(Platform $platfrom): self
+    public function removePlatform(Platform $platform): self
     {
-        if ($this->platfroms->contains($platfrom)) {
-            $this->platfroms->removeElement($platfrom);
+        if ($this->platforms->contains($platform)) {
+            $this->platforms->removeElement($platform);
         }
 
         return $this;

@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
-use App\Entity\Category;
-use App\Form\CategoryType;
+use App\Entity\Editor;
+use App\Form\EditorType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-/** @Route("/category/", name="category_") */
-class CategoryController extends AbstractController
+/**
+ * @Route("/editor/", name="editor_")
+ */
+class EditorController extends AbstractController
 {
     /**
      * @Route("new", name="new", methods={"GET" ,"POST"})
@@ -18,18 +20,18 @@ class CategoryController extends AbstractController
     public function new(Request $request, EntityManagerInterface $em)
     {
         
-        $category = new Category();
+        $editor = new Editor();
 
-        $form = $this->createForm(CategoryType::class, $category);
+        $form = $this->createForm(EditorType::class, $editor);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $em->persist($category);
+            $em->persist($editor);
             $em->flush();
         }
 
-        return $this->render('category/new.html.twig', [
+        return $this->render('editor/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }

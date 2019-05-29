@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
-use App\Entity\Category;
-use App\Form\CategoryType;
+use App\Entity\Platform;
+use App\Form\PlatformType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-/** @Route("/category/", name="category_") */
-class CategoryController extends AbstractController
+/**
+ * @Route("/platform/", name="platform_")
+ */
+class PlatformController extends AbstractController
 {
     /**
      * @Route("new", name="new", methods={"GET" ,"POST"})
@@ -18,18 +20,18 @@ class CategoryController extends AbstractController
     public function new(Request $request, EntityManagerInterface $em)
     {
         
-        $category = new Category();
+        $platform = new Platform();
 
-        $form = $this->createForm(CategoryType::class, $category);
+        $form = $this->createForm(PlatformType::class, $platform);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $em->persist($category);
+            $em->persist($platform);
             $em->flush();
         }
 
-        return $this->render('category/new.html.twig', [
+        return $this->render('platform/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }

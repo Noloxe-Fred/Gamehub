@@ -2,18 +2,37 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Game;
+use App\Form\GameType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+/**
+ * @Route("/game/", name="game_")
+ */
 class GameController extends AbstractController
 {
     /**
-     * @Route("/game", name="game")
+     * @Route("new", name="new", methods={"GET" ,"POST"})
      */
-    public function index()
+    public function new(Request $request, EntityManagerInterface $em)
     {
-        return $this->render('game/index.html.twig', [
-            'controller_name' => 'GameController',
+        
+        $game = new Game();
+
+        $form = $this->createForm(GameType::class, $game);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $em->persist($game);
+            $em->flush();
+        }
+
+        return $this->render('game/new.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }

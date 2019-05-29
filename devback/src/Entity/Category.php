@@ -19,7 +19,7 @@ class Category
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $name;
 
@@ -34,12 +34,14 @@ class Category
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="categories")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="categories", cascade={"persist"})
      */
     private $games;
 
     public function __construct()
     {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
         $this->games = new ArrayCollection();
     }
 
@@ -110,5 +112,10 @@ class Category
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
