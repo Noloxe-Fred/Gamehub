@@ -66,7 +66,7 @@
 |score|TINY INT|--|score du Game|
 |cover|VARCHAR|--, DEFAUT = logo du site|lien vers la photo de couverture du Game|
 |illustration|VARCHAR|--|lien vers une illustration/screenshot du Game|
-|pegi|SMALL INT|--|indique l'age minimum requis pour jouer au Game|
+|pegi|TINY INT|--|indique l'age minimum requis pour jouer au Game|
 |website|VARCHAR|--|indique le site officiel du Game|
 |releasedAt|DATETIME|--|date officiel de commercialisation du Game|
 |createdAt|datetime|NOT NULL|date de creation du Game|
