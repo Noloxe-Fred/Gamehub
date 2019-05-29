@@ -9,7 +9,7 @@
 |lastname|VARCHAR|--|nom de l'utilisateur|
 |pseudo|VARCHAR|NOT NULL, UNIQUE|pseudo de l'utilisateur|
 |photo|VARCHAR|--|lien vers l'avatar de l'utilisateur|
-|birthdate|DATETIME|--|date de naissance de l'utilisateur|
+|birthdate|DATE|--|date de naissance de l'utilisateur|
 |password|VARCHAR|NOT NULL|mot de pass de l'utilisateur|
 |email|VARCHAR|NOT NULL, UNIQUE|email de l'utilisateur|
 |is_active|BOOL|NOT NULL, DEFAULT = 1|status de l'utilisateur (actif/bloqué)|
@@ -31,18 +31,18 @@
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'Editor associé|
-|name|VARCHAR|--|nom de l'Editor associé|
+|name|VARCHAR|NOT NULL|nom de l'Editor associé|
 |website|VARCHAR|--|nom de l'Editor associé|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
-## Developper
+## Developer
 
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'Editor associé|
-|name|VARCHAR|--|nom de la société de Developper|
-|website|VARCHAR|--|nom de la société de Developper|
+|name|VARCHAR|NOT NULL|nom de la société de Developer|
+|website|VARCHAR|--|nom de la société de Developer|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
@@ -68,10 +68,9 @@
 |illustration|VARCHAR|--|lien vers une illustration/screenshot du Game|
 |pegi|TINY INT|--|indique l'age minimum requis pour jouer au Game|
 |website|VARCHAR|--|indique le site officiel du Game|
-|releasedAt|DATETIME|--|date officiel de commercialisation du Game|
+|releasedAt|DATE|--|date officiel de commercialisation du Game|
 |createdAt|datetime|NOT NULL|date de creation du Game|
 |updatedAt|datetime|NOT NULL|date de mise à jour du Game|
-|igdb_id|INT|UNIQUE, NOT NULL, UNSIGNED|L'identifiant du Game sur IGDB|
 
 
 ## Category
@@ -108,7 +107,7 @@
 |Champ|Type|Spécificités|Description|
 |--|--|--|--|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Comment|
-|value|BOOL|NOT NULL|like ou dislike du Comment|
+|value|ENUM|NOT NULL|like ou dislike du Comment|
 |createdAt|datetime|NOT NULL|date de creation|
 |updatedAt|datetime|NOT NULL|date de mise à jour|
 
