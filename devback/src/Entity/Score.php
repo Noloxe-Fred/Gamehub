@@ -32,12 +32,12 @@ class Score
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="scores")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="scores", cascade={"persist"})
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="scores")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="scores", cascade={"persist"})
      */
     private $game;
 

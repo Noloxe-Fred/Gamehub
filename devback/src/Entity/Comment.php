@@ -44,12 +44,12 @@ class Comment
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="comments", cascade={"persist"})
      */
     private $game;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments", cascade={"persist"})
      */
     private $user;
 

@@ -37,7 +37,7 @@ class CommentLike
     private $comment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commentLikes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commentLikes", cascade={"persist"})
      */
     private $user;
 

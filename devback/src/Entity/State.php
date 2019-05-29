@@ -32,12 +32,12 @@ class State
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="states")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="states", cascade={"persist"})
      */
     private $game;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="states")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="states", cascade={"persist"})
      */
     private $user;
 
