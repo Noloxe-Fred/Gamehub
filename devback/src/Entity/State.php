@@ -31,6 +31,16 @@ class State
      */
     private $updatedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="states")
+     */
+    private $game;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="states")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +78,30 @@ class State
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getGame(): ?Game
+    {
+        return $this->game;
+    }
+
+    public function setGame(?Game $game): self
+    {
+        $this->game = $game;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

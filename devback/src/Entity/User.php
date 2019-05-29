@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -24,6 +26,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="json")
+     * @ORM\Column(type="string", length=255)
      */
     private $roles = [];
 
@@ -78,6 +81,34 @@ class User implements UserInterface
      */
     private $updatedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
+     */
+    private $comments;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\CommentLike", mappedBy="user")
+     */
+    private $commentLikes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Score", mappedBy="user")
+     */
+    private $scores;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\State", mappedBy="user")
+     */
+    private $states;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+        $this->commentLikes = new ArrayCollection();
+        $this->scores = new ArrayCollection();
+        $this->states = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -107,13 +138,13 @@ class User implements UserInterface
 
     /**
      * @see UserInterface
+     * @
      */
     public function getRoles(): array
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
-
         return array_unique($roles);
     }
 
@@ -260,6 +291,130 @@ class User implements UserInterface
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
+            // set the owning side to null (unless already changed)
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CommentLike[]
+     */
+    public function getCommentLikes(): Collection
+    {
+        return $this->commentLikes;
+    }
+
+    public function addCommentLike(CommentLike $commentLike): self
+    {
+        if (!$this->commentLikes->contains($commentLike)) {
+            $this->commentLikes[] = $commentLike;
+            $commentLike->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentLike(CommentLike $commentLike): self
+    {
+        if ($this->commentLikes->contains($commentLike)) {
+            $this->commentLikes->removeElement($commentLike);
+            // set the owning side to null (unless already changed)
+            if ($commentLike->getUser() === $this) {
+                $commentLike->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Score[]
+     */
+    public function getScores(): Collection
+    {
+        return $this->scores;
+    }
+
+    public function addScore(Score $score): self
+    {
+        if (!$this->scores->contains($score)) {
+            $this->scores[] = $score;
+            $score->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeScore(Score $score): self
+    {
+        if ($this->scores->contains($score)) {
+            $this->scores->removeElement($score);
+            // set the owning side to null (unless already changed)
+            if ($score->getUser() === $this) {
+                $score->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|State[]
+     */
+    public function getStates(): Collection
+    {
+        return $this->states;
+    }
+
+    public function addState(State $state): self
+    {
+        if (!$this->states->contains($state)) {
+            $this->states[] = $state;
+            $state->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeState(State $state): self
+    {
+        if ($this->states->contains($state)) {
+            $this->states->removeElement($state);
+            // set the owning side to null (unless already changed)
+            if ($state->getUser() === $this) {
+                $state->setUser(null);
+            }
+        }
 
         return $this;
     }
