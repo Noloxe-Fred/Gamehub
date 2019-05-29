@@ -63,10 +63,9 @@
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du Game|
 |name|VARCHAR|NOT NULL|nom du Game|
 |description|TEXT|--, DEFAULT = "N/C"|description du Game|
+|score|TINY INT|--|score du Game|
 |cover|VARCHAR|--, DEFAUT = logo du site|lien vers la photo de couverture du Game|
 |illustration|VARCHAR|--|lien vers une illustration/screenshot du Game|
-|solo|BOOL|--|indique si le Game se joue seul ou non|
-|multiplayer|BOOL|--|indique si le Game se joue en ligne ou non|
 |pegi|SMALL INT|--|indique l'age minimum requis pour jouer au Game|
 |website|VARCHAR|--|indique le site officiel du Game|
 |releasedAt|DATETIME|--|date officiel de commercialisation du Game|
