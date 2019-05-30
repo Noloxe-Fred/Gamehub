@@ -38,6 +38,11 @@ class Category
      */
     private $games;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $types;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -117,5 +122,17 @@ class Category
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getTypes(): ?string
+    {
+        return $this->types;
+    }
+
+    public function setTypes(string $types): self
+    {
+        $this->types = $types;
+
+        return $this;
     }
 }
