@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TypeRepository")
  */
-class Category
+class Type
 {
     /**
      * @ORM\Id()
@@ -19,7 +19,7 @@ class Category
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
@@ -34,20 +34,15 @@ class Category
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Game", mappedBy="categories", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Category", mappedBy="type", cascade={"persist"})
      */
-    private $games;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Type", inversedBy="categories", cascade={"persist"})
-     */
-    private $type;
+    private $categories;
 
     public function __construct()
     {
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
-        $this->games = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,46 +87,32 @@ class Category
     }
 
     /**
-     * @return Collection|Game[]
+     * @return Collection|Category[]
      */
-    public function getGames(): Collection
+    public function getCategories(): Collection
     {
-        return $this->games;
+        return $this->categories;
     }
 
-    public function addGame(Game $game): self
+    public function addCategory(Category $category): self
     {
-        if (!$this->games->contains($game)) {
-            $this->games[] = $game;
-            $game->addCategory($this);
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+            $category->setType($this);
         }
 
         return $this;
     }
 
-    public function removeGame(Game $game): self
+    public function removeCategory(Category $category): self
     {
-        if ($this->games->contains($game)) {
-            $this->games->removeElement($game);
-            $game->removeCategory($this);
+        if ($this->categories->contains($category)) {
+            $this->categories->removeElement($category);
+            // set the owning side to null (unless already changed)
+            if ($category->getType() === $this) {
+                $category->setType(null);
+            }
         }
-
-        return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
-    }
-
-    public function getType(): ?Type
-    {
-        return $this->type;
-    }
-
-    public function setType(?Type $type): self
-    {
-        $this->type = $type;
 
         return $this;
     }
