@@ -24,6 +24,7 @@ class CategoryType extends AbstractType
                     new NotNull(),
                 ]
             ])
+            ->add('type')
         ;
     }
 
