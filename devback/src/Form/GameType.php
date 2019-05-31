@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -53,14 +54,14 @@ class GameType extends AbstractType
 
                 'required' => false,
             ])
-            ->add('releasedAt', DateType::Class, [
+            ->add('releasedAt', DateType::class, [
 
                 'widget' => 'single_text',
             ])
-            ->add('categories')
-            ->add('developers')
-            ->add('editors')
-            ->add('platforms')
+            ->add('categories', ChoiceType::class)
+            ->add('developers', ChoiceType::class)
+            ->add('editors', ChoiceType::class)
+            ->add('platforms', ChoiceType::class)
         ;
     }
 
