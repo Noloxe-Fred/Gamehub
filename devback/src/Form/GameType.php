@@ -37,11 +37,11 @@ class GameType extends AbstractType
 
                 'required' => false,
             ])
-            ->add('cover', FileType::class, [
+            ->add('cover', TextType::class, [
 
                 'required' => false,
             ])
-            ->add('illustration', FileType::class, [
+            ->add('illustration', TextType::class, [
 
                 'required' => false,
             ])
@@ -55,12 +55,7 @@ class GameType extends AbstractType
             ])
             ->add('releasedAt', DateType::Class, [
 
-                'required' => false,
-                'data' => new \DateTime(),
-                'widget' => 'choice',
-                'years' => range(date('Y')+20, date('Y')-100),
-                'months' => range(date('m'), 12),
-                'days' => range(date('d'), 31),
+                'widget' => 'single_text',
             ])
             ->add('categories')
             ->add('developers')
