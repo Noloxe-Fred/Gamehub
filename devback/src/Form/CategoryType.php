@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Type;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +26,10 @@ class CategoryType extends AbstractType
                     new NotNull(),
                 ]
             ])
-            ->add('type')
+            ->add('type', EntityType::class, [
+
+                'class' => Type::class,
+            ])
         ;
     }
 

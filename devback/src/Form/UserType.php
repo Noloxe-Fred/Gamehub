@@ -23,10 +23,11 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        
         $builder
         ->add('email', EmailType::class, [
 
-                'label' => 'email',
+                'label' => 'Email',
                 'constraints' => [
 
                     new NotBlank(),
@@ -35,6 +36,7 @@ class UserType extends AbstractType
             ])
             ->add('roles', ChoiceType::class, [
 
+                'label' => 'Rôles',
                 'multiple' => true,
                 'expanded' => true,
                 'choices' => [
@@ -45,6 +47,7 @@ class UserType extends AbstractType
             ])
             ->add('password', RepeatedType::class, [
 
+                'label' => 'Mot de passe',
                 'type' => PasswordType::class,
                 'invalid_message' => 'Mot de passe différent.',
                 'first_options' => [
@@ -60,14 +63,17 @@ class UserType extends AbstractType
             ])
             ->add('firstname', TextType::class, [
 
+                'label' => 'Prénom',
                 'required' => false,
             ])
             ->add('lastname', TextType::class, [
 
+                'label' => 'Nom',
                 'required' => false,
             ])
             ->add('pseudo', TextType::class, [
 
+                'label' => 'Pseudo',
                 'constraints' => [
 
                     new NotBlank(),
@@ -76,16 +82,22 @@ class UserType extends AbstractType
             ])
             ->add('photo', UrlType::class, [
 
+                'label' => 'Photo de profil',
                 'required' => false,
             ])
             ->add('birthdate', BirthdayType::class, [
 
+                'label' => 'Date d\'anniversaire',
                 'widget' => 'single_text',
                 'required' => false,
             ])
-            ->add('isActive', CheckboxType::class)
+            ->add('isActive', CheckboxType::class, [
+
+                'label' => 'Actif',
+            ])
             ->add('biography', TextareaType::class, [
 
+                'label' => 'Biographie',
                 'required' => false,
             ])
         ;

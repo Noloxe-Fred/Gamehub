@@ -27,6 +27,7 @@ class EditorType extends AbstractType
         ])
             ->add('website', UrlType::class, [
 
+                'label' => 'Site web',
                 'required' => false,
             ])
         ;

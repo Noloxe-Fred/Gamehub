@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GameRepository")
@@ -15,46 +17,55 @@ class Game
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"game_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"game_read"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"game_read"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="smallint", nullable=true, options={"unsigned"=true})
+     * @Groups({"game_read"})
      */
     private $score;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"game_read"})
      */
     private $cover;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"game_read"})
      */
     private $illustration;
 
     /**
      * @ORM\Column(type="smallint", nullable=true, options={"unsigned"=true})
+     * @Groups({"game_read"})
      */
     private $pegi;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"game_read"})
      */
     private $website;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Groups({"game_read"})
      */
     private $releasedAt;
 
@@ -70,31 +81,37 @@ class Game
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="games", cascade={"persist"})
+     * @Groups({"game_read"})
      */
     private $categories;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Developer", inversedBy="games", cascade={"persist"})
+     * @Groups({"game_read"})
      */
     private $developers;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Editor", inversedBy="games", cascade={"persist"})
+     * @Groups({"game_read"})
      */
     private $editors;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Platform", inversedBy="games", cascade={"persist"})
+     * @Groups({"game_read"})
      */
     private $platforms;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="game")
+     * @Groups({"game_read"})
      */
     private $comments;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Score", mappedBy="game")
+     * @Groups({"game_read"})
      */
     private $scores;
 
@@ -104,7 +121,7 @@ class Game
     private $states;
 
     public function __construct()
-    {
+    {   
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
         $this->categories = new ArrayCollection();

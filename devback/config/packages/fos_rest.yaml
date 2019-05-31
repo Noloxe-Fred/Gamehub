@@ -14,16 +14,14 @@
 #        rules:
 #            - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json, html ] }
 fos_rest:
-    routing_loader:
-        include_format: false
-    zone:
-        - { path: ^/api/* }
     view:
-        view_response_listener:  true
-    #La seule règle déclarée dit que pour toutes les URL (path: ^/api), 
-    #le format prioritaire est le JSON (priorities: ['json']) 
-    #et si aucun format n’est demandé par le client, 
-    #il faudra utiliser le JSON quand même (fallback_format: 'json').
+        formats: { json: true, xml: false, rss: false }
+        view_response_listener: true
+    serializer:
+        serialize_null: true
+    body_converter:
+        enabled: true
     format_listener:
         rules:
-            - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+            - { path: '^/api', priorities: ['json'], fallback_format: json }
+            - { path: '^/', priorities: ['html'], fallback_format: html }

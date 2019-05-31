@@ -47,4 +47,29 @@ class GameRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    // public function findAllGames()
+    // {
+    //     $qb = $this->createQueryBuilder('g')
+    //         ->select('g.name')
+    //         ->getQuery();
+            
+    //     return $qb->execute();
+    // }
+
+    // public function findByGame($game)
+    // {
+    //     $qb = $this->createQueryBuilder('g')
+    //         ->join('g.categories', 'c')
+    //         ->join('g.developers', 'd')
+    //         ->join('g.editors', 'e')
+    //         ->join('g.platforms', 'p')
+    //         ->select('g.name', 'g.id', 'g.description')
+    //         ->addSelect('c.name AS category', 'd.name AS developer', 'e.name AS editor', 'p.name AS platform')
+    //         ->where('g.id = :game')
+    //         ->setParameter('game', $game)
+    //         ->getQuery();
+            
+    //     return $qb->execute();
+    // }
 }

@@ -27,6 +27,7 @@ class DeveloperType extends AbstractType
         ])
             ->add('website', UrlType::class, [
 
+                'label' => 'Site web',
                 'required' => false,
             ])
         ;
