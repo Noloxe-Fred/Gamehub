@@ -4,10 +4,11 @@ namespace App\Api\Controller;
 
 use App\Entity\Game;
 use App\Repository\GameRepository;
+use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class ApiGameController extends FOSRestController
 {
@@ -40,4 +41,26 @@ class ApiGameController extends FOSRestController
 
         return JsonResponse::fromJsonString($json);
     }
+
+
+    /**
+     * @Rest\View
+     * @Rest\Post(path = "/game", name="game_create")
+     */
+    public function createGameAction(Request $request, SerializerInterface $serializer)
+    {
+        
+        $data = $request->getContent();
+
+        $post = $serializer->deserialize($data, Game::class, 'json');
+        
+        
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($post);
+        $em->flush();
+
+        return new JsonResponse('', JsonResponse::HTTP_CREATED);
+    }
+
 }
