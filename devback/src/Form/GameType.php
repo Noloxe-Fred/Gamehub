@@ -58,10 +58,10 @@ class GameType extends AbstractType
 
                 'widget' => 'single_text',
             ])
-            ->add('categories', ChoiceType::class)
-            ->add('developers', ChoiceType::class)
-            ->add('editors', ChoiceType::class)
-            ->add('platforms', ChoiceType::class)
+            ->add('categories')
+            ->add('developers')
+            ->add('editors')
+            ->add('platforms')
         ;
     }
 
