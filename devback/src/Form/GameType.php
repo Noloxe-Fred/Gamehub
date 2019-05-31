@@ -14,12 +14,17 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use App\Repository\CategoryRepository;
 
 class GameType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+
         $builder
             ->add('name', TextType::class, [
                 
@@ -57,6 +62,7 @@ class GameType extends AbstractType
             ->add('releasedAt', DateType::class, [
 
                 'widget' => 'single_text',
+                'required' => false,
             ])
             ->add('categories')
             ->add('developers')

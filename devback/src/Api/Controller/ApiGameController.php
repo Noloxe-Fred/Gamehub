@@ -17,9 +17,9 @@ class ApiGameController extends FOSRestController
      * @Rest\View()
      * @Rest\Get("/game/{gameId}")
      */
-    public function getGame(GameRepository $gamerepository, $gameId): View
+    public function getGame(GameRepository $gameRepository, $gameId): View
     {
-        $game = $gamerepository->findById($gameId);
+        $game = $gameRepository->findById($gameId);
 
         return View::create($game, Response::HTTP_OK);
     }

@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -77,8 +78,9 @@ class UserType extends AbstractType
 
                 'required' => false,
             ])
-            ->add('birthdate', DateType::class, [
+            ->add('birthdate', BirthdayType::class, [
 
+                'widget' => 'single_text',
                 'required' => false,
             ])
             ->add('isActive', CheckboxType::class)

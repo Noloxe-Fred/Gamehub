@@ -4,7 +4,7 @@ controllers:
 
 #Note: use your own resource/directory as you prefer
 
-rest_controller:
+rest_controllers:
     resource: ../../src/Api/Controller/
     type: annotation
     prefix: /api
