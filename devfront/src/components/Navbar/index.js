@@ -1,34 +1,22 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
+import ModalConnect from './ModalConnect';
+import ModalSubscribe from './ModalSubscribe';
 import './navbar.scss';
 
 const Navbar = () => (
   <nav>
     <div className="logo">
-      <h2>G<i class="fas fa-headset"></i>MEHUB</h2>
+      <h2>G<i className="fas fa-headset"></i>MEHUB</h2>
     </div>
 
     <div className="menu">
-      <a href="#">Recherche avancée</a>
-      <a href="#" className="connexion">Se connecter</a>
-      <a href="#" className="inscription">S'inscrire</a>
+      <NavLink to="advancedsearch" className="advancedSearch">Recherche avancée</NavLink>
+      <ModalConnect />
+      <ModalSubscribe />
     </div>
   </nav>
 );
-
-// const Navbar = () => (
-//   <nav>
-//     <div className="logo">
-//       <h2>G<i class="fas fa-headset"></i>MEHUB</h2>
-//     </div>
-
-//     <div className="menu">
-//       <NavLink to="advancedsearch">Recherche avancée</NavLink>
-//       <NavLink to="connection">Se connecter</NavLink>
-//       <NavLink to="inscription">S'inscrire</NavLink>
-//     </div>
-//   </nav>
-// );
 
 export default Navbar;

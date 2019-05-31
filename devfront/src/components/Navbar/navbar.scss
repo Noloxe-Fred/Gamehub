@@ -13,34 +13,51 @@ nav {
     font-family: 'Open Sans', sans-serif;
     color: #FFFDD8;
   }
-  a {
-    font-family: 'Reem Kufi', sans-serif;
-    margin: 0 1.5em;
-    text-decoration: none;
-    color: #FFFDD8;
-  }
-  a:hover {
-    color: white;
-    border-color: white;
-  }
   .logo {
     margin: 0 2em;
     i{
       margin: 0 .1em;
     }
   }
-  .connexion {
-    margin-right: -.5em;
+  .menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
   }
-  .inscription {
+  .advancedSearch {
+    text-decoration: none;
+    margin-right: 1em;
+    color: #FFFDD8;
+    font-family: 'Reem Kufi', sans-serif;
+  }
+  .advancedSearch:hover {
+    color: white;
+  }
+  .connectButton {
+    background: none;
+    color: #FFFDD8;
+    font-family: 'Reem Kufi', sans-serif;
+    border: none;
+  }
+  .subscribeButton {
     border: 1px solid #FFFDD8;
+    padding: .2em;
     border-radius: 4px;
-    padding: .3em;
+    background: none;
+    color: #FFFDD8;
+    font-family: 'Reem Kufi', sans-serif;
+    margin-right: 1em;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .menu {
+  .advancedSearch {
+    display: none;
+  }
+  .connectButton {
+    display: none;
+  }
+  .subscribeButton {
     display: none;
   }
 } 
