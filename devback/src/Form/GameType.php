@@ -53,9 +53,10 @@ class GameType extends AbstractType
 
                 'required' => false,
             ])
-            ->add('releasedAt', DateType::class, [
-                'widget' => 'single_text'
-                ])
+            ->add('releasedAt', DateType::Class,[
+
+                'widget' => 'single_text',
+            ])
             ->add('categories')
             ->add('developers')
             ->add('editors')

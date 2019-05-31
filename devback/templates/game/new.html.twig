@@ -9,7 +9,7 @@
     {{ form_start(form) }}
 
         {{ form_widget(form) }}
-        <select multiple class='form-control-lg' {{ form_row(form.categories, {'attr': {'class': 'list-group-item'}}) }}>
+        {{ form_row(form.categories, {'attr': {'class': 'form-control'}}) }}
         <button type="submit">Valider</button>
     {{ form_end(form) }}
 
