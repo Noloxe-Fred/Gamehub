@@ -7,6 +7,7 @@ import 'semantic-ui-css/semantic.min.css';
 import './app.scss';
 import Navbar from 'src/components/Navbar';
 
+
 // == Composant
 const App = () => (
   <div id="app">
