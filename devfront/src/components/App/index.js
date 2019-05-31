@@ -6,12 +6,20 @@ import 'semantic-ui-css/semantic.min.css';
 // == Import : local
 import './app.scss';
 import Navbar from 'src/components/Navbar';
+import Home from 'src/components/Home';
 
 
 // == Composant
 const App = () => (
   <div id="app">
     <Navbar />
+    <Home />
+    <Home />
+    <Home />
+    <Home />
+    <Home />
+    <Home />
+    
   </div>
 );
 
