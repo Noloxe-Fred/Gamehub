@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import reducer from './reducers/index';
+import reducer from './reducers';
 
-import testMiddleware from './middlewares/testMiddleware';
+import navbarMiddleware from './middlewares/navbarMiddleware';
 
-const appliedMiddlewares = applyMiddleware(testMiddleware);
+const appliedMiddlewares = applyMiddleware(navbarMiddleware);
 
 /* eslint-disable no-underscore-dangle */
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
