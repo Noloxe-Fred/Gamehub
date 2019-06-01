@@ -1,8 +1,8 @@
 import React from 'react';
 
-// import Banner from './Banner';
+import Banner from './Banner';
+import './home.scss';
 
-
-const Home = () => <h2>coucou c'est la home</h2>;
+const Home = () => <div><Banner /></div>;
 
 export default Home;

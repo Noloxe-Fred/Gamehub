@@ -14,12 +14,8 @@ const App = () => (
   <div id="app">
     <Navbar />
     <Home />
-    <Home />
-    <Home />
-    <Home />
-    <Home />
-    <Home />
     
+ 
   </div>
 );
 
