@@ -16,6 +16,7 @@ class Developer
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"game_read"})
      */
     private $id;
 

@@ -19,57 +19,19 @@ class GameRepository extends ServiceEntityRepository
         parent::__construct($registry, Game::class);
     }
 
-    // /**
-    //  * @return Game[] Returns an array of Game objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findAllGames()
     {
         return $this->createQueryBuilder('g')
-            ->andWhere('g.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('g.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        ->getQuery()
+        ->getResult();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Game
-    {
+    public function findByGame($game){
+        
         return $this->createQueryBuilder('g')
-            ->andWhere('g.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        ->where('g.id = :game')
+        ->setParameter('game', $game)
+        ->getQuery()
+        ->getResult();
     }
-    */
-
-    // public function findAllGames()
-    // {
-    //     $qb = $this->createQueryBuilder('g')
-    //         ->select('g.name')
-    //         ->getQuery();
-            
-    //     return $qb->execute();
-    // }
-
-    // public function findByGame($game)
-    // {
-    //     $qb = $this->createQueryBuilder('g')
-    //         ->join('g.categories', 'c')
-    //         ->join('g.developers', 'd')
-    //         ->join('g.editors', 'e')
-    //         ->join('g.platforms', 'p')
-    //         ->select('g.name', 'g.id', 'g.description')
-    //         ->addSelect('c.name AS category', 'd.name AS developer', 'e.name AS editor', 'p.name AS platform')
-    //         ->where('g.id = :game')
-    //         ->setParameter('game', $game)
-    //         ->getQuery();
-            
-    //     return $qb->execute();
-    // }
 }

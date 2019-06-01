@@ -47,4 +47,13 @@ class CategoryRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findGamesByCategory($category){
+        
+        return $this->createQueryBuilder('c')
+        ->where('c.id = :category')
+        ->setParameter('category', $category)
+        ->getQuery()
+        ->getResult();
+    }
 }

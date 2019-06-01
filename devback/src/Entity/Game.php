@@ -17,13 +17,13 @@ class Game
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"game_read"})
+     * @Groups({"game_read", "category_games"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"game_read", "new_game"})
+     * @Groups({"game_read", "category_games"})
      */
     private $name;
 
