@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers/index';
 
-import testMiddleware from './testMiddleware';
+import testMiddleware from './middlewares/testMiddleware';
 
 const appliedMiddlewares = applyMiddleware(testMiddleware);
 
