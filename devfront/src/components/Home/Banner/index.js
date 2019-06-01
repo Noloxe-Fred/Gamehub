@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SearchBar from 'src/components/Home/SearchBar';
+import SearchBar from './SearchBar';
 import './banner.scss';
 
 const Banner = () => {
