@@ -14,7 +14,6 @@ use Doctrine\ORM\EntityManagerInterface;
 class ApiCategoryController extends FOSRestController
 {
 
-
     /**
      * @Rest\View
      * @Rest\Get(path = "/category/{id}/games", name="category_game_list", requirements = {"id"="\d+"})

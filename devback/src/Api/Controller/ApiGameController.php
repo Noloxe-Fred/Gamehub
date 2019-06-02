@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ApiGameController extends FOSRestController
 {
+
     /**
      * @Rest\View
      * @Rest\Get(path = "/game/list", name="game_list")

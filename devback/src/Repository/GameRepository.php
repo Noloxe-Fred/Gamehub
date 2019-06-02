@@ -73,37 +73,15 @@ class GameRepository extends ServiceEntityRepository
         return $qb;
     }
 
-
     public function findRandomGamesList(){
 
-        //compte du nombre de ligne dans la DB
-        $countgame = $this->createQueryBuilder('g')
-            ->select('count(g.id)')
-            ->getQuery()
-            ->getSingleScalarResult();
-        ///////////////////////////////////////////////////////////////////////
-
-
-        //Random pour determiner si pair ou impair et donc si sign + ou - 
-        //Je sais pas encore comment je vais m'en servir mais on sait jamais
-        $rand = rand(1, 2);
-        if ($rand%2) {
-            $sign = '+';
-        } else {
-            $sign = '-';
-        }
-        ///////////////////////////////////////////////////////////////////////
-
-
-
-        //Requete à construire
-        //il manque surement d'autre element pour génerer un rand convenable mais on verra
-        $randomGameList = $this->createQueryBuilder('g')
-        
+        $qb = $this->createQueryBuilder('g')
+        ->addSelect('RAND() as HIDDEN rand')
+        ->orderBy('rand')
+        ->setMaxResults(10)
         ->getQuery()
-        ->getResult()
-        ;
+        ->getResult();
 
+        return $qb;
     }
-    
 }
