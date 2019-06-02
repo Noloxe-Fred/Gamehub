@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types'
-import { Loader, Grid, Image, Icon } from 'semantic-ui-react';
+import { Loader, Grid, Image, Icon, Segment, Placeholder  } from 'semantic-ui-react';
 
 import './lists.scss';
 
@@ -10,17 +10,10 @@ class MainList extends Component {
     this.props.requestComingSoon();
   }
 
-  changeList = func => () => {
-
-    this.props[func]();
-  }
-
   render() {
     const { load, gameList, count } = this.props;
 
     const displayList = gameList.slice(count, count + 6);
-    console.log(count, gameList, displayList);
-
 
     return (
       <div id="main-list">
