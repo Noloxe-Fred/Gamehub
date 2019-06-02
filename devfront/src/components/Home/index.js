@@ -3,6 +3,7 @@ import { Icon } from 'semantic-ui-react';
 
 import Banner from './Banner';
 import MainList from 'src/containers/Home/MainList';
+import Carousel from 'src/Library/FullComponent/Carousel';
 import './home.scss';
 
 class Home extends Component {
@@ -17,6 +18,7 @@ class Home extends Component {
           <div class="chevron"></div>
         </div>
         <MainList />
+        <Carousel />
       </div>
     );
   }

@@ -83,3 +83,14 @@
     opacity: 1;
   }
 }
+
+.carousel {
+  display: flex;
+  position: absolute;
+
+  &-img {
+    position: relative;
+    width: 200px;
+    height: 300px;
+  }
+}
