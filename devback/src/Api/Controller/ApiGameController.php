@@ -38,15 +38,12 @@ class ApiGameController extends FOSRestController
     {   
 
         $showGame = $gameRepository->findByGame($game);
-
         $json = $serializer->serialize($showGame, 'json', [
             'groups' => 'game_read',
         ]);
-
         return JsonResponse::fromJsonString($json);
+
     }
-
-
     /**
      * @Rest\View
      * @Rest\Post(path = "/game", name="game_create")
@@ -64,4 +61,44 @@ class ApiGameController extends FOSRestController
         return new JsonResponse('', JsonResponse::HTTP_CREATED);
     }
 
+    /**
+     * @Rest\View
+     * @Rest\Get(path = "/game/list/release_date/nextmonth", name="next_month_release")
+     */
+    public function getNextMonthGameAction(GameRepository $gameRepository, SerializerInterface $serializer)
+    {
+    $qbNextMonthGame = $gameRepository->findNextMonthGame();
+    $NextMonthGame = $serializer->serialize($qbNextMonthGame, 'json', [
+        'groups' => 'game_read',
+    ]);
+
+    return JsonResponse::fromJsonString($NextMonthGame);
+    }
+
+    /**
+     * @Rest\View
+     * @Rest\Get(path = "/game/list/release_date/lastmonth", name="last_month_release")
+     */
+    public function getLastMonthGameAction(GameRepository $gameRepository, SerializerInterface $serializer)
+    {
+        $qbLastMonthGame = $gameRepository->findLastMonthGame();
+        $LastMonthGame = $serializer->serialize($qbLastMonthGame, 'json', [
+            'groups' => 'game_read',
+        ]);
+        return JsonResponse::fromJsonString($LastMonthGame);
+    }
+
+    /**
+     * @Rest\View
+     * @Rest\Get(path = "/game/list/random", name="random_game_list")
+     */ 
+    public function getRandomGameList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $qbRandomGameList = $gameRepository->findRandomGameList();
+
+        $RandomGameList = $serializer->serialize($qbRandomGameList, 'json', [
+            'groups' => 'game_read',
+        ]);
+        return JsonResponse::fromJsonString($RandomGameList);
+    }
 }
