@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use DateTime;
 use App\Entity\Game;
+use Doctrine\ORM\Query;
+use App\Api\Acme\DemoBundle\DQL\RandFunction;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
@@ -23,10 +25,13 @@ class GameRepository extends ServiceEntityRepository
     public function findAllGames()
     {
 
-        $qb = $this->createQueryBuilder('g')
-        ->getQuery()
-        ->getResult();
+        $qb = $this->createQueryBuilder('g') 
 
+        ->andWhere('g.id = :field1')  
+        ->andWhere('g.id = :field2')
+        ->setParameters(array('field1' => '58', 'field2' => '59'))
+        ->getQuery()
+        ->getArrayResult(Query::HYDRATE_SCALAR);
         return $qb;
     }
 
@@ -74,36 +79,15 @@ class GameRepository extends ServiceEntityRepository
     }
 
 
-    public function findRandomGamesList(){
+    public function findRandomGamesList($count = 10){
 
-        //compte du nombre de ligne dans la DB
-        $countgame = $this->createQueryBuilder('g')
-            ->select('count(g.id)')
-            ->getQuery()
-            ->getSingleScalarResult();
-        ///////////////////////////////////////////////////////////////////////
-
-
-        //Random pour determiner si pair ou impair et donc si sign + ou - 
-        //Je sais pas encore comment je vais m'en servir mais on sait jamais
-        $rand = rand(1, 2);
-        if ($rand%2) {
-            $sign = '+';
-        } else {
-            $sign = '-';
-        }
-        ///////////////////////////////////////////////////////////////////////
-
-
-
-        //Requete à construire
-        //il manque surement d'autre element pour génerer un rand convenable mais on verra
-        $randomGameList = $this->createQueryBuilder('g')
         
-        ->getQuery()
-        ->getResult()
-        ;
-
+        return  $this->createQueryBuilder('g')
+            ->addSelect('RAND() as HIDDEN rand')
+            ->addOrderBy('rand')
+            ->setMaxResults($count)
+            ->getQuery()
+            ->getResult();
     }
-    
+
 }
