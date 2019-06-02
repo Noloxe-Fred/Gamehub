@@ -51,13 +51,13 @@ class MainList extends Component {
                     <Grid>
                       <Grid.Row columns={2}>
                         <Grid.Column>
-                          {displayList[1] ? (
+                          {displayList[2] ? (
                               <Image src={displayList[2].illustration} />
                           )
                             : <div />}
                         </Grid.Column>
                         <Grid.Column>
-                          {displayList[1] ? (
+                          {displayList[3] ? (
                               <Image src={displayList[3].illustration} />
                           )
                             : <div />}
@@ -65,13 +65,13 @@ class MainList extends Component {
                       </Grid.Row>
                       <Grid.Row columns={2}>
                         <Grid.Column>
-                          {displayList[1] ? (
+                          {displayList[4] ? (
                               <Image src={displayList[4].illustration} />
                           )
                             : <div />}
                         </Grid.Column>
                         <Grid.Column>
-                          {displayList[1] ? (
+                          {displayList[5] ? (
                               <Image src={displayList[5].illustration} />
                           )
                             : <div />}
