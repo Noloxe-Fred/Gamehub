@@ -1,16 +1,23 @@
 import { connect } from 'react-redux';
 import MainList from 'src/components/Home/Lists/MainList';
 
-import { requestComingSoon } from 'src/store/reducers/homeReducer';
+import { requestComingSoon, increaseCount, decreaseCount } from 'src/store/reducers/homeReducer';
 
 const mapStateToProps = state => ({
   gameList: state.homeReducer.listComingSoon,
   load: state.homeReducer.loadingComingSoon,
+  count: state.homeReducer.countComingSoon,
 });
 
 const mapDispatchToProps = dispatch => ({
   requestComingSoon: () => {
     dispatch(requestComingSoon());
+  },
+  increaseCount: () => {
+    dispatch(increaseCount());
+  },
+  decreaseCount: () => {
+    dispatch(decreaseCount());
   },
 });
 
