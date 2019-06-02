@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types'
-import { Loader, Grid, Image, Icon, Segment, Placeholder  } from 'semantic-ui-react';
+import { Loader, Grid, Image, Icon, Segment, Placeholder, Card  } from 'semantic-ui-react';
 
 import './lists.scss';
 
@@ -30,44 +30,77 @@ class MainList extends Component {
               <Grid>
                 <Grid.Row columns={1}>
                   <Grid.Column>
-                    <Image src={displayList[0].illustration} />
+                    <Card className="mainCard">
+                      <img src={displayList[0].illustration}/>
+                      <Card.Content>
+                        <Card.Header>{displayList[0].name}</Card.Header>
+                        <Card.Description>
+                          {displayList[0].description}
+                        </Card.Description>
+                      </Card.Content>
+                    </Card>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row columns={2}>
                   <Grid.Column>
-                    {displayList[1] ? (
-                        <Image src={displayList[1].illustration} />
-                    )
-                      : <div />}
+                    <Card className="secondaryCard">
+                      <Image src={displayList[1].illustration} wrapped />
+                      <Card.Content>
+                        <Card.Header>{displayList[1].name}</Card.Header>
+                        <Card.Description>
+                          {displayList[1].description}
+                        </Card.Description>
+                      </Card.Content>
+                    </Card>
                   </Grid.Column>
                   <Grid.Column>
                     <Grid>
                       <Grid.Row columns={2}>
                         <Grid.Column>
-                          {displayList[2] ? (
-                              <Image src={displayList[2].illustration} />
-                          )
-                            : <div />}
+                          <Card className="otherCard">
+                            <Image src={displayList[2].illustration} wrapped />
+                            <Card.Content>
+                              <Card.Header>{displayList[2].name}</Card.Header>
+                              <Card.Description>
+                                {displayList[2].description}
+                              </Card.Description>
+                            </Card.Content>
+                          </Card>
                         </Grid.Column>
                         <Grid.Column>
-                          {displayList[3] ? (
-                              <Image src={displayList[3].illustration} />
-                          )
-                            : <div />}
+                          <Card className="otherCard">
+                            <Image src={displayList[3].illustration} wrapped />
+                            <Card.Content>
+                              <Card.Header>{displayList[3].name}</Card.Header>
+                              <Card.Description>
+                                {displayList[3].description}
+                              </Card.Description>
+                            </Card.Content>
+                          </Card>
                         </Grid.Column>
                       </Grid.Row>
                       <Grid.Row columns={2}>
                         <Grid.Column>
-                          {displayList[4] ? (
-                              <Image src={displayList[4].illustration} />
-                          )
-                            : <div />}
+                          <Card className="otherCard">
+                            <Image src={displayList[4].illustration} wrapped />
+                            <Card.Content>
+                              <Card.Header>{displayList[4].name}</Card.Header>
+                              <Card.Description>
+                                {displayList[4].description}
+                              </Card.Description>
+                            </Card.Content>
+                          </Card>
                         </Grid.Column>
                         <Grid.Column>
-                          {displayList[5] ? (
-                              <Image src={displayList[5].illustration} />
-                          )
-                            : <div />}
+                          <Card className="otherCard">
+                            <Image src={displayList[5].illustration} wrapped />
+                            <Card.Content>
+                              <Card.Header>{displayList[5].name}</Card.Header>
+                              <Card.Description>
+                                {displayList[5].description}
+                              </Card.Description>
+                            </Card.Content>
+                          </Card>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>
@@ -85,5 +118,8 @@ class MainList extends Component {
     );
   }
 }
+
+
+// Composant Card
 
 export default MainList;

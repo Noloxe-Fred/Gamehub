@@ -8,8 +8,14 @@
   margin-top: 50px;
 }
 
+h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
 #list {
-  color: #FCC502;
+  color: black;
   font-size: 1.7em;
   display: flex;
   flex-wrap: wrap;
@@ -21,4 +27,83 @@
 .game {
   margin: 2px;
 }
+
+//Card Style pour toutes les cards des prochaines sorties
+.ui.card {
+  width: 100%;
+  .header {
+    font-family: 'Oswald', sans-serif !important;
+  }
+  .content {
+    padding: .3em;
+  }
+}
+
+.ui.card:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 14px -2px rgba(158,158,158,1);
+  -moz-box-shadow: 0px 0px 14px -2px rgba(158,158,158,1);
+  box-shadow: 0px 0px 14px -2px rgba(158,158,158,1);
+}
+// Card style pour la main card
+.mainCard {
+  img {
+    width: 100%;
+    height: 9em;
+    object-fit: cover;
+  }
+  .content {
+    height: 3em;
+  }
+  .header {
+    font-size: .8em !important;
+    text-align: left;
+  }
+  .description {
+    font-size: .5em;
+    text-align: left;
+  }
+}
+
+// Card style pour la secondary card
+.secondaryCard {
+  img {
+    width: 100%;
+    height: 7em;
+    object-fit: cover;
+  }
+  .content {
+    height: 5.2em;
+  }
+  .header {
+    font-size: .8em !important;
+    text-align: left;
+  }
+  .description {
+    font-size: .5em;
+    text-align: left;
+  }
+}
+
+// Card style pour les petites cards
+.otherCard {
+  img {
+    width: 100%;
+    height: 2em;
+    object-fit: cover;
+  }
+  .content {
+    height: 2.4em;
+  }
+  .header {
+    font-size: .5em !important;
+    text-align: left;
+  }
+  .description {
+    font-size: .4em;
+    text-align: left;
+  }
+}
+
+
 
