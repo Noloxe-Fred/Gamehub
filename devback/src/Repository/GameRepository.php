@@ -78,10 +78,30 @@ class GameRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('g')
         ->addSelect('RAND() as HIDDEN rand')
         ->orderBy('rand')
-        ->setMaxResults(10)
+        ->setMaxResults(18)
         ->getQuery()
         ->getResult();
 
         return $qb;
     }
+
+    // public function findGamesByBestScore(){
+
+    //     $qb = $this->createQueryBuilder('g')
+    //         ->orderBy('g.score', 'ASC')
+    //         ->setMaxResults(18)
+    //         ->getQuery();
+
+    //     return $qb;
+    // }
+
+    // public function findGamesByWorstScore(){
+
+    //     $qb = $this->createQueryBuilder('g')
+    //         ->orderBy('g.score', 'DESC')
+    //         ->setMaxResults(18)
+    //         ->getQuery();
+
+    //     return $qb;
+    // }
 }
