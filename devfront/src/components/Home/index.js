@@ -11,7 +11,11 @@ class Home extends Component {
     return (
       <div id="home">
         <Banner />
-        <Icon name='angle double down' size='big' />
+        <div class="container">
+          <div class="chevron"></div>
+          <div class="chevron"></div>
+          <div class="chevron"></div>
+        </div>
         <MainList />
       </div>
     );
