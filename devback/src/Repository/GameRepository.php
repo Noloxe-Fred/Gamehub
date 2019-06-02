@@ -22,53 +22,59 @@ class GameRepository extends ServiceEntityRepository
 
     public function findAllGames()
     {
-        return $this->createQueryBuilder('g')
+
+        $qb = $this->createQueryBuilder('g')
         ->getQuery()
         ->getResult();
+
+        return $qb;
     }
 
     public function findByGame($game){
         
-        return $this->createQueryBuilder('g')
+        $qb = $this->createQueryBuilder('g')
         ->where('g.id = :game')
         ->setParameter('game', $game)
         ->getQuery()
         ->getResult();
+
+        return $qb;
     }
 
-    public function findNextMonthGame(){
+    public function findNextMonthGames(){
 
-        $date_start = new DateTime('now');
-        $date_end = new DateTime('now + 1 Month');
+        $dateStart = new DateTime('now');
+        $dateEnd = new DateTime('now + 1 month');
 
-
-        return $this->createQueryBuilder('g')
-        ->where('g.releasedAt >= :date_start')
-        ->setParameter('date_start', $date_start->format('Y m d'))
-        ->andWhere('g.releasedAt <= :date_end')
-        ->setParameter('date_end', $date_end->format('Y m d'))
+        $qb = $this->createQueryBuilder('g')
+        ->where('g.releasedAt >= :dateStart')
+        ->andWhere('g.releasedAt <= :dateEnd')
+        ->setParameter('dateStart', $dateStart->format('Y m d'))
+        ->setParameter('dateEnd', $dateEnd->format('Y m d'))
         ->getQuery()
-        ->getResult()
-        ;
+        ->getResult();
+
+        return $qb;
     }
 
-    public function  findLastMonthGame(){
+    public function  findLastMonthGames(){
 
-        $date_start = new DateTime('now');
-        $date_end = new DateTime('now - 1 year');
+        $dateStart = new DateTime('now');
+        $dateEnd = new DateTime('now - 1 month');
 
-        return $this->createQueryBuilder('g')
-        ->where('g.releasedAt <= :date_start')
-        ->setParameter('date_start', $date_start->format('Y m d'))
-        ->andWhere('g.releasedAt >= :date_end')
-        ->setParameter('date_end', $date_end->format('Y m d'))
+        $qb = $this->createQueryBuilder('g')
+        ->where('g.releasedAt <= :dateStart')
+        ->andWhere('g.releasedAt >= :dateEnd')
+        ->setParameter('dateStart', $dateStart->format('Y m d'))
+        ->setParameter('dateEnd', $dateEnd->format('Y m d'))
         ->getQuery()
-        ->getResult()
-        ;
+        ->getResult();
+
+        return $qb;
     }
 
 
-    public function findRandomGameList(){
+    public function findRandomGamesList(){
 
         //compte du nombre de ligne dans la DB
         $countgame = $this->createQueryBuilder('g')
