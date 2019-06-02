@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import ModalConnect from './ModalConnect';
-import ModalSubscribe from './ModalSubscribe';
+import ModalConnect from 'src/containers/Navbar/ModalConnect';
+import ModalSubscribe from 'src/containers/Navbar/ModalSubscribe';
 import './navbar.scss';
 
 const Navbar = () => (
