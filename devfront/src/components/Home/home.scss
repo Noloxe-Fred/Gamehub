@@ -87,10 +87,17 @@
 .carousel {
   display: flex;
   position: absolute;
-
-  &-img {
-    position: relative;
-    width: 200px;
-    height: 300px;
-  }
+  margin: 10px 250px;
 }
+
+.carousel-list {
+  position: relative;
+
+}
+
+.carousel-img {
+  margin: 10px;
+  width: 200px;
+  height: 300px;
+}
+
