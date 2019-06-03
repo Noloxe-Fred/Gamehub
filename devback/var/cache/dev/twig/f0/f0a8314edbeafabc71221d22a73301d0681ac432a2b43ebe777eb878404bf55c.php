@@ -160,6 +160,6 @@ class __TwigTemplate_7435ecd6e3ab146c708a741eb404cbbde69b2b349a25d9b3bf6be34b036
         {% block body '' %}
     </body>
 </html>
-", "@WebProfiler/Profiler/base.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
+", "@WebProfiler/Profiler/base.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
     }
 }

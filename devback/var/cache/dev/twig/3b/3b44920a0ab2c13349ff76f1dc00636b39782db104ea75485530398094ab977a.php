@@ -57,6 +57,6 @@ class __TwigTemplate_2fdce825a2f025caf59c3742f23029d4727519b1fb98c49476c3764ea1c
 
     public function getSourceContext()
     {
-        return new Source("", "@Framework/Form/button_label.html.php", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle/Resources/views/Form/button_label.html.php");
+        return new Source("", "@Framework/Form/button_label.html.php", "/var/www/html/apotheose/devback/vendor/symfony/framework-bundle/Resources/views/Form/button_label.html.php");
     }
 }

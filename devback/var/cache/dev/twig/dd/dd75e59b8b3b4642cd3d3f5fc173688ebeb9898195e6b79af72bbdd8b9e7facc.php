@@ -78,6 +78,6 @@ class __TwigTemplate_11f112c8dbeb74133eea6c9e7030b4bb539efd7e1d9df0ba060a5549826
     public function getSourceContext()
     {
         return new Source("{% block panel '' %}
-", "@WebProfiler/Profiler/ajax_layout.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/ajax_layout.html.twig");
+", "@WebProfiler/Profiler/ajax_layout.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/ajax_layout.html.twig");
     }
 }

@@ -67,6 +67,6 @@ class __TwigTemplate_1d9c939d03ea2e8d02dc5c8df65b76f4c08016fcdcd8629062ec6059862
     public function getSourceContext()
     {
         return new Source("{{ { 'error': { 'code': status_code, 'message': status_text } }|json_encode|raw }}
-", "@Twig/Exception/error.json.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bundle/Resources/views/Exception/error.json.twig");
+", "@Twig/Exception/error.json.twig", "/var/www/html/apotheose/devback/vendor/symfony/twig-bundle/Resources/views/Exception/error.json.twig");
     }
 }

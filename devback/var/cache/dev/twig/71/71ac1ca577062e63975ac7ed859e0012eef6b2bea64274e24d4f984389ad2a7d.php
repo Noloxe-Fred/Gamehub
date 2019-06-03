@@ -95,6 +95,6 @@ class __TwigTemplate_acc348167ba063f95549f45c7bba9b3aa864e5fac16cc36881d8a97f84f
     <?php endif ?>
     <?php echo \$view['form']->block(\$form, 'choice_widget_options', ['choices' => \$choices]) ?>
 </select>
-", "@Framework/Form/choice_widget_collapsed.html.php", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle/Resources/views/Form/choice_widget_collapsed.html.php");
+", "@Framework/Form/choice_widget_collapsed.html.php", "/var/www/html/apotheose/devback/vendor/symfony/framework-bundle/Resources/views/Form/choice_widget_collapsed.html.php");
     }
 }

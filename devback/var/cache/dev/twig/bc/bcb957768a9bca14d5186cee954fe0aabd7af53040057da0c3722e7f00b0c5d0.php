@@ -408,6 +408,6 @@ class __TwigTemplate_c6bf1b647bcbd0919b4aca3193915972c9a2d4cf076ec2ec644f1250c2a
 {% block body %}
     {% include '@Twig/Exception/exception.html.twig' %}
 {% endblock %}
-", "@Twig/Exception/exception_full.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bundle/Resources/views/Exception/exception_full.html.twig");
+", "@Twig/Exception/exception_full.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/twig-bundle/Resources/views/Exception/exception_full.html.twig");
     }
 }

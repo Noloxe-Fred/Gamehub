@@ -61,6 +61,6 @@ class __TwigTemplate_7987069b45b16acfd9977dcebfc57ab706d63685ac731861bcf6de671c5
     public function getSourceContext()
     {
         return new Source("<input type=\"<?php echo isset(\$type) ? \$view->escape(\$type) : 'text' ?>\" <?php echo \$view['form']->block(\$form, 'widget_attributes') ?><?php if (!empty(\$value) || is_numeric(\$value)): ?> value=\"<?php echo \$view->escape(\$value) ?>\"<?php endif ?> />
-", "@Framework/Form/form_widget_simple.html.php", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle/Resources/views/Form/form_widget_simple.html.php");
+", "@Framework/Form/form_widget_simple.html.php", "/var/www/html/apotheose/devback/vendor/symfony/framework-bundle/Resources/views/Form/form_widget_simple.html.php");
     }
 }

@@ -61,6 +61,6 @@ class __TwigTemplate_c242882e07a2408d04084f1ee2710e40ac2a8e481b709a040e68f233c9a
     public function getSourceContext()
     {
         return new Source("<?php echo \$view['form']->block(\$form, 'form_widget_simple', ['type' => isset(\$type) ? \$type : 'range']);
-", "@Framework/Form/range_widget.html.php", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle/Resources/views/Form/range_widget.html.php");
+", "@Framework/Form/range_widget.html.php", "/var/www/html/apotheose/devback/vendor/symfony/framework-bundle/Resources/views/Form/range_widget.html.php");
     }
 }

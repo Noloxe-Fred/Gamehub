@@ -65,6 +65,6 @@ class __TwigTemplate_f4b98c03306bae76d12c2263549c21243923050e861056406b76a42d80a
         return new Source("<div>
     <?php echo \$view['form']->widget(\$form) ?>
 </div>
-", "@Framework/Form/button_row.html.php", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle/Resources/views/Form/button_row.html.php");
+", "@Framework/Form/button_row.html.php", "/var/www/html/apotheose/devback/vendor/symfony/framework-bundle/Resources/views/Form/button_row.html.php");
     }
 }

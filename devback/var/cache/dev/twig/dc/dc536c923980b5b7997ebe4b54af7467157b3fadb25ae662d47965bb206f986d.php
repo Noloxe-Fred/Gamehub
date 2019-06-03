@@ -67,6 +67,6 @@ class __TwigTemplate_10db5a7b2db78c9194d5208f8b92b55f343152a03c4caf77c808f111574
     public function getSourceContext()
     {
         return new Source("{{ include('@Twig/Exception/error.xml.twig') }}
-", "@Twig/Exception/error.rdf.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bundle/Resources/views/Exception/error.rdf.twig");
+", "@Twig/Exception/error.rdf.twig", "/var/www/html/apotheose/devback/vendor/symfony/twig-bundle/Resources/views/Exception/error.rdf.twig");
     }
 }

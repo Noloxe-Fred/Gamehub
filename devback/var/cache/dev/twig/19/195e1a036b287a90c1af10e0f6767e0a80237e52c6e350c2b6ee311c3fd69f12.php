@@ -150,6 +150,6 @@ class __TwigTemplate_5ea613932c01099a12b95b79dbd779f9ee4e4beda11adc2d977784757a4
 {% block panel %}
     {{ render(path('_profiler_router', { token: token })) }}
 {% endblock %}
-", "@WebProfiler/Collector/router.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
+", "@WebProfiler/Collector/router.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
     }
 }

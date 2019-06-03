@@ -477,6 +477,6 @@ class __TwigTemplate_1552922331e5d1683c24218166d867b20ca0c6297f4ac924eb49ba17894
         {% endfor %}
     </table>
 {% endmacro %}
-", "@WebProfiler/Collector/events.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/events.html.twig");
+", "@WebProfiler/Collector/events.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/events.html.twig");
     }
 }

@@ -73,6 +73,6 @@ class __TwigTemplate_8044677eeacb5a263952fec3dd845ae8a467ef70a754bf8d2c699b238b4
         return new Source("/*
 {{ include('@Twig/Exception/exception.txt.twig', { exception: exception }) }}
 */
-", "@Twig/Exception/exception.css.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bundle/Resources/views/Exception/exception.css.twig");
+", "@Twig/Exception/exception.css.twig", "/var/www/html/apotheose/devback/vendor/symfony/twig-bundle/Resources/views/Exception/exception.css.twig");
     }
 }

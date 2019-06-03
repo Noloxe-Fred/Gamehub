@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">/var/www/html/GameHub/JV-Theque/devback/src</parameter>
-    <parameter key="kernel.project_dir">/var/www/html/GameHub/JV-Theque/devback</parameter>
+    <parameter key="kernel.root_dir">/var/www/html/apotheose/devback/src</parameter>
+    <parameter key="kernel.project_dir">/var/www/html/apotheose/devback</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">src</parameter>
-    <parameter key="kernel.cache_dir">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">/var/www/html/GameHub/JV-Theque/devback/var/log</parameter>
+    <parameter key="kernel.cache_dir">/var/www/html/apotheose/devback/var/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">/var/www/html/apotheose/devback/var/log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="DoctrineCacheBundle">Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle</parameter>
@@ -23,63 +23,73 @@
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
       <parameter key="FOSRestBundle">FOS\RestBundle\FOSRestBundle</parameter>
+      <parameter key="NelmioAliceBundle">Nelmio\Alice\Bridge\Symfony\NelmioAliceBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/symfony/framework-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="DoctrineCacheBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/doctrine/doctrine-cache-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/doctrine/doctrine-cache-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineCacheBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/sensio/framework-extra-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/sensio/framework-extra-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/doctrine/doctrine-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/doctrine/doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="DoctrineMigrationsBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/doctrine/doctrine-migrations-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/doctrine/doctrine-migrations-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/symfony/security-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
       <parameter key="SwiftmailerBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/swiftmailer-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/symfony/swiftmailer-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/symfony/twig-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
       </parameter>
       <parameter key="MonologBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/monolog-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/symfony/monolog-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/debug-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/symfony/debug-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\DebugBundle</parameter>
       </parameter>
       <parameter key="MakerBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/maker-bundle/src</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/symfony/maker-bundle/src</parameter>
         <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
       </parameter>
       <parameter key="WebServerBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-server-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/symfony/web-server-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebServerBundle</parameter>
       </parameter>
       <parameter key="FOSRestBundle" type="collection">
-        <parameter key="path">/var/www/html/GameHub/JV-Theque/devback/vendor/friendsofsymfony/rest-bundle</parameter>
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/friendsofsymfony/rest-bundle</parameter>
         <parameter key="namespace">FOS\RestBundle</parameter>
+      </parameter>
+      <parameter key="NelmioAliceBundle" type="collection">
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/nelmio/alice/src/Bridge/Symfony</parameter>
+        <parameter key="namespace">Nelmio\Alice\Bridge\Symfony</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="path">/var/www/html/apotheose/devback/vendor/doctrine/doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -102,22 +112,22 @@
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">/var/www/html/apotheose/devback/var/cache/dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
     <parameter key="asset.request_context.base_path"></parameter>
     <parameter key="asset.request_context.secure">false</parameter>
     <parameter key="validator.mapping.cache.prefix"></parameter>
-    <parameter key="validator.mapping.cache.file">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">/var/www/html/apotheose/devback/var/cache/dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="translator.logging">false</parameter>
-    <parameter key="translator.default_path">/var/www/html/GameHub/JV-Theque/devback/translations</parameter>
+    <parameter key="translator.default_path">/var/www/html/apotheose/devback/translations</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:/var/www/html/apotheose/devback/var/cache/dev/profiler</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/srcApp_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">/var/www/html/apotheose/devback/var/cache/dev/srcApp_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
@@ -125,7 +135,7 @@
     <parameter key="router.cache_class_prefix">srcApp_KernelDevDebugContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="serializer.mapping.cache.file">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/serialization.php</parameter>
+    <parameter key="serializer.mapping.cache.file">/var/www/html/apotheose/devback/var/cache/dev/serialization.php</parameter>
     <parameter key="serializer.mapping.cache.prefix"></parameter>
     <parameter key="doctrine_cache.apc.class">Doctrine\Common\Cache\ApcCache</parameter>
     <parameter key="doctrine_cache.apcu.class">Doctrine\Common\Cache\ApcuCache</parameter>
@@ -234,9 +244,9 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">/var/www/html/apotheose/devback/var/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
-    <parameter key="doctrine_migrations.dir_name">/var/www/html/GameHub/JV-Theque/devback/src/Migrations</parameter>
+    <parameter key="doctrine_migrations.dir_name">/var/www/html/apotheose/devback/src/Migrations</parameter>
     <parameter key="doctrine_migrations.namespace">DoctrineMigrations</parameter>
     <parameter key="doctrine_migrations.table_name">migration_versions</parameter>
     <parameter key="doctrine_migrations.column_name">version</parameter>
@@ -255,7 +265,7 @@
     <parameter key="security.access.always_authenticate_before_granting">false</parameter>
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
     <parameter key="swiftmailer.mailer.default.transport.name">dynamic</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">/var/www/html/apotheose/devback/var/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -272,7 +282,7 @@
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>bootstrap_4_horizontal_layout.html.twig</parameter>
     </parameter>
-    <parameter key="twig.default_path">/var/www/html/GameHub/JV-Theque/devback/templates</parameter>
+    <parameter key="twig.default_path">/var/www/html/apotheose/devback/templates</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
     <parameter key="monolog.use_microseconds">true</parameter>
@@ -295,6 +305,19 @@
     </parameter>
     <parameter key="env(VAR_DUMPER_SERVER)">127.0.0.1:9912</parameter>
     <parameter key="fos_rest.format_listener.rules">null</parameter>
+    <parameter key="nelmio_alice.functions_blacklist" type="collection">
+      <parameter>current</parameter>
+      <parameter>shuffle</parameter>
+      <parameter>date</parameter>
+      <parameter>time</parameter>
+      <parameter>file</parameter>
+      <parameter>md5</parameter>
+      <parameter>sha1</parameter>
+    </parameter>
+    <parameter key="nelmio_alice.locale">en_US</parameter>
+    <parameter key="nelmio_alice.seed">1</parameter>
+    <parameter key="nelmio_alice.loading_limit">5</parameter>
+    <parameter key="nelmio_alice.max_unique_values_retry">150</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -389,9 +412,15 @@
   <services>
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/log/dev.log</argument>
+      <argument>/var/www/html/apotheose/devback/var/log/dev.log</argument>
+    </service>
+    <service id="App\Api\Controller\ApiCategoryController" class="App\Api\Controller\ApiCategoryController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
     </service>
     <service id="App\Api\Controller\ApiGameController" class="App\Api\Controller\ApiGameController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
+    <service id="App\Api\Controller\ApiScoreController" class="App\Api\Controller\ApiScoreController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
     <service id="App\Controller\CategoryController" class="App\Controller\CategoryController" public="true" autowire="true" autoconfigure="true">
@@ -443,6 +472,28 @@
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\UserController"/>
       </call>
     </service>
+    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\Faker\CategoryProvider" class="App\DataFixtures\Faker\CategoryProvider" autowire="true" autoconfigure="true">
+      <tag name="nelmio_alice.faker.provider"/>
+      <argument type="service" id="nelmio_alice.faker.generator"/>
+    </service>
+    <service id="App\DataFixtures\Faker\DeveloperProvider" class="App\DataFixtures\Faker\DeveloperProvider" autowire="true" autoconfigure="true">
+      <tag name="nelmio_alice.faker.provider"/>
+      <argument type="service" id="nelmio_alice.faker.generator"/>
+    </service>
+    <service id="App\DataFixtures\Faker\GameProvider" class="App\DataFixtures\Faker\GameProvider" autowire="true" autoconfigure="true">
+      <tag name="nelmio_alice.faker.provider"/>
+      <argument type="service" id="nelmio_alice.faker.generator"/>
+    </service>
+    <service id="App\DataFixtures\Faker\PlatformProvider" class="App\DataFixtures\Faker\PlatformProvider" autowire="true" autoconfigure="true">
+      <tag name="nelmio_alice.faker.provider"/>
+      <argument type="service" id="nelmio_alice.faker.generator"/>
+    </service>
+    <service id="App\DataFixtures\MyCustomNativeLoader" class="App\DataFixtures\MyCustomNativeLoader" autowire="true" autoconfigure="true">
+      <argument type="service" id="nelmio_alice.faker.generator"/>
+    </service>
     <service id="App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -476,6 +527,7 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\DQL\Rand" class="App\Repository\DQL\Rand" autowire="true" autoconfigure="true"/>
     <service id="App\Repository\DeveloperRepository" class="App\Repository\DeveloperRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -562,7 +614,7 @@
     <service id="cache_warmer" class="Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate" public="true">
       <argument type="tagged" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/srcApp_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/srcApp_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer" public="true">
       <argument type="tagged" tag="kernel.cache_clearer"/>
@@ -571,9 +623,9 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem" public="true"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator" public="false">
       <argument type="service" id="kernel"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/src/Resources</argument>
+      <argument>/var/www/html/apotheose/devback/src/Resources</argument>
       <argument type="collection">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/src</argument>
+        <argument>/var/www/html/apotheose/devback/src</argument>
       </argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner" public="false">
@@ -728,8 +780,8 @@
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/translations</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/templates</argument>
+      <argument>/var/www/html/apotheose/devback/translations</argument>
+      <argument>/var/www/html/apotheose/devback/templates</argument>
       <call method="setName">
         <argument>debug:translation</argument>
       </call>
@@ -740,8 +792,8 @@
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
       <argument>en</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/translations</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/templates</argument>
+      <argument>/var/www/html/apotheose/devback/translations</argument>
+      <argument>/var/www/html/apotheose/devback/templates</argument>
       <call method="setName">
         <argument>translation:update</argument>
       </call>
@@ -828,7 +880,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/pools</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -857,7 +909,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/pools</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/pools</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -946,8 +998,8 @@
     <service id="translator.selector" class="Symfony\Component\Translation\MessageSelector" public="false">
       <deprecated>The "%service_id%" service is deprecated since Symfony 4.2, use "identity_translator" instead.</deprecated>
     </service>
-    <service id=".1_NativeFileSessionHandler~whFgZwJ" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/sessions</argument>
+    <service id=".1_NativeFileSessionHandler~BCxrFHa" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/sessions</argument>
     </service>
     <service id="session" class="Symfony\Component\HttpFoundation\Session\Session" public="true">
       <argument type="service" id="session.storage.native"/>
@@ -970,12 +1022,12 @@
     <service id="session.flash_bag" class="Symfony\Component\HttpFoundation\Session\Flash\FlashBag" public="false"/>
     <service id="session.attribute_bag" class="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag" public="false"/>
     <service id="session.storage.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage" public="false">
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/sessions</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler" public="false">
-      <argument type="service" id=".1_NativeFileSessionHandler~whFgZwJ"/>
+      <argument type="service" id=".1_NativeFileSessionHandler~BCxrFHa"/>
     </service>
     <service id="session_listener" class="Symfony\Component\HttpKernel\EventListener\SessionListener" public="false">
       <tag name="kernel.event_subscriber"/>
@@ -1004,7 +1056,7 @@
       <tag name="twig.extension"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy" public="false">
-      <argument type="service" id=".1_ResolvedFormTypeFactory~MWkwxDX"/>
+      <argument type="service" id=".1_ResolvedFormTypeFactory~QxPMa_1"/>
       <argument type="service" id="data_collector.form"/>
     </service>
     <service id="form.registry" class="Symfony\Component\Form\FormRegistry" public="false">
@@ -1136,8 +1188,8 @@
       <argument type="service" id="assets.empty_version_strategy"/>
       <argument type="service" id="assets.context"/>
     </service>
-    <service id=".1_PhpArrayAdapter~Ahhldy1" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/validation.php</argument>
+    <service id=".1_PhpArrayAdapter~.XF5ouO" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -1157,7 +1209,7 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/config/validation.xml</argument>
+          <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1176,10 +1228,10 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/validation.php</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.symfony" class="Symfony\Component\Validator\Mapping\Cache\Psr6Cache" public="false">
-      <argument type="service" id=".1_PhpArrayAdapter~Ahhldy1"/>
+      <argument type="service" id=".1_PhpArrayAdapter~.XF5ouO"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory" public="false">
       <argument type="service" id=".service_locator.37xBtZ2"/>
@@ -1233,256 +1285,256 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/translations</argument>
+        <argument key="cache_dir">/var/www/html/apotheose/devback/var/cache/dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="af" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.af.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.af.xlf</argument>
           </argument>
           <argument key="ar" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.ar.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.ar.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.ar.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.ar.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.ar.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.ar.xlf</argument>
           </argument>
           <argument key="az" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.az.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.az.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.az.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.az.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.az.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.az.xlf</argument>
           </argument>
           <argument key="be" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.be.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.be.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.be.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.be.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.be.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.be.xlf</argument>
           </argument>
           <argument key="bg" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.bg.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.bg.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.bg.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.bg.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.bg.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.bg.xlf</argument>
           </argument>
           <argument key="ca" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.ca.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.ca.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.ca.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.ca.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.ca.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.ca.xlf</argument>
           </argument>
           <argument key="cs" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.cs.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.cs.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.cs.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.cs.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.cs.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.cs.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.cy.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.cy.xlf</argument>
           </argument>
           <argument key="da" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.da.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.da.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.da.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.da.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.da.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.da.xlf</argument>
           </argument>
           <argument key="de" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.de.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.de.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.de.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.de.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.de.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.de.xlf</argument>
           </argument>
           <argument key="el" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.el.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.el.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.el.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.el.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.el.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.el.xlf</argument>
           </argument>
           <argument key="en" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.en.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.en.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.en.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.en.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.en.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.es.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.es.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.es.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.es.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.es.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.es.xlf</argument>
           </argument>
           <argument key="et" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.et.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.et.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.et.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.et.xlf</argument>
           </argument>
           <argument key="eu" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.eu.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.eu.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.eu.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.eu.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.eu.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.eu.xlf</argument>
           </argument>
           <argument key="fa" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.fa.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.fa.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.fa.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.fa.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.fa.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.fa.xlf</argument>
           </argument>
           <argument key="fi" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.fi.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.fi.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.fi.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.fi.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.fr.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.fr.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.fr.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.fr.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.fr.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.gl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.gl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.gl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.gl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.gl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.gl.xlf</argument>
           </argument>
           <argument key="he" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.he.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.he.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.he.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.he.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.he.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.he.xlf</argument>
           </argument>
           <argument key="hr" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.hr.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.hr.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.hr.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.hr.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.hr.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.hr.xlf</argument>
           </argument>
           <argument key="hu" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.hu.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.hu.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.hu.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.hu.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.hu.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.hu.xlf</argument>
           </argument>
           <argument key="hy" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.hy.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.hy.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.hy.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.hy.xlf</argument>
           </argument>
           <argument key="id" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.id.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.id.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.id.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.id.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.id.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.id.xlf</argument>
           </argument>
           <argument key="it" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.it.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.it.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.it.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.it.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.it.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.ja.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.ja.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.ja.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.ja.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.ja.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.ja.xlf</argument>
           </argument>
           <argument key="lb" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.lb.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.lb.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.lb.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.lb.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.lb.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.lb.xlf</argument>
           </argument>
           <argument key="lt" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.lt.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.lt.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.lt.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.lt.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.lt.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.lt.xlf</argument>
           </argument>
           <argument key="lv" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.lv.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.lv.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.lv.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.lv.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.lv.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.lv.xlf</argument>
           </argument>
           <argument key="mn" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.mn.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.mn.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.mn.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.mn.xlf</argument>
           </argument>
           <argument key="nb" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.nb.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.nb.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.nb.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.nb.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.nb.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.nb.xlf</argument>
           </argument>
           <argument key="nl" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.nl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.nl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.nl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.nl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.nl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.nl.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.nn.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.nn.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.nn.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.nn.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.nn.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.nn.xlf</argument>
           </argument>
           <argument key="no" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.no.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.no.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.no.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.no.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.no.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.no.xlf</argument>
           </argument>
           <argument key="pl" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.pl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.pl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.pl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.pl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.pl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.pl.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.pt.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.pt.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.pt.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.pt.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.pt_BR.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.pt_BR.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.pt_BR.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.pt_BR.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.pt_BR.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.pt_BR.xlf</argument>
           </argument>
           <argument key="ro" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.ro.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.ro.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.ro.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.ro.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.ro.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.ro.xlf</argument>
           </argument>
           <argument key="ru" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.ru.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.ru.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.ru.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.ru.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.ru.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.ru.xlf</argument>
           </argument>
           <argument key="sk" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.sk.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.sk.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.sk.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.sk.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.sk.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.sk.xlf</argument>
           </argument>
           <argument key="sl" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.sl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.sl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.sl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.sl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.sl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.sl.xlf</argument>
           </argument>
           <argument key="sq" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.sq.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.sq.xlf</argument>
           </argument>
           <argument key="sr_Cyrl" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.sr_Cyrl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.sr_Cyrl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.sr_Cyrl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.sr_Cyrl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.sr_Cyrl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.sr_Cyrl.xlf</argument>
           </argument>
           <argument key="sr_Latn" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.sr_Latn.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.sr_Latn.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.sr_Latn.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.sr_Latn.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.sr_Latn.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.sr_Latn.xlf</argument>
           </argument>
           <argument key="sv" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.sv.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.sv.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.sv.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.sv.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.sv.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.sv.xlf</argument>
           </argument>
           <argument key="th" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.th.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.th.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.th.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.th.xlf</argument>
           </argument>
           <argument key="tl" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.tl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.tl.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.tl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.tl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.tl.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.tl.xlf</argument>
           </argument>
           <argument key="tr" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.tr.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.tr.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.tr.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.uk.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.uk.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.uk.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.uk.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.uk.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.uk.xlf</argument>
           </argument>
           <argument key="vi" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.vi.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.vi.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.vi.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.vi.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.vi.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.vi.xlf</argument>
           </argument>
           <argument key="zh_CN" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.zh_CN.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/form/Resources/translations/validators.zh_CN.xlf</argument>
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.zh_CN.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.zh_CN.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/form/Resources/translations/validators.zh_CN.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.zh_CN.xlf</argument>
           </argument>
           <argument key="zh_TW" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/validator/Resources/translations/validators.zh_TW.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/validator/Resources/translations/validators.zh_TW.xlf</argument>
           </argument>
           <argument key="pt_PT" type="collection">
-            <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-core/Resources/translations/security.pt_PT.xlf</argument>
+            <argument>/var/www/html/apotheose/devback/vendor/symfony/security-core/Resources/translations/security.pt_PT.xlf</argument>
           </argument>
         </argument>
       </argument>
@@ -1757,7 +1809,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-      <argument>file:/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/profiler</argument>
+      <argument>file:/var/www/html/apotheose/devback/var/cache/dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener" public="false">
       <tag name="kernel.event_subscriber"/>
@@ -1794,7 +1846,7 @@
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/srcApp_KernelDevDebugContainer</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/srcApp_KernelDevDebugContainer</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector" public="false">
@@ -1837,7 +1889,7 @@
         <argument type="service" id="cache.security_expression_language"/>
       </call>
     </service>
-    <service id=".1_ResolvedFormTypeFactory~MWkwxDX" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
+    <service id=".1_ResolvedFormTypeFactory~QxPMa_1" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
     <service id="form.type_extension.form.data_collector" class="Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension" public="false">
       <tag name="form.type_extension"/>
       <argument type="service" id="data_collector.form"/>
@@ -1895,7 +1947,7 @@
     <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" public="false">
       <argument>null</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
       <argument type="service" id="debug.file_link_formatter.url_format"/>
     </service>
     <service id="debug.stopwatch" class="Symfony\Component\Stopwatch\Stopwatch">
@@ -1939,14 +1991,6 @@
           <argument>onKernelRequest</argument>
         </argument>
         <argument>34</argument>
-      </call>
-      <call method="addListener">
-        <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="fos_rest.zone_matcher_listener"/>
-          <argument>onKernelRequest</argument>
-        </argument>
-        <argument>248</argument>
       </call>
       <call method="addListener">
         <argument>kernel.response</argument>
@@ -2094,14 +2138,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -2431,7 +2467,7 @@
       <argument type="service" id=".service_locator.aLnEVbk.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev</argument>
+        <argument key="cache_dir">/var/www/html/apotheose/devback/var/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -2474,7 +2510,7 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
       <argument>true</argument>
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
@@ -2500,12 +2536,12 @@
       <argument type="service" id="file_locator"/>
       <argument type="service" id="routing.loader.annotation"/>
     </service>
-    <service id=".2_PhpArrayAdapter~RP1Fo0t" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/annotations.php</argument>
+    <service id=".2_PhpArrayAdapter~0MRY_AZ" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
-    <service id=".1_ArrayCache~RP1Fo0t" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
+    <service id=".1_ArrayCache~0MRY_AZ" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
@@ -2520,7 +2556,7 @@
     <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\CachedReader" public="false">
       <tag name="annotations.cached_reader"/>
       <argument type="service" id="annotations.reader"/>
-      <argument type="service" id=".1_ArrayCache~RP1Fo0t"/>
+      <argument type="service" id=".1_ArrayCache~0MRY_AZ"/>
       <argument>true</argument>
       <property name="cacheProviderBackup" type="service" id="annotations.cache"/>
     </service>
@@ -2530,12 +2566,12 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/annotations.php</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/annotations.php</argument>
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!AbstractController$|Controller$))#</argument>
       <argument>true</argument>
     </service>
     <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider" public="false">
-      <argument type="service" id=".2_PhpArrayAdapter~RP1Fo0t"/>
+      <argument type="service" id=".2_PhpArrayAdapter~0MRY_AZ"/>
     </service>
     <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor" public="false">
       <argument>false</argument>
@@ -2613,10 +2649,10 @@
           </service>
         </argument>
       </argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/serialization.php</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface" public="false">
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/serialization.php</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -2726,6 +2762,11 @@
         <argument type="service" id="framework_extra_bundle.date_time_param_converter"/>
         <argument>0</argument>
         <argument>datetime</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id="fos_rest.converter.request_body"/>
+        <argument>-50</argument>
+        <argument>fos_rest.request_body</argument>
       </call>
     </service>
     <service id="sensio_framework_extra.converter.doctrine.orm" class="Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter" public="false">
@@ -2886,7 +2927,7 @@
       </argument>
       <factory service="doctrine.dbal.connection_factory" method="createConnection"/>
     </service>
-    <service id=".1_ServiceLocator~NSbNyeM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".1_ServiceLocator~G9ttlZs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument type="collection"/>
     </service>
     <service id="doctrine.orm.proxy_cache_warmer" class="Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer" public="false">
@@ -3045,7 +3086,7 @@
         <argument type="service" id="doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/doctrine/orm/Proxies</argument>
+        <argument>/var/www/html/apotheose/devback/var/cache/dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -3071,11 +3112,15 @@
       <call method="setRepositoryFactory">
         <argument type="service" id="doctrine.orm.container_repository_factory"/>
       </call>
+      <call method="addCustomNumericFunction">
+        <argument>Rand</argument>
+        <argument>App\Repository\DQL\Rand</argument>
+      </call>
     </service>
     <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="collection">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/src/Entity</argument>
+        <argument>/var/www/html/apotheose/devback/src/Entity</argument>
       </argument>
     </service>
     <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
@@ -3086,17 +3131,17 @@
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache" public="true">
       <call method="setNamespace">
-        <argument>sf_orm_default_91b9cb0f9d58dd5d1734a701d2cfd0fcce6c122767500b0f8ae816f4294f5c39</argument>
+        <argument>sf_orm_default_0f6bcf218fb1053289d96289ae0d093ed230a8653d08523d31224f867a949b25</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache" public="true">
       <call method="setNamespace">
-        <argument>sf_orm_default_91b9cb0f9d58dd5d1734a701d2cfd0fcce6c122767500b0f8ae816f4294f5c39</argument>
+        <argument>sf_orm_default_0f6bcf218fb1053289d96289ae0d093ed230a8653d08523d31224f867a949b25</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache" public="true">
       <call method="setNamespace">
-        <argument>sf_orm_default_91b9cb0f9d58dd5d1734a701d2cfd0fcce6c122767500b0f8ae816f4294f5c39</argument>
+        <argument>sf_orm_default_0f6bcf218fb1053289d96289ae0d093ed230a8653d08523d31224f867a949b25</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver">
@@ -3716,10 +3761,10 @@
         <argument>security:encode-password</argument>
       </call>
     </service>
-    <service id=".4_Swift_Transport_Esmtp_Auth_NTLMAuthenticator~eT8Zvyv" class="Swift_Transport_Esmtp_Auth_NTLMAuthenticator" public="false"/>
-    <service id=".3_Swift_Transport_Esmtp_Auth_PlainAuthenticator~eT8Zvyv" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator" public="false"/>
-    <service id=".2_Swift_Transport_Esmtp_Auth_LoginAuthenticator~eT8Zvyv" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator" public="false"/>
-    <service id=".1_Swift_Transport_Esmtp_Auth_CramMd5Authenticator~eT8Zvyv" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" public="false"/>
+    <service id=".4_Swift_Transport_Esmtp_Auth_NTLMAuthenticator~BKTH_AN" class="Swift_Transport_Esmtp_Auth_NTLMAuthenticator" public="false"/>
+    <service id=".3_Swift_Transport_Esmtp_Auth_PlainAuthenticator~BKTH_AN" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator" public="false"/>
+    <service id=".2_Swift_Transport_Esmtp_Auth_LoginAuthenticator~BKTH_AN" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator" public="false"/>
+    <service id=".1_Swift_Transport_Esmtp_Auth_CramMd5Authenticator~BKTH_AN" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" public="false"/>
     <service id="swiftmailer.mailer.abstract" class="Swift_Mailer" public="true" abstract="true">
       <argument type="service" id="swiftmailer.mailer.default.transport.spool"/>
     </service>
@@ -3732,10 +3777,10 @@
     </service>
     <service id="swiftmailer.transport.authhandler.abstract" class="Swift_Transport_Esmtp_AuthHandler" public="false" abstract="true">
       <argument type="collection">
-        <argument type="service" id=".1_Swift_Transport_Esmtp_Auth_CramMd5Authenticator~eT8Zvyv"/>
-        <argument type="service" id=".2_Swift_Transport_Esmtp_Auth_LoginAuthenticator~eT8Zvyv"/>
-        <argument type="service" id=".3_Swift_Transport_Esmtp_Auth_PlainAuthenticator~eT8Zvyv"/>
-        <argument type="service" id=".4_Swift_Transport_Esmtp_Auth_NTLMAuthenticator~eT8Zvyv"/>
+        <argument type="service" id=".1_Swift_Transport_Esmtp_Auth_CramMd5Authenticator~BKTH_AN"/>
+        <argument type="service" id=".2_Swift_Transport_Esmtp_Auth_LoginAuthenticator~BKTH_AN"/>
+        <argument type="service" id=".3_Swift_Transport_Esmtp_Auth_PlainAuthenticator~BKTH_AN"/>
+        <argument type="service" id=".4_Swift_Transport_Esmtp_Auth_NTLMAuthenticator~BKTH_AN"/>
       </argument>
     </service>
     <service id="swiftmailer.transport.eventdispatcher.abstract" class="Swift_Events_SimpleEventDispatcher" public="false" abstract="true"/>
@@ -3747,7 +3792,7 @@
     <service id="swiftmailer.transport.smtp.abstract" class="Swift_Transport_EsmtpTransport" public="false" abstract="true"/>
     <service id="swiftmailer.transport.spool.abstract" class="Swift_Transport_SpoolTransport" public="false" abstract="true"/>
     <service id="swiftmailer.spool.file.abstract" class="Swift_FileSpool" public="false" abstract="true">
-      <argument>/var/www/html/GameHub/JV-Theque/devback/src/../data/swiftmailer/spool</argument>
+      <argument>/var/www/html/apotheose/devback/src/../data/swiftmailer/spool</argument>
     </service>
     <service id="swiftmailer.spool.memory.abstract" class="Swift_MemorySpool" public="false" abstract="true"/>
     <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
@@ -3815,7 +3860,7 @@
     <service id="twig" class="Twig\Environment" public="true">
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
-        <argument key="default_path">/var/www/html/GameHub/JV-Theque/devback/templates</argument>
+        <argument key="default_path">/var/www/html/apotheose/devback/templates</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
         <argument key="form_themes" type="collection">
@@ -3824,7 +3869,7 @@
         </argument>
         <argument key="exception_controller">twig.controller.exception::showAction</argument>
         <argument key="autoescape">name</argument>
-        <argument key="cache">/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/twig</argument>
+        <argument key="cache">/var/www/html/apotheose/devback/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
         <argument key="date" type="collection">
@@ -3921,16 +3966,16 @@
       <argument type="service" id=".service_locator.lSIKWsr.twig.cache_warmer"/>
       <argument>null</argument>
       <argument type="collection">
-        <argument key="/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bridge/Resources/views/Form">null</argument>
+        <argument key="/var/www/html/apotheose/devback/vendor/symfony/twig-bridge/Resources/views/Form">null</argument>
       </argument>
     </service>
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
       <argument type="service" id="kernel"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/src</argument>
+      <argument>/var/www/html/apotheose/devback/src</argument>
       <argument type="collection">
-        <argument key="/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bridge/Resources/views/Form">null</argument>
+        <argument key="/var/www/html/apotheose/devback/vendor/symfony/twig-bridge/Resources/views/Form">null</argument>
       </argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/templates</argument>
+      <argument>/var/www/html/apotheose/devback/templates</argument>
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
@@ -3941,68 +3986,68 @@
     <service id="twig.loader.native_filesystem" class="Symfony\Bundle\TwigBundle\Loader\NativeFilesystemLoader" public="false">
       <tag name="twig.loader"/>
       <argument type="collection"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/framework-bundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/framework-bundle/Resources/views</argument>
         <argument>!Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>!Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/security-bundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/security-bundle/Resources/views</argument>
         <argument>!Security</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>!Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/twig-bundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/twig-bundle/Resources/views</argument>
         <argument>!Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle/Resources/views</argument>
         <argument>!WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/debug-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/debug-bundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/debug-bundle/Resources/views</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/debug-bundle/Resources/views</argument>
         <argument>!Debug</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/templates</argument>
+        <argument>/var/www/html/apotheose/devback/templates</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bridge/Resources/views/Form</argument>
+        <argument>/var/www/html/apotheose/devback/vendor/symfony/twig-bridge/Resources/views/Form</argument>
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader" public="false"/>
@@ -4028,7 +4073,7 @@
     <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension" public="false">
@@ -4112,10 +4157,10 @@
     <service id="twig.command.debug" class="Symfony\Bridge\Twig\Command\DebugCommand" public="false">
       <tag name="console.command" command="debug:twig"/>
       <argument type="service" id="twig"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
       <argument>%kernel.bundles_metadata%</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/templates</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/src</argument>
+      <argument>/var/www/html/apotheose/devback/templates</argument>
+      <argument>/var/www/html/apotheose/devback/src</argument>
       <call method="setName">
         <argument>debug:twig</argument>
       </call>
@@ -4127,7 +4172,7 @@
         <argument>lint:twig</argument>
       </call>
     </service>
-    <service id=".2_HtmlDumper~TWuZ3j6" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
+    <service id=".2_HtmlDumper~i6eXNa0" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
       <argument>null</argument>
       <argument>UTF-8</argument>
       <argument>1</argument>
@@ -4138,14 +4183,14 @@
         </argument>
       </call>
     </service>
-    <service id=".1_NonceGenerator~TWuZ3j6" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
+    <service id=".1_NonceGenerator~i6eXNa0" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController" public="true">
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
       <argument type="service" id="twig"/>
       <argument>%data_collector.templates%</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
     </service>
     <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController" public="true">
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -4159,11 +4204,11 @@
       <argument type="service" id="debug.file_link_formatter"/>
     </service>
     <service id="web_profiler.csp.handler" class="Symfony\Bundle\WebProfilerBundle\Csp\ContentSecurityPolicyHandler" public="false">
-      <argument type="service" id=".1_NonceGenerator~TWuZ3j6"/>
+      <argument type="service" id=".1_NonceGenerator~i6eXNa0"/>
     </service>
     <service id="twig.extension.webprofiler" class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
       <tag name="twig.extension"/>
-      <argument type="service" id=".2_HtmlDumper~TWuZ3j6"/>
+      <argument type="service" id=".2_HtmlDumper~i6eXNa0"/>
     </service>
     <service id="debug.file_link_formatter.url_format" class="string" public="false">
       <argument type="service" id="router.default"/>
@@ -4218,7 +4263,7 @@
     </service>
     <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor" public="false"/>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/log/dev.log</argument>
+      <argument>/var/www/html/apotheose/devback/var/log/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -4232,19 +4277,19 @@
       <argument>true</argument>
       <argument type="collection"/>
     </service>
-    <service id=".5_HtmlDescriptor~meceLE0" class="Symfony\Component\VarDumper\Command\Descriptor\HtmlDescriptor" public="false">
+    <service id=".5_HtmlDescriptor~x9O05eo" class="Symfony\Component\VarDumper\Command\Descriptor\HtmlDescriptor" public="false">
       <argument type="service" id="var_dumper.html_dumper"/>
     </service>
-    <service id=".4_CliDescriptor~meceLE0" class="Symfony\Component\VarDumper\Command\Descriptor\CliDescriptor" public="false">
+    <service id=".4_CliDescriptor~x9O05eo" class="Symfony\Component\VarDumper\Command\Descriptor\CliDescriptor" public="false">
       <argument type="service" id="var_dumper.cli_dumper"/>
     </service>
-    <service id=".3_CliContextProvider~meceLE0" class="Symfony\Component\VarDumper\Dumper\ContextProvider\CliContextProvider" public="false"/>
-    <service id=".2_RequestContextProvider~meceLE0" class="Symfony\Component\VarDumper\Dumper\ContextProvider\RequestContextProvider" public="false">
+    <service id=".3_CliContextProvider~x9O05eo" class="Symfony\Component\VarDumper\Dumper\ContextProvider\CliContextProvider" public="false"/>
+    <service id=".2_RequestContextProvider~x9O05eo" class="Symfony\Component\VarDumper\Dumper\ContextProvider\RequestContextProvider" public="false">
       <argument type="service" id="request_stack"/>
     </service>
-    <service id=".1_SourceContextProvider~meceLE0" class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider" public="false">
+    <service id=".1_SourceContextProvider~x9O05eo" class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider" public="false">
       <argument>UTF-8</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
     </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
@@ -4295,9 +4340,9 @@
     <service id="var_dumper.server_connection" class="Symfony\Component\VarDumper\Server\Connection" public="false">
       <argument>tcp://%env(VAR_DUMPER_SERVER)%</argument>
       <argument type="collection">
-        <argument key="source" type="service" id=".1_SourceContextProvider~meceLE0"/>
-        <argument key="request" type="service" id=".2_RequestContextProvider~meceLE0"/>
-        <argument key="cli" type="service" id=".3_CliContextProvider~meceLE0"/>
+        <argument key="source" type="service" id=".1_SourceContextProvider~x9O05eo"/>
+        <argument key="request" type="service" id=".2_RequestContextProvider~x9O05eo"/>
+        <argument key="cli" type="service" id=".3_CliContextProvider~x9O05eo"/>
       </argument>
     </service>
     <service id="var_dumper.dump_server" class="Symfony\Component\VarDumper\Server\DumpServer" public="false">
@@ -4309,8 +4354,8 @@
       <tag name="console.command" command="server:dump"/>
       <argument type="service" id="var_dumper.dump_server"/>
       <argument type="collection">
-        <argument key="cli" type="service" id=".4_CliDescriptor~meceLE0"/>
-        <argument key="html" type="service" id=".5_HtmlDescriptor~meceLE0"/>
+        <argument key="cli" type="service" id=".4_CliDescriptor~x9O05eo"/>
+        <argument key="html" type="service" id=".5_HtmlDescriptor~x9O05eo"/>
       </argument>
       <call method="setName">
         <argument>server:dump</argument>
@@ -4319,7 +4364,7 @@
     <service id="maker.file_manager" class="Symfony\Bundle\MakerBundle\FileManager" public="false">
       <argument type="service" id="filesystem"/>
       <argument type="service" id="maker.autoloader_util"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
     </service>
     <service id="maker.autoloader_finder" class="Symfony\Bundle\MakerBundle\Util\ComposerAutoloaderFinder" public="false"/>
     <service id="maker.autoloader_util" class="Symfony\Bundle\MakerBundle\Util\AutoloaderUtil" public="false">
@@ -4375,7 +4420,7 @@
       <tag name="maker.command"/>
       <argument type="service" id="maker.file_manager"/>
       <argument type="service" id="maker.doctrine_helper"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
       <argument type="service" id="maker.generator"/>
     </service>
     <service id="maker.maker.make_fixtures" class="Symfony\Bundle\MakerBundle\Maker\MakeFixtures" public="false">
@@ -4425,11 +4470,11 @@
     </service>
     <service id="maker.maker.make_migration" class="Symfony\Bundle\MakerBundle\Maker\MakeMigration" public="false">
       <tag name="maker.command"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback</argument>
+      <argument>/var/www/html/apotheose/devback</argument>
     </service>
     <service id="web_server.command.server_run" class="Symfony\Bundle\WebServerBundle\Command\ServerRunCommand" public="false">
       <tag name="console.command" command="server:run"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/public</argument>
+      <argument>/var/www/html/apotheose/devback/public</argument>
       <argument>dev</argument>
       <call method="setName">
         <argument>server:run</argument>
@@ -4437,7 +4482,7 @@
     </service>
     <service id="web_server.command.server_start" class="Symfony\Bundle\WebServerBundle\Command\ServerStartCommand" public="false">
       <tag name="console.command" command="server:start"/>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/public</argument>
+      <argument>/var/www/html/apotheose/devback/public</argument>
       <argument>dev</argument>
       <call method="setName">
         <argument>server:start</argument>
@@ -4469,7 +4514,6 @@
       <argument type="service" id="request_stack"/>
       <argument type="collection">
         <argument key="json">false</argument>
-        <argument key="xml">false</argument>
         <argument key="html">true</argument>
       </argument>
       <argument>400</argument>
@@ -4480,7 +4524,7 @@
       </argument>
       <argument>twig</argument>
       <argument type="collection">
-        <argument key="serializeNullStrategy">false</argument>
+        <argument key="serializeNullStrategy">true</argument>
       </argument>
     </service>
     <service id="fos_rest.view_handler.jsonp" class="FOS\RestBundle\View\JsonpHandler" public="false">
@@ -4504,10 +4548,9 @@
       <tag name="routing.loader"/>
       <argument type="service" id="file_locator"/>
       <argument type="service" id="fos_rest.routing.loader.processor"/>
-      <argument>false</argument>
+      <argument>true</argument>
       <argument type="collection">
         <argument key="json">false</argument>
-        <argument key="xml">false</argument>
         <argument key="html">true</argument>
       </argument>
       <argument>null</argument>
@@ -4516,10 +4559,9 @@
       <tag name="routing.loader"/>
       <argument type="service" id="file_locator"/>
       <argument type="service" id="fos_rest.routing.loader.processor"/>
-      <argument>false</argument>
+      <argument>true</argument>
       <argument type="collection">
         <argument key="json">false</argument>
-        <argument key="xml">false</argument>
         <argument key="html">true</argument>
       </argument>
       <argument>null</argument>
@@ -4532,10 +4574,9 @@
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="service" id="fos_rest.request.param_fetcher.reader"/>
       <argument type="service" id="fos_rest.inflector.doctrine"/>
-      <argument>false</argument>
+      <argument>true</argument>
       <argument type="collection">
         <argument key="json">false</argument>
-        <argument key="xml">false</argument>
         <argument key="html">true</argument>
       </argument>
       <argument>true</argument>
@@ -4560,6 +4601,14 @@
     </service>
     <service id="fos_rest.serializer.form_error_normalizer" class="FOS\RestBundle\Serializer\Normalizer\FormErrorNormalizer" public="false">
       <tag name="serializer.normalizer" priority="-10"/>
+    </service>
+    <service id="fos_rest.converter.request_body" class="FOS\RestBundle\Request\RequestBodyParamConverter" public="false">
+      <tag name="request.param_converter" converter="fos_rest.request_body" priority="-50"/>
+      <argument type="service" id="fos_rest.serializer.symfony"/>
+      <argument type="collection"/>
+      <argument></argument>
+      <argument>null</argument>
+      <argument>validationErrors</argument>
     </service>
     <service id="fos_rest.view_response_listener" class="FOS\RestBundle\EventListener\ViewResponseListener">
       <tag name="kernel.event_subscriber"/>
@@ -4617,31 +4666,526 @@
       <call method="add">
         <argument type="service" id="fos_rest.request_matcher.2364365e6bb6bfd5cadeda231e59db9139fadac2b673beb794ba3c0068839a899dc3c386"/>
         <argument type="collection">
-          <argument key="prefer_extension">2.0</argument>
-          <argument key="fallback_format">json</argument>
           <argument key="priorities" type="collection">
             <argument>json</argument>
           </argument>
+          <argument key="fallback_format">json</argument>
           <argument key="methods">null</argument>
           <argument key="attributes" type="collection"/>
           <argument key="stop">false</argument>
+          <argument key="prefer_extension">2.0</argument>
+        </argument>
+      </call>
+      <call method="add">
+        <argument type="service" id="fos_rest.request_matcher.69e9d3fd562e0ecffc5bce0c68d3b7a673d187934b742bc76452558275bbd7611198d478"/>
+        <argument type="collection">
+          <argument key="priorities" type="collection">
+            <argument>html</argument>
+          </argument>
+          <argument key="fallback_format">html</argument>
+          <argument key="methods">null</argument>
+          <argument key="attributes" type="collection"/>
+          <argument key="stop">false</argument>
+          <argument key="prefer_extension">2.0</argument>
         </argument>
       </call>
     </service>
     <service id="fos_rest.format_request_matcher" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false" abstract="true"/>
-    <service id="fos_rest.zone_matcher_listener" class="FOS\RestBundle\EventListener\ZoneMatcherListener">
-      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="248"/>
-      <tag name="container.hot_path"/>
-      <call method="addRequestMatcher">
-        <argument type="service" id="fos_rest.zone_request_matcher.b417c83ef2bcf459b4b2bb1e5a42d5c86f974ffd6bfe73357a9f04d46025529306a33be3"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.simple_fixture_bag_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SimpleFixtureBagDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.tolerant_denormalizer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.flag_parser.element"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.tolerant_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\TolerantFixtureDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.registry_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.registry_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\FixtureDenormalizerRegistry">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.flag_parser.element"/>
+      <argument type="collection">
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.simple_list"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.reference_range_name"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.simple_range"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.simple"/>
+      </argument>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.null_list" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\Chainable\NullListNameDenormalizer"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.temporary_list" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\Chainable\CollectionDenormalizerWithTemporaryFixture">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.null_list"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.simple_list" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\Chainable\SimpleCollectionDenormalizer">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_fixture_denormalizer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.temporary_list"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.null_range" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\Chainable\NullRangeNameDenormalizer"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.reference_range_name" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\Chainable\ReferenceRangeNameDenormalizer">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_fixture_denormalizer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.specs.simple"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.temporary_range" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\Chainable\CollectionDenormalizerWithTemporaryFixture">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.null_range"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.simple_range" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\Chainable\SimpleCollectionDenormalizer">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_fixture_denormalizer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.temporary_range"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.chainable.simple" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\Chainable\SimpleDenormalizer">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_fixture_denormalizer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.specs.simple"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.specs.simple" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\SimpleSpecificationsDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.constructor.legacy_constructor_denormalizer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.property.simple_denormalizer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.simple_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.constructor.legacy_constructor_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Constructor\LegacyConstructorDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.constructor.constructor_denormalizer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.constructor.factory_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.constructor.factory_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Constructor\FactoryDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.simple_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.constructor.constructor_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Constructor\ConstructorDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.arguments.simple_arguments_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.arguments.simple_arguments_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Arguments\SimpleArgumentsDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.value.unique_value_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.value.unique_value_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Value\UniqueValueDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.value.simple_value_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.value.simple_value_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Value\SimpleValueDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.function_fixture_reference_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.property.simple_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Property\SimplePropertyDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.value.unique_value_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.simple_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Calls\CallsWithFlagsDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.function_denormalizer"/>
+      <argument type="collection">
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.method_flag_handler.configurator_flag_handler"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.method_flag_handler.optional_flag_handler"/>
+      </argument>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.function_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Calls\FunctionDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.arguments.simple_arguments_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.method_flag_handler.configurator_flag_handler" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Calls\MethodFlagHandler\ConfiguratorFlagHandler">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_method_flag_handler"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.method_flag_handler.optional_flag_handler" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Fixture\SpecificationBagDenormalizer\Calls\MethodFlagHandler\OptionalFlagHandler">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_method_flag_handler"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.flag_parser.element" class="Nelmio\Alice\FixtureBuilder\Denormalizer\FlagParser\ElementFlagParser">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.flag_parser.registry"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.flag_parser.registry" class="Nelmio\Alice\FixtureBuilder\Denormalizer\FlagParser\FlagParserRegistry">
+      <argument type="collection">
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.configurator"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.extend"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.optional"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.template"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.unique"/>
+      </argument>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.configurator" class="Nelmio\Alice\FixtureBuilder\Denormalizer\FlagParser\Chainable\ConfiguratorFlagParser">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_flag_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.extend" class="Nelmio\Alice\FixtureBuilder\Denormalizer\FlagParser\Chainable\ExtendFlagParser">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_flag_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.optional" class="Nelmio\Alice\FixtureBuilder\Denormalizer\FlagParser\Chainable\OptionalFlagParser">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_flag_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.template" class="Nelmio\Alice\FixtureBuilder\Denormalizer\FlagParser\Chainable\TemplateFlagParser">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_flag_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.flag_parser.chainable.unique" class="Nelmio\Alice\FixtureBuilder\Denormalizer\FlagParser\Chainable\UniqueFlagParser">
+      <tag name="nelmio_alice.fixture_builder.denormalizer.chainable_flag_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.lexer.empty_value_lexer" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Lexer\EmptyValueLexer">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.lexer.reference_escaper_lexer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.lexer.reference_escaper_lexer" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Lexer\ReferenceEscaperLexer">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.lexer.globals_patterns_lexer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.lexer.globals_patterns_lexer" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Lexer\GlobalPatternsLexer">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.lexer.function_lexer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.lexer.function_lexer" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Lexer\FunctionLexer">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.lexer.string_then_reference_lexer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.lexer.string_then_reference_lexer" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Lexer\StringThenReferenceLexer">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.lexer.sub_patterns_lexer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.lexer.sub_patterns_lexer" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Lexer\SubPatternsLexer">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.lexer.reference_lexer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.lexer.reference_lexer" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Lexer\ReferenceLexer"/>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.registry" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\TokenParserRegistry">
+      <argument type="collection">
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.dynamic_array_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.escaped_value_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.fixture_list_reference_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.fixture_method_reference_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.fixture_range_reference_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.method_reference_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.optional_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.parameter_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.property_reference_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.variable_reference_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.simple_reference_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.string_array_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.string_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.tolerant_function_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.variable_token_parser"/>
+        <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.wildcard_reference_token_parser"/>
+      </argument>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.argument_escaper" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\ArgumentEscaper"/>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.dynamic_array_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\DynamicArrayTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.escaped_value_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\EscapedValueTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.fixture_list_reference_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\FixtureListReferenceTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.fixture_method_reference_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\FixtureMethodReferenceTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.fixture_range_reference_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\FixtureRangeReferenceTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.method_reference_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\MethodReferenceTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.optional_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\OptionalTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.parameter_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\ParameterTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.property_reference_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\PropertyReferenceTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.variable_reference_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\VariableReferenceTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.simple_reference_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\SimpleReferenceTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.string_array_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\StringArrayTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.string_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\StringTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.argument_escaper"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.tolerant_function_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\TolerantFunctionTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.identity_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.identity_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\IdentityTokenParser">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.function_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.function_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\FunctionTokenParser">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.argument_escaper"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.variable_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\VariableTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.chainable.wildcard_reference_token_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\TokenParser\Chainable\WildcardReferenceTokenParser">
+      <tag name="nelmio_alice.fixture_builder.expression_language.chainable_token_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.function_fixture_reference_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\FunctionFixtureReferenceParser">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.string_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.string_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\StringMergerParser">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.simple_parser"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.simple_parser" class="Nelmio\Alice\FixtureBuilder\ExpressionLanguage\Parser\SimpleParser">
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.lexer.empty_value_lexer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.expression_language.parser.token_parser.registry"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.simple" class="Nelmio\Alice\FixtureBuilder\SimpleBuilder">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.simple"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.simple" class="Nelmio\Alice\FixtureBuilder\Denormalizer\SimpleDenormalizer">
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.parameter.simple_parameter_bag_denormalizer"/>
+      <argument type="service" id="nelmio_alice.fixture_builder.denormalizer.fixture.simple_fixture_bag_denormalizer"/>
+    </service>
+    <service id="nelmio_alice.fixture_builder.denormalizer.parameter.simple_parameter_bag_denormalizer" class="Nelmio\Alice\FixtureBuilder\Denormalizer\Parameter\SimpleParameterBagDenormalizer"/>
+    <service id="nelmio_alice.generator.resolver.value.registry" class="Nelmio\Alice\Generator\Resolver\Value\ValueResolverRegistry">
+      <argument type="collection">
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.array_value_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.dynamic_array_value_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.evaluated_value_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.function_argument_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.fixture_property_reference_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.fixture_method_call_reference_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.unresolved_fixture_reference_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.fixture_wildcard_reference_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.list_value_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.optional_value_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.parameter_value_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.unique_value_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.value_for_current_value_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.variable_value_resolver"/>
+      </argument>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.unique_values_pool" class="Nelmio\Alice\Generator\Resolver\UniqueValuesPool"/>
+    <service id="nelmio_alice.generator.resolver.value.chainable.array_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\ArrayValueResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.dynamic_array_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\DynamicArrayValueResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.evaluated_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\EvaluatedValueResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.faker_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\FakerFunctionCallValueResolver">
+      <argument type="service" id="nelmio_alice.faker.generator"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.php_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\PhpFunctionCallValueResolver">
+      <argument>%nelmio_alice.functions_blacklist%</argument>
+      <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.faker_value_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.function_argument_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\FunctionCallArgumentResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+      <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.php_value_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.fixture_property_reference_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\FixturePropertyReferenceResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+      <argument type="service" id="nelmio_alice.property_accessor.std"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.fixture_method_call_reference_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\FixtureMethodCallReferenceResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.fixture_reference_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\FixtureReferenceResolver"/>
+    <service id="nelmio_alice.generator.resolver.value.chainable.self_fixture_reference_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\SelfFixtureReferenceResolver">
+      <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.fixture_reference_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.unresolved_fixture_reference_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\UnresolvedFixtureReferenceIdResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+      <argument type="service" id="nelmio_alice.generator.resolver.value.chainable.self_fixture_reference_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.fixture_wildcard_reference_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\FixtureWildcardReferenceResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.list_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\ListValueResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.optional_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\OptionalValueResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.parameter_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\ParameterValueResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.unique_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\UniqueValueResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+      <argument type="service" id="nelmio_alice.generator.resolver.value.unique_values_pool"/>
+      <argument>null</argument>
+      <argument>150</argument>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.value_for_current_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\ValueForCurrentValueResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.value.chainable.variable_value_resolver" class="Nelmio\Alice\Generator\Resolver\Value\Chainable\VariableValueResolver">
+      <tag name="nelmio_alice.generator.resolver.value.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.fixture_bag.template_bag" class="Nelmio\Alice\Generator\Resolver\Fixture\TemplateFixtureBagResolver"/>
+    <service id="nelmio_alice.generator.resolver.fixture_set.remove_conflicting_objects" class="Nelmio\Alice\Generator\Resolver\FixtureSet\RemoveConflictingObjectsResolver">
+      <argument type="service" id="nelmio_alice.generator.resolver.fixture_set.simple"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.fixture_set.simple" class="Nelmio\Alice\Generator\Resolver\FixtureSet\SimpleFixtureSetResolver">
+      <argument type="service" id="nelmio_alice.generator.resolver.parameter_bag.remove_conflicting_parameters"/>
+      <argument type="service" id="nelmio_alice.generator.resolver.fixture_bag.template_bag"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.parameter_bag.remove_conflicting_parameters" class="Nelmio\Alice\Generator\Resolver\Parameter\RemoveConflictingParametersParameterBagResolver">
+      <argument type="service" id="nelmio_alice.generator.resolver.parameter_bag.simple"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.parameter_bag.simple" class="Nelmio\Alice\Generator\Resolver\Parameter\SimpleParameterBagResolver">
+      <argument type="service" id="nelmio_alice.generator.resolver.parameter.registry"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.parameter.registry" class="Nelmio\Alice\Generator\Resolver\Parameter\ParameterResolverRegistry">
+      <argument type="collection">
+        <argument type="service" id="nelmio_alice.generator.resolver.parameter.chainable.static_parameter_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.parameter.chainable.array_parameter_resolver"/>
+        <argument type="service" id="nelmio_alice.generator.resolver.parameter.chainable.recursive_parameter_resolver"/>
+      </argument>
+    </service>
+    <service id="nelmio_alice.generator.resolver.parameter.chainable.static_parameter_resolver" class="Nelmio\Alice\Generator\Resolver\Parameter\Chainable\StaticParameterResolver">
+      <tag name="nelmio_alice.generator.resolver.parameter.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.parameter.chainable.array_parameter_resolver" class="Nelmio\Alice\Generator\Resolver\Parameter\Chainable\ArrayParameterResolver">
+      <tag name="nelmio_alice.generator.resolver.parameter.chainable_resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.resolver.parameter.chainable.recursive_parameter_resolver" class="Nelmio\Alice\Generator\Resolver\Parameter\Chainable\RecursiveParameterResolver">
+      <tag name="nelmio_alice.generator.resolver.parameter.chainable_resolver"/>
+      <argument type="service" id="nelmio_alice.generator.resolver.parameter.chainable.string_parameter_resolver"/>
+      <argument>5</argument>
+    </service>
+    <service id="nelmio_alice.generator.resolver.parameter.chainable.string_parameter_resolver" class="Nelmio\Alice\Generator\Resolver\Parameter\Chainable\StringParameterResolver"/>
+    <service id="nelmio_alice.generator.hydrator.simple" class="Nelmio\Alice\Generator\Hydrator\SimpleHydrator">
+      <argument type="service" id="nelmio_alice.generator.hydrator.property.symfony_property_access"/>
+    </service>
+    <service id="nelmio_alice.generator.hydrator.property.symfony_property_access" class="Nelmio\Alice\Generator\Hydrator\Property\SymfonyPropertyAccessorHydrator">
+      <argument type="service" id="nelmio_alice.property_accessor.std"/>
+    </service>
+    <service id="nelmio_alice.generator.instantiator.existing_instance" class="Nelmio\Alice\Generator\Instantiator\ExistingInstanceInstantiator">
+      <argument type="service" id="nelmio_alice.generator.instantiator.resolver"/>
+    </service>
+    <service id="nelmio_alice.generator.instantiator.resolver" class="Nelmio\Alice\Generator\Instantiator\InstantiatorResolver">
+      <argument type="service" id="nelmio_alice.generator.instantiator.registry"/>
+    </service>
+    <service id="nelmio_alice.generator.instantiator.registry" class="Nelmio\Alice\Generator\Instantiator\InstantiatorRegistry">
+      <argument type="collection">
+        <argument type="service" id="nelmio_alice.generator.instantiator.chainable.no_caller_method_instantiator"/>
+        <argument type="service" id="nelmio_alice.generator.instantiator.chainable.null_constructor_instantiator"/>
+        <argument type="service" id="nelmio_alice.generator.instantiator.chainable.no_method_call_instantiator"/>
+        <argument type="service" id="nelmio_alice.generator.instantiator.chainable.static_factory_instantiator"/>
+      </argument>
+    </service>
+    <service id="nelmio_alice.generator.instantiator.chainable.no_caller_method_instantiator" class="Nelmio\Alice\Generator\Instantiator\Chainable\NoCallerMethodCallInstantiator">
+      <tag name="nelmio_alice.generator.instantiator.chainable_instantiator"/>
+    </service>
+    <service id="nelmio_alice.generator.instantiator.chainable.null_constructor_instantiator" class="Nelmio\Alice\Generator\Instantiator\Chainable\NullConstructorInstantiator">
+      <tag name="nelmio_alice.generator.instantiator.chainable_instantiator"/>
+    </service>
+    <service id="nelmio_alice.generator.instantiator.chainable.no_method_call_instantiator" class="Nelmio\Alice\Generator\Instantiator\Chainable\NoMethodCallInstantiator">
+      <tag name="nelmio_alice.generator.instantiator.chainable_instantiator"/>
+    </service>
+    <service id="nelmio_alice.generator.instantiator.chainable.static_factory_instantiator" class="Nelmio\Alice\Generator\Instantiator\Chainable\StaticFactoryInstantiator">
+      <tag name="nelmio_alice.generator.instantiator.chainable_instantiator"/>
+    </service>
+    <service id="nelmio_alice.generator.caller.simple" class="Nelmio\Alice\Generator\Caller\SimpleCaller">
+      <argument type="service" id="nelmio_alice.generator.caller.registry"/>
+      <argument type="service" id="nelmio_alice.generator.resolver.value.registry"/>
+    </service>
+    <service id="nelmio_alice.generator.caller.registry" class="Nelmio\Alice\Generator\Caller\CallProcessorRegistry">
+      <argument type="collection">
+        <argument type="service" id="nelmio_alice.generator.caller.chainable.configurator_method_call"/>
+        <argument type="service" id="nelmio_alice.generator.caller.chainable.method_call_with_reference"/>
+        <argument type="service" id="nelmio_alice.generator.caller.chainable.optional_method_call"/>
+        <argument type="service" id="nelmio_alice.generator.caller.chainable.simple_call"/>
+      </argument>
+    </service>
+    <service id="nelmio_alice.generator.caller.chainable.configurator_method_call" class="Nelmio\Alice\Generator\Caller\Chainable\ConfiguratorMethodCallProcessor">
+      <tag name="nelmio_alice.generator.caller.chainable_call_processor"/>
+    </service>
+    <service id="nelmio_alice.generator.caller.chainable.method_call_with_reference" class="Nelmio\Alice\Generator\Caller\Chainable\MethodCallWithReferenceProcessor">
+      <tag name="nelmio_alice.generator.caller.chainable_call_processor"/>
+    </service>
+    <service id="nelmio_alice.generator.caller.chainable.optional_method_call" class="Nelmio\Alice\Generator\Caller\Chainable\OptionalMethodCallProcessor">
+      <tag name="nelmio_alice.generator.caller.chainable_call_processor"/>
+    </service>
+    <service id="nelmio_alice.generator.caller.chainable.simple_call" class="Nelmio\Alice\Generator\Caller\Chainable\SimpleMethodCallProcessor">
+      <tag name="nelmio_alice.generator.caller.chainable_call_processor"/>
+    </service>
+    <service id="nelmio_alice.generator.double_pass" class="Nelmio\Alice\Generator\DoublePassGenerator">
+      <argument type="service" id="nelmio_alice.generator.resolver.fixture_set.remove_conflicting_objects"/>
+      <argument type="service" id="nelmio_alice.generator.object_generator.complete"/>
+    </service>
+    <service id="nelmio_alice.generator.object_generator.complete" class="Nelmio\Alice\Generator\ObjectGenerator\CompleteObjectGenerator">
+      <argument type="service" id="nelmio_alice.generator.object_generator.simple"/>
+    </service>
+    <service id="nelmio_alice.generator.object_generator.simple" class="Nelmio\Alice\Generator\ObjectGenerator\SimpleObjectGenerator">
+      <argument type="service" id="nelmio_alice.generator.resolver.value.registry"/>
+      <argument type="service" id="nelmio_alice.generator.instantiator.existing_instance"/>
+      <argument type="service" id="nelmio_alice.generator.hydrator.simple"/>
+      <argument type="service" id="nelmio_alice.generator.caller.simple"/>
+    </service>
+    <service id="nelmio_alice.faker.generator" class="Faker\Generator">
+      <argument>en_US</argument>
+      <call method="seed">
+        <argument>1</argument>
+      </call>
+      <call method="addProvider">
+        <argument type="service" id="App\DataFixtures\Faker\CategoryProvider"/>
+      </call>
+      <call method="addProvider">
+        <argument type="service" id="App\DataFixtures\Faker\DeveloperProvider"/>
+      </call>
+      <call method="addProvider">
+        <argument type="service" id="App\DataFixtures\Faker\GameProvider"/>
+      </call>
+      <call method="addProvider">
+        <argument type="service" id="App\DataFixtures\Faker\PlatformProvider"/>
+      </call>
+      <call method="addProvider">
+        <argument type="service" id="nelmio_alice.faker.provider.alice"/>
+      </call>
+      <factory class="Faker\Factory" method="create"/>
+    </service>
+    <service id="nelmio_alice.faker.provider.alice" class="Nelmio\Alice\Faker\Provider\AliceProvider">
+      <tag name="nelmio_alice.faker.provider"/>
+    </service>
+    <service id="nelmio_alice.property_accessor.std" class="Nelmio\Alice\PropertyAccess\StdPropertyAccessor">
+      <argument type="service" id="property_accessor"/>
+    </service>
+    <service id="nelmio_alice.data_loader.simple" class="Nelmio\Alice\Loader\SimpleDataLoader">
+      <argument type="service" id="nelmio_alice.fixture_builder.simple"/>
+      <argument type="service" id="nelmio_alice.generator.double_pass"/>
+    </service>
+    <service id="nelmio_alice.file_loader.simple" class="Nelmio\Alice\Loader\SimpleFileLoader">
+      <argument type="service" id="nelmio_alice.file_parser.runtime_cache"/>
+      <argument type="service" id="nelmio_alice.data_loader.simple"/>
+    </service>
+    <service id="nelmio_alice.files_loader.simple" class="Nelmio\Alice\Loader\SimpleFilesLoader">
+      <argument type="service" id="nelmio_alice.file_parser.runtime_cache"/>
+      <argument type="service" id="nelmio_alice.data_loader.simple"/>
+    </service>
+    <service id="nelmio_alice.file_locator.default" class="Nelmio\Alice\FileLocator\DefaultFileLocator"/>
+    <service id="nelmio_alice.file_parser.runtime_cache" class="Nelmio\Alice\Parser\RuntimeCacheParser">
+      <argument type="service" id="nelmio_alice.file_parser.registry"/>
+      <argument type="service" id="nelmio_alice.file_locator.default"/>
+      <argument type="service" id="nelmio_alice.file_parser.default_include_processor"/>
+    </service>
+    <service id="nelmio_alice.file_parser.symfony_yaml" class="Symfony\Component\Yaml\Parser" public="false"/>
+    <service id="nelmio_alice.file_parser.default_include_processor" class="Nelmio\Alice\Parser\IncludeProcessor\DefaultIncludeProcessor">
+      <argument type="service" id="nelmio_alice.file_locator.default"/>
+    </service>
+    <service id="nelmio_alice.file_parser.registry" class="Nelmio\Alice\Parser\ParserRegistry">
+      <argument type="collection">
+        <argument type="service" id="nelmio_alice.file_parser.chainable.yaml"/>
+        <argument type="service" id="nelmio_alice.file_parser.chainable.php"/>
+        <argument type="service" id="nelmio_alice.file_parser.chainable.json"/>
+      </argument>
+    </service>
+    <service id="nelmio_alice.file_parser.chainable.yaml" class="Nelmio\Alice\Parser\Chainable\YamlParser">
+      <tag name="nelmio_alice.file_parser"/>
+      <argument type="service" id="nelmio_alice.file_parser.symfony_yaml"/>
+    </service>
+    <service id="nelmio_alice.file_parser.chainable.php" class="Nelmio\Alice\Parser\Chainable\PhpParser">
+      <tag name="nelmio_alice.file_parser"/>
+    </service>
+    <service id="nelmio_alice.file_parser.chainable.json" class="Nelmio\Alice\Parser\Chainable\JsonParser">
+      <tag name="nelmio_alice.file_parser"/>
+    </service>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
+      <argument type="service" id="doctrine.fixtures.loader"/>
+      <call method="setName">
+        <argument>doctrine:fixtures:load</argument>
       </call>
     </service>
-    <service id="fos_rest.zone_request_matcher" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false"/>
-    <service id="fos_rest.zone_request_matcher.b417c83ef2bcf459b4b2bb1e5a42d5c86f974ffd6bfe73357a9f04d46025529306a33be3" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/api/*</argument>
+    <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader" public="false">
+      <argument type="service" id="service_container"/>
+      <call method="addFixtures">
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+        </argument>
+      </call>
     </service>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Api\Controller\ApiCategoryController" class="App\Api\Controller\ApiCategoryController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Api\Controller\ApiCategoryController" class="App\Api\Controller\ApiCategoryController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Api\Controller\ApiGameController" class="App\Api\Controller\ApiGameController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Api\Controller\ApiGameController" class="App\Api\Controller\ApiGameController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Api\Controller\ApiScoreController" class="App\Api\Controller\ApiScoreController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Api\Controller\ApiScoreController" class="App\Api\Controller\ApiScoreController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategoryController" class="App\Controller\CategoryController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategoryController" class="App\Controller\CategoryController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CategoryController" class="App\Controller\CategoryController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4663,6 +5207,16 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Faker\Provider\Base.0.App\DataFixtures\Faker\CategoryProvider" class="App\DataFixtures\Faker\CategoryProvider" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\Faker\CategoryProvider" class="App\DataFixtures\Faker\CategoryProvider" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Faker\Provider\Base.0.App\DataFixtures\Faker\DeveloperProvider" class="App\DataFixtures\Faker\DeveloperProvider" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\Faker\DeveloperProvider" class="App\DataFixtures\Faker\DeveloperProvider" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Faker\Provider\Base.0.App\DataFixtures\Faker\GameProvider" class="App\DataFixtures\Faker\GameProvider" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\Faker\GameProvider" class="App\DataFixtures\Faker\GameProvider" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Faker\Provider\Base.0.App\DataFixtures\Faker\PlatformProvider" class="App\DataFixtures\Faker\PlatformProvider" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\Faker\PlatformProvider" class="App\DataFixtures\Faker\PlatformProvider" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DeveloperType" class="App\Form\DeveloperType" autowire="true" abstract="true"/>
@@ -4861,10 +5415,12 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.XWmKAY6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator._PY0Z0g" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="gamerepository" type="service" id="App\Repository\GameRepository"/>
+        <argument key="category" type="service" id=".errored..service_locator._PY0Z0g.App\Entity\Category"/>
+        <argument key="categoryRepository" type="service" id="App\Repository\CategoryRepository"/>
+        <argument key="serializer" type="service" id="serializer"/>
       </argument>
     </service>
     <service id=".service_locator.l2alLEu" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4873,17 +5429,49 @@
         <argument key="viewhandler" type="service" id="fos_rest.view_handler.default"/>
       </argument>
     </service>
+    <service id=".service_locator.znVN4UL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="gameRepository" type="service" id="App\Repository\GameRepository"/>
+        <argument key="serializer" type="service" id="serializer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.l.Yn6zh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="game" type="service" id=".errored..service_locator.l.Yn6zh.App\Entity\Game"/>
+        <argument key="gameRepository" type="service" id="App\Repository\GameRepository"/>
+        <argument key="serializer" type="service" id="serializer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.gMKN8Yd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="gameRepository" type="service" id="App\Repository\GameRepository"/>
+        <argument key="score" type="service" id=".errored..service_locator.gMKN8Yd.App\Entity\Score"/>
+        <argument key="userRepository" type="service" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.pe89cNF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.18dFbQd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.KHGYCxo" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Api\Controller\ApiGameController::getGame" type="service" id=".service_locator.XWmKAY6"/>
+        <argument key="App\Api\Controller\ApiCategoryController::getGamesByCategoryAction" type="service" id=".service_locator._PY0Z0g"/>
+        <argument key="App\Api\Controller\ApiCategoryController::setViewHandler" type="service" id=".service_locator.l2alLEu"/>
+        <argument key="App\Api\Controller\ApiGameController::getGameAction" type="service" id=".service_locator.l.Yn6zh"/>
+        <argument key="App\Api\Controller\ApiGameController::getGamesAction" type="service" id=".service_locator.znVN4UL"/>
+        <argument key="App\Api\Controller\ApiGameController::getLastMonthGamesAction" type="service" id=".service_locator.znVN4UL"/>
+        <argument key="App\Api\Controller\ApiGameController::getNextMonthGamesAction" type="service" id=".service_locator.znVN4UL"/>
+        <argument key="App\Api\Controller\ApiGameController::getRandomGamesList" type="service" id=".service_locator.znVN4UL"/>
         <argument key="App\Api\Controller\ApiGameController::setViewHandler" type="service" id=".service_locator.l2alLEu"/>
+        <argument key="App\Api\Controller\ApiScoreController::newScoreAction" type="service" id=".service_locator.gMKN8Yd"/>
+        <argument key="App\Api\Controller\ApiScoreController::setViewHandler" type="service" id=".service_locator.l2alLEu"/>
         <argument key="App\Controller\CategoryController::new" type="service" id=".service_locator.pe89cNF"/>
         <argument key="App\Controller\DeveloperController::new" type="service" id=".service_locator.pe89cNF"/>
         <argument key="App\Controller\EditorController::new" type="service" id=".service_locator.pe89cNF"/>
@@ -4891,8 +5479,16 @@
         <argument key="App\Controller\PlatformController::new" type="service" id=".service_locator.pe89cNF"/>
         <argument key="App\Controller\TypeController::new" type="service" id=".service_locator.pe89cNF"/>
         <argument key="App\Controller\UserController::new" type="service" id=".service_locator.pe89cNF"/>
-        <argument key="App\Api\Controller\ApiGameController:getGame" type="service" id=".service_locator.XWmKAY6"/>
+        <argument key="App\Api\Controller\ApiCategoryController:getGamesByCategoryAction" type="service" id=".service_locator._PY0Z0g"/>
+        <argument key="App\Api\Controller\ApiCategoryController:setViewHandler" type="service" id=".service_locator.l2alLEu"/>
+        <argument key="App\Api\Controller\ApiGameController:getGameAction" type="service" id=".service_locator.l.Yn6zh"/>
+        <argument key="App\Api\Controller\ApiGameController:getGamesAction" type="service" id=".service_locator.znVN4UL"/>
+        <argument key="App\Api\Controller\ApiGameController:getLastMonthGamesAction" type="service" id=".service_locator.znVN4UL"/>
+        <argument key="App\Api\Controller\ApiGameController:getNextMonthGamesAction" type="service" id=".service_locator.znVN4UL"/>
+        <argument key="App\Api\Controller\ApiGameController:getRandomGamesList" type="service" id=".service_locator.znVN4UL"/>
         <argument key="App\Api\Controller\ApiGameController:setViewHandler" type="service" id=".service_locator.l2alLEu"/>
+        <argument key="App\Api\Controller\ApiScoreController:newScoreAction" type="service" id=".service_locator.gMKN8Yd"/>
+        <argument key="App\Api\Controller\ApiScoreController:setViewHandler" type="service" id=".service_locator.l2alLEu"/>
         <argument key="App\Controller\CategoryController:new" type="service" id=".service_locator.pe89cNF"/>
         <argument key="App\Controller\DeveloperController:new" type="service" id=".service_locator.pe89cNF"/>
         <argument key="App\Controller\EditorController:new" type="service" id=".service_locator.pe89cNF"/>
@@ -5161,6 +5757,13 @@
       <argument>null</argument>
       <argument type="collection"/>
     </service>
+    <service id="fos_rest.request_matcher.69e9d3fd562e0ecffc5bce0c68d3b7a673d187934b742bc76452558275bbd7611198d478" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/</argument>
+      <argument>null</argument>
+      <argument>null</argument>
+      <argument>null</argument>
+      <argument type="collection"/>
+    </service>
     <service id=".service_locator.WPZmidW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5328,12 +5931,15 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.18dFbQd"/>
+      <argument type="service" id=".service_locator.KHGYCxo"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
+    <service id=".errored..service_locator._PY0Z0g.App\Entity\Category" class="App\Entity\Category"/>
+    <service id=".errored..service_locator.l.Yn6zh.App\Entity\Game" class="App\Entity\Game"/>
+    <service id=".errored..service_locator.gMKN8Yd.App\Entity\Score" class="App\Entity\Score"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator._8xViNp"/>
+      <argument type="service" id=".service_locator.KwgMclN"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -5386,6 +5992,7 @@
         <argument key="server:stop">web_server.command.server_stop</argument>
         <argument key="server:status">web_server.command.server_status</argument>
         <argument key="server:log">web_server.command.server_log</argument>
+        <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -5406,7 +6013,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator._8xViNp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.KwgMclN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -5438,6 +6045,7 @@
         <argument key="doctrine.database_drop_command" type="service" id="doctrine.database_drop_command"/>
         <argument key="doctrine.database_import_command" type="service" id="doctrine.database_import_command"/>
         <argument key="doctrine.ensure_production_settings_command" type="service" id="doctrine.ensure_production_settings_command"/>
+        <argument key="doctrine.fixtures_load_command" type="service" id="doctrine.fixtures_load_command"/>
         <argument key="doctrine.generate_entities_command" type="service" id="doctrine.generate_entities_command"/>
         <argument key="doctrine.mapping_convert_command" type="service" id="doctrine.mapping_convert_command"/>
         <argument key="doctrine.mapping_import_command" type="service" id="doctrine.mapping_import_command"/>
@@ -5481,51 +6089,51 @@
       </argument>
     </service>
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false">
-      <argument>r8mM4yzJ+r</argument>
+      <argument>IFJQC77V0J</argument>
       <argument>0</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/pools</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/pools</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>rTf00Vqlwf</argument>
+      <argument>m10xa-dGPW</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/pools</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>BIl5CKLoJQ</argument>
+      <argument>5hlEnJby9R</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/pools</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>POEemWplX2</argument>
+      <argument>G7bZBmdaUL</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/pools</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>ab6dx1qBtR</argument>
+      <argument>mkf2NJtHlf</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/pools</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.security_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>ve-oUmsRIQ</argument>
+      <argument>AUoz93xAWE</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>/var/www/html/GameHub/JV-Theque/devback/var/cache/dev/pools</argument>
+      <argument>/var/www/html/apotheose/devback/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -5664,7 +6272,40 @@
     <service id="fos_rest.router" alias="router.default"/>
     <service id="fos_rest.view_handler" alias="fos_rest.view_handler.default" public="true"/>
     <service id="fos_rest.inflector" alias="fos_rest.inflector.doctrine"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.18dFbQd"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture_bag" alias="nelmio_alice.fixture_builder.denormalizer.fixture.simple_fixture_bag_denormalizer"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture" alias="nelmio_alice.fixture_builder.denormalizer.fixture.tolerant_denormalizer"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.specs" alias="nelmio_alice.fixture_builder.denormalizer.specs.simple"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.constructor" alias="nelmio_alice.fixture_builder.denormalizer.fixture.specs.constructor.legacy_constructor_denormalizer"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.arguments" alias="nelmio_alice.fixture_builder.denormalizer.fixture.specs.arguments.simple_arguments_denormalizer"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.value" alias="nelmio_alice.fixture_builder.denormalizer.fixture.specs.value.unique_value_denormalizer"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.property" alias="nelmio_alice.fixture_builder.denormalizer.fixture.specs.property.simple_denormalizer"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls" alias="nelmio_alice.fixture_builder.denormalizer.fixture.specs.calls.simple_denormalizer"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.flag_parser" alias="nelmio_alice.fixture_builder.denormalizer.flag_parser.element"/>
+    <service id="nelmio_alice.fixture_builder.expression_language.lexer" alias="nelmio_alice.fixture_builder.expression_language.lexer.empty_value_lexer"/>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser.token_parser" alias="nelmio_alice.fixture_builder.expression_language.parser.token_parser.registry"/>
+    <service id="nelmio_alice.fixture_builder.expression_language.parser" alias="nelmio_alice.fixture_builder.expression_language.parser.function_fixture_reference_parser"/>
+    <service id="nelmio_alice.fixture_builder" alias="nelmio_alice.fixture_builder.simple"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer" alias="nelmio_alice.fixture_builder.denormalizer.simple"/>
+    <service id="nelmio_alice.fixture_builder.denormalizer.parameter_bag" alias="nelmio_alice.fixture_builder.denormalizer.parameter.simple_parameter_bag_denormalizer"/>
+    <service id="nelmio_alice.generator.resolver.value" alias="nelmio_alice.generator.resolver.value.registry"/>
+    <service id="nelmio_alice.generator.resolver.value.property_accessor" alias="property_accessor"/>
+    <service id="nelmio_alice.generator.resolver.fixture_bag" alias="nelmio_alice.generator.resolver.fixture_bag.template_bag"/>
+    <service id="nelmio_alice.generator.resolver.fixture_set" alias="nelmio_alice.generator.resolver.fixture_set.remove_conflicting_objects"/>
+    <service id="nelmio_alice.generator.resolver.parameter_bag" alias="nelmio_alice.generator.resolver.parameter_bag.remove_conflicting_parameters"/>
+    <service id="nelmio_alice.generator.hydrator" alias="nelmio_alice.generator.hydrator.simple"/>
+    <service id="nelmio_alice.generator.hydrator.property" alias="nelmio_alice.generator.hydrator.property.symfony_property_access"/>
+    <service id="nelmio_alice.generator.instantiator" alias="nelmio_alice.generator.instantiator.existing_instance"/>
+    <service id="nelmio_alice.generator.caller" alias="nelmio_alice.generator.caller.simple"/>
+    <service id="nelmio_alice.generator" alias="nelmio_alice.generator.double_pass"/>
+    <service id="nelmio_alice.generator.object_generator" alias="nelmio_alice.generator.object_generator.complete"/>
+    <service id="Faker\Generator" alias="nelmio_alice.faker.generator" public="true"/>
+    <service id="nelmio_alice.property_accessor" alias="nelmio_alice.property_accessor.std"/>
+    <service id="nelmio_alice.data_loader" alias="nelmio_alice.data_loader.simple" public="true"/>
+    <service id="nelmio_alice.file_loader" alias="nelmio_alice.file_loader.simple" public="true"/>
+    <service id="nelmio_alice.files_loader" alias="nelmio_alice.files_loader.simple" public="true"/>
+    <service id="nelmio_alice.file_locator" alias="nelmio_alice.file_locator.default"/>
+    <service id="nelmio_alice.file_parser" alias="nelmio_alice.file_parser.runtime_cache"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.KHGYCxo"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="fos_rest.serializer" alias="fos_rest.serializer.symfony"/>

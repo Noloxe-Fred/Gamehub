@@ -39,9 +39,9 @@ class ApiScoreController extends FOSRestController
      */
     public function newScoreAction(Request $request, Score $score, EntityManagerInterface $em, GameRepository $gameRepository, UserRepository $userRepository)
     {
-        $info = $request->request->all();
-        $user = $userRepository->findOneBy(['id' => $info["user"]["id"]]);
-        $game = $gameRepository->findOneBy(['id' => $info["game"]["id"]]);
+
+        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
         $score = new Score();
 

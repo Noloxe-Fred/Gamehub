@@ -133,6 +133,6 @@ class __TwigTemplate_93c2c62d5dabf665d29e433a89a70caeff67c7ae13105ab4fb88ef556c7
 .exception-message-wrapper .container {
     min-height: auto;
 }
-", "@WebProfiler/Collector/exception.css.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.css.twig");
+", "@WebProfiler/Collector/exception.css.twig", "/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.css.twig");
     }
 }

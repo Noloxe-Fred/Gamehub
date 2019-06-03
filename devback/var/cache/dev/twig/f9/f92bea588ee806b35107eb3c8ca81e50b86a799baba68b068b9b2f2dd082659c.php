@@ -202,6 +202,6 @@ class __TwigTemplate_3c25dea05904290e3fe6bf1a0e3bc49ce0822367b42d223985cec8d2a9a
         })|raw }}
     </div>
 {% endif %}
-", "@Twig/Exception/trace.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bundle/Resources/views/Exception/trace.html.twig");
+", "@Twig/Exception/trace.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/twig-bundle/Resources/views/Exception/trace.html.twig");
     }
 }

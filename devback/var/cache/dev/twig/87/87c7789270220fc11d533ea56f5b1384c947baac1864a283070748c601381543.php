@@ -1000,6 +1000,6 @@ class __TwigTemplate_567f5554ad5f23c7b0a48c2f40e788309fd524c06b51fb92f1cd73a377b
         {% endif %}
     {% endfor %}
 {% endblock %}
-", "@Swiftmailer/Collector/swiftmailer.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/swiftmailer-bundle/Resources/views/Collector/swiftmailer.html.twig");
+", "@Swiftmailer/Collector/swiftmailer.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/swiftmailer-bundle/Resources/views/Collector/swiftmailer.html.twig");
     }
 }

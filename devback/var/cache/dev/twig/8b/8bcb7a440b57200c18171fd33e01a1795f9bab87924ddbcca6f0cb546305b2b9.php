@@ -77,6 +77,6 @@ class __TwigTemplate_3b9e01590df1e929f588047492a3cc84424e98915d0d5173bf29e6cdbad
 {{ status_code }} {{ status_text }}
 
 */
-", "@Twig/Exception/error.js.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/twig-bundle/Resources/views/Exception/error.js.twig");
+", "@Twig/Exception/error.js.twig", "/var/www/html/apotheose/devback/vendor/symfony/twig-bundle/Resources/views/Exception/error.js.twig");
     }
 }

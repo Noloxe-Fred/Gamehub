@@ -1283,6 +1283,6 @@ $context["voter_detail"], "vote", [], "array", false, false, false, 353) == twig
         </table>
     {% endif %}
 {% endblock %}
-", "@Security/Collector/security.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/security-bundle/Resources/views/Collector/security.html.twig");
+", "@Security/Collector/security.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/security-bundle/Resources/views/Collector/security.html.twig");
     }
 }

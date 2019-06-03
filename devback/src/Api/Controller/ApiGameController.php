@@ -4,6 +4,8 @@ namespace App\Api\Controller;
 
 use App\Entity\Game;
 use App\Repository\GameRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -22,10 +24,31 @@ class ApiGameController extends FOSRestController
         $request = $gameRepository->findAllGames();
 
         $allGames = $serializer->serialize($request, 'json', [
-            'groups' => 'game_read',
-        ]);
-    
-       return JsonResponse::fromJsonString($allGames);
+             'groups' => 'game_read',
+         ]);
+
+        // $response->headers->set('Access-Control-Allow-Origin', '*');
+
+        // return JsonResponse::fromJsonString($allGames, JsonResponse::HTTP_OK);
+
+
+
+
+        
+        $response = new Response();
+        
+        //$response->setContent(json_encode([$allGames]));
+        
+        $response->setContent($allGames);
+        $response->setStatusCode(Response::HTTP_OK);
+        $response->headers->set('Content-Type', 'application/json');
+        $response->headers->set('Access-Control-Allow-Origin', '*');       
+        return $response;
+
+
+
+
+
     }
 
     /**

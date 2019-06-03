@@ -61,6 +61,6 @@ class __TwigTemplate_e6d5c1a576941634a39ca56bd07f4ea9b7fbd61459cb76bbaec2ef98877
     public function getSourceContext()
     {
         return new Source("<?php echo \$view['form']->block(\$form, 'choice_widget_options') ?>
-", "@Framework/Form/choice_options.html.php", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle/Resources/views/Form/choice_options.html.php");
+", "@Framework/Form/choice_options.html.php", "/var/www/html/apotheose/devback/vendor/symfony/framework-bundle/Resources/views/Form/choice_options.html.php");
     }
 }

@@ -67,6 +67,6 @@ class __TwigTemplate_a614a4dd701fb9288a7490dfb95d383e24747895b92e38eb4b82c5038db
     <?php \$help_attr['class'] = isset(\$help_attr['class']) ? trim(\$help_attr['class'].' help-text') : 'help-text'; ?>
     <p id=\"<?php echo \$view->escape(\$id); ?>_help\" <?php echo ' '.\$view['form']->block(\$form, 'attributes', ['attr' => \$help_attr]); ?>><?php echo \$view->escape(false !== \$translation_domain ? \$view['translator']->trans(\$help, [], \$translation_domain) : \$help); ?></p>
 <?php endif; ?>
-", "@Framework/Form/form_help.html.php", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/framework-bundle/Resources/views/Form/form_help.html.php");
+", "@Framework/Form/form_help.html.php", "/var/www/html/apotheose/devback/vendor/symfony/framework-bundle/Resources/views/Form/form_help.html.php");
     }
 }

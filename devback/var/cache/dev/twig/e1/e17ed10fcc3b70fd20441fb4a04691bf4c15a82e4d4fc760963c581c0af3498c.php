@@ -2072,6 +2072,6 @@ class __TwigTemplate_378ed036c485b9dd2f4f1e7ea15ff9942dbfcc3e73496805618a5a2ccb6
         {{ tree.form_tree_details(childName, childData, forms_by_hash) }}
     {% endfor %}
 {% endmacro %}
-", "@WebProfiler/Collector/form.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/form.html.twig");
+", "@WebProfiler/Collector/form.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/form.html.twig");
     }
 }

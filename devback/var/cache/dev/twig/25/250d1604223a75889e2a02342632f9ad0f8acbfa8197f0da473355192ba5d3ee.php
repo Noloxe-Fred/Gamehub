@@ -217,6 +217,6 @@ class __TwigTemplate_4f004374ee5827b92d110db5f0251bcbd3771275e1e95c6cb62fd0b5efa
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/exception.html.twig", "/var/www/html/GameHub/JV-Theque/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.html.twig");
+", "@WebProfiler/Collector/exception.html.twig", "/var/www/html/apotheose/devback/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.html.twig");
     }
 }

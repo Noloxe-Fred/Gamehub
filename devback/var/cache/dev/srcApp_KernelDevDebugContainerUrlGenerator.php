@@ -39,7 +39,13 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'platform_new' => [[], ['_controller' => 'App\\Controller\\PlatformController::new'], [], [['text', '/platform/new']], [], []],
         'type_new' => [[], ['_controller' => 'App\\Controller\\TypeController::new'], [], [['text', '/type/new']], [], []],
         'user_new' => [[], ['_controller' => 'App\\Controller\\UserController::new'], [], [['text', '/user/new']], [], []],
-        'app_api_apigame_getgame' => [['gameId'], ['_controller' => 'App\\Api\\Controller\\ApiGameController::getGame'], [], [['variable', '/', '[^/]++', 'gameId', true], ['text', '/api/game']], [], []],
+        'category_game_list' => [['id'], ['_controller' => 'App\\Api\\Controller\\ApiCategoryController::getGamesByCategoryAction'], ['id' => '\\d+'], [['text', '/games'], ['variable', '/', '\\d+', 'id', true], ['text', '/api/category']], [], []],
+        'game_list' => [[], ['_controller' => 'App\\Api\\Controller\\ApiGameController::getGamesAction'], [], [['text', '/api/game/list']], [], []],
+        'game_show' => [['id'], ['_controller' => 'App\\Api\\Controller\\ApiGameController::getGameAction'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/api/game']], [], []],
+        'game_next_month' => [[], ['_controller' => 'App\\Api\\Controller\\ApiGameController::getNextMonthGamesAction'], [], [['text', '/api/game/list/nextmonth']], [], []],
+        'game_last_month' => [[], ['_controller' => 'App\\Api\\Controller\\ApiGameController::getLastMonthGamesAction'], [], [['text', '/api/game/list/lastmonth']], [], []],
+        'game_random_list' => [[], ['_controller' => 'App\\Api\\Controller\\ApiGameController::getRandomGamesList'], [], [['text', '/api/game/list/random']], [], []],
+        'score_new' => [[], ['_controller' => 'App\\Api\\Controller\\ApiScoreController::newScoreAction'], [], [['text', '/api/score/new']], [], []],
     ];
         }
     }
