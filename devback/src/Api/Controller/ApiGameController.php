@@ -3,12 +3,14 @@
 namespace App\Api\Controller;
 
 use App\Entity\Game;
+use App\Entity\Score;
 use App\Repository\GameRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
-use App\Entity\Score;
 
 class ApiGameController extends FOSRestController
 {
@@ -19,8 +21,16 @@ class ApiGameController extends FOSRestController
      */
     public function getGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
     {   
+
         
-        $request = $gameRepository->findAllGames();
+        $array = [
+            'categories1' => '18',
+            'categories2' => '19',
+
+            // 'id1' => 59
+        ];
+        
+        $request = $gameRepository->filterGamesByCategory($array);
 
         $allGames = $serializer->serialize($request, 'json', [
             'groups' => 'game_read',
@@ -91,6 +101,8 @@ class ApiGameController extends FOSRestController
 
         return JsonResponse::fromJsonString($randomGamesList);
     }
+
+
 }
 
     // /**

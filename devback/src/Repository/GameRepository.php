@@ -17,21 +17,34 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
  */
 class GameRepository extends ServiceEntityRepository
 {
+   
+
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Game::class);
     }
 
+    public function filterGamesByCategory(array $array){
+
+        //BESOIN DE L ID DE LA CATEGORY
+
+        $qb = $this->createQueryBuilder('g')
+        ->where(':array MEMBER OF g.categories')
+        //->where('expr->eq('g.categories', '?1') MEMBER OF g.categories')
+        ->setParameter('array', array_values($array))
+        ->getQuery()
+        ->getResult();
+        return $qb;
+
+    }
+
+
     public function findAllGames()
     {
 
-        $qb = $this->createQueryBuilder('g') 
-
-        ->andWhere('g.id = :field1')  
-        ->andWhere('g.id = :field2')
-        ->setParameters(array('field1' => '58', 'field2' => '59'))
+        $qb = $this->createQueryBuilder('g')
         ->getQuery()
-        ->getArrayResult(Query::HYDRATE_SCALAR);
+        ->getResult();
         return $qb;
     }
 
@@ -78,7 +91,7 @@ class GameRepository extends ServiceEntityRepository
         return $qb;
     }
 
-    public function findRandomGamesList($count = 10){
+    public function findRandomGamesList($count = 18){
 
         $qb = $this->createQueryBuilder('g')
         ->addSelect('RAND() as HIDDEN rand')

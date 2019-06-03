@@ -5,6 +5,7 @@ namespace App\Api\Controller;
 use App\Entity\Game;
 use App\Entity\User;
 use App\Entity\Score;
+use App\Repository\ScoreRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -52,6 +53,42 @@ class ApiScoreController extends FOSRestController
         $em->flush();
 
         return $score;
+    }
+
+    /**
+     * @Rest\View(StatusCode=200)
+     * @Rest\Get(path = "/score", name="score")
+     */
+    public function showScoreAction(ScoreRepository $scoreRepository, SerializerInterface $serializer){
+
+        $request = $scoreRepository->findfirstscore();
+
+        $firstscore = $serializer->serialize($request, 'json', [
+            'groups' => 'game_read',
+        ]);
+
+        return JsonResponse::fromJsonString($firstscore);
+
+    }
+
+    /**
+     * @Rest\View
+     * @Rest\Post(path = "/score/create", name="score_create")
+     */
+    public function createScoreAction(Request $request, SerializerInterface $serializer, EntityManagerInterface $em)
+    {
+        
+        $data = $request->getContent();
+
+        dump($data->getUser());
+        die;
+        
+        $post = $serializer->deserialize($data, Score::class, 'json');
+        
+        $em->persist($post);
+        $em->flush();
+
+        return new JsonResponse('', JsonResponse::HTTP_CREATED);
     }
 }
     // /**
