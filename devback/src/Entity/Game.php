@@ -34,8 +34,13 @@ class Game
     private $description;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true, options={"unsigned"=true})
+     * @ORM\Column(type="smallint", nullable=true)
      * @Groups({"game_read"})
+     */
+    private $averageScore;
+
+    /**
+     * @ORM\Column(type="smallint", nullable=true, options={"unsigned"=true})
      */
     private $score;
 
@@ -111,7 +116,6 @@ class Game
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Score", mappedBy="game")
-     * @Groups({"game_read"})
      */
     private $scores;
 
@@ -158,6 +162,18 @@ class Game
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getAverageScore(): ?int
+    {
+        return $this->averageScore;
+    }
+
+    public function setAverageScore(?int $averageScore): self
+    {
+        $this->averageScore = $averageScore;
 
         return $this;
     }
@@ -454,6 +470,4 @@ class Game
 
         return $this;
     }
-
-
 }
