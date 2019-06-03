@@ -4,12 +4,10 @@ namespace App\Api\Controller;
 
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
-use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
-use Doctrine\ORM\EntityManagerInterface;
 
 class ApiCategoryController extends FOSRestController
 {
