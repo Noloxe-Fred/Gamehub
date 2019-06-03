@@ -5,6 +5,8 @@ namespace App\Api\Controller;
 use App\Entity\Game;
 use App\Entity\User;
 use App\Entity\Score;
+use App\Repository\GameRepository;
+use App\Repository\UserRepository;
 use App\Repository\ScoreRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,20 +73,22 @@ class ApiScoreController extends FOSRestController
 
     }
 
-    /**
+   /**
      * @Rest\View
-     * @Rest\Post(path = "/score/create", name="score_create")
+     * @Rest\Post(path = "/score/new", name="score_create")
      */
-    public function createScoreAction(Request $request, SerializerInterface $serializer, EntityManagerInterface $em)
+    public function createScoreAction(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, GameRepository $gamerep,UserRepository $userrep)
     {
-        
-        $data = $request->getContent();
+        $json = $request->getContent();
+        $post = $serializer->deserialize($json, Score::class, 'json');
 
-        dump($data->getUser());
-        die;
+        $info = $request->request->all();
+        $user = $userrep->findOneBy(['id' => $info["user"]["id"]]);
+        $game = $gamerep->findOneBy(['id' => $info["game"]["id"]]);
         
-        $post = $serializer->deserialize($data, Score::class, 'json');
-        
+        $post->setUser($user);
+        $post->setGame($game);
+
         $em->persist($post);
         $em->flush();
 
