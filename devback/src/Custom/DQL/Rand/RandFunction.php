@@ -1,6 +1,6 @@
 <?php
  
-namespace App\Api\Acme\DemoBundle\DQL;
+namespace App\Custom\DQL\Rand;
  
 use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\Parser;

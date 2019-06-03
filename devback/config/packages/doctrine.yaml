@@ -24,4 +24,4 @@ doctrine:
                 alias: App
         dql:
             numeric_functions:
-                Rand: App\Api\Acme\DemoBundle\DQL\RandFunction
+                Rand: App\Repository\DQL\Rand
