@@ -2,15 +2,15 @@
 
 namespace App\Api\Controller;
 
-use App\Entity\Game;
-use App\Entity\User;
 use App\Entity\Score;
+
+use App\Repository\GameRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Serializer\SerializerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ApiScoreController extends FOSRestController
@@ -25,47 +25,33 @@ class ApiScoreController extends FOSRestController
             return $newScore;
         }
 
-        $newScore = intval($currentScore) + intval($newValue) / intval($numberVotes);
+        $sum =  intval($currentScore) + intval($newValue);
+
+        $newScore = $sum / intval($numberVotes + 1);
 
         return $newScore;
     }
 
-    /**
-     * @Rest\View(StatusCode=201)
-     * @Rest\Post(path = "user/{user}/game/{game}/score", name="score_new")
+   /**
+     * @Rest\View
+     * @Rest\Post(path = "/score/new", name="score_new")
      * @ParamConverter("score", converter="fos_rest.request_body")
      */
-    public function newScoreAction(Request $request, Score $score, Game $game, SerializerInterface $serializer, EntityManagerInterface $em)
-    {   
+    public function newScoreAction(Request $request, Score $score, EntityManagerInterface $em, GameRepository $gameRepository, UserRepository $userRepository)
+    {
+        $info = $request->request->all();
+        $user = $userRepository->findOneBy(['id' => $info["user"]["id"]]);
+        $game = $gameRepository->findOneBy(['id' => $info["game"]["id"]]);
 
-        $numberVotes = count($game->getScores());
-        $currentScore = $game->getScore();
-        $newValue = $request->getContent();
+        $score = new Score();
 
-        $newScore = self::averageScore($numberVotes, $currentScore, $newValue);
-        $game->setScore($newScore);
+        $score->setValue($request->request->get('value'));
+        $score->setUser($user);
+        $score->setGame($game);
 
-        $post = $serializer->deserialize($newValue, Score::class, 'json');
-
-        $em->persist($post);
+        $em->persist($score);
         $em->flush();
 
-        return $score;
+        return new JsonResponse('', JsonResponse::HTTP_CREATED);
     }
 }
-    // /**
-    //  * @Rest\View
-    //  * @Rest\Post(path = "/game", name="game_create")
-    //  */
-    // public function createGameAction(Request $request, SerializerInterface $serializer, EntityManagerInterface $em)
-    // {
-        
-    //     $data = $request->getContent();
-
-    //     $post = $serializer->deserialize($data, Game::class, 'json');
-        
-    //     $em->persist($post);
-    //     $em->flush();
-
-    //     return new JsonResponse('', JsonResponse::HTTP_CREATED);
-    // }

@@ -8,14 +8,13 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
-use App\Entity\Score;
 
 class ApiGameController extends FOSRestController
 {
 
     /**
      * @Rest\View
-     * @Rest\Get(path = "/game/list", name="game_list")
+     * @Rest\Get(path="/game/list", name="game_list")
      */
     public function getGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
     {   
@@ -31,7 +30,7 @@ class ApiGameController extends FOSRestController
 
     /**
      * @Rest\View
-     * @Rest\Get(path = "/game/{id}", name="game_show", requirements = {"id"="\d+"})
+     * @Rest\Get(path="/game/{id}", name="game_show", requirements={"id"="\d+"})
      */
     public function getGameAction(Game $game, GameRepository $gameRepository, SerializerInterface $serializer)
     {   
