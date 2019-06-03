@@ -12,7 +12,6 @@ export default class Carousel extends Component {
     stateList: 1,
   }
 
-  handleVisibility = () => this.setState(prevState => ({ visible: !prevState.visible }))
 
   forward = () => {
     switch (this.state.stateList) {
@@ -49,13 +48,13 @@ export default class Carousel extends Component {
     return (
       <div className="carousel">
         <Icon name="angle left" onClick={this.backward} />
-        <Transition.Group animation={animation1} duration={duration}>
+        <Transition.Group animation={stateList === 2 ? animation1 : animation2} duration={duration}>
           {stateList === 1 && <div className="carousel-list">{list1.map(game => <img src={game.cover} className="carousel-img" />)}</div>}
         </Transition.Group>
-        <Transition.Group animation={animation1} duration={duration}>
+        <Transition.Group animation={stateList === 3 ? animation1 : animation2} duration={duration}>
           {stateList === 2 && <div className="carousel-list">{list2.map(game => <img src={game.cover} className="carousel-img" />)}</div>}
         </Transition.Group>
-        <Transition.Group animation={animation1} duration={duration}>
+        <Transition.Group animation={stateList === 1 ? animation1 : animation2} duration={duration}>
           {stateList === 3 && <div className="carousel-list">{list3.map(game => <img src={game.cover} className="carousel-img" />)}</div>}
         </Transition.Group>
         <Icon name="angle right" onClick={this.forward} />
