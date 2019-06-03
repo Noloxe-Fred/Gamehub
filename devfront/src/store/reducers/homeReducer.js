@@ -41,7 +41,7 @@ const homeReducer = (state = initialState, action = {}) => {
   }
 };
 
-// Action creator
+// Action creator (qui passeront tous dans le middleware ) 
 export const requestComingSoon = () => ({
   type: REQUEST_COMING_SOON,
 });

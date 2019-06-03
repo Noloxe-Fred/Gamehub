@@ -7,13 +7,14 @@ import 'semantic-ui-css/semantic.min.css';
 import './app.scss';
 import Navbar from 'src/components/Navbar';
 import Home from 'src/components/Home';
+import GamePage from 'src/containers/GamePage/gamePageContainer';
 
 
 // == Composant
 const App = () => (
   <div id="app">
     <Navbar />
-    <Home />
+    <GamePage />
     
  
   </div>

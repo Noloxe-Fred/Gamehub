@@ -1,4 +1,4 @@
-import gameList from 'src/data/gameList';
+import gameList from 'src/data/gameList'; // temporaire en attendant l'API
 
 import {
   REQUEST_COMING_SOON,
