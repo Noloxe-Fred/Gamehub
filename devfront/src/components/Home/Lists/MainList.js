@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Proptypes from 'prop-types'
+import Proptypes from 'prop-types';
 import { Loader, Grid, Image, Icon, Segment, Placeholder, Card  } from 'semantic-ui-react';
 
 import './lists.scss';
@@ -133,3 +133,4 @@ class MainList extends Component {
 // Composant Card
 
 export default MainList;
+ 
