@@ -14,19 +14,20 @@ const homeMiddleware = store => next => (action) => {
     case REQUEST_COMING_SOON:
       store.dispatch(loadComingSoon());
 
-      axios.get('http://127.0.0.1:8001/api/game/list', {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((response) => {
-          console.log(response.data);
+      // axios.get('http://127.0.0.1:8001/api/game/list', {
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // })
+      //   .then((response) => {
+      //     console.log(response.data);
 
-          store.dispatch(receivedComingSoon(response.data));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          // store.dispatch(receivedComingSoon(response.data));
+        // })
+        // .catch((error) => {
+        //   console.log(error);
+        // });
+        store.dispatch(receivedComingSoon(gameList));
 
       break;
     case REQUEST_TAB_LIST:

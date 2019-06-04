@@ -14,7 +14,7 @@ import GamePage from 'src/containers/GamePage/gamePageContainer';
 const App = () => (
   <div id="app">
     <Navbar />
-    <GamePage />
+    <Home />
     
  
   </div>
