@@ -20,12 +20,8 @@ class ApiUserController extends FOSRestController
      * @Rest\View
      * @Rest\Post(path = "/user/new", name="user_new")
      */
-    public function newUserAction(Request $request, EntityManagerInterface $em, SerializerInterface $serializer, ConstraintViolationList $violations)
+    public function newUserAction(Request $request, EntityManagerInterface $em, SerializerInterface $serializer)
     {   
-        if(count($violations)){
-            
-            return $this->view($violations, Response::HTTP_BAD_REQUEST);
-        }
 
         $data = $request->getContent();
 
@@ -35,10 +31,5 @@ class ApiUserController extends FOSRestController
         $em->flush();
 
         return new JsonResponse('', JsonResponse::HTTP_CREATED);
-
-
-
-
-
     }
 }

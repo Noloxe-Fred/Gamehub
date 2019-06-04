@@ -171,6 +171,7 @@ class User implements UserInterface
 
     public function __construct()
     {   
+        $this->apiToken = bin2hex(random_bytes(60));
         $this->roles[] = 'ROLE_USER';
         $this->isActive = true;
         $this->createdAt = new \DateTime();
