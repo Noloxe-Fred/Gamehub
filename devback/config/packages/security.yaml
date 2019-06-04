@@ -17,11 +17,12 @@ security:
         main:
             pattern:   ^/
             anonymous: true
+            stateless: true
             
             guard:
                 authenticators:
                     - App\Security\TokenAuthenticator
-                stateless: true
+                
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

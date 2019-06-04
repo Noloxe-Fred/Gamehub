@@ -103,18 +103,18 @@ class GameRepository extends ServiceEntityRepository
         return $qb;
     }
 
-    // /!\ Méthode non terminé /!\ //
-    public function filterGamesByCategory(array $array){
+    // // /!\ Méthode non terminé /!\ //
+    // public function filterGamesByCategory(array $array){
 
-        $qb = $this->createQueryBuilder('g')
-        ->where(':array MEMBER OF g.categories')
-        //->where('expr->eq('g.categories', '?1') MEMBER OF g.categories')
-        ->setParameter('array', array_values($array))
-        ->getQuery()
-        ->getResult();
+    //     $qb = $this->createQueryBuilder('g')
+    //     ->where(':array MEMBER OF g.categories')
+    //     //->where('expr->eq('g.categories', '?1') MEMBER OF g.categories')
+    //     ->setParameter('array', array_values($array))
+    //     ->getQuery()
+    //     ->getResult();
 
-        return $qb;
-    }
+    //     return $qb;
+    // }
 
     // public function findGamesByBestScore(){
 
