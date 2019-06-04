@@ -13,8 +13,21 @@ const homeMiddleware = store => next => (action) => {
   switch (action.type) {
     case REQUEST_COMING_SOON:
       store.dispatch(loadComingSoon());
-      // requete axios en attente!
-      store.dispatch(receivedComingSoon(gameList));
+
+      axios.get('http://127.0.0.1:8001/api/game/list', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
+
+          store.dispatch(receivedComingSoon(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
       break;
     case REQUEST_TAB_LIST:
       store.dispatch(loadingTabList());
