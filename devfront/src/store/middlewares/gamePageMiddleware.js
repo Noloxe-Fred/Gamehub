@@ -5,15 +5,31 @@ import { REQUEST_GAME, receivedGame, loadGame } from 'src/store/reducers/gamePag
 
 // on fait un switch (permet une ou plusieurs conditions comme les IF,else if ect )
 const gamePageMiddleware = store => next => (action) => {
-switch (action.type) {
+  switch (action.type) {
     case REQUEST_GAME:
-        store.dispatch(loadGame());
-        // requete axios en attente!
-        store.dispatch(receivedGame(oneGame));
-        break;
+      store.dispatch(loadGame());
+      // requete axios en attente!
+
+      // scinder datas
+      const gameDatas = {
+        name: oneGame.name,
+        cover: oneGame.cover, 
+        desc: oneGame.description, 
+        score: oneGame.score, 
+        developer: oneGame.developer, 
+        editor: oneGame.editor, 
+        released: oneGame.released, 
+        website: oneGame.website, 
+        categories: oneGame.categories
+      };
+      const commentsDatas = oneGame.comments;
+      const background = oneGame.illustration;
+
+      store.dispatch(receivedGame(gameDatas, commentsDatas, background));
+      break;
     default:
-        next(action);
-    }
+      next(action);
+  }
 };
 
 export default gamePageMiddleware;

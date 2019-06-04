@@ -1,7 +1,9 @@
 //  1. je creer mon initial state qui sera loading (chargment en arrivant sur la page)
 const initialState = {
-	loading: true,
-	gameDatas: [],
+  loading: true,
+  headerDatas: [],
+  descDatas: [],
+  commentsDatas: [],
 };
 
 // Action Type   3. Definition de la Const Load_Game
@@ -10,7 +12,7 @@ export const REQUEST_GAME = 'REQUEST_GAME';
 const RECEIVED_GAME = 'RECEIVED_GAME';
 
 // Reducer  2. Creation de l'etat Load_Game qui passera de loading true à loading false une fois la page du jeu chargé
-const gameReducer = (state = initialState, action = {}) => {
+const gamePageReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case LOAD_GAME:
       return {
@@ -18,11 +20,14 @@ const gameReducer = (state = initialState, action = {}) => {
         loading: true,
       };
       // Lorsque l'action Received_Game est prete retourner les GameDatas
-		case RECEIVED_GAME:
-			return {
-				...state,
-				gameDatas: action.gameDatas,
-			};
+    case RECEIVED_GAME:
+      return {
+        ...state,
+        gameDatas: action.gameDatas,
+        commentsDatas: action.commentsDatas,
+        background: action.background,
+        loading: false,
+      };
     default:
       return state;
   }
@@ -32,13 +37,15 @@ const gameReducer = (state = initialState, action = {}) => {
 export const loadGame = () => ({
   type: LOAD_GAME,
 });
-export const requestGame = (gameId) => ({
-	type: REQUEST_GAME,
+export const requestGame = gameId => ({
+ type: REQUEST_GAME,
   gameId,
 });
-export const receivedGame = gameDatas => ({
-	type: RECEIVED_GAME,
-	gameDatas,
+export const receivedGame = (gameDatas, commentsDatas, background) => ({
+  type: RECEIVED_GAME,
+  gameDatas,
+  commentsDatas,
+  background,
 });
 
-export default gameReducer;
+export default gamePageReducer;

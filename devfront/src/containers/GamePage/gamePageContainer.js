@@ -5,13 +5,16 @@ import GamePage from 'src/components/GamePage';
 import { requestGame } from 'src/store/reducers/gamePageReducer';
 // 2. On parametre les const pour qu'elle prenne les infos du state (loading ) du gamePageReducer
 const mapStateToProps = state => ({
-  loading: state.loading,
+  loading: state.gamePageReducer.loading,
+  background: state.gamePageReducer.background,
 });
-// 3. Au montage du composant on transmet une information / actions au composant qui se chargera de lancer le requestGame du reducer
+
+// 3. Au montage du composant on transmet une information / actions au composant
+// qui se chargera de lancer le requestGame du reducer
 const mapDispatchToProps = dispatch => ({
-	requestGame: () => {
-		dispatch(requestGame());
-	},
+  requestGame: () => {
+    dispatch(requestGame());
+  },
 });
 
 // 4 . A NE PAS TOUCHER ^^ mais a RENOMMER par containers ! 
