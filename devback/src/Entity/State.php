@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StateRepository")
@@ -18,6 +19,7 @@ class State
 
     /**
      * @ORM\Column(type="string", length=255, columnDefinition="ENUM('have', 'want', 'waiting')")
+     * @Assert\NotBlank
      */
     private $status;
 

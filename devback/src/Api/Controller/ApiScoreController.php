@@ -2,17 +2,18 @@
 
 namespace App\Api\Controller;
 
-use App\Entity\Game;
 use App\Entity\Score;
 use App\Repository\GameRepository;
 use App\Repository\UserRepository;
+use App\Repository\ScoreRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Validator\ConstraintViolationList;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use App\Repository\ScoreRepository;
 
 class ApiScoreController extends FOSRestController
 {
@@ -35,10 +36,20 @@ class ApiScoreController extends FOSRestController
    /**
      * @Rest\View
      * @Rest\Post(path = "/score/new", name="score_new")
-     * @ParamConverter("score", converter="fos_rest.request_body")
+     * @ParamConverter(
+     *      "score", 
+     *      converter="fos_rest.request_body",
+     *      options={
+     *          "validator"={"groups"="Create"}
+     *      }
+     * )
      */
-    public function newScoreAction(Request $request, EntityManagerInterface $em, Score $score, GameRepository $gameRepository, UserRepository $userRepository)
+    public function newScoreAction(Request $request, EntityManagerInterface $em, Score $score, GameRepository $gameRepository, UserRepository $userRepository, ConstraintViolationList $violations)
     {
+        if(count($violations)){
+            
+            return $this->view($violations, Response::HTTP_BAD_REQUEST);
+        }
 
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));

@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ScoreRepository")
@@ -20,7 +20,10 @@ class Score
 
     /**
      * @ORM\Column(type="smallint")
-     * @Groups({"game_read"})
+     * @Assert\NotBlank(
+     *      groups = {"Create"},
+     *      message = "Veuillez indiquer la valeur de votre vote."
+     * )
      */
     private $value;
 
