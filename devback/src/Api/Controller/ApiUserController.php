@@ -12,7 +12,6 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
-use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ApiUserController extends FOSRestController
@@ -29,14 +28,12 @@ class ApiUserController extends FOSRestController
      *      }
      * )
      */
-    public function newUserAction(Request $request, EntityManagerInterface $em, User $user, ConstraintViolationList $violations, TokenAuthenticator $authenticator, GuardAuthenticatorHandler $guardHandler)
+    public function newUserAction(Request $request, EntityManagerInterface $em, User $user, ConstraintViolationList $violations)
     {   
-
         if(count($violations)){
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
-
         $user = new User();
         $user->setEmail($request->request->get('email'));
         $user->setPassword($request->request->get('password'));
@@ -45,11 +42,8 @@ class ApiUserController extends FOSRestController
         $em->persist($user);
         $em->flush();
 
-        return $guardHandler->authenticateUserAndHandleSuccess(
-            $user,          // the User object you just created
-            $request,
-            $authenticator, // authenticator whose onAuthenticationSuccess you want to use
-            'main'          // the name of your firewall in security.yaml
-        );
+        return $this->view($user, Response::HTTP_CREATED, [
+            
+            ]);
     }
 }

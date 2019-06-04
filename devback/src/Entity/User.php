@@ -22,11 +22,6 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true, nullable=true)
-     */
-    private $apiToken;
-
-    /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank(
      *      message = "Veuillez indiquer votre email.",
@@ -184,18 +179,6 @@ class User implements UserInterface
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getApiToken(): ?string
-    {
-        return $this->apiToken;
-    }
-
-    public function setApiToken(string $apiToken): self
-    {
-        $this->apiToken = $apiToken;
-
-        return $this;
     }
 
     public function getEmail(): ?string
