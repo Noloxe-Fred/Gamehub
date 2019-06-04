@@ -17,7 +17,7 @@ class State
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, columnDefinition="ENUM('have', 'want', 'would_like')")
+     * @ORM\Column(type="string", length=255, columnDefinition="ENUM('have', 'want', 'waiting')")
      */
     private $status;
 
