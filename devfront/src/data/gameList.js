@@ -1,6 +1,6 @@
 const gameList = [
   {
-    id: 3,
+    id: 2,
     name: 'Morrowind',
     description: 'The Elder Scrolls III : Morrowind est un jeu de rô...',
     score: '',
