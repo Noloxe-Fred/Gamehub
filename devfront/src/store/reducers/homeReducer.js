@@ -2,9 +2,12 @@ const initialState = {
   loadingComingSoon: true,
   listComingSoon: [],
   countComingSoon: 0,
-  listCarousel: [],
   loadingTabList: true,
   tabList: [],
+  loadingLastReleased: true,
+  lastReleasedList: [],
+  randomList: [],
+  loadingRandom: true,
 };
 
 // Action Type
@@ -15,11 +18,17 @@ const RECEIVED_COMING_SOON = 'RECEIVED_COMING_SOON';
 const INCREASE_COUNT = 'INCREASE_COUNT';
 const DECREASE_COUNT = 'DECREASE_COUNT';
 
-
-export const RECEIVED_LIST_CAROUSEL = 'RECEIVED_LIST_CAROUSEL';
 export const REQUEST_TAB_LIST = 'REQUEST_TAB_LIST';
 export const LOAD_TAB_LIST = 'LOAD_TAB_LIST';
 const RECEIVED_TAB_LIST = 'RECEIVED_TAB_LIST';
+
+export const REQUEST_LAST_RELEASED = 'REQUEST_LAST_RELEASED';
+const LOAD_LAST_RELEASED = 'LOAD_LAST_RELEASED';
+const RECEIVED_LAST_RELEASED = 'RECEIVED_LAST_RELEASED';
+
+export const REQUEST_RANDOM = 'REQUEST_RANDOM';
+const LOAD_RANDOM = 'LOAD_RANDOM';
+const RECEIVED_RANDOM = 'RECEIVED_RANDOM';
 
 
 // Reducer
@@ -57,10 +66,27 @@ const homeReducer = (state = initialState, action = {}) => {
         ...state,
         countComingSoon: state.countComingSoon - 6,
       };
-    case RECEIVED_LIST_CAROUSEL:
+    case RECEIVED_LAST_RELEASED:
       return {
         ...state,
-        listCarousel: action.listCarousel,
+        lastReleasedList: action.lastReleased,
+        loadingLastReleased: false,
+      };
+    case LOAD_LAST_RELEASED:
+      return {
+        ...state,
+        loadingLastReleased: true,
+      };
+    case RECEIVED_RANDOM:
+      return {
+        ...state,
+        randomList: action.random,
+        loadingRandom: false,
+      };
+    case LOAD_RANDOM:
+      return {
+        ...state,
+        loadingRandom: true,
       };
     default:
       return state;
@@ -105,8 +131,26 @@ export const increaseCount = () => ({
 export const decreaseCount = () => ({
   type: DECREASE_COUNT,
 });
-export const receivedListCarousel = listCarousel => ({
-  type: RECEIVED_LIST_CAROUSEL,
-  listCarousel,
+
+export const receivedLastReleased = lastReleased => ({
+  type: RECEIVED_LAST_RELEASED,
+  lastReleased,
+});
+export const requestLastReleased = () => ({
+  type: REQUEST_LAST_RELEASED,
+});
+export const loadLastReleased = () => ({
+  type: LOAD_LAST_RELEASED,
+});
+
+export const receivedRandom = random => ({
+  type: RECEIVED_RANDOM,
+  random,
+});
+export const requestRandom = () => ({
+  type: REQUEST_RANDOM,
+});
+export const loadRandom = () => ({
+  type: LOAD_RANDOM,
 });
 export default homeReducer;

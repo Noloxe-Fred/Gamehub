@@ -1,4 +1,5 @@
 const oneGame = {
+    id: 3,
 		name: 'The Witcher 3',
 		description: 'The Witcher 3 : Wild Hunt est un Action-RPG se dér...',
 		score: 91,
