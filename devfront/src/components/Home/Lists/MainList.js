@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Loader, Grid, Image, Icon, Card  } from 'semantic-ui-react';
 
+
 import './lists.scss';
 
 

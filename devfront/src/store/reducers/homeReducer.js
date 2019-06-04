@@ -67,6 +67,9 @@ const homeReducer = (state = initialState, action = {}) => {
   }
 };
 
+
+// Action creator (qui passeront tous dans le middleware ) 
+
 // Action creator
 export const loadingTabList = () => ({
   type: LOAD_TAB_LIST,
@@ -80,6 +83,7 @@ export const receivedTabList = tabList => ({
 export const requestTabList = () => ({
   type: REQUEST_TAB_LIST,
 });
+
 
 export const requestComingSoon = () => ({
   type: REQUEST_COMING_SOON,
