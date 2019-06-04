@@ -16,10 +16,14 @@ security:
             security: false
         main:
             anonymous: true
-            
+            pattern: ^/api
+
             guard:
                 authenticators:
                     - App\Security\TokenAuthenticator
+
+                entry_point: App\Security\TokenAuthenticator
+
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

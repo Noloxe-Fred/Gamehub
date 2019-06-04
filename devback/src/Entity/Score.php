@@ -20,7 +20,7 @@ class Score
     /**
      * @ORM\Column(type="smallint")
      * @Assert\NotBlank(
-     *      groups = {"score_create"},
+     *      groups = {"create"},
      *      message = "Veuillez indiquer la valeur de votre vote."
      * )
      */

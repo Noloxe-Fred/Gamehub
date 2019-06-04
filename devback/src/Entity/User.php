@@ -29,8 +29,8 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank(
-     *      message = "Veuillez remplir ce champ.",
-     *      groups = {"user_create"}
+     *      message = "Veuillez indiquer votre email.",
+     *      groups = {"create"}
      * )
      * @Assert\Email(
      *      message = "L'email n'est pas valide."
@@ -57,7 +57,7 @@ class User implements UserInterface
      * )
      * @Assert\NotBlank(
      *      message = "Veuillez remplir ce champ.",
-     *      groups = {"user_create"}
+     *      groups = {"create"}
      * )
      * @Assert\Length(
      *      min = "5",
@@ -98,7 +98,7 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank(
      *      message = "Veuillez indiquer votre pseudo.",
-     *      groups = {"user_create"}
+     *      groups = {"create"}
      * )
      * @Assert\Length(
      *      min = "3",
@@ -171,7 +171,6 @@ class User implements UserInterface
 
     public function __construct()
     {   
-        $this->apiToken = bin2hex(random_bytes(60));
         $this->roles[] = 'ROLE_USER';
         $this->isActive = true;
         $this->createdAt = new \DateTime();
