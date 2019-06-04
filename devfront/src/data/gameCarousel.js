@@ -1,5 +1,6 @@
 const gameList =[
   {
+    id: 3,
     name: 'Morrowind',
     description: 'The Elder Scrolls III : Morrowind est un jeu de rô...',
     score: '',
@@ -9,6 +10,7 @@ const gameList =[
     released: '2002-05-30', 
   },
   {
+    id: 3,
     name: 'Fallout 4',
     description: 'Fallout 4 est un RPG à la première personne se déroulant dans un univers ',
     score: '',
@@ -18,6 +20,7 @@ const gameList =[
     released: '2015-11-10',
   },
   {
+    id: 3,
     name: 'Warcraft: Orc and Humans',
     description: 'Warcraft est l\'un des premiers jeux de stratégie e...',
     score: '',
@@ -27,6 +30,7 @@ const gameList =[
     released: '1995-05-02', 
   },
   {
+    id: 3,
     name: 'The Witcher 3',
     description: 'The Witcher 3 : Wild Hunt est un Action-RPG se dér...',
     score: '',
@@ -36,6 +40,7 @@ const gameList =[
     released: '2015-05-19', 
   },
   {
+    id: 3,
     name: 'CyberPunk 2077',
     description: 'Cyberpunk 2077 est un jeu de rôle futuriste et dys...',
     score: '',
@@ -45,6 +50,7 @@ const gameList =[
     released: '2021-02-09', 
   },
   {
+    id: 3,
     name: 'Close to the Sun',
     description: 'Jeu d\'horreur narratif à la première personne, Clo...',
     score: '',
@@ -54,6 +60,7 @@ const gameList =[
     released: '2019-05-02', 
   },
   {
+    id: 3,
     name: 'The Witcher 3',
     description: 'The Witcher 3 : Wild Hunt est un Action-RPG se dér...',
     score: '',
@@ -63,6 +70,7 @@ const gameList =[
     released: '2015-05-19',
   },
   {
+    id: 3,
     name: 'CyberPunk 2077',
     description: 'Cyberpunk 2077 est un jeu de rôle futuriste et dys...',
     score: '',
@@ -72,6 +80,7 @@ const gameList =[
     released: '2021-02-09',
   },
   {
+    id: 3,
     name: 'Close to the Sun',
     description: '',
     score: '',
@@ -81,6 +90,7 @@ const gameList =[
     released: '2019-05-02',
   },
   {
+    id: 3,
     name: 'Morrowind',
     description: 'The Elder Scrolls III : Morrowind est un jeu de rô...',
     score: '',
@@ -90,6 +100,7 @@ const gameList =[
     released: '2002-05-30', 
   },
   {
+    id: 3,
     name: 'Fallout 4',
     description: 'Fallout 4 est un RPG à la première personne se déroulant dans un univers ',
     score: '',
@@ -99,6 +110,7 @@ const gameList =[
     released: '2015-11-10',
   },
   {
+    id: 3,
     name: 'Warcraft: Orc and Humans',
     description: 'Warcraft est l\'un des premiers jeux de stratégie e...',
     score: '',
@@ -108,6 +120,7 @@ const gameList =[
     released: '1995-05-02',
   },
   {
+    id: 3,
     name: 'CyberPunk 2077',
     description: 'Cyberpunk 2077 est un jeu de rôle futuriste et dys...',
     score: '',
@@ -117,6 +130,7 @@ const gameList =[
     released: '2021-02-09',
   },
   {
+    id: 3,
     name: 'Close to the Sun',
     description: 'Jeu d\'horreur narratif à la première personne, Clo...',
     score: '',
@@ -126,6 +140,7 @@ const gameList =[
     released: '2019-05-02',
   },
   {
+    id: 3,
     name: 'Close to the Sun',
     description: 'Jeu d\'horreur narratif à la première personne, Clo...',
     score: '',
@@ -135,6 +150,7 @@ const gameList =[
     released: '2019-05-02', 
   },
   {
+    id: 3,
     name: 'The Witcher 3',
     description: 'The Witcher 3 : Wild Hunt est un Action-RPG se dér...',
     score: '',
@@ -144,6 +160,7 @@ const gameList =[
     released: '2015-05-19',
   },
   {
+    id: 3,
     name: 'CyberPunk 2077',
     description: 'Cyberpunk 2077 est un jeu de rôle futuriste et dys...',
     score: '',
@@ -153,6 +170,7 @@ const gameList =[
     released: '2021-02-09',
   },
   {
+    id: 3,
     name: 'Close to the Sun',
     description: '',
     score: 'https://media.senscritique.com/media/000018489407/source_big/Close_to_the_Sun.jpg',

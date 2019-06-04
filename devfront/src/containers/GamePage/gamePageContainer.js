@@ -11,11 +11,15 @@ const mapStateToProps = state => ({
 
 // 3. Au montage du composant on transmet une information / actions au composant
 // qui se chargera de lancer le requestGame du reducer
-const mapDispatchToProps = dispatch => ({
-  requestGame: () => {
-    dispatch(requestGame());
-  },
-});
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { id } = ownProps.match.params;
+
+  return {
+    requestGame: () => {
+      dispatch(requestGame(id));
+    },
+  };
+};
 
 // 4 . A NE PAS TOUCHER ^^ mais a RENOMMER par containers ! 
 // L'appel à connect nous renvoie une nouvelle fonction

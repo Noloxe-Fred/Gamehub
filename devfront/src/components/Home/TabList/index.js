@@ -22,7 +22,7 @@ class TabList extends React.Component {
         <div className="tabContent">
           <div className="partOfOneTab">
             <div className="icone good"><i class="fas fa-thumbs-up"></i></div>
-            <div>{tabList[0].name}</div>
+            <div><a href={"/game/"+tabList[0].id}>{tabList[0].name}</a></div>
             <div>{tabList[1].name}</div>
             <div>{tabList[2].name}</div>
             <div>{tabList[3].name}</div>

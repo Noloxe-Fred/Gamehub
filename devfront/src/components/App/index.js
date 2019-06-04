@@ -14,9 +14,17 @@ import GamePage from 'src/containers/GamePage/gamePageContainer';
 const App = () => (
   <div id="app">
     <Navbar />
-    <Home />
-    
- 
+    <Switch>
+      <Route
+        exact
+        path="/"
+        component={Home}
+      />
+      <Route
+        path="/game/:id"
+        component={GamePage}
+      />
+    </Switch>
   </div>
 );
 

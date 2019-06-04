@@ -1,11 +1,11 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
-import gameList from 'src/data/gameCarousel'; 
+import gameList from 'src/data/gameCarousel';
 import './carouselAlice.scss';
- 
+
 const CarouselAlice = () => {
   const handleOnDragStart = e => e.preventDefault();
-  
+
   return (
     <AliceCarousel 
       mouseDragEnabled
@@ -14,10 +14,10 @@ const CarouselAlice = () => {
       fadeOutAnimation={true}
       buttonsDisabled={true}
       >
-    
+  
       <div className="slider">
         <div className="uneImage">
-          <a href="#">
+          <a href={"/game/"+gameList[0].id}>
             <img src={gameList[0].cover} onDragStart={handleOnDragStart} className="images" />
           </a>
           <p>{gameList[0].name}</p>
