@@ -1,9 +1,12 @@
 import gameList from 'src/data/gameList';
 
 import {
+  REQUEST_TAB_LIST,
   REQUEST_COMING_SOON,
   loadComingSoon,
   receivedComingSoon,
+  loadingTabList,
+  receivedTabList,
 } from 'src/store/reducers/homeReducer';
 
 const homeMiddleware = store => next => (action) => {
@@ -25,6 +28,11 @@ const homeMiddleware = store => next => (action) => {
           console.log(error);
         });
 
+      break;
+    case REQUEST_TAB_LIST:
+      store.dispatch(loadingTabList());
+      // requete axios en attente!
+      store.dispatch(receivedTabList(gameList));
       break;
     default:
       next(action);
