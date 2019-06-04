@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/platform/", name="platform_")
+ * @Route("admin/platform/", name="platform_")
  */
 class PlatformController extends AbstractController
 {

@@ -24,7 +24,7 @@ class Comment
      * @Assert\NotBlank(
      *      message = "Veuillez indiquer un titre."
      * )
-     * @Assert\Lenght(
+     * @Assert\Length(
      *      min = "3",
      *      max = "75",
      *      minMessage = "Votre titre est trop court.",

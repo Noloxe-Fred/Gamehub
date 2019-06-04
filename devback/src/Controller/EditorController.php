@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/editor/", name="editor_")
+ * @Route("admin/editor/", name="editor_")
  */
 class EditorController extends AbstractController
 {

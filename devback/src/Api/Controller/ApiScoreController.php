@@ -40,7 +40,7 @@ class ApiScoreController extends FOSRestController
      *      "score", 
      *      converter="fos_rest.request_body",
      *      options={
-     *          "validator"={"groups"="Create"}
+     *          "validator"={"groups"="score_create"}
      *      }
      * )
      */
