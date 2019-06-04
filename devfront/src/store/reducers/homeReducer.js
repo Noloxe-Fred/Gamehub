@@ -2,6 +2,7 @@ const initialState = {
   loadingComingSoon: true,
   listComingSoon: [],
   countComingSoon: 0,
+  listCarousel: [],
   loadingTabList: true,
   tabList: [],
 };
@@ -14,9 +15,12 @@ const RECEIVED_COMING_SOON = 'RECEIVED_COMING_SOON';
 const INCREASE_COUNT = 'INCREASE_COUNT';
 const DECREASE_COUNT = 'DECREASE_COUNT';
 
+
+export const RECEIVED_LIST_CAROUSEL = 'RECEIVED_LIST_CAROUSEL';
 export const REQUEST_TAB_LIST = 'REQUEST_TAB_LIST';
 export const LOAD_TAB_LIST = 'LOAD_TAB_LIST';
 const RECEIVED_TAB_LIST = 'RECEIVED_TAB_LIST';
+
 
 // Reducer
 const homeReducer = (state = initialState, action = {}) => {
@@ -52,6 +56,11 @@ const homeReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         countComingSoon: state.countComingSoon - 6,
+      };
+    case RECEIVED_LIST_CAROUSEL:
+      return {
+        ...state,
+        listCarousel: action.listCarousel,
       };
     default:
       return state;
@@ -92,5 +101,8 @@ export const increaseCount = () => ({
 export const decreaseCount = () => ({
   type: DECREASE_COUNT,
 });
-
+export const receivedListCarousel = listCarousel => ({
+  type: RECEIVED_LIST_CAROUSEL,
+  listCarousel,
+});
 export default homeReducer;
