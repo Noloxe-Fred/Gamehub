@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -21,6 +23,18 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(
+     *      message = "Veuillez remplir ce champ."
+     * )
+     * @Assert\Email(
+     *      message = "L'email n'est pas valide."
+     * )
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 50,
+     *      minMessage = "L'email est trop courte, minimum 5 caractères",
+     *      maxMessage = "L'email est trop longue, maximum 50 caractères"
+     * )
      */
     private $email;
 
@@ -32,31 +46,72 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @SecurityAssert\UserPassword(
+     *      message = "Email ou mot de passe incorrect."
+     * )
+     * @Assert\NotBlank(
+     *      message = "Veuillez remplir ce champ."
+     * )
+     * @Assert\Length(
+     *      min = "5",
+     *      max = "50",
+     *      minMessage = "Le mot de passe est trop court.",
+     *      maxMessage = "Le mot de passe est trop long.",
+     * )
+     * @Assert\Regex(
+     *      pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])",
+     *      message = "Mot de passe non valide"
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      min = "2",
+     *      max = "50",
+     *      minMessage = "Le prénom est trop court.",
+     *      maxMessage = "Le prénom est trop long.",
+     * )
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      min = "2",
+     *      max = "50",
+     *      minMessage = "Le nom est trop court.",
+     *      maxMessage = "Le nom est trop long.",
+     * )
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank(
+     *      message = "Veuillez indiquer votre pseudo."
+     * )
+     * @Assert\Lenght(
+     *      min = "3",
+     *      max = "20",
+     *      minMessage = "Le pseudo est trop court.",
+     *      maxMessage = "Le pseudo est trop long."
+     * )
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url(
+     *      message = "L'URL n'est pas valide."
+     * )
      */
     private $photo;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Assert\Date
      */
     private $birthdate;
 
@@ -67,6 +122,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\Length(
+     *      min = "5",
+     *      max = "1500",
+     *      minMessage = "Votre biographie est trop courte",
+     *      maxMessage = "Votre biographie est trop longue"
+     * )
      */
     private $biography;
 

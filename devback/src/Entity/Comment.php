@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
@@ -20,11 +21,29 @@ class Comment
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *      message = "Veuillez indiquer un titre."
+     * )
+     * @Assert\Lenght(
+     *      min = "3",
+     *      max = "75",
+     *      minMessage = "Votre titre est trop court.",
+     *      maxMessage = "Votre titre est trop longue"
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(
+     *      message = "Veuillez détailler votre avis."
+     * )
+     * @Assert\Length(
+     *      min = "5",
+     *      max = "2500",
+     *      minMessage = "Avis trop court.",
+     *      maxMessage = "Avis trop long."
+     * )
      */
     private $content;
 
