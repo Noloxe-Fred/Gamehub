@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ScoreRepository")
@@ -13,31 +15,40 @@ class Score
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"game_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="smallint")
+     * @Assert\NotBlank(
+     *      groups = {"create"},
+     *      message = "Veuillez indiquer la valeur de votre vote."
+     * )
      */
     private $value;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"game_read"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"game_read"})
      */
     private $updatedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="scores", cascade={"persist"})
+     * 
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="scores", cascade={"persist"})
+     * 
      */
     private $game;
 

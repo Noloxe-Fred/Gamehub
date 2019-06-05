@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/type/", name="type_")
+ * @Route("admin/type/", name="type_")
  */
 class TypeController extends AbstractController
 {

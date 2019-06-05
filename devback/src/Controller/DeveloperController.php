@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/developer/", name="developer_")
+ * @Route("admin/developer/", name="developer_")
  */
 class DeveloperController extends AbstractController
 {

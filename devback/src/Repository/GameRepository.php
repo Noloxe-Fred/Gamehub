@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use DateTime;
 use App\Entity\Game;
+use Doctrine\ORM\Query;
+use App\Api\Acme\DemoBundle\DQL\RandFunction;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
@@ -15,10 +17,27 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
  */
 class GameRepository extends ServiceEntityRepository
 {
+   
+
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Game::class);
     }
+
+    public function filterGamesByCategory(array $array){
+
+        //BESOIN DE L ID DE LA CATEGORY
+
+        $qb = $this->createQueryBuilder('g')
+        ->where(':array MEMBER OF g.categories')
+        //->where('expr->eq('g.categories', '?1') MEMBER OF g.categories')
+        ->setParameter('array', array_values($array))
+        ->getQuery()
+        ->getResult();
+        return $qb;
+
+    }
+
 
     public function findAllGames()
     {
@@ -26,7 +45,6 @@ class GameRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('g')
         ->getQuery()
         ->getResult();
-
         return $qb;
     }
 
@@ -73,30 +91,30 @@ class GameRepository extends ServiceEntityRepository
         return $qb;
     }
 
-    public function findRandomGamesList(){
+    public function findRandomGamesList($count = 18){
 
         $qb = $this->createQueryBuilder('g')
         ->addSelect('RAND() as HIDDEN rand')
         ->orderBy('rand')
-        ->setMaxResults(18)
+        ->setMaxResults($count)
         ->getQuery()
         ->getResult();
 
         return $qb;
     }
 
-    // /!\ Méthode non terminé /!\ //
-    public function filterGamesByCategory(array $array){
+    // // /!\ Méthode non terminé /!\ //
+    // public function filterGamesByCategory(array $array){
 
-        $qb = $this->createQueryBuilder('g')
-        ->where(':array MEMBER OF g.categories')
-        //->where('expr->eq('g.categories', '?1') MEMBER OF g.categories')
-        ->setParameter('array', array_values($array))
-        ->getQuery()
-        ->getResult();
+    //     $qb = $this->createQueryBuilder('g')
+    //     ->where(':array MEMBER OF g.categories')
+    //     //->where('expr->eq('g.categories', '?1') MEMBER OF g.categories')
+    //     ->setParameter('array', array_values($array))
+    //     ->getQuery()
+    //     ->getResult();
 
-        return $qb;
-    }
+    //     return $qb;
+    // }
 
     // public function findGamesByBestScore(){
 

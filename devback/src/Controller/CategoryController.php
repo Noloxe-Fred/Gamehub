@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-/** @Route("/category/", name="category_") */
+/** @Route("admin/category/", name="category_") */
 class CategoryController extends AbstractController
 {
     /**
