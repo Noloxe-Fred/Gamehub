@@ -3,10 +3,16 @@ import gameList from 'src/data/gameList'; // temporaire en attendant l'API
 import {
   REQUEST_TAB_LIST,
   REQUEST_COMING_SOON,
+  REQUEST_LAST_RELEASED,
+  REQUEST_RANDOM,
   loadComingSoon,
   receivedComingSoon,
   loadingTabList,
   receivedTabList,
+  loadLastReleased,
+  receivedLastReleased,
+  loadRandom,
+  receivedRandom,
 } from 'src/store/reducers/homeReducer';
 
 const homeMiddleware = store => next => (action) => {
@@ -34,6 +40,16 @@ const homeMiddleware = store => next => (action) => {
       store.dispatch(loadingTabList());
       // requete axios en attente!
       store.dispatch(receivedTabList(gameList));
+      break;
+    case REQUEST_LAST_RELEASED:
+      store.dispatch(loadLastReleased());
+      // requete axios en attente!
+      store.dispatch(receivedLastReleased(gameList));
+      break;
+    case REQUEST_RANDOM:
+      store.dispatch(loadRandom());
+      // requete axios en attente!
+      store.dispatch(receivedRandom(gameList));
       break;
     default:
       next(action);

@@ -1,90 +1,43 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
-import gameList from 'src/data/gameCarousel'; 
+import Proptypes from 'prop-types';
 import './carouselAlice.scss';
- 
-const CarouselAlice = () => {
+
+const CarouselAlice = ({ gameList }) => {
   const handleOnDragStart = e => e.preventDefault();
-  
+
+  const CarouselList = [
+    gameList.slice(0, 6),
+    gameList.slice(6, 12),
+    gameList.slice(12, 18),
+  ];
+
   return (
-    <AliceCarousel 
+    <AliceCarousel
       mouseDragEnabled
       autoPlay={true}
       autoPlayInterval={4000}
       fadeOutAnimation={true}
       buttonsDisabled={true}
-      >
-    
-      <div className="slider">
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[0].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[0].name}</p>
+    >
+      {CarouselList.map(slicedList => (
+        <div className="slider">
+          {slicedList.map(game => (
+            <div id={game.id} className="uneImage">
+              <a href={"/game/"+game.id}>
+                <img src={game.cover} onDragStart={handleOnDragStart} className="images" />
+              </a>
+              <p>{game.name}</p>
+            </div>
+          ))}
         </div>
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[1].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[1].name}</p>
-        </div>
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[2].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[2].name}</p>
-        </div>
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[3].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[3].name}</p>
-        </div>
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[4].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[4].name}</p>
-        </div>
-      </div>
-
-      <div className="slider">
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[5].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[5].name}</p>
-        </div>
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[6].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[6].name}</p>
-        </div>
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[7].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[7].name}</p>
-        </div>
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[8].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[8].name}</p>
-        </div>
-        <div className="uneImage">
-          <a href="#">
-            <img src={gameList[9].cover} onDragStart={handleOnDragStart} className="images" />
-          </a>
-          <p>{gameList[9].name}</p>
-        </div>
-      </div>
-
-      
-
+      ))}
     </AliceCarousel>
-  )
-}
+  );
+};
+
+CarouselAlice.propTypes = {
+  gameList: Proptypes.array.isRequired,
+};
 
 export default CarouselAlice;

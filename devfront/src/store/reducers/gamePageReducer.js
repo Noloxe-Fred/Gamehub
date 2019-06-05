@@ -38,7 +38,7 @@ export const loadGame = () => ({
   type: LOAD_GAME,
 });
 export const requestGame = gameId => ({
- type: REQUEST_GAME,
+  type: REQUEST_GAME,
   gameId,
 });
 export const receivedGame = (gameDatas, commentsDatas, background) => ({

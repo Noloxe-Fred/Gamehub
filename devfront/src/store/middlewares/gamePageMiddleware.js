@@ -9,7 +9,7 @@ const gamePageMiddleware = store => next => (action) => {
     case REQUEST_GAME:
       store.dispatch(loadGame());
       // requete axios en attente!
-
+      // Pour requete du jeu: id du jeu = action.gameId
       // scinder datas
       const gameDatas = {
         name: oneGame.name,

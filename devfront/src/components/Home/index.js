@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Icon } from 'semantic-ui-react';
 
 
 import Banner from './Banner';
 import MainList from 'src/containers/Home/MainList';
-import CarouselAlice from 'src/Library/FullComponent/CarouselAlice';
+import FirstCarousel from 'src/containers/Home/FirstCarousel';
+import SecondCarousel from 'src/containers/Home/SecondCarousel';
 import TabList from 'src/containers/Home/TabList';
 import './home.scss';
 
@@ -14,13 +14,14 @@ class Home extends Component {
     return (
       <div id="home">
         <Banner />
-        <div class="container">
-          <div class="chevron"></div>
-          <div class="chevron"></div>
-          <div class="chevron"></div>
+        <div className="container">
+          <div className="chevron"></div>
+          <div className="chevron"></div>
+          <div className="chevron"></div>
         </div>
         <MainList />
-        <CarouselAlice />
+        <FirstCarousel />
+        <SecondCarousel />
         <TabList />
       </div>
     );

@@ -17,62 +17,45 @@ class TabList extends React.Component {
     const { tabList, load } = this.props;
 
     const panes = [
-      { menuItem: 'Les Tops et Flops de la semaine', render: () => 
+      { menuItem: 'Les Tops et Flops de la semaine', render: () => (
       <Tab.Pane>
         <div className="tabContent">
           <div className="partOfOneTab">
-            <div className="icone good"><i class="fas fa-thumbs-up"></i></div>
-            <div>{tabList[0].name}</div>
-            <div>{tabList[1].name}</div>
-            <div>{tabList[2].name}</div>
-            <div>{tabList[3].name}</div>
-            <div>{tabList[4].name}</div>
-            <div>{tabList[5].name}</div>
-            <div>{tabList[6].name}</div>
-            <div>{tabList[7].name}</div>
+            <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
+            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
           <div className="partOfOneTab">
-            <div className="icone bad"><i class="fas fa-thumbs-down"></i></div>
-            <div>{tabList[4].name}</div>
-            <div>{tabList[5].name}</div>
-            <div>{tabList[6].name}</div>
-            <div>{tabList[7].name}</div>
-            <div>{tabList[0].name}</div>
-            <div>{tabList[1].name}</div>
-            <div>{tabList[2].name}</div>
-            <div>{tabList[3].name}</div>
+            <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
+            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
         </div>
-      </Tab.Pane> },
+      </Tab.Pane> )},
       { menuItem: 'Les Tops et Flops du mois',
-      render: () => 
+      render: () => (
       <Tab.Pane>
         <div className="tabContent">
           <div className="partOfOneTab">
-            <div className="icone good"><i class="fas fa-thumbs-up"></i></div>
-            <div>{tabList[0].name}</div>
-            <div>{tabList[2].name}</div>
-            <div>{tabList[1].name}</div>
-            <div>{tabList[6].name}</div>
-            <div>{tabList[7].name}</div>
-            <div>{tabList[3].name}</div>
-            <div>{tabList[4].name}</div>
-            <div>{tabList[5].name}</div>
+            <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
+            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
           <div className="partOfOneTab">
-            <div className="icone bad"><i class="fas fa-thumbs-down"></i></div>
-            <div>{tabList[4].name}</div>
-            <div>{tabList[5].name}</div>
-            <div>{tabList[7].name}</div>
-            <div>{tabList[0].name}</div>
-            <div>{tabList[1].name}</div>
-            <div>{tabList[6].name}</div>
-            <div>{tabList[2].name}</div>
-            <div>{tabList[3].name}</div>
+            <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
+            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
         </div>
-      </Tab.Pane> },
-      { menuItem: 'Les Tops et Flops de l\'année', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
+      </Tab.Pane> )},
+      { menuItem: 'Les Tops et Flops de l\'année', render: () => (<Tab.Pane>
+        <div className="tabContent">
+          <div className="partOfOneTab">
+            <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
+            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+          </div>
+          <div className="partOfOneTab">
+            <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
+            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+          </div>
+        </div>
+      </Tab.Pane> )},
     ]
 
     return (
