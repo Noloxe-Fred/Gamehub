@@ -3,7 +3,6 @@
   padding-top: 2em;
   width: 50%;
   height: 50%;
-  border: 1px solid black;
   .illustration {
     img {
       width: 100%;
@@ -58,6 +57,58 @@
   }
 }
 
+.comments--container {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.title--comments {
+  text-align: center;
+  margin: 1em 0;
+  padding-bottom: 2em;
+  h2 {
+    font-family: 'Oswald', sans-serif;
+  }
+}
+.cell {
+  border-right: 1px solid black;
+  height: 3em;
+  font-family: 'Reem Kufi', sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+
+.row--comments img{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-right: 1em;
+}
+
+.row--comments:hover {
+  background: #34495e;
+  color: white;
+  cursor: pointer;
+  img {
+    border: white;
+  }
+}
+
+.profil {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+
+
+// Media Queries
+
 @media screen and (max-width: 600px) {
   .container {
     width: 100%;
@@ -70,157 +121,3 @@
     }
   }
 }
-
-
-
-// .header {
-//   width: 70em;
-//   height: 30em;
-//   margin: 0 auto;
-//   border: 1px solid black;
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .section1 {
-//   width: 100%;
-//   height: 80%;
-//   margin-top: 3em;
-//   display: flex;
-//   h2 {
-//     font-size: 3em;
-//     font-family: 'Oswald', sans-serif;
-//   }
-// }
-// .imageOneGame {
-//   width: 25%;
-//   height: 84%;
-//   margin-left: 3em;
-//   margin-right: 3em;
-//   border: 1px solid black;
-//   border-radius: 15px;
-//   display: flex;
-//   justify-content: flex-start;
-//   img {
-//     width: 100%;
-//     height: 100%;
-//     object-fit: cover;
-//     border-radius: 15px;
-//   }
-// }
-
-// .gameInfos {
-//   width: 75%;
-//   height: 80%;
-// }
-
-// .title {
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   button {
-//     font-family: 'Reem Kufi', sans-serif;
-//     margin-right: 3em;
-//     height: 2em;
-//     background: none;
-//     border: 1px solid black;
-//     border-radius: 4px;
-//     &:hover {
-//       background: black;
-//       color: white;
-//     }
-//   }
-
-//   &--info {
-//     display: flex;
-//     align-items: center;
-//     h6 {
-//       margin-left: 1em;
-//     }
-//   }
-// }
-
-// .note {
-//   text-align: left;
-//   font-size: 3em;
-//   h3 {
-//     font-family: 'Oswald', sans-serif;
-//   }
-// }
-
-// .otherInfos {
-//   width: 100%;
-//   height: 60%;
-//   display: flex;
-//   font-family: 'Reem Kufi', sans-serif;
-
-//   h6 {
-//     color: black;
-//     margin-top: 1em;
-//   }
-// }
-
-// .infos {
-//   width: 40%;
-//   text-align: left;
-// }
-
-// .tags {
-//   width: 60%;
-//   display: flex;
-//   justify-content: center;
-//   flex-direction: column;
-//   button {
-//     font-family: 'Reem Kufi', sans-serif;
-//     height: 2em;
-//     background: none;
-//     border: 1px solid black;
-//     border-radius: 4px;
-//     margin: auto .5em;
-//   }
-//   div{
-//     margin: .5em auto;
-//     display: flex;
-//     justify-content: center;
-//   }
-// }
-
-// .description {
-//   width: 100%;
-//   height: 15%;
-//   padding: 0 3em;
-//   background: pink;
-//   h6 {
-//     font-size: 24px;
-//     color: black;
-//   }
-// }
-
-
-// @media screen and (max-width: 600px) {
-//   .header {
-//     height: 100vh;
-//     width: 100vw;
-//   }
-//   .section1 {
-//     flex-direction: column;
-//     justify-content: center;
-//     .imageOneGame {
-//       margin: 0 auto;
-//     }
-//     .gameInfos {
-//       flex-direction: column;
-//       justify-content: center;
-//       .title--info h6 {
-//         display: none;
-//       }
-//       button {
-//         display: none;
-//       }
-//     }
-//   }
-//   .infos {
-//     text-align: center;
-//   }
-// }
