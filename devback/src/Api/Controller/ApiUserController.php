@@ -3,7 +3,6 @@
 namespace App\Api\Controller;
 
 use App\Entity\User;
-use App\Security\TokenAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +18,7 @@ class ApiUserController extends FOSRestController
 
     /**
      * @Rest\View
-     * @Rest\Post(path = "/user/new", name="user_new")
+     * @Rest\Post(path = "signup", name="user_new")
      * @ParamConverter(
      *      "user",
      *      converter="fos_rest.request_body",
@@ -34,6 +33,7 @@ class ApiUserController extends FOSRestController
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
+        
         $user = new User();
         $user->setEmail($request->request->get('email'));
         $user->setPassword($request->request->get('password'));

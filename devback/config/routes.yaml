@@ -2,8 +2,8 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-api_login_check:
-    path: /api/login_check
+api_signin:
+    path: /api/signin
 
 api_signup:
-    path: /api/user/new
+    path: /api/signup

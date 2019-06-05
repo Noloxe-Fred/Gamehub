@@ -34,7 +34,7 @@ class ApiScoreController extends FOSRestController
 
    /**
      * @Rest\View
-     * @Rest\Post(path = "/score/new", name="score_new")
+     * @Rest\Post(path = "score/new", name="score_new")
      * @ParamConverter(
      *      "score", 
      *      converter="fos_rest.request_body",
@@ -80,7 +80,7 @@ class ApiScoreController extends FOSRestController
 
     /**
      * @Rest\View
-     * @Rest\Put(path = "/score/edit", name="score_edit")
+     * @Rest\Put(path = "score/edit", name="score_edit")
      */
     public function editScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, UserRepository $userRepository)
     {
@@ -112,7 +112,7 @@ class ApiScoreController extends FOSRestController
 
     /**
      * @Rest\View
-     * @Rest\Delete(path = "/score/delete", name="score_delete")
+     * @Rest\Delete(path = "score/delete", name="score_delete")
      */
     public function deleteScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, UserRepository $userRepository)
     {
