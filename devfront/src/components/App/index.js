@@ -24,6 +24,7 @@ const App = () => (
         path="/game/:id"
         component={GamePage}
       />
+    
     </Switch>
   </div>
 );
