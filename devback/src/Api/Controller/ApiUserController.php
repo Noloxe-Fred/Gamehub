@@ -12,6 +12,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ApiUserController extends FOSRestController
 {
@@ -19,26 +20,30 @@ class ApiUserController extends FOSRestController
     /**
      * @Rest\View
      * @Rest\Post(path = "/user/new", name="user_new")
+     * @ParamConverter(
+     *      "user",
+     *      converter="fos_rest.request_body",
+     *      options={
+     *          "validator"={"groups"="create"}
+     *      }
+     * )
      */
-    public function newUserAction(Request $request, EntityManagerInterface $em, SerializerInterface $serializer, ConstraintViolationList $violations)
+    public function newUserAction(Request $request, EntityManagerInterface $em, User $user, ConstraintViolationList $violations)
     {   
         if(count($violations)){
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
-
-        $data = $request->getContent();
-
-        $post = $serializer->deserialize($data, User::class, 'json');
+        $user = new User();
+        $user->setEmail($request->request->get('email'));
+        $user->setPassword($request->request->get('password'));
+        $user->setPseudo($request->request->get('pseudo'));
         
-        $em->persist($post);
+        $em->persist($user);
         $em->flush();
 
-        return new JsonResponse('', JsonResponse::HTTP_CREATED);
-
-
-
-
-
+        return $this->view($user, Response::HTTP_CREATED, [
+            
+            ]);
     }
 }

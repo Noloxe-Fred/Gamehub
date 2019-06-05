@@ -22,15 +22,10 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true, nullable=true)
-     */
-    private $apiToken;
-
-    /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank(
-     *      message = "Veuillez remplir ce champ.",
-     *      groups = {"user_create"}
+     *      message = "Veuillez indiquer votre email.",
+     *      groups = {"create"}
      * )
      * @Assert\Email(
      *      message = "L'email n'est pas valide."
@@ -57,7 +52,7 @@ class User implements UserInterface
      * )
      * @Assert\NotBlank(
      *      message = "Veuillez remplir ce champ.",
-     *      groups = {"user_create"}
+     *      groups = {"create"}
      * )
      * @Assert\Length(
      *      min = "5",
@@ -98,7 +93,7 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank(
      *      message = "Veuillez indiquer votre pseudo.",
-     *      groups = {"user_create"}
+     *      groups = {"create"}
      * )
      * @Assert\Length(
      *      min = "3",
@@ -184,18 +179,6 @@ class User implements UserInterface
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getApiToken(): ?string
-    {
-        return $this->apiToken;
-    }
-
-    public function setApiToken(string $apiToken): self
-    {
-        $this->apiToken = $apiToken;
-
-        return $this;
     }
 
     public function getEmail(): ?string

@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
@@ -40,7 +39,7 @@ class ApiScoreController extends FOSRestController
      *      "score", 
      *      converter="fos_rest.request_body",
      *      options={
-     *          "validator"={"groups"="score_create"}
+     *          "validator"={"groups"="create"}
      *      }
      * )
      */
@@ -74,7 +73,9 @@ class ApiScoreController extends FOSRestController
         $em->persist($score);
         $em->flush();
 
-        return new JsonResponse('', JsonResponse::HTTP_CREATED);
+        return $this->view($score, Response::HTTP_CREATED, [
+            
+            ]);
     }
 
     /**
@@ -104,7 +105,9 @@ class ApiScoreController extends FOSRestController
 
         $em->flush();
 
-        return new JsonResponse('', JsonResponse::HTTP_OK);
+        return $this->view($score, Response::HTTP_OK, [
+            
+            ]);
     }
 
     /**
@@ -132,6 +135,8 @@ class ApiScoreController extends FOSRestController
         $em->remove($score);
         $em->flush();
 
-        return new JsonResponse('', JsonResponse::HTTP_OK);
+        return $this->view('', Response::HTTP_OK, [
+            
+            ]);
     }
 }
