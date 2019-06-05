@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Header, Modal, Form } from 'semantic-ui-react';
 
+import './modalconnect.scss';
+
 class ModalConnect extends Component {
 
   handleChange = (evt) => {
@@ -20,12 +22,12 @@ class ModalConnect extends Component {
     evt.preventDefault();
     this.props.submitForm();
   }
-
+ 
   render() {
 
     const { connectPseudo, connectPassword, text, openConnect, loadingConnect } = this.props;
     return (
-  <Modal trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal}>
+  <Modal className="modalConnect" trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal} >
     <Modal.Content>
       <Modal.Description>
         <Header>Se connecter</Header>
