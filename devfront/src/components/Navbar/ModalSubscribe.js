@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, Form } from 'semantic-ui-react';
 
+import ModalConnect from 'src/containers/Navbar/ModalConnect';
 
 export default class ModalSubscribe extends Component {
 
@@ -9,6 +10,10 @@ export default class ModalSubscribe extends Component {
     this.props.changeInput(value, name);
   };
 
+  closeModal = () => {
+    this.props.closeModal();
+  }
+
   onSubmit = (evt) => {
     evt.preventDefault();
     this.props.submitForm();
@@ -16,7 +21,7 @@ export default class ModalSubscribe extends Component {
 
 	render() {
 
-  const { subfirstname, sublastname, subemail, subpassword, subconfirmpassword  } = this.props;
+  const { subpseudo, subemail, subpassword, subconfirmpassword, confirmSubscribe  } = this.props;
 
   return (
     <Modal trigger={<button className="subscribeButton">S'inscrire</button>}>
@@ -24,19 +29,11 @@ export default class ModalSubscribe extends Component {
         <Modal.Description>
             <Form onSubmit= {this.onSubmit}>
               <Form.Field>
-                <label>Votre nom</label>
+                <label>Votre pseudo</label>
                 <input 
-                placeholder='nom'
+                placeholder='pseudo'
                 onChange= {this.handleChange}
-                value= {sublastname} 
-                />
-              </Form.Field>
-              <Form.Field>
-                <label>Votre prénom</label>
-                <input 
-                placeholder='email'
-                onChange= {this.handleChange}
-                value= {subfirstname}
+                value= {subpseudo}
                 />
               </Form.Field>
               <Form.Field>
@@ -63,11 +60,30 @@ export default class ModalSubscribe extends Component {
                 value= {subconfirmpassword}
                 />
               </Form.Field>
-              <Button type='submit'>S'inscrire</Button>
-          </Form>
+              {confirmSubscribe === 'noSubscribtion' && (
+                <Button type='submit'>S'inscrire</Button>
+              )}
+              {confirmSubscribe === 'subscribeOk' && (
+                <Modal.Content id="user-message">
+                  <Modal.Description>Vous êtes bien inscrit, vous pouvez maintenant {<ModalConnect text="vous connecter" type="text" />}.</Modal.Description>
+                </Modal.Content>
+              )}
+              {confirmSubscribe === 'subscribeError' && (
+                <Modal.Content id="user-message">
+                  <Modal.Description>Erreur lors de l'inscription. Contactez un administrateur ou faites une autre tentative</Modal.Description>
+                  <Button type='submit'>S'inscrire</Button>
+                </Modal.Content>
+              )}
+              {confirmSubscribe === 'subscribeAlreadyExist' && (
+                <Modal.Content id="user-message">
+                  <Modal.Description>Cet e-mail correspond déjà à un utilisateur</Modal.Description>
+                  <Button type='submit'>S'inscrire</Button>
+                </Modal.Content>
+              )}
+            </Form>
         </Modal.Description>
       </Modal.Content>
     </Modal>
-  )
+  );
 	}
 }
