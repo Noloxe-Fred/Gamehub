@@ -14,11 +14,11 @@ class Home extends Component {
     return (
       <div id="home">
         <Banner />
-        {/* <div className="container">
+        <div className="chevron--all">
           <div className="chevron"></div>
           <div className="chevron"></div>
           <div className="chevron"></div>
-        </div> */}
+        </div>
         <MainList />
         <FirstCarousel />
         <SecondCarousel />
