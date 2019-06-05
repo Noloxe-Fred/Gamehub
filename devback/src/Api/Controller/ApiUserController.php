@@ -3,8 +3,8 @@
 namespace App\Api\Controller;
 
 use App\Entity\User;
-use App\Security\TokenAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Validator\Validation;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -12,6 +12,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -27,7 +28,7 @@ class ApiUserController extends FOSRestController
 
     /**
      * @Rest\View
-     * @Rest\Post(path = "/signup", name="user_new")
+     * @Rest\Post(path = "signup", name="user_new")
      * @ParamConverter(
      *      "user",
      *      converter="fos_rest.request_body",
@@ -42,7 +43,7 @@ class ApiUserController extends FOSRestController
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
-
+        
 
         $user = new User();
         $clearpassword =$request->request->get('password');
