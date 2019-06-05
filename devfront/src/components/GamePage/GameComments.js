@@ -22,7 +22,7 @@ const GameComments = ({ datas }) => (
         <div className="avatar--comments">
           <img src="https://vice-images.vice.com/images/content-images/2016/07/26/ce-que-votre-photo-de-profil-facebook-dit-de-vous-body-image-1469553008.jpg?output-quality=75" alt=""/>
         </div>
-         <h6>Bob</h6>
+         <h6>{datas[0].user}</h6>
        </div>
       </Col>
 
@@ -34,7 +34,7 @@ const GameComments = ({ datas }) => (
 
       <Col lg={4} sm={4} xs={4} className="cell">
        <div>
-         <h6>Ceci est un commentaire</h6>
+         <h6>{datas[0].content}</h6>
        </div>
       </Col>
     </Row>
@@ -49,7 +49,7 @@ const GameComments = ({ datas }) => (
         <div className="avatar--comments">
           <img src="https://i.pinimg.com/236x/f0/0f/0a/f00f0addecd1fc175278c2b021025e72.jpg" alt=""/>
         </div>
-          <h6>Jeannot</h6>
+          <h6>{datas[1].user}</h6>
        </div>
       </Col>
 
@@ -61,7 +61,7 @@ const GameComments = ({ datas }) => (
 
       <Col lg={4} sm={4} xs={4} className="cell">
        <div>
-         <h6>Ceci est un commentaire</h6>
+         <h6>{datas[1].content}</h6>
        </div>
       </Col>
     </Row>
