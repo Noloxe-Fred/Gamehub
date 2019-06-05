@@ -13,7 +13,6 @@ class TabList extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     const { tabList, load } = this.props;
 
     const panes = [
@@ -29,9 +28,26 @@ class TabList extends React.Component {
             {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
         </div>
-      </Tab.Pane> )},
+      </Tab.Pane> 
+      )},
       { menuItem: 'Les Tops et Flops du mois',
       render: () => (
+      <Tab.Pane>
+        <div className="tabContent">
+          <div className="partOfOneTab">
+            <div className="icone good">
+              <i className="fas fa-thumbs-up"></i>
+            </div>
+            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+          </div>
+          <div className="partOfOneTab">
+            <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
+            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+          </div>
+        </div>
+      </Tab.Pane>
+      )},
+      { menuItem: 'Les Tops et Flops de l\'année', render: () => (
       <Tab.Pane>
         <div className="tabContent">
           <div className="partOfOneTab">
@@ -43,28 +59,17 @@ class TabList extends React.Component {
             {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
         </div>
-      </Tab.Pane> )},
-      { menuItem: 'Les Tops et Flops de l\'année', render: () => (<Tab.Pane>
-        <div className="tabContent">
-          <div className="partOfOneTab">
-            <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
-            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
-          </div>
-          <div className="partOfOneTab">
-            <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
-            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
-          </div>
-        </div>
-      </Tab.Pane> )},
+      </Tab.Pane>
+      )},
     ]
 
     return (
       <div>
         {load && <Loader active inline='centered' />}
           {!load && (
-            <div className="tab">
-              <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
-            </div>
+          <div className="tab">
+            <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+          </div>
           )}
       </div>
     );
