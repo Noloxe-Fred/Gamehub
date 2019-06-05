@@ -12,12 +12,26 @@ import Page404 from 'src/components/Page404';
 
 // == Composant
 class App extends Component {
-  componentDidMount() {
 
+  componentDidMount() {
+    const { connectSavedUser } = this.props;
+
+    if (localStorage.getItem('connect') && localStorage.getItem('remember')) {
+      connectSavedUser();
+    }
+  }
+
+  componentWillUnmount() {
+    const { disconnectUser } = this.props;
+
+    if ( localStorage.getItem('remember')===false ) {
+      console.log('disconnect');
+      disconnectUser();
+    }
   }
 
   render() {
-
+    console.log('LocalStorage on App:', localStorage);
     return (
       <div id="app">
         <Navbar />
@@ -37,7 +51,7 @@ class App extends Component {
         </Switch>
       </div>
     );
-  };
+  }
 }
 
 // == Export

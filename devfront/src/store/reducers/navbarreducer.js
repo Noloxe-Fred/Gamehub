@@ -14,16 +14,20 @@ const initialState = {
 };
 
 // Action Type
-const ACTION = 'ACTION';
-const LOADING_CONNECT = 'LOADING_CONNECT'
-const RECEIVED_CONNECT = 'RECEIVED_CONNECT';
 const OPEN_MODAL_CONNECT = 'OPEN_MODAL_CONNECT';
 const CLOSE_MODAL = 'CLOSE_MODAL';
 const RECEIVED_SUBSCRIBE = 'RECEIVED_SUBSCRIBE_OK';
 const END_CONFIRM_SUBSCRIBE = 'END_CONFIRM_SUBSCRIBE';
 
+const LOADING_CONNECT = 'LOADING_CONNECT';
+const RECEIVED_CONNECT = 'RECEIVED_CONNECT';
+export const CONNECT_SAVED_USER = 'CONNECT_SAVED_USER';
 export const CONNECT = 'CONNECT';
+export const DISCONNECT = 'DISCONNECT';
+const RECEIVED_DISCONNECT = 'RECEIVED_DISCONNECT';
+
 export const SUBSCRIBE = 'SUBSCRIBE';
+
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 const SET_INPUT = 'SET_INPUT';
 
@@ -68,6 +72,10 @@ const navbarreducer = (state = initialState, action = {}) => {
         ...state,
         [name]: value,
       };
+    case RECEIVED_DISCONNECT:
+      return {
+        initialState,
+      };
     default:
       return state;
   }
@@ -81,6 +89,10 @@ const navbarreducer = (state = initialState, action = {}) => {
 
 export const connectUser = () => ({
   type: CONNECT,
+});
+
+export const connectSavedUser = () => ({
+  type: CONNECT_SAVED_USER,
 });
 
 export const loadingConnection = () => ({
@@ -117,6 +129,14 @@ export const setInput = (value, name) => ({
   type: SET_INPUT,
   value,
   name,
+});
+
+export const receivedDisconnect = () => ({
+  type: RECEIVED_DISCONNECT,
+});
+
+export const disconnectUser = () => ({
+  type: DISCONNECT,
 });
 
 export default navbarreducer;
