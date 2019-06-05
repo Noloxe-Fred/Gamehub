@@ -5,7 +5,9 @@ const navbarMiddleware = store => next => (action) => {
     case CONNECT:
       store.dispatch(loadingConnection());
       // en attente de requete axios
-      store.dispatch(receivedConnect('userToken'));
+      
+      localStorage.setItem('connect', true);
+      store.dispatch(receivedConnect());
       break;
     case SUBSCRIBE:
       // requete axios: if subscribe ok =

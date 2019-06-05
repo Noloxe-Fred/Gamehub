@@ -38,7 +38,7 @@ const navbarreducer = (state = initialState, action = {}) => {
     case RECEIVED_CONNECT:
       return {
         ...state,
-        token: action.token,
+        connect: true,
         loadingConnect: false,
         openConnect: false,
       };
