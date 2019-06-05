@@ -8,12 +8,12 @@ import './navbar.scss';
 const Navbar = () => (
   <nav>
     <div className="logo">
-      <h2>G<i className="fas fa-headset"></i>MEHUB</h2>
+      <NavLink to="/"><h2>G<i className="fas fa-headset"></i>MEHUB</h2></NavLink>
     </div>
 
     <div className="menu">
       <NavLink to="advancedsearch" className="advancedSearch">Recherche avancée</NavLink>
-      <ModalConnect />
+      <ModalConnect text="Se connecter" />
       <ModalSubscribe />
     </div>
   </nav>

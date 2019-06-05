@@ -4,8 +4,9 @@ import reducer from './reducers';
 
 import homeMiddleware from './middlewares/homeMiddleware';
 import navbarMiddleware from './middlewares/navbarMiddleware';
+import gamePageMiddleware from './middlewares/gamePageMiddleware';
 
-const appliedMiddlewares = applyMiddleware(navbarMiddleware, homeMiddleware);
+const appliedMiddlewares = applyMiddleware(navbarMiddleware, homeMiddleware, gamePageMiddleware);
 
 
 /* eslint-disable no-underscore-dangle */
