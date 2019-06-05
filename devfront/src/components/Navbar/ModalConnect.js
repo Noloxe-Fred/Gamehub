@@ -8,6 +8,14 @@ class ModalConnect extends Component {
     this.props.changeInput(value, name);
   };
 
+  openModalConnect = () => {
+    this.props.openModalConnect();
+  };
+
+  closeModal = () => {
+    this.props.closeModal();
+  };
+
   onSubmit = (evt) => {
     evt.preventDefault();
     this.props.submitForm();
@@ -15,10 +23,9 @@ class ModalConnect extends Component {
 
   render() {
 
-    const { connectPseudo, connectPassword } = this.props;
-
+    const { connectPseudo, connectPassword, text, openConnect, loadingConnect } = this.props;
     return (
-  <Modal trigger={<button className="connectButton">Se connecter</button>}>
+  <Modal trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal}>
     <Modal.Content>
       <Modal.Description>
         <Header>Se connecter</Header>
@@ -41,7 +48,10 @@ class ModalConnect extends Component {
               value={connectPassword}
             />
           </Form.Field>
-          <Button type='submit' basic color='green'>Se connecter</Button>
+          {!loadingConnect 
+            ? <Button type='submit' basic color='green'>Se connecter</Button>
+            : <Button loading>Loading</Button>
+          }
         </Form>
       </Modal.Description>
     </Modal.Content>

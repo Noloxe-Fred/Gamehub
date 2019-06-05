@@ -13,7 +13,7 @@ const Navbar = () => (
 
     <div className="menu">
       <NavLink to="advancedsearch" className="advancedSearch">Recherche avancée</NavLink>
-      <ModalConnect />
+      <ModalConnect text="Se connecter" />
       <ModalSubscribe />
     </div>
   </nav>

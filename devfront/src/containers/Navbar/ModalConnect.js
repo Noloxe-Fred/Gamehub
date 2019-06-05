@@ -4,12 +4,20 @@ import ModalConnect from 'src/components/Navbar/ModalConnect';
 import {
   setInput, 
   connectUser,
+  openModalConnect,
+  closeModal,
 } from 'src/store/reducers/navbarreducer';
 
-const mapStateToProps = state => ({
-  connectPseudo: state.connectPseudo,
-  connectPassword: state.connectPassword,
-});
+const mapStateToProps = state => {
+  console.log('modalconnect',state)
+
+  return {
+    loadingConnect: state.navbarreducer.loadingConnect,
+    openConnect: state.navbarreducer.openConnect,
+    connectPseudo: state.navbarreducer.connectPseudo,
+    connectPassword: state.navbarreducer.connectPassword,
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   changeInput: (value, name) => {
@@ -18,6 +26,12 @@ const mapDispatchToProps = dispatch => ({
   submitForm: () => {
     dispatch(connectUser());
   },
+  openModalConnect: () => {
+    dispatch(openModalConnect());
+  },
+  closeModal: () => {
+    dispatch(closeModal());
+  }
 });
 
 // L'appel à connect nous renvoie une nouvelle fonction
