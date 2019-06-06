@@ -1,0 +1,29 @@
+.tab {
+  width: 68em;
+  margin: 3em auto;
+}
+
+.tabContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.partOfOneTab {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.icone {
+  margin-bottom: 1em;
+}
+
+.good i{
+  color: green;
+  font-size: 1.5em;
+}
+
+.bad i{
+  color: red;
+  font-size: 1.5em;
+}

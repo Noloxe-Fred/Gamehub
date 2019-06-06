@@ -3,15 +3,16 @@ import ModalSubscribe from 'src/components/Navbar/ModalSubscribe';
 
 import {
   setInput, 
-  connectUser,
+  subscribeUser,
+  closeModal,
 } from 'src/store/reducers/navbarreducer';
 
 const mapStateToProps = state => ({
-  subfirstname: state.subfirstname,
-  sublastname: state.sublastname,
-  subemail: state.subemail,
-  subpassword: state.subpassword,
-  subconfirmpassword: state.subconfirmpassword,
+  subpseudo: state.navbarreducer.subpseudo,
+  subemail: state.navbarreducer.subemail,
+  subpassword: state.navbarreducer.subpassword,
+  subconfirmpassword: state.navbarreducer.subconfirmpassword,
+  confirmSubscribe: state.navbarreducer.confirmSubscribe,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,7 +20,10 @@ const mapDispatchToProps = dispatch => ({
     dispatch(setInput(value, name));
   },
   submitForm: () => {
-    dispatch(connectUser());
+    dispatch(subscribeUser());
+  },
+  closeModal: () => {
+    dispatch(closeModal());
   },
 });
 

@@ -38,21 +38,12 @@ class ApiGameController extends FOSRestController
 
         // $response->headers->set('Access-Control-Allow-Origin', '*');
 
-        // return JsonResponse::fromJsonString($allGames, JsonResponse::HTTP_OK);
+        return JsonResponse::fromJsonString($allGames, JsonResponse::HTTP_OK);
 
 
 
 
-        
-        $response = new Response();
-        
-        //$response->setContent(json_encode([$allGames]));
-        
-        $response->setContent($allGames);
-        $response->setStatusCode(Response::HTTP_OK);
-        $response->headers->set('Content-Type', 'application/json');
-        $response->headers->set('Access-Control-Allow-Origin', '*');       
-        return $response;
+
 
 
 

@@ -1,11 +1,11 @@
 
 // Css Chevron
 
-.container {
+.chevron--all {
   position: relative;
   width: 24px;
   height: 24px;
-  margin: 1em auto;
+  margin: 2em auto;
 }
 
 .chevron {
@@ -83,3 +83,21 @@
     opacity: 1;
   }
 }
+
+.carousel {
+  display: flex;
+  position: absolute;
+  margin: 10px 250px;
+}
+
+.carousel-list {
+  position: relative;
+
+}
+
+.carousel-img {
+  margin: 10px;
+  width: 200px;
+  height: 300px;
+}
+

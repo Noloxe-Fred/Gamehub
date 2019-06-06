@@ -54,9 +54,8 @@ class ApiUserController extends FOSRestController
         
         $em->persist($user);
         $em->flush();
-
-        return $this->view($user, Response::HTTP_CREATED, [
-            
+        
+        return $this->view(['email' => $user->getEmail()], Response::HTTP_CREATED, [          
             ]);
     }
 }

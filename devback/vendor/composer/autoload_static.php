@@ -108,12 +108,19 @@ class ComposerStaticInit071dcfe2222d5c9fe2bcc9d99e0583eb
         ),
         'N' => 
         array (
+            'Nelmio\\CorsBundle\\' => 18,
             'Nelmio\\Alice\\' => 13,
             'Negotiation\\' => 12,
+            'Namshi\\JOSE\\' => 12,
         ),
         'M' => 
         array (
             'Monolog\\' => 8,
+        ),
+        'L' => 
+        array (
+            'Lexik\\Bundle\\JWTAuthenticationBundle\\' => 37,
+            'Lcobucci\\JWT\\' => 13,
         ),
         'H' => 
         array (
@@ -436,6 +443,10 @@ class ComposerStaticInit071dcfe2222d5c9fe2bcc9d99e0583eb
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
         ),
+        'Nelmio\\CorsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nelmio/cors-bundle',
+        ),
         'Nelmio\\Alice\\' => 
         array (
             0 => __DIR__ . '/..' . '/nelmio/alice/src',
@@ -444,9 +455,21 @@ class ComposerStaticInit071dcfe2222d5c9fe2bcc9d99e0583eb
         array (
             0 => __DIR__ . '/..' . '/willdurand/negotiation/src/Negotiation',
         ),
+        'Namshi\\JOSE\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/namshi/jose/src/Namshi/JOSE',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Lexik\\Bundle\\JWTAuthenticationBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle',
+        ),
+        'Lcobucci\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
         ),
         'Hautelook\\AliceBundle\\' => 
         array (
