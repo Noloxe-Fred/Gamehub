@@ -1,4 +1,5 @@
 import gameList from 'src/data/gameList'; // temporaire en attendant l'API
+import axios from 'axios';
 
 import {
   REQUEST_TAB_LIST,
@@ -32,6 +33,7 @@ const homeMiddleware = store => next => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          
         });
         store.dispatch(receivedComingSoon(gameList));
 

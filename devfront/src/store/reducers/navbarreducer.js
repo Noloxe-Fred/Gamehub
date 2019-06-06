@@ -21,6 +21,7 @@ const END_CONFIRM_SUBSCRIBE = 'END_CONFIRM_SUBSCRIBE';
 
 const LOADING_CONNECT = 'LOADING_CONNECT';
 const RECEIVED_CONNECT = 'RECEIVED_CONNECT';
+const ERROR_CONNECT = 'ERROR_CONNECT';
 export const CONNECT_SAVED_USER = 'CONNECT_SAVED_USER';
 export const CONNECT = 'CONNECT';
 export const DISCONNECT = 'DISCONNECT';
@@ -46,6 +47,13 @@ const navbarreducer = (state = initialState, action = {}) => {
         loadingConnect: false,
         openConnect: false,
       };
+    case ERROR_CONNECT: 
+      return {
+        connect: false,
+        loadingConnect: false,
+        openConnect: true,
+        errorMessage: action.errorMessage,
+      };
     case OPEN_MODAL_CONNECT:
       return {
         ...state,
@@ -60,12 +68,12 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         confirmSubscribe: action.result,
+        connectPseudo: action.email,
       };
     case END_CONFIRM_SUBSCRIBE:
       return {
         ...state,
         confirmSubscribe: 'noSubscribtion',
-        connectPseudo: action.email,
       };
     case SET_INPUT:
       const { name, value } = action;
@@ -124,6 +132,11 @@ export const receivedSubscribe = (result, email) => ({
 
 export const receivedConnect = () => ({
   type: RECEIVED_CONNECT,
+});
+
+export const errorConnect = (errorMessage) => ({
+  type: ERROR_CONNECT,
+  errorMessage,
 });
 
 export const setInput = (value, name) => ({
