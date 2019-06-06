@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <h2>Ajouter un type</h2>
+
+    {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+        <button type="submit">Valider</button>
+    {{ form_end(form) }}
+
+{% endblock %}
