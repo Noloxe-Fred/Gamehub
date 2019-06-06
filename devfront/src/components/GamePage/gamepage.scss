@@ -64,12 +64,12 @@
 
 .title--comments {
   text-align: center;
-  margin: 1em 0;
-  padding-bottom: 2em;
+  margin: 2em 0;
   h2 {
     font-family: 'Oswald', sans-serif;
   }
 }
+
 .cell {
   border-right: 1px solid black;
   height: 3em;
@@ -77,6 +77,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  text-align: left;
+}
+
+.cell--header {
+  border-right: none;
+  border-bottom: 1px solid black;
 }
 
 
@@ -120,4 +126,19 @@
       }
     }
   }
-}
+  .cell {
+    justify-content: center;
+  }
+  .row--header {
+    display: none;
+  }
+  .row--comments {
+    border-top: 1px solid black;
+  }
+  .cell--number {
+    display: none;
+  }
+  .cell-score {
+    border: none;
+  }
+} 

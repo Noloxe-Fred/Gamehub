@@ -25,14 +25,25 @@ const oneGame = {
 		comments: [
 			{
 				id: 19,
-				content: 'Très bon jeu',
-				user: 'Alphonse',
+				content: 'Fred ne sait pas jouer',
+        user: 'Maxou',
+        test: 'Ce que je préfère dans The Witcher 3...',
+        score: '98%',
 			},
 			{
 				id: 22,
 				content: 'J\'aime pas trop Maxou',
-				user: 'Maxou',
-			}
+        user: 'Fred',
+        test: 'The Witcher 3 nous plonge dans...',
+        score: '83%',
+      },
+      {
+        id: 36,
+        content: 'Fred est un gourou fétichiste',
+        user: 'Ahmed',
+        test: 'Ce jeu m\'impressionne...',
+        score: '91%',
+      }
 		],
 };
 
