@@ -65,6 +65,7 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         confirmSubscribe: 'noSubscribtion',
+        connectPseudo: action.email,
       };
     case SET_INPUT:
       const { name, value } = action;
@@ -115,9 +116,10 @@ export const endConfirmSubscribe = () => ({
   type: END_CONFIRM_SUBSCRIBE,
 });
 
-export const receivedSubscribe = result => ({
+export const receivedSubscribe = (result, email) => ({
   type: RECEIVED_SUBSCRIBE,
   result,
+  email,
 });
 
 export const receivedConnect = () => ({
