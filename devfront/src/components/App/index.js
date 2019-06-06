@@ -9,29 +9,24 @@ import Navbar from 'src/components/Navbar';
 import Home from 'src/components/Home';
 import GamePage from 'src/containers/GamePage/gamePageContainer';
 import Page404 from 'src/components/Page404';
+import { connectSavedUser } from '../../store/reducers/navbarreducer';
 
 // == Composant
 class App extends Component {
 
   componentDidMount() {
-    const { connectSavedUser } = this.props;
+    const rememberUser = localStorage.getItem('remember');
+    const { connect } = this.props;
 
-    if (localStorage.getItem('connect') && localStorage.getItem('remember')) {
+    if (!connect && rememberUser === 'false') {
+      localStorage.clear();
+    }
+    if (!connect && rememberUser === 'true') {
       connectSavedUser();
     }
   }
 
-  componentWillUnmount() {
-    const { disconnectUser } = this.props;
-
-    if ( localStorage.getItem('remember')===false ) {
-      console.log('disconnect');
-      disconnectUser();
-    }
-  }
-
   render() {
-    console.log('LocalStorage on App:', localStorage);
     return (
       <div id="app">
         <Navbar />
