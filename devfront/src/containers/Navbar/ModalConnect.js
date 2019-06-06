@@ -8,16 +8,12 @@ import {
   closeModal,
 } from 'src/store/reducers/navbarreducer';
 
-const mapStateToProps = state => {
-  console.log('modalconnect',state)
-
-  return {
-    loadingConnect: state.navbarreducer.loadingConnect,
-    openConnect: state.navbarreducer.openConnect,
-    connectPseudo: state.navbarreducer.connectPseudo,
-    connectPassword: state.navbarreducer.connectPassword,
-  }
-};
+const mapStateToProps = state => ({
+  loadingConnect: state.navbarreducer.loadingConnect,
+  openConnect: state.navbarreducer.openConnect,
+  connectPseudo: state.navbarreducer.connectPseudo,
+  connectPassword: state.navbarreducer.connectPassword,
+});
 
 const mapDispatchToProps = dispatch => ({
   changeInput: (value, name) => {

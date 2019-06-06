@@ -21,7 +21,7 @@ const CarouselAlice = ({ gameList }) => {
       buttonsDisabled={true}
     >
       {CarouselList.map(slicedList => (
-        <div className="slider">
+        <div id={slicedList[0].id} className="slider">
           {slicedList.map(game => (
             <div id={game.id} className="uneImage">
               <a href={"/game/"+game.id}>

@@ -21,11 +21,11 @@ class TabList extends React.Component {
         <div className="tabContent">
           <div className="partOfOneTab">
             <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
-            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
           <div className="partOfOneTab">
             <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
-            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
         </div>
       </Tab.Pane> 
@@ -38,11 +38,11 @@ class TabList extends React.Component {
             <div className="icone good">
               <i className="fas fa-thumbs-up"></i>
             </div>
-            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
           <div className="partOfOneTab">
             <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
-            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
         </div>
       </Tab.Pane>
@@ -52,11 +52,11 @@ class TabList extends React.Component {
         <div className="tabContent">
           <div className="partOfOneTab">
             <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
-            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
           <div className="partOfOneTab">
             <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
-            {tabList.map(game => <div><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
         </div>
       </Tab.Pane>

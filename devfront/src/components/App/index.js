@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 
 // == Import : local
 import './app.scss';
-import Navbar from 'src/components/Navbar';
+import Navbar from 'src/containers/Navbar/Navbar';
 import Home from 'src/components/Home';
 import GamePage from 'src/containers/GamePage/gamePageContainer';
 import Page404 from 'src/components/Page404';
@@ -14,24 +14,18 @@ import Page404 from 'src/components/Page404';
 class App extends Component {
 
   componentDidMount() {
-    const { connectSavedUser } = this.props;
+    const rememberUser = localStorage.getItem('remember');
+    const { connect, connectSavedUser } = this.props;
 
-    if (localStorage.getItem('connect') && localStorage.getItem('remember')) {
+    if (!connect && rememberUser === 'false') {
+      localStorage.clear();
+    }
+    if (!connect && rememberUser === 'true') {
       connectSavedUser();
     }
   }
 
-  componentWillUnmount() {
-    const { disconnectUser } = this.props;
-
-    if ( localStorage.getItem('remember')===false ) {
-      console.log('disconnect');
-      disconnectUser();
-    }
-  }
-
   render() {
-    console.log('LocalStorage on App:', localStorage);
     return (
       <div id="app">
         <Navbar />

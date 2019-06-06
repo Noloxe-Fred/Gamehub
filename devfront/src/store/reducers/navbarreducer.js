@@ -120,9 +120,8 @@ export const receivedSubscribe = result => ({
   result,
 });
 
-export const receivedConnect = token => ({
+export const receivedConnect = () => ({
   type: RECEIVED_CONNECT,
-  token,
 });
 
 export const setInput = (value, name) => ({
