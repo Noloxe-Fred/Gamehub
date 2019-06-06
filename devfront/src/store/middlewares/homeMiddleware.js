@@ -1,4 +1,6 @@
 import gameList from 'src/data/gameList'; // temporaire en attendant l'API
+import axios from 'axios';
+
 
 import {
   REQUEST_TAB_LIST,
