@@ -24,7 +24,7 @@ const navbarMiddleware = store => next => (action) => {
       const email = store.getState().navbarreducer.connectPseudo;
       const password = store.getState().navbarreducer.connectPassword;
       console.log(email);
-      axios.post('http://127.0.0.1:8001/api/login_check', {
+      axios.post('http://127.0.0.1:8001/api/signin', {
         headers: {
           'Content-Type': 'application/json',
         },
