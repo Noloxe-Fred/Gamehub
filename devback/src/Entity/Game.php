@@ -37,13 +37,8 @@ class Game
     private $description;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
-     * @Groups({"game_read"})
-     */
-    private $averageScore;
-
-    /**
      * @ORM\Column(type="smallint", nullable=true, options={"unsigned"=true})
+     * @Groups({"game_read"})
      */
     private $score;
 
@@ -165,18 +160,6 @@ class Game
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getAverageScore(): ?int
-    {
-        return $this->averageScore;
-    }
-
-    public function setAverageScore(?int $averageScore): self
-    {
-        $this->averageScore = $averageScore;
 
         return $this;
     }

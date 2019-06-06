@@ -3,7 +3,7 @@
 namespace App\Api\Controller;
 
 use App\Entity\User;
-use App\Form\API\UserType;
+use App\Form\Api\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,15 +20,9 @@ class ApiUserController extends FOSRestController
     /**
      * @Rest\View
      * @Rest\Post(path = "signup", name="user_create")
-     * @ParamConverter(
-     *      "user",
-     *      converter = "fos_rest.request_body",
-     *      options = {
-     *          "validator" = {"groups" = "create"}
-     *      }
-     * )
+     * @ParamConverter("user", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "create"}})
      */
-    public function createUserAction(Request $request, EntityManagerInterface $em, User $user, ConstraintViolationList $violations, UserPasswordEncoderInterface $encoder)
+    public function createUserAction(User $user, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations, UserPasswordEncoderInterface $encoder)
     {   
         if(count($violations)){
             
@@ -53,22 +47,27 @@ class ApiUserController extends FOSRestController
 
     /**
      * @Rest\View
-     * @Rest\Put(path = "user/{id}/edit", name="user_edit")
+     * @Rest\Put(path = "user/edit", name="user_edit")
+     * @ParamConverter("user", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "edit"}})
      */
-    public function editUserAction($id , Request $request, EntityManagerInterface $em, UserRepository $userRepository, UserPasswordEncoderInterface $encoder)
+    public function editUserAction(User $user, UserRepository $userRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations, UserPasswordEncoderInterface $encoder)
     {   
+        if(count($violations)){
+            
+            return $this->view($violations, Response::HTTP_BAD_REQUEST);
+        }
         
-        $user = $userRepository->find($id);
+        $user = $userRepository->findOneById($request->request->get('id'));
 
         $form = $this->createForm(UserType::class, $user);
-        
         $form->submit($request->request->all());
-        $hash = $encoder->encodePassword($user, $request->request->get('password'));
-        $user->setPassword($hash);
+
+        $user->setPassword($request->request->get('password'));
+        $user->setUpdatedAt(new \DateTime());
 
         $em->flush();
 
-        return $this->view($user, Response::HTTP_OK, [
+        return $this->view('', Response::HTTP_OK, [
             
             ]);
     }

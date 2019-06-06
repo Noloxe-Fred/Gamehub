@@ -16,7 +16,7 @@ class ApiGameController extends FOSRestController
      * @Rest\View
      * @Rest\Get(path = "game/list", name = "game_list")
      */
-    public function getGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
+    public function showGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
     {   
         
         $request = $gameRepository->findAllGames();
@@ -32,7 +32,7 @@ class ApiGameController extends FOSRestController
      * @Rest\View
      * @Rest\Get(path = "game/{id}", name = "game_show", requirements = {"id"="\d+"})
      */
-    public function getGameAction(Game $game, GameRepository $gameRepository, SerializerInterface $serializer)
+    public function showGameAction(Game $game, GameRepository $gameRepository, SerializerInterface $serializer)
     {   
 
         $request = $gameRepository->findByGame($game);
@@ -48,7 +48,7 @@ class ApiGameController extends FOSRestController
      * @Rest\View
      * @Rest\Get(path = "game/list/nextmonth", name = "game_next_month")
      */
-    public function getNextMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
+    public function showNextMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
     {
 
         $request = $gameRepository->findNextMonthGames();
@@ -64,7 +64,7 @@ class ApiGameController extends FOSRestController
      * @Rest\View
      * @Rest\Get(path = "game/list/lastmonth", name = "game_last_month")
      */
-    public function getLastMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
+    public function showLastMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
     {
 
         $request = $gameRepository->findLastMonthGames();
@@ -80,7 +80,7 @@ class ApiGameController extends FOSRestController
      * @Rest\View
      * @Rest\Get(path = "game/list/random", name = "game_random_list")
      */ 
-    public function getRandomGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+    public function showRandomGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
         $request = $gameRepository->findRandomGamesList();
 
@@ -91,20 +91,3 @@ class ApiGameController extends FOSRestController
         return JsonResponse::fromJsonString($randomGamesList);
     }
 }
-
-    // /**
-    //  * @Rest\View
-    //  * @Rest\Post(path = "/game", name="game_create")
-    //  */
-    // public function createGameAction(Request $request, SerializerInterface $serializer, EntityManagerInterface $em)
-    // {
-        
-    //     $data = $request->getContent();
-
-    //     $post = $serializer->deserialize($data, Game::class, 'json');
-        
-    //     $em->persist($post);
-    //     $em->flush();
-
-    //     return new JsonResponse('', JsonResponse::HTTP_CREATED);
-    // }

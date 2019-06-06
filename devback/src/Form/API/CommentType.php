@@ -2,30 +2,27 @@
 
 namespace App\Form\Api;
 
-use App\Entity\Score;
+use App\Entity\Comment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
-class ScoreType extends AbstractType
+class CommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('value', IntegerType::class, [
-                
-            ])
-            ->add('user')
+            ->add('title')
+            ->add('content')
             ->add('game')
+            ->add('user')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Score::class,
+            'data_class' => Comment::class,
         ]);
     }
 }
