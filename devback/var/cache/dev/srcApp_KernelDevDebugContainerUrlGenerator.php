@@ -51,7 +51,7 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'score_edit' => [[], ['_controller' => 'App\\Api\\Controller\\ApiScoreController::editScoreAction'], [], [['text', '/api/score/edit']], [], []],
         'score_delete' => [[], ['_controller' => 'App\\Api\\Controller\\ApiScoreController::deleteScoreAction'], [], [['text', '/api/score/delete']], [], []],
         'user_new' => [[], ['_controller' => 'App\\Api\\Controller\\ApiUserController::newUserAction'], [], [['text', '/api/signup']], [], []],
-        'login_check' => [[], [], [], [['text', '/api/login_check']], [], []],
+        'api_signin' => [[], [], [], [['text', '/api/signin']], [], []],
         'api_signup' => [[], [], [], [['text', '/api/signup']], [], []],
     ];
         }

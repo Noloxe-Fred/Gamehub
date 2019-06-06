@@ -39,7 +39,7 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
                 [['_route' => 'user_new', '_controller' => 'App\\Api\\Controller\\ApiUserController::newUserAction'], null, ['POST' => 0], null, false, false, null],
                 [['_route' => 'api_signup'], null, null, null, false, false, null],
             ],
-            '/api/login_check' => [[['_route' => 'login_check'], null, null, null, false, false, null]],
+            '/api/signin' => [[['_route' => 'api_signin'], null, null, null, false, false, null]],
         ];
         $this->regexpList = [
             0 => '{^(?'
