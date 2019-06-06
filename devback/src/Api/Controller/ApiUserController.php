@@ -8,10 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class ApiUserController extends FOSRestController
 {
@@ -27,7 +26,7 @@ class ApiUserController extends FOSRestController
      *      }
      * )
      */
-    public function newUserAction(Request $request, EntityManagerInterface $em, User $user, ConstraintViolationList $violations)
+    public function newUserAction(Request $request, EntityManagerInterface $em, User $user, ConstraintViolationList $violations, UserPasswordEncoderInterface $encoder)
     {   
         if(count($violations)){
             
@@ -36,8 +35,9 @@ class ApiUserController extends FOSRestController
         
         $user = new User();
         $user->setEmail($request->request->get('email'));
-        $user->setPassword($request->request->get('password'));
         $user->setPseudo($request->request->get('pseudo'));
+        $hash = $encoder->encodePassword($user, $request->request->get('password'));
+        $user->setPassword($hash);
         
         $em->persist($user);
         $em->flush();

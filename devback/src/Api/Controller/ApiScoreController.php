@@ -38,9 +38,6 @@ class ApiScoreController extends FOSRestController
      * @ParamConverter(
      *      "score", 
      *      converter="fos_rest.request_body",
-     *      options={
-     *          "validator"={"groups"="create"}
-     *      }
      * )
      */
     public function newScoreAction(Request $request, EntityManagerInterface $em, Score $score, GameRepository $gameRepository, UserRepository $userRepository, ConstraintViolationList $violations)
@@ -73,8 +70,8 @@ class ApiScoreController extends FOSRestController
         $em->persist($score);
         $em->flush();
 
-        return $this->view($score, Response::HTTP_CREATED, [
-            
+        return $this->view('', Response::HTTP_CREATED, [
+
             ]);
     }
 
@@ -105,7 +102,7 @@ class ApiScoreController extends FOSRestController
 
         $em->flush();
 
-        return $this->view($score, Response::HTTP_OK, [
+        return $this->view('', Response::HTTP_OK, [
             
             ]);
     }

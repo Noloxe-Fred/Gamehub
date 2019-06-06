@@ -2,11 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ScoreRepository")
+ * @Table(
+ *      name = "Score",  
+ *      uniqueConstraints = {@UniqueConstraint(columns = {"user_id", "game_id"})}
+ * )
  */
 class Score
 {
@@ -19,10 +24,6 @@ class Score
 
     /**
      * @ORM\Column(type="smallint")
-     * @Assert\NotBlank(
-     *      groups = {"create"},
-     *      message = "Veuillez indiquer la valeur de votre vote."
-     * )
      */
     private $value;
 

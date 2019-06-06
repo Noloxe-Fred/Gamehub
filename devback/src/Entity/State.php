@@ -2,11 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StateRepository")
+ * @Table(
+ *      name="State",  
+ *      uniqueConstraints={@UniqueConstraint(columns={"user_id", "game_id", "status"})}
+ * )
  */
 class State
 {
@@ -19,7 +24,6 @@ class State
 
     /**
      * @ORM\Column(type="string", length=255, columnDefinition="ENUM('have', 'want', 'waiting')")
-     * @Assert\NotBlank
      */
     private $status;
 
