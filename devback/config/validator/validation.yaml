@@ -4,7 +4,7 @@ App\Entity\User:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
             fields: email
             groups: [create, edit]
-            message: L'email ou le pseudo est déjà utilisé(e)s.
+            message: L'email est déjà utilisé(e)s.
 
     properties:
         email:

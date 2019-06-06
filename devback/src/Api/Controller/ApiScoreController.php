@@ -2,7 +2,10 @@
 
 namespace App\Api\Controller;
 
+use App\Entity\Game;
+use App\Entity\User;
 use App\Entity\Score;
+use App\Form\API\ScoreType;
 use App\Repository\GameRepository;
 use App\Repository\UserRepository;
 use App\Repository\ScoreRepository;
@@ -12,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ApiScoreController extends FOSRestController
@@ -34,32 +38,29 @@ class ApiScoreController extends FOSRestController
 
    /**
      * @Rest\View
-     * @Rest\Post(path = "score/new", name="score_new")
-     * @ParamConverter(
-     *      "score", 
-     *      converter="fos_rest.request_body",
-     * )
+     * @Rest\Post(path = "score/create", name = "score_create")
+     * @ParamConverter("score", converter="fos_rest.request_body")
      */
-    public function newScoreAction(Request $request, EntityManagerInterface $em, Score $score, GameRepository $gameRepository, UserRepository $userRepository, ConstraintViolationList $violations)
+    public function createScoreAction(Request $request, Score $score, User $user, Game $game, EntityManagerInterface $em, ConstraintViolationList $violations)
     {
         if(count($violations)){
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
-
-        $user = $userRepository->findOneById($request->request->get('user', 'id'));
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
-
+        
         $score = new Score();
 
-        $score->setValue($request->request->get('value'));
-        $score->setUser($user);
+        $form = $this->createForm(ScoreType::class, $score);
+        $form->submit($request->request->all());
+
         $score->setGame($game);
-        
-        // Calcul de la moyenne de la note du jeu
+        $score->setUser($user);
+
+        // Données pour la moyenne du score
         $numberVotes = count($game->getScores());
         $currentScore = $game->getScore();
-        $newValue = $currentScore + $request->request->get('value');
+        $newValue = $currentScore + $score->getValue();
+        // Calcul de la moyenne du score
         $newAverage = self::averageScore($newValue, $numberVotes);
 
         // Ajout des valeurs à game
@@ -77,7 +78,7 @@ class ApiScoreController extends FOSRestController
 
     /**
      * @Rest\View
-     * @Rest\Put(path = "score/edit", name="score_edit")
+     * @Rest\Put(path = "score/edit", name = "score_edit")
      */
     public function editScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, UserRepository $userRepository)
     {
@@ -109,7 +110,7 @@ class ApiScoreController extends FOSRestController
 
     /**
      * @Rest\View
-     * @Rest\Delete(path = "score/delete", name="score_delete")
+     * @Rest\Delete(path = "score/delete", name = "score_delete")
      */
     public function deleteScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, UserRepository $userRepository)
     {
