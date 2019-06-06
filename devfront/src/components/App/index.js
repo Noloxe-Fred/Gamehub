@@ -5,18 +5,17 @@ import 'semantic-ui-css/semantic.min.css';
 
 // == Import : local
 import './app.scss';
-import Navbar from 'src/components/Navbar';
+import Navbar from 'src/containers/Navbar/Navbar';
 import Home from 'src/components/Home';
 import GamePage from 'src/containers/GamePage/gamePageContainer';
 import Page404 from 'src/components/Page404';
-import { connectSavedUser } from '../../store/reducers/navbarreducer';
 
 // == Composant
 class App extends Component {
 
   componentDidMount() {
     const rememberUser = localStorage.getItem('remember');
-    const { connect } = this.props;
+    const { connect, connectSavedUser } = this.props;
 
     if (!connect && rememberUser === 'false') {
       localStorage.clear();

@@ -12,19 +12,19 @@ import {
 const navbarMiddleware = store => next => (action) => {
   switch (action.type) {
     case CONNECT_SAVED_USER:
-
-      const userToken = localStorage.getItem('token');
-      // requete api User with token + dispatch receivedConnect()
+      store.dispatch(receivedConnect()); 
       break;
+
     case CONNECT:
       store.dispatch(loadingConnection());
       // en attente de requete axios
 
       localStorage.setItem('connect', true);
-      localStorage.setItem('remember', false); // if case cochée!
+      localStorage.setItem('remember', true); // if case cochée!
       localStorage.setItem('user', 'token');
       store.dispatch(receivedConnect());
       break;
+
     case SUBSCRIBE:
       // requete axios: if subscribe ok =
       store.dispatch(receivedSubscribe('subscribeOk'));
