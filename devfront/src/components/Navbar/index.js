@@ -17,13 +17,13 @@ const Navbar = ({ connect, disconnectUser }) => (
       {connect
         ? (
           <div className="nav-connect">
-          <NavLink to="collection" className="mycollection">Ma Collection</NavLink>
-          <NavLink to="/profile" className="avatar--home">
-            <img src='https://vice-images.vice.com/images/content-images/2016/07/26/ce-que-votre-photo-de-profil-facebook-dit-de-vous-body-image-1469553008.jpg?output-quality=75' alt="user-avatar" />
-          </NavLink>
-          <button className="connectButton" onClick={disconnectUser}><Icon name="sign-out" size="large" /></button>
+            <NavLink to="collection" className="mycollection">Ma Collection</NavLink>
+            <NavLink to="/profile" className="avatar--home">
+              <img src="https://vice-images.vice.com/images/content-images/2016/07/26/ce-que-votre-photo-de-profil-facebook-dit-de-vous-body-image-1469553008.jpg?output-quality=75" alt="user-avatar" />
+            </NavLink>
+            <button className="connectButton" onClick={disconnectUser}><Icon name="sign-out" size="large" /></button>
           </div>
-        ) 
+        )
         : <Disconnect />}
     </div>
   </nav>
