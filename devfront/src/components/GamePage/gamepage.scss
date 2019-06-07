@@ -1,12 +1,22 @@
+$font-family-p: 'Reem Kufi', sans-serif;
+$font-family-title: 'Oswald', sans-serif;
+
+$color-text: #fffdd8;
+
+
+#gamepage {
+  height: 100vh;
+}
 .container {
-  margin-top: 3em;
+  margin-top: 1em;
   padding-top: 2em;
   width: 50%;
-  height: 50%;
+  // height: 50%;
+  color: $color-text;
   .illustration {
     img {
       width: 100%;
-      border: 1px solid black;
+      border: 1px solid $color-text;
       border-radius: 14px;
     }
   }
@@ -42,23 +52,50 @@
     font-family: 'Reem Kufi', sans-serif;
     padding: 1em;
     &--description {
-      color: black;
+      color: $color-text;
       font-size: .9em;
       text-align: justify;
     }
   }
   .categories {
     button {
+      color: $color-text ;
       background: none;
-      border: 1px solid black;
+      border: 1px solid $color-text;
       border-radius: 4px;
       margin: .5em;
     }
   }
 }
 
+.partie--commentaire {
+  background-color: rgba($color: #34495e, $alpha: .7);
+  border: 1px solid #fffdd8;
+  border-radius: 8px;
+  margin-bottom: 4em;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.firstpart {
+  background-color: rgba($color: #34495e, $alpha: .7);
+  border: 1px solid #fffdd8;
+  border-radius: 8px;
+  padding-top: 1em;
+}
+
+.secondpart {
+  // height: 100vh;
+  padding-top: 5em;
+  background-color: #34495e;
+  // margin-top: 5em;
+}
+
 .comments--container {
-  margin-top: 0;
+  margin-top: 1em;
   padding-top: 0;
 }
 
@@ -69,6 +106,9 @@
     font-family: 'Oswald', sans-serif;
   }
 }
+// .row--titre--derniers--commentaires{
+//   height: 1em;
+// }
 
 .cell {
   // border-right: 1px solid black;
@@ -78,11 +118,17 @@
   justify-content: flex-start;
   align-items: center;
   text-align: left;
+  
+}
+
+.derniers--commentaires {
+  background-color: #34495e;
+  width: 100%;
 }
 
 .cell--header {
   border-right: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $color-text;
 }
 
 
@@ -96,8 +142,8 @@
 }
 
 .row--comments:hover {
-  background: #34495e;
-  color: white;
+  background: $color-text;
+  color: #34495e;
   cursor: pointer;
   img {
     border: white;
@@ -111,36 +157,30 @@
 }
 
 
-.see-more {
-  background: none;
-  font-family: 'Reem Kufi', sans-serif;
-  margin-top: 2em;
-  border-radius: 4px;
-}
-
 // Style tableau All Comments
 
 .tableau {
   padding: 1em;
   height: 30em;
   overflow: auto;
-}
-
-.row--header--all--comments {
-  // position: fixed;
+  background-color: #fffdd8;
+  color: #34495e;
 }
 
 
 // Media Queries
 
 @media screen and (max-width: 600px) {
+  #gamepage {
+    height: 100%;
+  }
   .container {
     width: 100%;
     .title {
       margin: 1em auto;
       text-align: center;
       &--title {
-        font-size: 2em;
+        font-size: 3em;
       }
     }
   }
@@ -152,7 +192,7 @@
     display: none;
   }
   .row--comments {
-    border-top: 1px solid black;
+    border-top: 1px solid $color-text;
   }
   .cell--number {
     display: none;

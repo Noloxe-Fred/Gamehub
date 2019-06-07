@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './gamepage.scss'; 
 
 const GameAllComments = ({ datas }) => (
+  <div className="secondpart">
   <Container className="comments--container">
     <Row>
       <Col lg={12} className="title--comments">
@@ -476,6 +477,7 @@ const GameAllComments = ({ datas }) => (
 
     </div>
   </Container>
+  </div>
 );
 
 GameAllComments.propTypes = {

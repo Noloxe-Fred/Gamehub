@@ -5,7 +5,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const GameHeader = ({ datas }) => {
   return (
+    
     <Container className="container">
+    <div className="firstpart">
       <Row>
         <Col lg={4} sm={12} xs={12} className="d-flex align-items-start">
           <div className="illustration">
@@ -33,6 +35,7 @@ const GameHeader = ({ datas }) => {
           <div className="description--description">{datas.desc}</div>
         </div>
       </Row>
+      </div>
     </Container>
   );
 
