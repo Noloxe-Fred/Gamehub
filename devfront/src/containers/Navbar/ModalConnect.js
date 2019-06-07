@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
   openConnect: state.navbarreducer.openConnect,
   connectPseudo: state.navbarreducer.connectPseudo,
   connectPassword: state.navbarreducer.connectPassword,
+  errorMessage: state.navbarreducer.errorConnect,
 });
 
 const mapDispatchToProps = dispatch => ({

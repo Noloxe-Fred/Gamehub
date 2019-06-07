@@ -9,6 +9,7 @@ import {
   receivedConnect,
   loadingConnection,
   receivedDisconnect,
+  errorConnect,
 } from 'src/store/reducers/navbarreducer';
  
 const navbarMiddleware = store => next => (action) => {
@@ -22,24 +23,25 @@ const navbarMiddleware = store => next => (action) => {
       // en attente de requete axios
       const email = store.getState().navbarreducer.connectPseudo;
       const password = store.getState().navbarreducer.connectPassword;
-
-      axios.post('http://api.gamehub.com/api/signin', {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        username: email,
-        password: password
-      })
-        .then((response) => {
-          console.log('Reponse Connexion', response);
-          localStorage.setItem('connect', true);
-          localStorage.setItem('remember', true); // if case cochée!
-          localStorage.setItem('user', response.data.token);
-          store.dispatch(receivedConnect());
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      store.dispatch(receivedConnect());
+      // axios.post('http://api.gamehub.com/api/signin', {
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   username: email,
+      //   password: password
+      // })
+      //   .then((response) => {
+      //     console.log('Reponse Connexion', response);
+      //     localStorage.setItem('connect', true);
+      //     localStorage.setItem('remember', true); // if case cochée!
+      //     localStorage.setItem('user', response.data.token);
+      //     store.dispatch(receivedConnect());
+      //   })
+      //   .catch((error) => {
+      //     console.log('Erreur Connexion', error);
+      //     store.dispatch(errorConnect());
+      //   });
 
       break;
 

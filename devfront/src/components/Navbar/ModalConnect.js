@@ -25,12 +25,13 @@ class ModalConnect extends Component {
  
   render() {
 
-    const { connectPseudo, connectPassword, text, openConnect, loadingConnect } = this.props;
+    const { connectPseudo, connectPassword, text, openConnect, loadingConnect, errorMessage } = this.props;
     return (
   <Modal className="modalConnect" trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal} >
     <Modal.Content>
       <Modal.Description>
         <Header>Se connecter</Header>
+        {/* {errorMessage && <Modal.Descritpion>Erreur d'authentification</Modal.Descritpion>} */}
         <Form onSubmit= {this.onSubmit}>
           <Form.Field>
             <label>Votre pseudo</label>
