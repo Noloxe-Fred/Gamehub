@@ -1,9 +1,7 @@
 const initialState = {
-  listsDatas: [
-    { listAdd: [], loadAdd: true },
-    { listWant: [], loadWant: true },
-    { listWish: [], loadWish: true },
-  ],
+  listAdd: { list: [], load: true, title: 'Je les ai' },
+  listWant: { list: [], load: true, title: 'Je les veux' },
+  listWish: { list: [], load: true, title: 'Je les attends' },
 };
 
 // Action Type
@@ -26,19 +24,16 @@ const RECEIVED = 'RECEIVED';
 const userPagesReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case LOAD:
+      const list = action.nameList;
       return {
         ...state,
-        listsDatas: [ { [action.nameLoading]: true }, ...listsDatas]
+        [list]: {...state[list], load: true },
       };
     case RECEIVED:
-      const newListsDatas = state.listsDatas.map(list => { 
-        if (list[action.NameList]) {
-          list = {[action.Namelist]: action.list, [action.nameLoading]: false}
-        }
-      });
+      const { nameList, gameList } = action;
       return {
         ...state,
-        listsDatas: newListsDatas,
+        [nameList]: { ...state[nameList], list: gameList, load: false },
       };
     default:
       return state;
@@ -46,22 +41,20 @@ const userPagesReducer = (state = initialState, action = {}) => {
 };
 
 // Action creator
-export const request = (nameList, nameLoading) => ({
+export const request = nameList => ({
   type: REQUEST,
   nameList,
-  nameLoading,
 });
 
-export const load = nameLoading => ({
+export const load = nameList => ({
   type: LOAD,
-  nameLoading,
+  nameList,
 });
 
-export const received = (nameList, nameLoading, list) => ({
+export const received = (nameList, gameList) => ({
   type: RECEIVED,
   nameList,
-  nameLoading,
-  list,
+  gameList,
 });
 
 export default userPagesReducer;

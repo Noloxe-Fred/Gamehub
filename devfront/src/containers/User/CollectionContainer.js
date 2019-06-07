@@ -5,16 +5,15 @@ import {
   request,
 } from 'src/store/reducers/userPagesReducer';
 
-const mapStateToProps = state => {
-  
-  return ({
-    listsDatas: state.userPagesReducer.listsDatas,
-  })
-};
+const mapStateToProps = state => ({
+    listAdd: state.userPagesReducer.listAdd,
+    listWant: state.userPagesReducer.listWant,
+    listWish: state.userPagesReducer.listWish,
+});
 
 const mapDispatchToProps = dispatch => ({
-  request: () => {
-    dispatch(request());
+  request: (nameList) => {
+    dispatch(request(nameList));
   },
 });
 
