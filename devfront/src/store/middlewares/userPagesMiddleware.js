@@ -9,10 +9,10 @@ import {
 const navbarMiddleware = store => next => (action) => {
   switch (action.type) {
     case REQUEST:
-      const { nameList, nameLoading } = action;
+      const { nameList } = action;
       // requete axios avec token (localstorage)
-      store.dispatch(load(nameLoading));
-      store.dispatch(received(nameList, nameLoading, GameList));
+      store.dispatch(load(nameList));
+      store.dispatch(received(nameList, GameList));
       break;
     default:
       next(action);

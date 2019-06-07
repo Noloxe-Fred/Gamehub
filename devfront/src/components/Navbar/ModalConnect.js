@@ -27,38 +27,38 @@ class ModalConnect extends Component {
 
     const { connectPseudo, connectPassword, text, openConnect, loadingConnect, errorMessage } = this.props;
     return (
-  <Modal className="modalConnect" trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal} >
-    <Modal.Content>
-      <Modal.Description>
-        <Header>Se connecter</Header>
-        {/* {errorMessage && <Modal.Descritpion>Erreur d'authentification</Modal.Descritpion>} */}
-        <Form onSubmit= {this.onSubmit}>
-          <Form.Field>
-            <label>Votre pseudo</label>
-            <input 
-              placeholder='pseudo'
-              name='connectPseudo'
-              onChange= {this.handleChange}
-              value= {connectPseudo}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Votre mot de passe</label>
-            <input
-              placeholder='mot de passe'
-              name='connectPassword'
-              onChange={this.handleChange}
-              value={connectPassword}
-            />
-          </Form.Field>
-          {!loadingConnect 
-            ? <Button type='submit' basic color='green'>Se connecter</Button>
-            : <Button loading>Loading</Button>
-          }
-        </Form>
-      </Modal.Description>
-    </Modal.Content>
-  </Modal>
+    <Modal className="modalConnect" trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal} >
+      <Modal.Content>
+        <Modal.Description>
+          <Header>Se connecter</Header>
+          {/* {errorMessage && <Modal.Descritpion>Erreur d'authentification</Modal.Descritpion>} */}
+          <Form onSubmit= {this.onSubmit}>
+            <Form.Field>
+              <label>Votre pseudo</label>
+              <input 
+                placeholder='pseudo'
+                name='connectPseudo'
+                onChange= {this.handleChange}
+                value= {connectPseudo}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label>Votre mot de passe</label>
+              <input
+                placeholder='mot de passe'
+                name='connectPassword'
+                onChange={this.handleChange}
+                value={connectPassword}
+              />
+            </Form.Field>
+            {!loadingConnect 
+              ? <Button type='submit' basic color='green'>Se connecter</Button>
+              : <Button loading>Loading</Button>
+            }
+          </Form>
+        </Modal.Description>
+      </Modal.Content>
+    </Modal>
     )
   } 
 };
