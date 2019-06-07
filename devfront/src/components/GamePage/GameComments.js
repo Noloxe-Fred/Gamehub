@@ -59,6 +59,7 @@ const GameComments = ({ datas }) => (
       <Col lg={4} sm={4} xs={12} className="cell">
        <div>
          <h6>{datas[0].content}</h6>
+
        </div>
       </Col>
 
