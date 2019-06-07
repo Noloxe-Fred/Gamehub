@@ -5,12 +5,14 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './gamepage.scss'; 
 
 const GameComments = ({ datas }) => (
+  
   <Container className="comments--container">
-    <Row>
+  <div className="partie--commentaire">
+    {/* <Row className="row--titre--derniers--commentaires">
       <Col lg={12} className="title--comments">
         <h2>Les derniers commentaires sur le jeu</h2>
       </Col>
-    </Row>
+    </Row> */}
 
     <Row className="row--comments row--header">
 
@@ -141,7 +143,9 @@ const GameComments = ({ datas }) => (
        </div>
       </Col>
     </Row>
+    </div>
   </Container>
+
 );
 
 GameComments.propTypes = {
