@@ -1,10 +1,9 @@
 const initialState = {
-  listAdd: [],
-  listWant: [],
-  listWish: [],
-  loadAdd: true,
-  loadWant: true,
-  loadWish: true,
+  listsDatas: [
+    { listAdd: [], loadAdd: true },
+    { listWant: [], loadWant: true },
+    { listWish: [], loadWish: true },
+  ],
 };
 
 // Action Type
@@ -29,13 +28,17 @@ const userPagesReducer = (state = initialState, action = {}) => {
     case LOAD:
       return {
         ...state,
-        [action.nameLoading]: true,
+        listsDatas: [ { [action.nameLoading]: true }, ...listsDatas]
       };
     case RECEIVED:
+      const newListsDatas = state.listsDatas.map(list => { 
+        if (list[action.NameList]) {
+          list = {[action.Namelist]: action.list, [action.nameLoading]: false}
+        }
+      });
       return {
         ...state,
-        [action.nameList]: action.list,
-        [action.nameLoading]: false,
+        listsDatas: newListsDatas,
       };
     default:
       return state;

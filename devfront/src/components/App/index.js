@@ -8,6 +8,7 @@ import './app.scss';
 import Navbar from 'src/containers/Navbar/Navbar';
 import Home from 'src/components/Home';
 import GamePage from 'src/containers/GamePage/gamePageContainer';
+import Collection from 'src/containers/User/CollectionContainer';
 import Page404 from 'src/components/Page404';
 
 // == Composant
@@ -38,6 +39,10 @@ class App extends Component {
           <Route
             path="/game/:id"
             component={GamePage}
+          />
+          <Route 
+            path="/collection"
+            component={Collection}
           />
           <Route
             component={Page404}
