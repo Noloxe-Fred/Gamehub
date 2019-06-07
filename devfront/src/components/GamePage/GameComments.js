@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import './gamepage.scss';
+import './gamepage.scss'; 
 
 const GameComments = ({ datas }) => (
   <Container className="comments--container">
     <Row>
       <Col lg={12} className="title--comments">
-        <h2>Les meilleurs tests de la communauté</h2>
+        <h2>Les derniers commentaires sur le jeu</h2>
       </Col>
     </Row>
 

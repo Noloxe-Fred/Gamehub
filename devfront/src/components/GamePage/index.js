@@ -5,6 +5,7 @@ import './gamepage.scss';
 
 import GameHeader from 'src/containers/GamePage/gameHeaderContainer';
 import GameComments from 'src/containers/GamePage/gameCommentsContainer';
+import GameAllComments from 'src/containers/GamePage/gameAllCommentsContainer';
 
 
 
@@ -27,6 +28,7 @@ class GamePage extends Component {
           <div id="gamepage">
             <GameHeader />
             <GameComments />
+            <GameAllComments />
           </div>
         )}
       </div>
