@@ -3,23 +3,42 @@
 }
 
 .contenu {
-  padding-top: 50px;
+  padding-top: 10px;
+  object-fit: cover;
+  
   
 }
 
-.Titre {
-  color: red;
+.erreur {
+  color: #FFFDD8;
   font-size: 5em;
+  padding-top: 10px;
+  
     
 }
 
-.Ok {
+.texte {
+  color: #FFFDD8;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.ok {
   padding-top: 30px;
   font-size: 1.5em;
-  border-bottom: 10px;
+  padding-bottom: 10px;
   
 }
 
+.image {
+  object-fit: contain;
+}
+
+.background {
+  background-color: #2C3E50;
+  height: 100vh;
+  object-fit: cover;
+}
 
 
 
