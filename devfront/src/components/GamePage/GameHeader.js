@@ -30,7 +30,7 @@ const GameHeader = ({ datas }) => {
       </Row>
       <Row lg={12} sm={12} xs={12}>
         <div className="description">
-          <div className="description--description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, totam cum explicabo dolorum esse alias asperiores quod ab adipisci ipsum consequuntur obcaecati cupiditate tempora a facilis illum quisquam error porro fugiat ducimus mollitia blanditiis repellendus voluptatem minima. Aut impedit fugit odio eum nihil placeat aliquam obcaecati neque quam quaerat laboriosam, dicta unde maxime odit quo repudiandae ut praesentium cumque debitis nam deserunt amet. Enim, praesentium. Cumque commodi consectetur soluta perferendis!</div>
+          <div className="description--description">{datas.desc}</div>
         </div>
       </Row>
     </Container>
