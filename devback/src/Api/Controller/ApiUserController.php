@@ -18,25 +18,24 @@ class ApiUserController extends FOSRestController
 {
 
     /**
-     * @Rest\View
-     * @Rest\Post(path = "signup", name="user_create")
+     * @Rest\Post(path = "signup", name="user_new")
      * @ParamConverter("user", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "create"}})
      */
-    public function createUserAction(User $user, UserRepository $userRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations, UserPasswordEncoderInterface $encoder)
+    public function newUserAction(User $user, UserRepository $userRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations, UserPasswordEncoderInterface $encoder)
     {   
         if(count($violations)){
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
 
-        if($userRepository->findOneByEmail($request->request->get('email'))){
+        // if($userRepository->findOneByEmail($request->request->get('email'))){
 
-            return $this->view("Email déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
+        //     return $this->view("Email déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
 
-        } else if ($userRepository->findOneByPseudo($request->request->get('pseudo'))){
+        // } else if ($userRepository->findOneByPseudo($request->request->get('pseudo'))){
 
-            return $this->view("Pseudo déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
-        }
+        //     return $this->view("Pseudo déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
+        // }
 
         $user = new User();
 
@@ -55,7 +54,6 @@ class ApiUserController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Put(path = "user/edit", name="user_edit")
      * @ParamConverter("user", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "edit"}})
      */
@@ -73,14 +71,14 @@ class ApiUserController extends FOSRestController
             return $this->view("Tu es un vilain toi !", Response::HTTP_BAD_REQUEST);
         }
 
-        if($userRepository->findOneByEmail($request->request->get('email'))){
+        // if($userRepository->findOneByEmail($request->request->get('email'))){
 
-            return $this->view("Email déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
+        //     return $this->view("Email déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
             
-        } else if ($userRepository->findOneByPseudo($request->request->get('pseudo'))){
+        // } else if ($userRepository->findOneByPseudo($request->request->get('pseudo'))){
 
-            return $this->view("Pseudo déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
-        }
+        //     return $this->view("Pseudo déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
+        // }
 
         $form = $this->createForm(UserType::class, $user);
         $form->submit($request->request->all());

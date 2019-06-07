@@ -20,10 +20,10 @@ class ApiCommentController extends FOSRestController
 
     /**
      * @Rest\View
-     * @Rest\Post(path = "comment/create", name="comment_create")
+     * @Rest\Post(path = "comment/new", name="comment_new")
      * @ParamConverter("comment", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "create"}})
      */
-    public function createCommentAction(Comment $comment, UserRepository $userRepository, GameRepository $gameRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations)
+    public function newCommentAction(Comment $comment, CommentRepository $commentRepository, UserRepository $userRepository, GameRepository $gameRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations)
     {   
         if(count($violations)){
             
@@ -32,6 +32,11 @@ class ApiCommentController extends FOSRestController
 
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+
+        if($commentRepository->findOneByUser($user) != null && $commentRepository->findOneByGame($game) != null){
+
+            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+        }
 
         $comment = new Comment();
         $comment->setUser($user);
@@ -71,6 +76,8 @@ class ApiCommentController extends FOSRestController
 
         $form = $this->createForm(CommentType::class, $comment);
         $form->submit($request->request->all());
+
+        $comment->setUpdatedAt(new \DateTime());
 
         $em->flush();
 

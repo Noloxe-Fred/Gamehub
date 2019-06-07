@@ -13,7 +13,6 @@ class ApiGameController extends FOSRestController
 {
 
     /**
-     * @Rest\View
      * @Rest\Get(path = "game/list", name = "games_list")
      */
     public function showGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
@@ -29,7 +28,6 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Post(path = "game/show", name = "game_show")
      */
     public function showGameAction(GameRepository $gameRepository, SerializerInterface $serializer, Request $request)
@@ -46,7 +44,6 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Get(path = "game/list/nextmonth", name = "games_next_month")
      */
     public function showNextMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
@@ -62,7 +59,6 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Get(path = "game/list/lastmonth", name = "games_last_month")
      */
     public function showLastMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
@@ -78,7 +74,6 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Get(path = "game/list/random", name = "games_random")
      */ 
     public function showRandomGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
@@ -93,7 +88,6 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Get(path = "game/list/bestever", name = "games_best_ever")
      */ 
     public function showBestEverGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
@@ -108,7 +102,6 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Get(path = "game/list/worstever", name = "games_worst_ever")
      */ 
     public function showWorstEverGamesList(GameRepository $gameRepository, SerializerInterface $serializer){

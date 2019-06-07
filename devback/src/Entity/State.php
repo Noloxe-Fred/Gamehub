@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
  * @ORM\Entity(repositoryClass="App\Repository\StateRepository")
  * @Table(
  *      name="State",  
- *      uniqueConstraints={@UniqueConstraint(columns={"user_id", "game_id", "status"})}
+ *      uniqueConstraints={@UniqueConstraint(columns={"user_id", "game_id"})}
  * )
  */
 class State

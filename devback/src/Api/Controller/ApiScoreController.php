@@ -20,11 +20,10 @@ class ApiScoreController extends FOSRestController
 {
 
    /**
-     * @Rest\View
-     * @Rest\Post(path = "score/create", name = "score_create")
+     * @Rest\Post(path = "score/new", name = "score_new")
      * @ParamConverter("score", converter="fos_rest.request_body")
      */
-    public function createScoreAction(Request $request, Score $score, ScoreRepository $scoreRepository, UserRepository $userRepository, GameRepository $gameRepository, EntityManagerInterface $em, ConstraintViolationList $violations)
+    public function newScoreAction(Request $request, Score $score, ScoreRepository $scoreRepository, UserRepository $userRepository, GameRepository $gameRepository, EntityManagerInterface $em, ConstraintViolationList $violations)
     {
         if(count($violations)){
             
@@ -34,7 +33,7 @@ class ApiScoreController extends FOSRestController
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
-        if($scoreRepository->findOneByUser($user) != null){
+        if($scoreRepository->findOneByUser($user) != null && $scoreRepository->findOneByGame($game) != null){
 
             return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
         }
@@ -59,7 +58,6 @@ class ApiScoreController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Put(path = "score/edit", name = "score_edit")
      */
     public function editScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, UserRepository $userRepository)
@@ -88,7 +86,6 @@ class ApiScoreController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Delete(path = "score/delete", name = "score_delete")
      */
     public function deleteScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, UserRepository $userRepository)
