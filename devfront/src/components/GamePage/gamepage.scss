@@ -64,14 +64,14 @@
 
 .title--comments {
   text-align: center;
-  margin: 2em 0;
+  margin: 3em 0;
   h2 {
     font-family: 'Oswald', sans-serif;
   }
 }
 
 .cell {
-  border-right: 1px solid black;
+  // border-right: 1px solid black;
   height: 3em;
   font-family: 'Reem Kufi', sans-serif;
   display: flex;
@@ -111,6 +111,24 @@
 }
 
 
+.see-more {
+  background: none;
+  font-family: 'Reem Kufi', sans-serif;
+  margin-top: 2em;
+  border-radius: 4px;
+}
+
+// Style tableau All Comments
+
+.tableau {
+  padding: 1em;
+  height: 30em;
+  overflow: auto;
+}
+
+.row--header--all--comments {
+  // position: fixed;
+}
 
 
 // Media Queries
@@ -128,6 +146,7 @@
   }
   .cell {
     justify-content: center;
+    border-right: none;
   }
   .row--header {
     display: none;
@@ -140,5 +159,5 @@
   }
   .cell-score {
     border: none;
-  }
+  } 
 } 
