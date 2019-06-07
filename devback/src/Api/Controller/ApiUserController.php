@@ -6,12 +6,12 @@ use App\Entity\User;
 use App\Form\Api\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Symfony\Component\Validator\ConstraintViolationList;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class ApiUserController extends FOSRestController
@@ -22,18 +22,27 @@ class ApiUserController extends FOSRestController
      * @Rest\Post(path = "signup", name="user_create")
      * @ParamConverter("user", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "create"}})
      */
-    public function createUserAction(User $user, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations, UserPasswordEncoderInterface $encoder)
+    public function createUserAction(User $user, UserRepository $userRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations, UserPasswordEncoderInterface $encoder)
     {   
         if(count($violations)){
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
 
+        if($userRepository->findOneByEmail($request->request->get('email'))){
+
+            return $this->view("Email déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
+
+        } else if ($userRepository->findOneByPseudo($request->request->get('pseudo'))){
+
+            return $this->view("Pseudo déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
+        }
+
         $user = new User();
 
         $form = $this->createForm(UserType::class, $user);
-        
         $form->submit($request->request->all());
+
         $hash = $encoder->encodePassword($user, $request->request->get('password'));
         $user->setPassword($hash);
 
@@ -58,6 +67,20 @@ class ApiUserController extends FOSRestController
         }
         
         $user = $userRepository->findOneById($request->request->get('id'));
+
+        if($user->getId() != $user){
+
+            return $this->view("Tu es un vilain toi !", Response::HTTP_BAD_REQUEST);
+        }
+
+        if($userRepository->findOneByEmail($request->request->get('email'))){
+
+            return $this->view("Email déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
+            
+        } else if ($userRepository->findOneByPseudo($request->request->get('pseudo'))){
+
+            return $this->view("Pseudo déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
+        }
 
         $form = $this->createForm(UserType::class, $user);
         $form->submit($request->request->all());

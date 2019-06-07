@@ -8,12 +8,13 @@ use App\Repository\GameRepository;
 use App\Repository\UserRepository;
 use App\Repository\ScoreRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Symfony\Component\Validator\ConstraintViolationList;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\ConstraintViolationList;
+
 
 class ApiScoreController extends FOSRestController
 {
@@ -23,7 +24,7 @@ class ApiScoreController extends FOSRestController
      * @Rest\Post(path = "score/create", name = "score_create")
      * @ParamConverter("score", converter="fos_rest.request_body")
      */
-    public function createScoreAction(Request $request, Score $score, UserRepository $userRepository, GameRepository $gameRepository, EntityManagerInterface $em, ConstraintViolationList $violations)
+    public function createScoreAction(Request $request, Score $score, ScoreRepository $scoreRepository, UserRepository $userRepository, GameRepository $gameRepository, EntityManagerInterface $em, ConstraintViolationList $violations)
     {
         if(count($violations)){
             
@@ -33,10 +34,14 @@ class ApiScoreController extends FOSRestController
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
+        if($scoreRepository->findOneByUser($user) != null){
+
+            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+        }
+
         $score = new Score();
         $score->setUser($user);
         $score->setGame($game);
-        $score->setUpdatedAt(new \DateTime());
 
         $form = $this->createForm(ScoreType::class, $score);
         $form->submit($request->request->all());
@@ -60,14 +65,20 @@ class ApiScoreController extends FOSRestController
     public function editScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, UserRepository $userRepository)
     {
 
-        // $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $score = $scoreRepository->findOneById($request->request->get('id'));
+
+        if($score->getUser() != $user || $score->getGame() != $game){
+
+            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+        }
         
         $form = $this->createForm(ScoreType::class, $score);
         $form->submit($request->request->all());
-        
+
         $game->setScore((int)$gameRepository->averageScore($game)[0][1]);
+        $score->setUpdatedAt(new \DateTime());
 
         $em->flush();
 
@@ -83,10 +94,15 @@ class ApiScoreController extends FOSRestController
     public function deleteScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, UserRepository $userRepository)
     {
 
-        // $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $score = $scoreRepository->findOneById($request->request->get('id'));
         
+        if($score->getUser() != $user || $score->getGame() != $game){
+
+            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+        }
+
         $game->setScore((int)$gameRepository->averageScore($game)[0][1]);
 
         $em->remove($score);

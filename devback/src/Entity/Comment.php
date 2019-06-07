@@ -2,12 +2,19 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
+ * @Table(
+ *      name = "Comment",  
+ *      uniqueConstraints = {@UniqueConstraint(columns = {"user_id", "game_id"})}
+ * )
  */
 class Comment
 {
@@ -15,16 +22,19 @@ class Comment
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"game_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"game_read"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"game_read"})
      */
     private $content;
 
