@@ -5,7 +5,7 @@ import './searchBar.scss';
 
 const SearchBar = () => (
   <Input 
-    icon={<Icon name='search' link color="yellow" />} 
+    icon={<Icon name='search' link color="blue" />} 
     placeholder="Rechercher un jeu" 
     className="searchBar"
   />
