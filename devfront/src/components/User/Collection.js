@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Progress } from 'semantic-ui-react';
 
 
 import './user.scss';
@@ -11,10 +12,13 @@ const Collection = ({
   request, 
 }) => {
   return (
-    <div id="mycollection">
-      <List name="listAdd" listDatas={listAdd} request={request} />
-      <List name="listWant" listDatas={listWant} request={request} />
-      <List name="listWish" listDatas={listWish} request={request} />
+    <div>
+      <h1 id="collection-title">MA COLLECTION</h1>
+      <div id="mycollection">
+        <List name="listAdd" listDatas={listAdd} request={request} />
+        <List name="listWant" listDatas={listWant} request={request} />
+        <List name="listWish" listDatas={listWish} request={request} />
+      </div>
     </div>
   );
 };
@@ -27,21 +31,23 @@ class List extends Component {
 
   render() {
     const { list, load, title } = this.props.listDatas;
-    console.log(load, list)
+    const shortList = list.slice(0, 12);
+    const percent = 70;
     return (
       <div className="collection">
         <h2>{title}:</h2>
         {load && <p>Loading</p>}
         {!load && (
           <div className="list">
-            {list.map(game => (
+            {shortList.map(game => (
               <div id={game.id} className="game">
                 <img src={game.cover} alt="cover game" />
-                <h6>72%</h6>
+                <div className="game-score"><Progress percent={percent} indicating /></div>
               </div>
               ))}
           </div>
         )}
+        {list.length > 11 && <NavLink to={`/full-collection-list`}>Voir la liste complète...</NavLink>}
       </div>
     );
   }
