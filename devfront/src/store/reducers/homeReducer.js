@@ -8,6 +8,7 @@ const initialState = {
   lastReleasedList: [],
   randomList: [],
   loadingRandom: true,
+  displayInput: true,
 };
 
 // Action Type
@@ -29,6 +30,8 @@ const RECEIVED_LAST_RELEASED = 'RECEIVED_LAST_RELEASED';
 export const REQUEST_RANDOM = 'REQUEST_RANDOM';
 const LOAD_RANDOM = 'LOAD_RANDOM';
 const RECEIVED_RANDOM = 'RECEIVED_RANDOM';
+
+const DISPLAY_INPUT = 'DISPLAY_INPUT';
 
 
 // Reducer
@@ -87,6 +90,11 @@ const homeReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loadingRandom: true,
+      };
+    case DISPLAY_INPUT:
+      return {
+        ...state,
+        displayInput: action.bool,
       };
     default:
       return state;
@@ -153,4 +161,10 @@ export const requestRandom = () => ({
 export const loadRandom = () => ({
   type: LOAD_RANDOM,
 });
+
+export const displayInputInNavbar = bool => ({
+ type: DISPLAY_INPUT,
+ bool,
+});
+
 export default homeReducer;

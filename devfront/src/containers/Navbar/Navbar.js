@@ -7,6 +7,7 @@ import {
 
 const mapStateToProps = state => ({
   connect: state.navbarreducer.connect,
+  displayInput: state.homeReducer.displayInput,
 });
 
 const mapDispatchToProps = dispatch => ({
