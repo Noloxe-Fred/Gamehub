@@ -3,6 +3,8 @@ import Proptypes from 'prop-types';
 
 import CarouselAlice from 'src/Library/FullComponent/CarouselAlice';
 
+import '../home.scss';
+
 class FirstCarousel extends Component {
   componentDidMount() {
     this.props.requestLastReleased();
