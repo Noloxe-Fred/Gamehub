@@ -4,22 +4,23 @@ namespace App\Api\Controller;
 
 use App\Entity\Comment;
 use App\Form\Api\CommentType;
-use App\Repository\CommentRepository;
 use App\Repository\GameRepository;
 use App\Repository\UserRepository;
+use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
 
 class ApiCommentController extends FOSRestController
 {
 
     /**
-     * @Rest\View
      * @Rest\Post(path = "comment/new", name="comment_new")
      * @ParamConverter("comment", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "create"}})
      */
@@ -54,7 +55,6 @@ class ApiCommentController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Put(path = "comment/edit", name="comment_edit")
      * @ParamConverter("comment", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "edit"}})
      */
@@ -87,7 +87,6 @@ class ApiCommentController extends FOSRestController
     }
 
     /**
-     * @Rest\View
      * @Rest\Delete(path = "comment/delete", name="comment_delete")
      */
     public function deleteCommentAction(CommentRepository $commentRepository ,UserRepository $userRepository, GameRepository $gameRepository, Request $request, EntityManagerInterface $em)
@@ -108,5 +107,20 @@ class ApiCommentController extends FOSRestController
         return $this->view('', Response::HTTP_CREATED, [
             
             ]);
+    }
+
+    /**
+     * @Rest\Post(path = "comment/last", name="comments_last")
+     */
+    public function lastCommentAction(CommentRepository $commentRepository, GameRepository $gameRepository, SerializerInterface $serializer, Request $request, EntityManagerInterface $em)
+    {   
+        $game = $gameRepository->findOneById($request->request->get('id'));
+        $comments = $commentRepository->lastComments($game);
+
+        $lastComments = $serializer->serialize($comments, 'json', [
+            'groups' => 'comment_read',
+        ]);
+    
+       return JsonResponse::fromJsonString($lastComments);
     }
 }

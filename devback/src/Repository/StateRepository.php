@@ -19,32 +19,19 @@ class StateRepository extends ServiceEntityRepository
         parent::__construct($registry, State::class);
     }
 
-    // /**
-    //  * @return State[] Returns an array of State objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    public function findGamesListByStatus($user, $status){
 
-    /*
-    public function findOneBySomeField($value): ?State
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.user', 'u')
+            ->orderBy('s.updatedAt', 'DESC')
+            ->where('u.id = :user')
+            ->andWhere('s.status = :status')
+            ->setParameter('user', $user)
+            ->setParameter('status', $status)
+            ->setMaxResults(18)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult();
+
+        return $qb;
     }
-    */
 }

@@ -22,19 +22,19 @@ class Comment
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"game_read"})
+     * @Groups({"game_read", "comment_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"game_read"})
+     * @Groups({"game_read", "comment_read"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"game_read"})
+     * @Groups({"game_read", "comment_read"})
      */
     private $content;
 
@@ -45,21 +45,25 @@ class Comment
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"game_read", "comment_read"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"game_read", "comment_read"})
      */
     private $updatedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="comments", cascade={"persist"})
+     * @Groups({"comment_read"})
      */
     private $game;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments", cascade={"persist"})
+     * @Groups({"game_read", "comment_read"})
      */
     private $user;
 

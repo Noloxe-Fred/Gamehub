@@ -7,13 +7,15 @@ use App\Entity\State;
 use App\Form\Api\StateType;
 use App\Repository\GameRepository;
 use App\Repository\UserRepository;
+use App\Repository\StateRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use App\Repository\StateRepository;
 
 class ApiStateController extends FOSRestController
 {
@@ -91,5 +93,50 @@ class ApiStateController extends FOSRestController
         return $this->view('', Response::HTTP_OK, [
             
             ]);
+    }
+
+    /**
+     * @Rest\Post(path = "game/list/have", name = "games_have")
+     */ 
+    public function showGamesListHave(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+
+        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $games = $stateRepository->findGamesListByStatus($user, 'have');
+
+        $gamesListHave = $serializer->serialize($games, 'json', [
+            'groups' => 'status_read',
+        ]);
+
+        return JsonResponse::fromJsonString($gamesListHave);
+    }
+
+    /**
+     * @Rest\Post(path = "game/list/want", name = "games_want")
+     */ 
+    public function showGamesListWant(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+
+        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $games = $stateRepository->findGamesListByStatus($user, 'want');
+
+        $gamesListWant = $serializer->serialize($games, 'json', [
+            'groups' => 'status_read',
+        ]);
+
+        return JsonResponse::fromJsonString($gamesListWant);
+    }
+
+    /**
+     * @Rest\Post(path = "game/list/waiting", name = "games_waiting")
+     */ 
+    public function showGamesListWaiting(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+
+        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $games = $stateRepository->findGamesListByStatus($user, 'waiting');
+
+        $gamesListWaiting = $serializer->serialize($games, 'json', [
+            'groups' => 'status_read',
+        ]);
+
+        return JsonResponse::fromJsonString($gamesListWaiting);
     }
 }
