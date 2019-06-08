@@ -24,24 +24,32 @@ const navbarMiddleware = store => next => (action) => {
       const email = store.getState().navbarreducer.connectPseudo;
       const password = store.getState().navbarreducer.connectPassword;
 
-      axios.post('http://api.gamehub.com/api/signin', {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        username: email,
-        password: password
-      })
-        .then((response) => {
-          console.log('Reponse Connexion', response);
-          localStorage.setItem('connect', true);
-          localStorage.setItem('remember', false); // if case cochée!
-          localStorage.setItem('user', response.data.token);
-          store.dispatch(receivedConnect());
-        })
-        .catch((error) => {
-          console.log('Erreur Connexion', error);
-          store.dispatch(errorConnect('Erreur Connexion'));
-        });
+      // A EFFACER SUR VERSION FINALE // TEST CONNEXION PERMANENTE MISE EN PROD
+
+      localStorage.setItem('connect', true);
+      localStorage.setItem('remember', false); // if case cochée!
+      store.dispatch(receivedConnect());
+
+      // A EFFACER SUR VERSION FINALE // TEST CONNEXION PERMANENTE MISE EN PROD
+
+      // axios.post('http://api.gamehub.com/api/signin', {
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   username: email,
+      //   password: password
+      // })
+      //   .then((response) => {
+      //     console.log('Reponse Connexion', response);
+      //     localStorage.setItem('connect', true);
+      //     localStorage.setItem('remember', false); // if case cochée!
+      //     localStorage.setItem('user', response.data.token);
+      //     store.dispatch(receivedConnect());
+      //   })
+      //   .catch((error) => {
+      //     console.log('Erreur Connexion', error);
+      //     store.dispatch(errorConnect('Erreur Connexion'));
+      //   });
 
       break;
 
