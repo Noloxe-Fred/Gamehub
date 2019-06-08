@@ -23,36 +23,34 @@ const navbarMiddleware = store => next => (action) => {
       // en attente de requete axios
       const email = store.getState().navbarreducer.connectPseudo;
       const password = store.getState().navbarreducer.connectPassword;
-      store.dispatch(receivedConnect());
-      // axios.post('http://api.gamehub.com/api/signin', {
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   username: email,
-      //   password: password
-      // })
-      //   .then((response) => {
-      //     console.log('Reponse Connexion', response);
-      //     localStorage.setItem('connect', true);
-      //     localStorage.setItem('remember', true); // if case cochée!
-      //     localStorage.setItem('user', response.data.token);
-      //     store.dispatch(receivedConnect());
-      //   })
-      //   .catch((error) => {
-      //     console.log('Erreur Connexion', error);
-      //     store.dispatch(errorConnect());
-      //   });
+
+      axios.post('http://api.gamehub.com/api/signin', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        username: email,
+        password: password
+      })
+        .then((response) => {
+          console.log('Reponse Connexion', response);
+          localStorage.setItem('connect', true);
+          localStorage.setItem('remember', false); // if case cochée!
+          localStorage.setItem('user', response.data.token);
+          store.dispatch(receivedConnect());
+        })
+        .catch((error) => {
+          console.log('Erreur Connexion', error);
+          store.dispatch(errorConnect('Erreur Connexion'));
+        });
 
       break;
 
     case SUBSCRIBE:
       // requete axios: if subscribe ok =
-      store.dispatch(receivedSubscribe('subscribeOk'));
       const subemail = store.getState().navbarreducer.subemail;
       const subpseudo = store.getState().navbarreducer.subpseudo;
       const subpassword = store.getState().navbarreducer.subpassword;
       const subconfirmpassword = store.getState().navbarreducer.subconfirmpassword;
-      console.log(subpseudo);
 
       axios.post('http://api.gamehub.com/api/signup', {
         headers: {
@@ -66,8 +64,12 @@ const navbarMiddleware = store => next => (action) => {
         .then((response) => {
           console.log('Reponse Subscribe', response.data);
           const { email } = response.data;
-          store.dispatch(receivedSubscribe('subscribeOk', email));
-
+          if (response.data) {
+            store.dispatch(receivedSubscribe('subscribeOk', email));
+          }
+          else {
+            store.dispatch('subscribeError', '');
+          }
         })
         .catch((error) => {
           console.log(error);

@@ -33,6 +33,7 @@ const homeMiddleware = store => next => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          
         });
         store.dispatch(receivedComingSoon(gameList));
 

@@ -30,7 +30,8 @@ export default class ModalSubscribe extends Component {
             <Form onSubmit= {this.onSubmit}>
               <Form.Field>
                 <label>Votre pseudo</label>
-                <input 
+                <input
+                name='subpseudo'
                 placeholder='pseudo'
                 onChange= {this.handleChange}
                 value= {subpseudo}
@@ -39,6 +40,7 @@ export default class ModalSubscribe extends Component {
               <Form.Field>
                 <label>Votre email</label>
                 <input 
+                name='subemail'
                 placeholder='email'
                 onChange= {this.handleChange}
                 value= {subemail}
@@ -46,7 +48,8 @@ export default class ModalSubscribe extends Component {
               </Form.Field>
               <Form.Field>
                 <label>Votre mot de passe</label>
-                <input 
+                <input
+                name='subpassword'
                 placeholder='mot de passe'
                 onChange= {this.handleChange}
                 value= {subpassword}
@@ -54,13 +57,14 @@ export default class ModalSubscribe extends Component {
               </Form.Field>
               <Form.Field>
                 <label>Confirmer votre mot de passe</label>
-                <input 
+                <input
+                name='subconfirmpassword'
                 placeholder='mot de passe'
                 onChange= {this.handleChange}
                 value= {subconfirmpassword}
                 />
               </Form.Field>
-              {confirmSubscribe === 'noSubscribtion' && (
+              {confirmSubscribe !== 'subscribeOk' && (
                 <Button type='submit'>S'inscrire</Button>
               )}
               {confirmSubscribe === 'subscribeOk' && (
@@ -71,13 +75,13 @@ export default class ModalSubscribe extends Component {
               {confirmSubscribe === 'subscribeError' && (
                 <Modal.Content id="user-message">
                   <Modal.Description>Erreur lors de l'inscription. Contactez un administrateur ou faites une autre tentative</Modal.Description>
-                  <Button type='submit'>S'inscrire</Button>
+                  
                 </Modal.Content>
               )}
               {confirmSubscribe === 'subscribeAlreadyExist' && (
                 <Modal.Content id="user-message">
                   <Modal.Description>Cet e-mail correspond déjà à un utilisateur</Modal.Description>
-                  <Button type='submit'>S'inscrire</Button>
+                  
                 </Modal.Content>
               )}
             </Form>

@@ -48,13 +48,14 @@ const navbarreducer = (state = initialState, action = {}) => {
         loadingConnect: false,
         openConnect: false,
       };
-    case ERROR_CONNECT:
+
+    case ERROR_CONNECT: 
       return {
         ...state,
         connect: false,
         loadingConnect: false,
         openConnect: true,
-        errorConnect: true,
+        errorMessage: action.errorMessage,
       };
     case OPEN_MODAL_CONNECT:
       return {
@@ -70,12 +71,12 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         confirmSubscribe: action.result,
+        connectPseudo: action.email,
       };
     case END_CONFIRM_SUBSCRIBE:
       return {
         ...state,
         confirmSubscribe: 'noSubscribtion',
-        connectPseudo: action.email,
       };
     case SET_INPUT:
       const { name, value } = action;
@@ -136,8 +137,10 @@ export const receivedConnect = () => ({
   type: RECEIVED_CONNECT,
 });
 
-export const errorConnect = () => ({
+export const errorConnect = (errorMessage) => ({
   type: ERROR_CONNECT,
+  errorMessage,
+
 });
 
 export const setInput = (value, name) => ({
