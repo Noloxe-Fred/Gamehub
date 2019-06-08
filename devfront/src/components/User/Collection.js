@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Progress } from 'semantic-ui-react';
+import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarPushable, Grid  } from 'semantic-ui-react';
 
 
 import './user.scss';
@@ -9,16 +9,54 @@ const Collection = ({
   listAdd,
   listWant,
   listWish,
-  request, 
+  request,
+  displayedProfile,
+  displayProfile,
 }) => {
+  const handleShowClick = () => {
+    displayProfile();
+  };
   return (
     <div>
-      <h1 id="collection-title">MA COLLECTION</h1>
-      <div id="mycollection">
-        <List name="listAdd" listDatas={listAdd} request={request} />
-        <List name="listWant" listDatas={listWant} request={request} />
-        <List name="listWish" listDatas={listWish} request={request} />
-      </div>
+          <Button visible={displayProfile} onClick={handleShowClick}>
+            vv Profile vv
+          </Button>
+
+        <Sidebar.Pushable>
+
+          <Sidebar as={Segment} animation="overlay" direction="top" visible={displayedProfile}>
+          <Header as='h3'>PROFIL</Header>
+            <Grid textAlign='center' className="profile-content">
+                  <div>
+                    <h4>Paramètres</h4>
+                    <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                    <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                  </div>
+                  <div>
+                    <h4>Stats</h4>
+                    <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                  </div>
+                  <div>
+                    <h4>Commentaires</h4>
+                    <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                    <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                    <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                    <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                  </div>
+            </Grid>
+          </Sidebar>
+
+          <Sidebar.Pusher dimmed={displayedProfile}>
+            <Segment basic>
+            <h1 id="collection-title">MA COLLECTION</h1>
+              <div id="mycollection">
+                <List name="listAdd" listDatas={listAdd} request={request} />
+                <List name="listWant" listDatas={listWant} request={request} />
+                <List name="listWish" listDatas={listWish} request={request} />
+              </div>
+            </Segment>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
     </div>
   );
 };
