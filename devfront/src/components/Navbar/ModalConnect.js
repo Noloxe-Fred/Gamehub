@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Header, Modal, Form } from 'semantic-ui-react';
 
 import './modalconnect.scss';
@@ -61,6 +62,18 @@ class ModalConnect extends Component {
     </Modal>
     )
   } 
+};
+
+ModalConnect.propTypes = {
+  changeInput: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  connectPassword: PropTypes.string.isRequired,
+  connectPseudo: PropTypes.string.isRequired,
+  errorMessage: PropTypes.bool.isRequired,
+  loadingConnect: PropTypes.bool.isRequired,
+  openConnect: PropTypes.bool.isRequired,
+  openModalConnect: PropTypes.func.isRequired,
+  submitForm: PropTypes.func.isRequired,
 };
 
 export default ModalConnect;

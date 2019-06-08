@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Progress } from 'semantic-ui-react';
 
@@ -44,13 +45,26 @@ class List extends Component {
                 <img src={game.cover} alt="cover game" />
                 <div className="game-score"><Progress percent={percent} indicating /></div>
               </div>
-              ))}
+            ))}
           </div>
         )}
         {list.length > 11 && <NavLink to={`/full-collection-list`}>Voir la liste complète...</NavLink>}
       </div>
     );
   }
+};
+
+Collection.propTypes = {
+  listAdd: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  })).isRequired,
+  listWant: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  })).isRequired,
+  listWish: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  })).isRequired,
+  request: PropTypes.func.isRequired,
 };
 
 export default Collection;
