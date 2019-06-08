@@ -38,20 +38,53 @@ const homeMiddleware = store => next => (action) => {
         store.dispatch(receivedComingSoon(gameList));
 
       break;
-    case REQUEST_TAB_LIST:
-      store.dispatch(loadingTabList());
-      // requete axios en attente!
-      store.dispatch(receivedTabList(gameList));
-      break;
     case REQUEST_LAST_RELEASED:
       store.dispatch(loadLastReleased());
       // requete axios en attente!
+      axios.get('http://api.gamehub.com//api/game/list/lastmonth', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
+
+          store.dispatch(receivedLastReleased(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+          
+        });
+
+      // requete test local
       store.dispatch(receivedLastReleased(gameList));
+
       break;
     case REQUEST_RANDOM:
       store.dispatch(loadRandom());
       // requete axios en attente!
+      axios.get('http://api.gamehub.com//api/game/list/random', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
+
+          store.dispatch(receivedRandom(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+          
+        });
+
+      // requete test local
       store.dispatch(receivedRandom(gameList));
+      break;
+    case REQUEST_TAB_LIST:
+      store.dispatch(loadingTabList());
+      // requete axios en attente!
+      store.dispatch(receivedTabList(gameList));
       break;
     default:
       next(action);

@@ -1,10 +1,11 @@
 const initialState = {
   connect: false,
   loadingConnect: false,
-  errorConnect: false,
+  errorConnect: '',
   openConnect: false,
   connectPseudo: '',
   connectPassword: '',
+  checkRemember: false,
   subfirstname: '',
   sublastname: '',
   subpseudo: '',
@@ -27,6 +28,7 @@ export const CONNECT_SAVED_USER = 'CONNECT_SAVED_USER';
 export const CONNECT = 'CONNECT';
 export const DISCONNECT = 'DISCONNECT';
 const RECEIVED_DISCONNECT = 'RECEIVED_DISCONNECT';
+const CHECK_REMEMBER = 'CHECK_REMEMBER';
 
 export const SUBSCRIBE = 'SUBSCRIBE';
 
@@ -55,12 +57,17 @@ const navbarreducer = (state = initialState, action = {}) => {
         connect: false,
         loadingConnect: false,
         openConnect: true,
-        errorMessage: action.errorMessage,
+        errorConnect: action.errorMessage,
       };
     case OPEN_MODAL_CONNECT:
       return {
         ...state,
         openConnect: true,
+      };
+    case CHECK_REMEMBER:
+      return {
+        ...state,
+        checkRemember: !state.checkRemember,
       };
     case CLOSE_MODAL:
       return {
@@ -103,6 +110,10 @@ export const connectUser = () => ({
   type: CONNECT,
 });
 
+export const checkRemember = () => ({
+  type: CHECK_REMEMBER,
+});
+
 export const connectSavedUser = () => ({
   type: CONNECT_SAVED_USER,
 });
@@ -137,10 +148,9 @@ export const receivedConnect = () => ({
   type: RECEIVED_CONNECT,
 });
 
-export const errorConnect = (errorMessage) => ({
+export const errorConnect = errorMessage => ({
   type: ERROR_CONNECT,
   errorMessage,
-
 });
 
 export const setInput = (value, name) => ({

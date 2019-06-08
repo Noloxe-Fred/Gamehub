@@ -15,7 +15,7 @@ const NotFound = () => (
     <div className="Ok"> 
     <Link to="/">Retourner à l'accueil</Link>
     </div>
-     </div>
+  </div>
 );
 
 export default NotFound;
