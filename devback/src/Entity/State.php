@@ -5,12 +5,13 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StateRepository")
  * @Table(
  *      name="State",  
- *      uniqueConstraints={@UniqueConstraint(columns={"user_id", "game_id", "status"})}
+ *      uniqueConstraints={@UniqueConstraint(columns={"user_id", "game_id"})}
  * )
  */
 class State
@@ -39,6 +40,7 @@ class State
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="states", cascade={"persist"})
+     * @Groups({"status_read"})
      */
     private $game;
 

@@ -1,10 +1,10 @@
 App\Entity\User:
 
-    constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
-            fields: email
-            groups: [create, edit]
-            message: L'email est déjà utilisé(e)s.
+    # constraints:
+    #     - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+    #         fields: email
+    #         groups: [create, edit]
+    #         message: L'email est déjà utilisé(e)s.
 
     properties:
         email:
@@ -90,3 +90,27 @@ App\Entity\State:
     properties:
         status:
             - NotBlank: ~
+
+App\Entity\Comment:
+
+    properties:
+        title:
+            - NotBlank: 
+                message: Veuillez indiquer un titre.
+                groups: [create, edit]
+            - Length:
+                    min: 3
+                    max: 75
+                    minMessage: Votre titre est trop court.
+                    maxMessage: Votre titre est trop long.
+                    groups: edit  
+        content:
+            - NotBlank: 
+                message: Veuillez indiquer un commentaire.
+                groups: [create, edit]
+            - Length:
+                    min: 5
+                    max: 1000
+                    minMessage: Votre commentaire est trop court.
+                    maxMessage: Votre commentaire est trop long.
+                    groups: [create, edit]

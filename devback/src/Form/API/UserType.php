@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\API;
+namespace App\Form\Api;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
@@ -29,21 +29,31 @@ class UserType extends AbstractType
             ])
             ->add('firstname', TextType::class, [
 
+                'empty_data' => ' ',
+                'required' => false,
             ])
             ->add('lastname', TextType::class, [
 
+                'empty_data' => ' ',
+                'required' => false,
             ])
             ->add('pseudo', TextType::class, [
 
             ])
             ->add('photo', UrlType::class, [
 
+                'empty_data' => ' ',
+                'required' => false,
             ])
             ->add('birthdate', BirthdayType::class, [
 
+                'empty_data' => ' ',
+                'required' => false,
             ])
             ->add('biography', TextareaType::class, [
 
+                'empty_data' => ' ',
+                'required' => false,
             ])
         ;
     }
