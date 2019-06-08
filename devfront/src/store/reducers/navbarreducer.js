@@ -1,6 +1,7 @@
 const initialState = {
   connect: false,
   loadingConnect: false,
+  errorConnect: false,
   openConnect: false,
   connectPseudo: '',
   connectPassword: '',
@@ -47,8 +48,10 @@ const navbarreducer = (state = initialState, action = {}) => {
         loadingConnect: false,
         openConnect: false,
       };
+
     case ERROR_CONNECT: 
       return {
+        ...state,
         connect: false,
         loadingConnect: false,
         openConnect: true,
@@ -137,6 +140,7 @@ export const receivedConnect = () => ({
 export const errorConnect = (errorMessage) => ({
   type: ERROR_CONNECT,
   errorMessage,
+
 });
 
 export const setInput = (value, name) => ({

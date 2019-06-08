@@ -1,12 +1,17 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
 
-
 import homeMiddleware from './middlewares/homeMiddleware';
 import navbarMiddleware from './middlewares/navbarMiddleware';
 import gamePageMiddleware from './middlewares/gamePageMiddleware';
+import userPagesMiddleware from './middlewares/userPagesMiddleware';
 
-const appliedMiddlewares = applyMiddleware(navbarMiddleware, homeMiddleware, gamePageMiddleware);
+const appliedMiddlewares = applyMiddleware(
+  navbarMiddleware,
+  homeMiddleware,
+  gamePageMiddleware,
+  userPagesMiddleware,
+);
 
 
 /* eslint-disable no-underscore-dangle */

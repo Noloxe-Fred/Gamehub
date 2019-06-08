@@ -5,6 +5,7 @@ import './gamepage.scss';
 
 import GameHeader from 'src/containers/GamePage/gameHeaderContainer';
 import GameComments from 'src/containers/GamePage/gameCommentsContainer';
+import GameAllComments from 'src/containers/GamePage/gameAllCommentsContainer';
 
 
 
@@ -17,16 +18,23 @@ class GamePage extends Component {
 
   // lancer le request game quand le composant et finit de charger 
   render() {
-    const { loading } = this.props;
+    const { loading, background } = this.props; 
     // dans ce return on va mettre des conditions
+
+    const backgroundStyle = {
+      backgroundImage: `url(${background})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed',
+    };
 
     return (
       <div>
         {loading && <div>Chargement</div>}
         {!loading && (
-          <div id="gamepage">
+          <div id="gamepage" style={backgroundStyle}>
             <GameHeader />
             <GameComments />
+            <GameAllComments />
           </div>
         )}
       </div>

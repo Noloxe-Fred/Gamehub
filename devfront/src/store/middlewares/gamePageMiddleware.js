@@ -1,4 +1,5 @@
 import oneGame from 'src/data/oneGame';
+import axios from 'axios';
 
 // Import de Request_Game depuis GamepageReducer
 import { REQUEST_GAME, receivedGame, loadGame } from 'src/store/reducers/gamePageReducer';

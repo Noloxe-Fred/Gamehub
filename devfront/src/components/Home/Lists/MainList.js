@@ -28,7 +28,7 @@ class MainList extends Component {
                 {count > 0 && <Icon name="angle left" size="large" onClick={this.props.decreaseCount}/>}
                 {!(count + 7 > gameList.length) && <Icon name="angle right" size="large" onClick={this.props.increaseCount} />}
               </div>
-            </div>
+            </div> 
             <Grid>
               <Grid.Row columns={1}>
                 <Grid.Column>
@@ -38,11 +38,9 @@ class MainList extends Component {
                       <Card.Header>{displayList[0].name}</Card.Header>
                       <Card.Description>
                         {displayList[0].description}
+                        <Link to={"/game/"+displayList[0].id}>Voir la fiche du jeu</Link>
                       </Card.Description>
                     </Card.Content>
-                    <Card.Meta>
-                      <Link to={"/game/"+displayList[0].id}>Voir la fiche du jeu</Link>
-                    </Card.Meta>
                   </Card>
                 </Grid.Column>
               </Grid.Row>
@@ -56,15 +54,13 @@ class MainList extends Component {
                         <Card.Header>{displayList[1].name}</Card.Header>
                         <Card.Description>
                           {displayList[1].description}
+                          <Link to={"/game/"+displayList[1].id}>Voir la fiche du jeu</Link>
                         </Card.Description>
                       </Card.Content>
-                      <Card.Meta>
-                        <Link to={"/game/"+displayList[1].id}>Voir la fiche du jeu</Link>
-                      </Card.Meta>
                     </Card>
                   )}
                 </Grid.Column>
-                <Grid.Column>
+                <Grid.Column >
                   <Grid>
                     <Grid.Row columns={2}>
                       <Grid.Column>
@@ -76,11 +72,9 @@ class MainList extends Component {
                               <Card.Header>{displayList[2].name}</Card.Header>
                               <Card.Description>
                                 {displayList[2].description}
+                                <Link to={"/game/"+displayList[2].id}>Voir la fiche du jeu</Link>
                               </Card.Description>
                             </Card.Content>
-                            <Card.Meta>
-                              <Link to={"/game/"+displayList[2].id}>Voir la fiche du jeu</Link>
-                            </Card.Meta>
                           </Card>
                         )}
                       </Grid.Column>
@@ -93,11 +87,9 @@ class MainList extends Component {
                               <Card.Header>{displayList[3].name}</Card.Header>
                               <Card.Description>
                                 {displayList[3].description}
+                                <Link to={"/game/"+displayList[3].id}>Voir la fiche du jeu</Link>
                               </Card.Description>
                             </Card.Content>
-                            <Card.Meta>
-                              <Link to={"/game/"+displayList[3].id}>Voir la fiche du jeu</Link>
-                            </Card.Meta>
                           </Card>
                         )}
                       </Grid.Column>
@@ -112,11 +104,9 @@ class MainList extends Component {
                               <Card.Header>{displayList[4].name}</Card.Header>
                               <Card.Description>
                                 {displayList[4].description}
+                                <Link to={"/game/"+displayList[4].id}>Voir la fiche du jeu</Link>
                               </Card.Description>
                             </Card.Content>
-                            <Card.Meta>
-                              <Link to={"/game/"+displayList[4].id}>Voir la fiche du jeu</Link>
-                            </Card.Meta>
                           </Card>
                         )}
                       </Grid.Column>
@@ -129,11 +119,10 @@ class MainList extends Component {
                               <Card.Header>{displayList[5].name}</Card.Header>
                               <Card.Description>
                                 {displayList[5].description}
+                                <Link to={"/game/"+displayList[5].id}>Voir la fiche du jeu</Link>
                               </Card.Description>
+                              
                             </Card.Content>
-                            <Card.Meta>
-                              <Link to={"/game/"+displayList[5].id}>Voir la fiche du jeu</Link>
-                            </Card.Meta>
                           </Card>
                         )}
                       </Grid.Column>
