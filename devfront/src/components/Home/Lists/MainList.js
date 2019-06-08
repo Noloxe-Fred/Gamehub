@@ -19,7 +19,7 @@ class MainList extends Component {
 
     return (
       <div id="main-list">
-        {load && <Loader active inline='centered' />}
+        {load && <Loader active inline="centered" />}
         {!load && (
           <div id="list">
             <div id="title-main-list">
@@ -145,9 +145,10 @@ MainList.propTypes = {
     id: PropTypes.number.isRequired,
   })).isRequired,
   count: PropTypes.number.isRequired,
+  decreaseCount: PropTypes.func.isRequired,
+  increaseCount: PropTypes.func.isRequired,
 };
 
 // Composant Card
 
 export default MainList;
- 

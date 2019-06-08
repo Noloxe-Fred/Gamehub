@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Modal, Form } from 'semantic-ui-react';
 
 import ModalConnect from 'src/containers/Navbar/ModalConnect';
@@ -91,3 +92,14 @@ export default class ModalSubscribe extends Component {
   );
 	}
 }
+
+ModalSubscribe.propTypes = {
+  changeInput: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  confirmSubscribe: PropTypes.string.isRequired,
+  subconfirmpassword: PropTypes.string.isRequired,
+  subemail: PropTypes.string.isRequired,
+  subpassword: PropTypes.string.isRequired,
+  subpseudo: PropTypes.string.isRequired,
+  submitForm: PropTypes.func.isRequired,
+};

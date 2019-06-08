@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Icon, Input } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import './searchBar.scss';
 
@@ -58,5 +59,8 @@ class SearchBar extends Component {
   }
 }
 
-
+SearchBar.propTypes = {
+  display: PropTypes.func.isRequired,
+  displayInput: PropTypes.bool.isRequired,
+};
 export default SearchBar;
