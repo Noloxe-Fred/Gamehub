@@ -123,4 +123,70 @@ class ApiGameController extends FOSRestController
 
         return JsonResponse::fromJsonString($worstEverGamesList);
     }
+
+
+    /**
+     * @Rest\Get(path = "game/list/bestlastyear", name = "games_best_last_year")
+     */ 
+    public function showBestLastYearGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $games = $gameRepository->findGamesByBestYearScore();
+
+
+        $bestGamesLastYear = $serializer->serialize($games, 'json', [
+                    'groups' => 'game_read',
+                ]);
+
+                return JsonResponse::fromJsonString($bestgameslastYear);
+
+    }
+
+    /**
+     * @Rest\Get(path = "game/list/wrostlastyear", name = "games_worst_last_year")
+     */ 
+    public function showWorstLastYearGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $games = $gameRepository->findGamesByWorstYearScore();
+
+
+        $worstgameslastmonth = $serializer->serialize($games, 'json', [
+                    'groups' => 'game_read',
+                ]);
+
+                return JsonResponse::fromJsonString($worstgameslastmonth);
+
+    }
+
+
+    /**
+     * @Rest\Get(path = "game/list/bestlastmonth", name = "games_best_last_month")
+     */ 
+    public function showBestLastMonthGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $games = $gameRepository->findGamesByBestMonthScore();
+
+
+        $bestGamesLastMonth = $serializer->serialize($games, 'json', [
+                    'groups' => 'game_read',
+                ]);
+
+                return JsonResponse::fromJsonString($bestGamesLastMonth);
+
+    }
+
+    /**
+     * @Rest\Get(path = "game/list/worstlastmonth", name = "games_worst_last_month")
+     */ 
+    public function showWorstLastMonthGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $games = $gameRepository->findGamesByWorstMonthScore();
+
+
+        $worstGamesLastMonth = $serializer->serialize($games, 'json', [
+                    'groups' => 'game_read',
+                ]);
+
+                return JsonResponse::fromJsonString($worstGamesLastMonth);
+
+    }
 }

@@ -17,12 +17,13 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"game_read", "comment_read"})
+     * @Groups({"game_read", "comment_read", "profil_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups({"profil_read"})
      */
     private $email;
 
@@ -39,28 +40,33 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"profil_read"})
+
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"profil_read"})
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
-     * @Groups({"game_read", "comment_read"})
+     * @Groups({"game_read", "comment_read", "profil_read"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"profil_read"})
      */
     private $photo;
 
     /**
      * @ORM\Column(type="date", nullable=true)
-     */
+     * @Groups({"profil_read"})
+    */
     private $birthdate;
 
     /**
@@ -70,6 +76,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"profil_read"})
      */
     private $biography;
 
@@ -85,6 +92,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
+     * @Groups({"profil_read"})
      */
     private $comments;
 

@@ -140,7 +140,118 @@ class GameRepository extends ServiceEntityRepository
 
     public function findGamesByWorstScore(){
 
+   
+
         $qb = $this->createQueryBuilder('g')
+            ->orderBy('g.score', 'ASC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+
+    public function findGamesByBestMonthScore(){
+
+        $dateStart = new DateTime('now');
+        $dateEnd = new DateTime('now - 1 month');
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt <= :dateStart')
+            ->andWhere('g.releasedAt >= :dateEnd')
+            ->setParameter('dateStart', $dateStart->format('Y m d'))
+            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->orderBy('g.score', 'DESC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function findGamesByWorstMonthScore(){
+
+        $dateStart = new DateTime('now');
+        $dateEnd = new DateTime('now - 1 month');
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt <= :dateStart')
+            ->andWhere('g.releasedAt >= :dateEnd')
+            ->setParameter('dateStart', $dateStart->format('Y m d'))
+            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->orderBy('g.score', 'ASC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+    public function findGamesByBestYearScore(){
+
+        $dateStart = new DateTime('now');
+        $dateEnd = new DateTime('now - 1 year');
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt <= :dateStart')
+            ->andWhere('g.releasedAt >= :dateEnd')
+            ->setParameter('dateStart', $dateStart->format('Y m d'))
+            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->orderBy('g.score', 'DESC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function findGamesByWorstYearScore(){
+
+        $dateStart = new DateTime('now');
+        $dateEnd = new DateTime('now - 1 year');
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt <= :dateStart')
+            ->andWhere('g.releasedAt >= :dateEnd')
+            ->setParameter('dateStart', $dateStart->format('Y m d'))
+            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->orderBy('g.score', 'ASC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+
+    public function findGamesByBestWeekScore(){
+
+        $dateStart = new DateTime('now');
+        $dateEnd = new DateTime('now - 1 week');
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt <= :dateStart')
+            ->andWhere('g.releasedAt >= :dateEnd')
+            ->setParameter('dateStart', $dateStart->format('Y m d'))
+            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->orderBy('g.score', 'DESC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function findGamesByWorstWeekScore(){
+
+        $dateStart = new DateTime('now');
+        $dateEnd = new DateTime('now - 1 week');
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt <= :dateStart')
+            ->andWhere('g.releasedAt >= :dateEnd')
+            ->setParameter('dateStart', $dateStart->format('Y m d'))
+            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
             ->orderBy('g.score', 'ASC')
             ->setMaxResults(18)
             ->getQuery()

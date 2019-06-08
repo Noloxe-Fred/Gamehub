@@ -59,6 +59,26 @@ class ApiUserController extends FOSRestController
             ]);
     }
 
+
+    /**
+     * @Rest\Get(path = "user/profil", name="user")
+     * @ParamConverter("user", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "profil_read"}})
+     */
+    public function getUserAction(User $user, UserRepository $userRepository, Request $request, EntityManagerInterface $em)
+    {   
+        if(count($violations)){
+            
+            return $this->view($violations, Response::HTTP_BAD_REQUEST);
+        }
+        
+        $user = $userRepository->findOneById($request->request->get('id'));
+
+        return $this->view($user, Response::HTTP_OK, [
+            
+            ]);
+
+    }
+
     /**
      * @Rest\Put(path = "user/edit", name="user_edit")
      * @ParamConverter("user", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "edit"}})
