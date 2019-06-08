@@ -1,203 +1,302 @@
-$font-family-p: 'Reem Kufi', sans-serif;
-$font-family-title: 'Oswald', sans-serif;
-
-$color-text: #fffdd8;
-
+$text-color: #fffdd8;
 
 #gamepage {
   height: 100vh;
 }
-.container {
+
+.game {
   margin-top: 1em;
-  padding-top: 2em;
-  width: 50%;
-  // height: 50%;
-  color: $color-text;
-  .illustration {
-    img {
-      width: 100%;
-      border: 1px solid $color-text;
-      border-radius: 14px;
-    }
-  }
-  .title {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1em;
-    text-align: left;
-    &--title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 3em;
-      margin-bottom: 1em;
-    }
-    &--score {
-      font-family: 'Oswald', sans-serif;
-      margin-bottom: 1em;
-      font-size: 3em;
-    }
-    &--editor {
-      font-family: 'Reem Kufi', sans-serif;
-      margin-bottom: .5em;
-    }
-    &--developer {
-      font-family: 'Reem Kufi', sans-serif;
-      margin-bottom: .5em;
-    }
-    &--released {
-      font-family: 'Reem Kufi', sans-serif;
-      margin-bottom: .5em;  
-    }
-  }
-  .description {
-    font-family: 'Reem Kufi', sans-serif;
-    padding: 1em;
-    &--description {
-      color: $color-text;
-      font-size: .9em;
-      text-align: justify;
-    }
-  }
-  .categories {
-    button {
-      color: $color-text ;
-      background: none;
-      border: 1px solid $color-text;
-      border-radius: 4px;
-      margin: .5em;
-    }
-  }
-}
-
-.partie--commentaire {
-  background-color: rgba($color: #34495e, $alpha: .7);
-  border: 1px solid #fffdd8;
-  border-radius: 8px;
-  margin-bottom: 4em;
-}
-
-.row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.firstpart {
-  background-color: rgba($color: #34495e, $alpha: .7);
-  border: 1px solid #fffdd8;
-  border-radius: 8px;
-  padding-top: 1em;
-}
-
-.secondpart {
-  // height: 100vh;
-  padding-top: 5em;
-  background-color: #34495e;
-  // margin-top: 5em;
-}
-
-.comments--container {
-  margin-top: 1em;
-  padding-top: 0;
-}
-
-.title--comments {
-  text-align: center;
-  margin: 3em 0;
-  h2 {
-    font-family: 'Oswald', sans-serif;
-  }
-}
-// .row--titre--derniers--commentaires{
-//   height: 1em;
-// }
-
-.cell {
-  // border-right: 1px solid black;
-  height: 3em;
-  font-family: 'Reem Kufi', sans-serif;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: left;
-  
-}
-
-.derniers--commentaires {
-  background-color: #34495e;
   width: 100%;
-}
-
-.cell--header {
-  border-right: none;
-  border-bottom: 1px solid $color-text;
-}
-
-
-
-.row--comments img{
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    border: 1px solid black;
-    margin-right: 1em;
-}
-
-.row--comments:hover {
-  background: $color-text;
-  color: #34495e;
-  cursor: pointer;
-  img {
-    border: white;
-  }
-}
-
-.profil {
+  height: 40em;
+  background-color: rgba($color: #2C3E50, $alpha: .7);
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
   align-items: center;
-}
-
-
-// Style tableau All Comments
-
-.tableau {
-  padding: 1em;
-  height: 30em;
-  overflow: auto;
-  background-color: #fffdd8;
-  color: #34495e;
-}
-
-
-// Media Queries
-
-@media screen and (max-width: 600px) {
-  #gamepage {
-    height: 100%;
-  }
-  .container {
+  color: $text-color;
+  .up {
     width: 100%;
-    .title {
-      margin: 1em auto;
-      text-align: center;
-      &--title {
-        font-size: 3em;
+    height: 70em;
+    // background-color: blue;
+    display: flex;
+    &--left {
+      width: 50%;
+      height: 100%;
+      // background-color: yellow;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &--right {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      // background-color: #2C3E50;
+      text-align: left;
+      border-left: 2px solid white;
+      padding-left: 1em;
+      h3 {
+        font-size: 2.5em;
+        margin: 0;
+      }
+      h5 {
+        margin-bottom: 1em;
+      }
+      a {
+        margin-top: 1em;
       }
     }
   }
-  .cell {
+  .down {
+    width: 100%;
+    height: 50%;
+    // background-color: pink;
+    display: flex;
     justify-content: center;
-    border-right: none;
+    align-items: center;
+    h6 {
+      text-align: justify;
+      margin: 1em;
+    }
   }
-  .row--header {
-    display: none;
-  }
-  .row--comments {
-    border-top: 1px solid $color-text;
-  }
-  .cell--number {
-    display: none;
-  }
-  .cell-score {
-    border: none;
-  } 
-} 
+}
+
+.comments--list {
+  margin-top: 1em;
+  width: 100%;
+  height: 40em;
+  background-color: green;   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $font-family-p: 'Reem Kufi', sans-serif;
+// $font-family-title: 'Oswald', sans-serif;
+
+// $color-text: #fffdd8;
+
+
+// #gamepage {
+//   height: 100vh;
+// }
+// .container {
+//   margin-top: 1em;
+//   padding-top: 2em;
+//   width: 50%;
+//   // height: 50%;
+//   color: $color-text;
+//   .illustration {
+//     img {
+//       width: 100%;
+//       border: 1px solid $color-text;
+//       border-radius: 14px;
+//     }
+//   }
+//   .title {
+//     display: flex;
+//     flex-direction: column;
+//     margin-top: 1em;
+//     text-align: left;
+//     &--title {
+//       font-family: 'Oswald', sans-serif;
+//       font-size: 3em;
+//       margin-bottom: 1em;
+//     }
+//     &--score {
+//       font-family: 'Oswald', sans-serif;
+//       margin-bottom: 1em;
+//       font-size: 3em;
+//     }
+//     &--editor {
+//       font-family: 'Reem Kufi', sans-serif;
+//       margin-bottom: .5em;
+//     }
+//     &--developer {
+//       font-family: 'Reem Kufi', sans-serif;
+//       margin-bottom: .5em;
+//     }
+//     &--released {
+//       font-family: 'Reem Kufi', sans-serif;
+//       margin-bottom: .5em;  
+//     }
+//   }
+//   .description {
+//     font-family: 'Reem Kufi', sans-serif;
+//     padding: 1em;
+//     &--description {
+//       color: $color-text;
+//       font-size: .9em;
+//       text-align: justify;
+//     }
+//   }
+//   .categories {
+//     button {
+//       color: $color-text ;
+//       background: none;
+//       border: 1px solid $color-text;
+//       border-radius: 4px;
+//       margin: .5em;
+//     }
+//   }
+// }
+
+// .partie--commentaire {
+//   background-color: rgba($color: #34495e, $alpha: .7);
+//   border: 1px solid #fffdd8;
+//   border-radius: 8px;
+//   margin-bottom: 4em;
+// }
+
+// .row {
+//   margin-left: 0;
+//   margin-right: 0;
+// }
+
+// .firstpart {
+//   background-color: rgba($color: #34495e, $alpha: .7);
+//   border: 1px solid #fffdd8;
+//   border-radius: 8px;
+//   padding-top: 1em;
+// }
+
+// .secondpart {
+//   // height: 100vh;
+//   padding-top: 5em;
+//   background-color: #34495e;
+//   // margin-top: 5em;
+// }
+
+// .comments--container {
+//   margin-top: 1em;
+//   padding-top: 0;
+// }
+
+// .title--comments {
+//   text-align: center;
+//   margin: 3em 0;
+//   h2 {
+//     font-family: 'Oswald', sans-serif;
+//   }
+// }
+// // .row--titre--derniers--commentaires{
+// //   height: 1em;
+// // }
+
+// .cell {
+//   // border-right: 1px solid black;
+//   height: 3em;
+//   font-family: 'Reem Kufi', sans-serif;
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   text-align: left;
+  
+// }
+
+// .derniers--commentaires {
+//   background-color: #34495e;
+//   width: 100%;
+// }
+
+// .cell--header {
+//   border-right: none;
+//   border-bottom: 1px solid $color-text;
+// }
+
+
+
+// .row--comments img{
+//     width: 2em;
+//     height: 2em;
+//     border-radius: 50%;
+//     border: 1px solid black;
+//     margin-right: 1em;
+// }
+
+// .row--comments:hover {
+//   background: $color-text;
+//   color: #34495e;
+//   cursor: pointer;
+//   img {
+//     border: white;
+//   }
+// }
+
+// .profil {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+// }
+
+
+// // Style tableau All Comments
+
+// .tableau {
+//   padding: 1em;
+//   height: 30em;
+//   overflow: auto;
+//   background-color: #fffdd8;
+//   color: #34495e;
+// }
+
+
+// // Media Queries
+
+// @media screen and (max-width: 600px) {
+//   #gamepage {
+//     height: 100%;
+//   }
+//   .container {
+//     width: 100%;
+//     .title {
+//       margin: 1em auto;
+//       text-align: center;
+//       &--title {
+//         font-size: 3em;
+//       }
+//     }
+//   }
+//   .cell {
+//     justify-content: center;
+//     border-right: none;
+//   }
+//   .row--header {
+//     display: none;
+//   }
+//   .row--comments {
+//     border-top: 1px solid $color-text;
+//   }
+//   .cell--number {
+//     display: none;
+//   }
+//   .cell-score {
+//     border: none;
+//   } 
+// } 
