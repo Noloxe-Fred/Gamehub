@@ -16,14 +16,14 @@ const GameComments = ({ datas }) => (
 
     <Row className="row--comments row--header">
 
-      <Col lg={1} sm={1} xs={1} className="cell cell--header"></Col>
+      {/* <Col lg={1} sm={1} xs={1} className="cell cell--header"></Col> */}
 
-      <Col lg={2} sm={3} xs={3} className="cell cell--header">
+      <Col lg={12} sm={3} xs={3} className="cell cell--header d-flex justify-content-center">
        <div className="profil">
-         <h6>Utilisateur</h6>
+         <h6>Le Top des commentaires</h6>
        </div>
       </Col>
-
+{/* 
       <Col lg={4} sm={4} xs={4} className="cell cell--header">
        <div>
          <h6>Titre</h6>
@@ -40,7 +40,7 @@ const GameComments = ({ datas }) => (
        <div>
          <h6>Score</h6>
        </div>
-      </Col>
+      </Col> */}
     </Row>
 
     <Row className="row--comments">

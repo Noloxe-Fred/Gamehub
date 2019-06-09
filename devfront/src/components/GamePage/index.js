@@ -32,9 +32,13 @@ class GamePage extends Component {
         {loading && <div>Chargement</div>}
         {!loading && (
           <div id="gamepage" style={backgroundStyle}>
-            <GameHeader />
-            <GameComments />
-            <GameAllComments />
+            <div className="first">
+              <GameHeader />
+              <GameComments />
+            </div>
+            <div className="second">
+              <GameAllComments />
+            </div>
           </div>
         )}
       </div>

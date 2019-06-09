@@ -7,24 +7,40 @@ $color-text: #fffdd8;
 #gamepage {
   height: 100vh;
 }
+
+.first {
+  height: 100vh;
+}
+.second {
+  height: 100vh;
+}
 .container {
   margin-top: 1em;
   padding-top: 2em;
   width: 50%;
-  // height: 50%;
+  // height: 100vh;
   color: $color-text;
   .illustration {
+    padding-bottom: 1em;
     img {
       width: 100%;
       border: 1px solid $color-text;
       border-radius: 14px;
+      height: 27em;
+      object-fit: cover;
     }
   }
   .title {
     display: flex;
     flex-direction: column;
     margin-top: 1em;
+    padding-bottom: 1em;
     text-align: left;
+    a {
+      text-decoration: none;
+      color: #fffdd8;
+      padding-bottom: 1em; 
+    }
     &--title {
       font-family: 'Oswald', sans-serif;
       font-size: 3em;
@@ -50,20 +66,24 @@ $color-text: #fffdd8;
   }
   .description {
     font-family: 'Reem Kufi', sans-serif;
-    padding: 1em;
+    padding-top: 1em;
     &--description {
       color: $color-text;
       font-size: .9em;
       text-align: justify;
+      overflow: hidden;
     }
   }
   .categories {
+    padding-bottom: 1em;
+    display: flex;
     button {
       color: $color-text ;
       background: none;
       border: 1px solid $color-text;
       border-radius: 4px;
-      margin: .5em;
+      margin-right: .5em;
+      margin-left: .5em;
     }
   }
 }
@@ -88,7 +108,7 @@ $color-text: #fffdd8;
 }
 
 .secondpart {
-  // height: 100vh;
+  height: 100vh;
   padding-top: 5em;
   background-color: #34495e;
   // margin-top: 5em;
@@ -174,6 +194,12 @@ $color-text: #fffdd8;
   #gamepage {
     height: 100%;
   }
+  .first {
+    height: 100%;
+  }
+  .second {
+    height: 100%;
+  }
   .container {
     width: 100%;
     .title {
@@ -201,3 +227,45 @@ $color-text: #fffdd8;
     border: none;
   } 
 } 
+
+.row-all-comments {
+  border-bottom: 1px solid #34495e;
+  &:hover {
+    background-color: #34495e;
+    color: $color-text;
+  }
+
+}
+
+// add to my collection
+
+$shadow-color: #c7c7c7;
+
+.fav {
+  padding-bottom: .3em !important;
+  margin-bottom: 2em;
+  text-align: center;
+  width: 40%;
+  animation: shadowFloat 1.2s linear alternate infinite;
+  border: 1px solid #fffdd8;
+	border-radius: 50px;
+  color: #34495e !important;
+  background-color: #fffdd8;
+	font-size: 13px;
+  i {
+    padding-right: .5em;
+  }
+}
+
+// Animations
+@keyframes shadowFloat {
+   0%   {
+		box-shadow: 0 20px 40px $shadow-color;
+		transform: translateY(-2px);
+	}
+   100% {
+		box-shadow: 0 10px 10px darken($shadow-color, 5%);;
+		transform: translateY(2px); 
+	}
+}
+
