@@ -28,14 +28,17 @@ const navbarMiddleware = store => next => (action) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        username: email,
-        password: password
+        email,
+        password,
       })
         .then((response) => {
           console.log('Reponse Connexion', response);
+
+          const remember = store.getState().navbarreducer.checkRemember;
           localStorage.setItem('connect', true);
-          localStorage.setItem('remember', false); // if case cochée!
+          localStorage.setItem('remember', remember); // if case cochée!
           localStorage.setItem('user', response.data.token);
+
           store.dispatch(receivedConnect());
         })
         .catch((error) => {
@@ -68,7 +71,7 @@ const navbarMiddleware = store => next => (action) => {
             store.dispatch(receivedSubscribe('subscribeOk', email));
           }
           else {
-            store.dispatch('subscribeError', '');
+            store.dispatch(receivedSubscribe('subscribeError', ''));
           }
         })
         .catch((error) => {
