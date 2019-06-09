@@ -15,7 +15,6 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class GameRepository extends ServiceEntityRepository
 {
-   
 
     public function __construct(RegistryInterface $registry)
     {
