@@ -1,4 +1,4 @@
-// import gameList from 'src/data/gameList'; // temporaire en attendant l'API
+import gameList from 'src/data/gameList'; // temporaire en attendant l'API
 import axios from 'axios';
 
 import {
@@ -21,7 +21,7 @@ const homeMiddleware = store => next => (action) => {
     case REQUEST_COMING_SOON:
       store.dispatch(loadComingSoon());
 
-      axios.get('http://api.gamehub.com/api/game/list', {
+      axios.get('http://api.gamehub.com/api/game/nextmonth', {
         headers: {
           'Content-Type': 'application/json',
         },

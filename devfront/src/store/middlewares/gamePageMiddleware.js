@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Import de Request_Game depuis GamepageReducer
-import { REQUEST_GAME, receivedGame, loadGame } from 'src/store/reducers/gamePageReducer';
+import { REQUEST_GAME, receivedGame, loadGame, errorRequest } from 'src/store/reducers/gamePageReducer';
 
 // on fait un switch (permet une ou plusieurs conditions comme les IF,else if ect )
 const gamePageMiddleware = store => next => (action) => {
@@ -37,8 +37,8 @@ const gamePageMiddleware = store => next => (action) => {
           store.dispatch(receivedGame(gameDatas, commentsDatas, background));
         })
         .catch((error) => {
-          console.log(error);
-          
+          console.log('request one game', error);
+          store.dispatch(errorRequest());
         });
       // // Pour requete du jeu: id du jeu = action.gameId
       // // scinder datas
