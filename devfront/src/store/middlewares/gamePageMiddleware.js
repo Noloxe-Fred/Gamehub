@@ -1,4 +1,4 @@
-import oneGame from 'src/data/oneGame';
+// import oneGame from 'src/data/oneGame';
 import axios from 'axios';
 
 // Import de Request_Game depuis GamepageReducer
@@ -40,23 +40,23 @@ const gamePageMiddleware = store => next => (action) => {
           console.log(error);
           
         });
-      // Pour requete du jeu: id du jeu = action.gameId
-      // scinder datas
-      const gameDatas = {
-        name: oneGame.name,
-        cover: oneGame.cover, 
-        desc: oneGame.description, 
-        score: oneGame.score, 
-        developer: oneGame.developer, 
-        editor: oneGame.editor, 
-        released: oneGame.released, 
-        website: oneGame.website, 
-        categories: oneGame.categories
-      };
-      const commentsDatas = oneGame.comments;
-      const background = oneGame.illustration;
+      // // Pour requete du jeu: id du jeu = action.gameId
+      // // scinder datas
+      // const gameDatas = {
+      //   name: oneGame.name,
+      //   cover: oneGame.cover, 
+      //   desc: oneGame.description, 
+      //   score: oneGame.score, 
+      //   developer: oneGame.developer, 
+      //   editor: oneGame.editor, 
+      //   released: oneGame.released, 
+      //   website: oneGame.website, 
+      //   categories: oneGame.categories
+      // };
+      // const commentsDatas = oneGame.comments;
+      // const background = oneGame.illustration;
 
-      store.dispatch(receivedGame(gameDatas, commentsDatas, background));
+      // store.dispatch(receivedGame(gameDatas, commentsDatas, background));
       break;
     default:
       next(action);

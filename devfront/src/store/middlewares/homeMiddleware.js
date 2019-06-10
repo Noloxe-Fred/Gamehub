@@ -1,4 +1,4 @@
-import gameList from 'src/data/gameList'; // temporaire en attendant l'API
+// import gameList from 'src/data/gameList'; // temporaire en attendant l'API
 import axios from 'axios';
 
 import {
@@ -35,7 +35,7 @@ const homeMiddleware = store => next => (action) => {
           console.log(error);
           
         });
-        store.dispatch(receivedComingSoon(gameList));
+       // store.dispatch(receivedComingSoon(gameList));
 
       break;
     case REQUEST_LAST_RELEASED:
@@ -57,7 +57,7 @@ const homeMiddleware = store => next => (action) => {
         });
 
       // requete test local
-      store.dispatch(receivedLastReleased(gameList));
+      //store.dispatch(receivedLastReleased(gameList));
 
       break;
     case REQUEST_RANDOM:
@@ -79,7 +79,7 @@ const homeMiddleware = store => next => (action) => {
         });
 
       // requete test local
-      store.dispatch(receivedRandom(gameList));
+      // store.dispatch(receivedRandom(gameList));
       break;
     case REQUEST_TAB_LIST:
       store.dispatch(loadingTabList());
