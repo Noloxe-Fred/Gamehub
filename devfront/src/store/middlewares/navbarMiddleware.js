@@ -24,6 +24,7 @@ const navbarMiddleware = store => next => (action) => {
       const email = store.getState().navbarreducer.connectPseudo;
       const password = store.getState().navbarreducer.connectPassword;
 
+
       axios.post('http://api.gamehub.com/api/signin', {
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +46,6 @@ const navbarMiddleware = store => next => (action) => {
           console.log('Erreur Connexion', error);
           store.dispatch(errorConnect('Erreur Connexion'));
         });
-
       break;
 
     case SUBSCRIBE:
