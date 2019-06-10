@@ -16,7 +16,7 @@ class FirstCarousel extends Component {
       <div id="first-carousel">
         <h3>Sorties du mois passé</h3>
         {load && <div>Chargement</div>}
-        {!load && <CarouselAlice gameList={lastReleasedList} />}
+        {(!load && lastReleasedList[0]) && <CarouselAlice gameList={lastReleasedList} />}
       </div>
     );
   }

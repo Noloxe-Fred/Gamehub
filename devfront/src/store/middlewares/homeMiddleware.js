@@ -29,12 +29,12 @@ const homeMiddleware = store => next => (action) => {
         .then((response) => {
           console.log('next month',response.data);
 
-          store.dispatch(receivedComingSoon(response.data));
+          //store.dispatch(receivedComingSoon(response.data));
         })
         .catch((error) => {
           console.log(error);
         });
-        // store.dispatch(receivedComingSoon(gameList));
+        store.dispatch(receivedComingSoon(gameList));
 
       break;
     case REQUEST_LAST_RELEASED:

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Loader, Grid, Image, Icon, Card  } from 'semantic-ui-react';
 
-
+import AddGame from 'src/containers/User/addgameContainer';
 import './lists.scss';
 
 
@@ -20,7 +20,7 @@ class MainList extends Component {
     return (
       <div id="main-list">
         {load && <Loader active inline="centered" />}
-        {!load && (
+        {(!load && displayList.length > 0) && (
           <div id="list">
             <div id="title-main-list">
               <h3>Les prochaines sorties</h3>
@@ -36,6 +36,7 @@ class MainList extends Component {
                     <img src={displayList[0].illustration} alt={displayList[0].name}/>
                     <Card.Content>
                       <Card.Header>{displayList[0].name}</Card.Header>
+                      <AddGame gameId={displayList[0].id} />
                       <Card.Description>
                         {displayList[0].description}
                         <Link to={"/game/"+displayList[0].id}>Voir la fiche du jeu</Link>
