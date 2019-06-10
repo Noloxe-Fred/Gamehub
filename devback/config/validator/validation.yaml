@@ -10,31 +10,31 @@ App\Entity\User:
         email:
             - NotBlank:
                     message: Veuillez indiquer votre email.
-                    groups: [create, edit]
+                    groups: create
             - Email: 
                     message: L'email n'est pas valide.
-                    groups: [create, edit]
+                    groups: create
             - Length: 
                     min: 5
                     max: 50
                     minMessage: L'email est trop courte, minimum 5 caractères.
                     maxMessage: L'email est trop longue, maximum 50 caractères.    
-                    groups: [create, edit]
+                    groups: create
 
         password:
             - NotBlank:
                     message: Veuillez indiquer votre mot de passe.
-                    groups: [create, edit]
+                    groups: create
             - Length: 
                     min: 5
                     max: 50
                     minMessage: Le mot de passe est trop court.
                     maxMessage: Le mot de passe est trop long.
-                    groups: [create, edit]
+                    groups: create
             - Regex:
                     pattern: '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/'
                     message: Mot de passe non valide.
-                    groups: [create, edit]   
+                    groups: create 
 
         firstname: 
             - Length:
@@ -42,7 +42,6 @@ App\Entity\User:
                     max: 50
                     minMessage: Le prénom est trop court.
                     maxMessage: Le prénom est trop long.
-                    groups: edit
 
         lastname:
             - Length:
@@ -50,31 +49,28 @@ App\Entity\User:
                     max: 50
                     minMessage: Le nom est trop court.
                     maxMessage: Le nom est trop long.
-                    groups: edit
 
         pseudo:
             - NotBlank:
                     message: Veuillez indiquer votre pseudo.
-                    groups: [create, edit]
+                    groups: create
             - Length:
                     min: 3
                     max: 20
                     minMessage: Le pseudo est trop court.
                     maxMessage: Le pseudo est trop long.
-                    groups: [create, edit]
+                    groups: create
 
         photo:
             - Url:
                     message: L'URL n'est pas valide.
-                    groups: edit
   
         biography:
             - Length:
                     min: 5
                     max: 1500
-                    minMessage: Votre biographie est trop courte
-                    maxMessage: Votre biographie est trop longue
-                    groups: edit       
+                    minMessage: Votre biographie est trop courte.
+                    maxMessage: Votre biographie est trop longue.
 
         birthdate:
             - Date: ~
@@ -97,20 +93,20 @@ App\Entity\Comment:
         title:
             - NotBlank: 
                 message: Veuillez indiquer un titre.
-                groups: [create, edit]
+                groups: create
             - Length:
                     min: 3
                     max: 75
                     minMessage: Votre titre est trop court.
                     maxMessage: Votre titre est trop long.
-                    groups: edit  
+                    groups: create
         content:
             - NotBlank: 
                 message: Veuillez indiquer un commentaire.
-                groups: [create, edit]
+                groups: create
             - Length:
                     min: 5
                     max: 1000
                     minMessage: Votre commentaire est trop court.
                     maxMessage: Votre commentaire est trop long.
-                    groups: [create, edit]
+                    groups: create
