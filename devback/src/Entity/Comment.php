@@ -2,13 +2,19 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
+ * @Table(
+ *      name = "Comment",  
+ *      uniqueConstraints = {@UniqueConstraint(columns = {"user_id", "game_id"})}
+ * )
  */
 class Comment
 {
@@ -16,34 +22,19 @@ class Comment
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"game_read", "comment_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(
-     *      message = "Veuillez indiquer un titre."
-     * )
-     * @Assert\Length(
-     *      min = "3",
-     *      max = "75",
-     *      minMessage = "Votre titre est trop court.",
-     *      maxMessage = "Votre titre est trop longue"
-     * )
+     * @Groups({"game_read", "comment_read"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(
-     *      message = "Veuillez détailler votre avis."
-     * )
-     * @Assert\Length(
-     *      min = "5",
-     *      max = "2500",
-     *      minMessage = "Avis trop court.",
-     *      maxMessage = "Avis trop long."
-     * )
+     * @Groups({"game_read", "comment_read"})
      */
     private $content;
 
@@ -54,21 +45,25 @@ class Comment
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"game_read", "comment_read"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"game_read", "comment_read"})
      */
     private $updatedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="comments", cascade={"persist"})
+     * @Groups({"comment_read"})
      */
     private $game;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments", cascade={"persist"})
+     * @Groups({"game_read", "comment_read"})
      */
     private $user;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\API;
+namespace App\Form\Api;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
@@ -11,7 +11,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class UserType extends AbstractType
@@ -23,27 +22,38 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
 
             ])
-            ->add('password', RepeatedType::class, [
-
-                'type' => PasswordType::class,
+            ->add('password', PasswordType::class, [
+                    
+                'empty_data' => '',
+                'required' => true,
             ])
             ->add('firstname', TextType::class, [
 
+                'empty_data' => '',
+                'required' => false,
             ])
             ->add('lastname', TextType::class, [
 
+                'empty_data' => '',
+                'required' => false,
             ])
             ->add('pseudo', TextType::class, [
 
             ])
             ->add('photo', UrlType::class, [
 
+                'empty_data' => '',
+                'required' => false,
             ])
             ->add('birthdate', BirthdayType::class, [
 
+                'empty_data' => '',
+                'required' => false,
             ])
             ->add('biography', TextareaType::class, [
 
+                'empty_data' => '',
+                'required' => false,
             ])
         ;
     }

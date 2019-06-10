@@ -44,6 +44,7 @@ class Category
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Type", inversedBy="categories", cascade={"persist"})
+     * @Groups({"game_read"})
      */
     private $type;
 

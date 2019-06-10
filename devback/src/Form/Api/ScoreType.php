@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\API;
+namespace App\Form\Api;
 
 use App\Entity\Score;
 use Symfony\Component\Form\AbstractType;
@@ -17,18 +17,8 @@ class ScoreType extends AbstractType
             ->add('value', IntegerType::class, [
                 
             ])
-            ->add('user', EntityType::class, [
-
-                'choice_value' => function(User $user = null){
-                    return $user->getId();
-                }
-            ])
-            ->add('game', EntityType::class, [
-
-                'choice_value' => function(Game $game = null){
-                    return $game->getId();
-                }
-            ])
+            ->add('user')
+            ->add('game')
         ;
     }
 

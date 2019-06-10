@@ -19,14 +19,14 @@ class Game
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"game_read", "category_games"})
+     * @Groups({"game_read", "category_games", "comment_read", "status_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Groups({"game_read", "category_games"})
+     * @Groups({"game_read", "category_games", "comment_read", "status_read"})
      */
     private $name;
 
@@ -37,19 +37,14 @@ class Game
     private $description;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
-     * @Groups({"game_read"})
-     */
-    private $averageScore;
-
-    /**
      * @ORM\Column(type="smallint", nullable=true, options={"unsigned"=true})
+     * @Groups({"game_read"})
      */
     private $score;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"game_read"})
+     * @Groups({"game_read", "status_read"})
      */
     private $cover;
 
@@ -165,18 +160,6 @@ class Game
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getAverageScore(): ?int
-    {
-        return $this->averageScore;
-    }
-
-    public function setAverageScore(?int $averageScore): self
-    {
-        $this->averageScore = $averageScore;
 
         return $this;
     }

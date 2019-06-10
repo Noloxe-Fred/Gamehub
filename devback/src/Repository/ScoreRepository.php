@@ -19,6 +19,17 @@ class ScoreRepository extends ServiceEntityRepository
         parent::__construct($registry, Score::class);
     }
 
+
+    public function findfirstscore(){
+
+        $qb = $this->createQueryBuilder('s')
+        ->where('s.id = :id')
+        ->setParameter('id', 1)
+        ->getQuery()
+        ->getResult();
+
+        return $qb;
+    }
     // /**
     //  * @return Score[] Returns an array of Score objects
     //  */
