@@ -4,6 +4,7 @@ const initialState = {
   available: '',
   wichList: '', //'have' or 'want' | 'waiting' if not available
   verifyCheckWich: false,
+  messageNotCheck: 'Veuillez sélectionner une liste pour y ajouter le jeu',
   loadSubmit: '',
   receivedSubmit: '',
   openPopover: false,
@@ -72,9 +73,6 @@ export const checkedVerify = (alreadyHave, available, title, content, score) => 
   type: CHECKED_VERIFY,
   alreadyHave,
   available,
-  title,
-  content,
-  score,
 });
 
 export const selectWichList = nameList => ({
