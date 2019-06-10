@@ -4,9 +4,6 @@ const initialState = {
   available: '',
   wichList: '', //'have' or 'want' | 'waiting' if not available
   verifyCheckWich: false,
-  score: '',
-  commentTitle: '',
-  commentContent: '',
   loadSubmit: '',
   receivedSubmit: '',
   openPopover: false,
@@ -17,7 +14,6 @@ export const VERIFY_HAVE = 'VERIFY_HAVE';
 const LOAD_VERIFY = 'LOAD_VERIFY';
 const CHECKED_VERIFY = 'CHECKED_VERIFY';
 
-const INPUT_CHANGE = 'INPUT_CHANGE';
 const WICH_LIST = 'WICH_LIST';
 // const VERIFY_CHECK_WICH = 'VERIFY_CHECK_WICH';
 
@@ -38,9 +34,6 @@ const addGameReducer = (state = initialState, action = {}) => {
         ...state,
         alreadyHave: action.alreadyHave,
         available: action.available,
-        commentTitle: action.title,
-        commentContent: action.content,
-        score: action.score,
         loadVerifyHave: false,
       };
     case WICH_LIST:
@@ -48,11 +41,6 @@ const addGameReducer = (state = initialState, action = {}) => {
         ...state,
         wichList: action.wichList,
         verifyCheckWich: true,
-      };
-    case INPUT_CHANGE:
-      return {
-        ...state,
-        [action.inputName]: action.inputValue,
       };
     case LOAD_SUBMIT:
       return {
@@ -94,19 +82,14 @@ export const selectWichList = nameList => ({
   nameList,
 });
 
-export const inputChange = (name, value) => ({
-  type: INPUT_CHANGE,
-  name,
-  value,
-});
-
 export const loadSubmit = () => ({
- type: LOAD_SUBMIT,
+  type: LOAD_SUBMIT,
 });
 
-export const submitForm = gameId => ({
+export const submitForm = (gameId, type) => ({
   type: SUBMIT,
   gameId,
+  type,
 });
 
 export const receivedSubmit = status => ({

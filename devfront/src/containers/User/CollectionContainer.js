@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => ({
   },
   displayProfile: () => {
     dispatch(displayProfile());
-  }
+  },
 });
 
 // L'appel à connect nous renvoie une nouvelle fonction

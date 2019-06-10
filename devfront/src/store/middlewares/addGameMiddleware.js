@@ -5,6 +5,7 @@ import {
   SUBMIT,
   checkedVerify,
   loadVerify,
+  loadSubmit,
   receivedSubmit,
 } from 'src/store/reducers/addGameReducer';
 
@@ -15,7 +16,7 @@ const addGameMiddleware = store => next => (action) => {
       const { gameId } = action;
       const user = localStorage.getItem('user');
       // requete axios avec token (localstorage)
-      axios.get('http://api.gamehub.com/api/user/game/verify', {
+      axios.get('http://api.gamehub.com/api/user/game/info_verify', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -25,20 +26,18 @@ const addGameMiddleware = store => next => (action) => {
       })
         .then((response) => {
           console.log('Reponse verify have', response);
-          const { available, status, title, content, score } = response.data;
-          const alreadyHave = status === '' ? false : status;
+          const { status } = response.data;
+          const alreadyHave = status === '' ? false : true;
 
-          store.dispatch(checkedVerify(alreadyHave, available, title, content, score));
+          store.dispatch(checkedVerify(alreadyHave));
         })
         .catch((error) => {
-          console.log('Erreur Connexion', error);
-          store.dispatch(errorConnect('Erreur Connexion'));
+          console.log('Erreur Verification', error);
         });
       break;
     case SUBMIT:
       store.dispatch(loadSubmit());
-      const game = action.gameId;
-      const {wichList, score, commentTitle, commentContent } = store.getState().addGameReducer;
+      const { wichList } = action;
 
       // 1ere requete: ajout du jeu en bibliotheque
       axios.post('http://api.gamehub.com/api/game/state/add', {
@@ -47,51 +46,13 @@ const addGameMiddleware = store => next => (action) => {
         },
         user,
         game: {
-          id: game,
+          id: gameId,
         },
         status: wichList,
       })
         .then((response) => {
           console.log('Reponse submit add', response);
-          
-          // 2eme requete: ajout du commentaire, une fois que le jeu est bien ajouté en bibliotheque
-          axios.post('http://api.gamehub.com/api/comment/new', {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            'game':{
-              'id': game,
-            },
-            'title': commentTitle,
-            'content': commentContent,
-          })
-            .then((response) => {
-              console.log('Reponse submit add', response);
-              
-              // 3eme requete: ajout du score, une fois le commentaire bien ajouté, puis envoi de l'info au state
-              axios.post('http://api.gamehub.com/api/score/new', {
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                'game':{
-                  'id': game,
-                },
-                'value': score,
-              })
-                .then((response) => {
-                  console.log('Reponse submit add', response);
-        
-                  store.dispatch(receivedSubmit(true));
-                })
-                .catch((error) => {
-                  console.log('Erreur Ajout Score', error);
-                  store.dispatch(receivedSubmit(false));
-                });
-            })
-            .catch((error) => {
-              console.log('Erreur Ajout Commentaire', error);
-              store.dispatch(receivedSubmit(false));
-            });
+          store.dispatch(receivedSubmit(true));
         })
         .catch((error) => {
           console.log('Erreur Ajout Jeu', error);

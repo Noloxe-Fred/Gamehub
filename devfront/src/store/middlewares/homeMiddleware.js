@@ -27,7 +27,7 @@ const homeMiddleware = store => next => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          console.log('next month',response.data);
 
           store.dispatch(receivedComingSoon(response.data));
         })
@@ -46,7 +46,7 @@ const homeMiddleware = store => next => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          console.log('last month', response.data);
 
           store.dispatch(receivedLastReleased(response.data));
         })
@@ -68,7 +68,7 @@ const homeMiddleware = store => next => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          console.log('random list', response.data);
 
           store.dispatch(receivedRandom(response.data));
         })
