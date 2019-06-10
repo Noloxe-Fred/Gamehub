@@ -11,7 +11,7 @@ import {
   receivedDisconnect,
   errorConnect,
 } from 'src/store/reducers/navbarreducer';
- 
+
 const navbarMiddleware = store => next => (action) => {
   switch (action.type) {
     case CONNECT_SAVED_USER:
@@ -28,7 +28,7 @@ const navbarMiddleware = store => next => (action) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        email,
+        username: email,
         password,
       })
         .then((response) => {
