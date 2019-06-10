@@ -7,6 +7,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import 'semantic-ui-css/semantic.min.css';
 /**
  * Local import
  */

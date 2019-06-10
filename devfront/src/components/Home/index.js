@@ -1,31 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-import Banner from './Banner';
 import MainList from 'src/containers/Home/MainList';
 import FirstCarousel from 'src/containers/Home/FirstCarousel';
 import SecondCarousel from 'src/containers/Home/SecondCarousel';
 import TabList from 'src/containers/Home/TabList';
+import Banner from './Banner';
 import './home.scss';
 
-class Home extends Component {
+const Home = () => (
+  <div id="home">
+    <Banner />
+    <div className="chevron--all">
+      <div className="chevron" />
+      <div className="chevron" />
+      <div className="chevron" />
+    </div>
+    <MainList />
+    <FirstCarousel />
+    <SecondCarousel />
+    <TabList />
+  </div>
+);
 
-  render() {
-    return (
-      <div id="home">
-        <Banner />
-        <div className="chevron--all">
-          <div className="chevron"></div>
-          <div className="chevron"></div>
-          <div className="chevron"></div>
-        </div>
-        <MainList />
-        <FirstCarousel />
-        <SecondCarousel />
-        <TabList />
-      </div>
-    );
-  }
-}
-
-export default Home;  
+export default Home;

@@ -11,7 +11,7 @@ import {
   receivedDisconnect,
   errorConnect,
 } from 'src/store/reducers/navbarreducer';
- 
+
 const navbarMiddleware = store => next => (action) => {
   switch (action.type) {
     case CONNECT_SAVED_USER:
@@ -24,33 +24,28 @@ const navbarMiddleware = store => next => (action) => {
       const email = store.getState().navbarreducer.connectPseudo;
       const password = store.getState().navbarreducer.connectPassword;
 
-      // A EFFACER SUR VERSION FINALE // TEST CONNEXION PERMANENTE MISE EN PROD
 
-      localStorage.setItem('connect', true);
-      localStorage.setItem('remember', false); // if case cochée!
-      store.dispatch(receivedConnect());
+      axios.post('http://api.gamehub.com/api/signin', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        username: email,
+        password,
+      })
+        .then((response) => {
+          console.log('Reponse Connexion', response);
 
-      // A EFFACER SUR VERSION FINALE // TEST CONNEXION PERMANENTE MISE EN PROD
+          const remember = store.getState().navbarreducer.checkRemember;
+          localStorage.setItem('connect', true);
+          localStorage.setItem('remember', remember); // if case cochée!
+          localStorage.setItem('user', response.data.token);
 
-      // axios.post('http://api.gamehub.com/api/signin', {
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   username: email,
-      //   password: password
-      // })
-      //   .then((response) => {
-      //     console.log('Reponse Connexion', response);
-      //     localStorage.setItem('connect', true);
-      //     localStorage.setItem('remember', false); // if case cochée!
-      //     localStorage.setItem('user', response.data.token);
-      //     store.dispatch(receivedConnect());
-      //   })
-      //   .catch((error) => {
-      //     console.log('Erreur Connexion', error);
-      //     store.dispatch(errorConnect('Erreur Connexion'));
-      //   });
-
+          store.dispatch(receivedConnect());
+        })
+        .catch((error) => {
+          console.log('Erreur Connexion', error);
+          store.dispatch(errorConnect('Erreur Connexion'));
+        });
       break;
 
     case SUBSCRIBE:
@@ -76,7 +71,7 @@ const navbarMiddleware = store => next => (action) => {
             store.dispatch(receivedSubscribe('subscribeOk', email));
           }
           else {
-            store.dispatch('subscribeError', '');
+            store.dispatch(receivedSubscribe('subscribeError', ''));
           }
         })
         .catch((error) => {

@@ -1,7 +1,7 @@
 // == Import : npm
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css';
 
 // == Import : local
 import './app.scss';
@@ -52,6 +52,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  connect: PropTypes.bool.isRequired,
+  connectSavedUser: PropTypes.func.isRequired,
+};
 
 // == Export
 export default App;

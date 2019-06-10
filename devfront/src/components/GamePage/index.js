@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
 
 import './gamepage.scss';
@@ -16,9 +17,13 @@ class GamePage extends Component {
     this.props.requestGame();
   }
 
+  componentDidUnmount() {
+    this.props.resetError();
+  }
+
   // lancer le request game quand le composant et finit de charger 
   render() {
-    const { loading, background } = this.props; 
+    const { loading, background, error } = this.props;
     // dans ce return on va mettre des conditions
 
     const backgroundStyle = {
@@ -28,13 +33,22 @@ class GamePage extends Component {
     };
 
     return (
-      <div>
-        {loading && <div>Chargement</div>}
-        {!loading && (
-          <div id="gamepage" style={backgroundStyle}>
-            <GameHeader />
-            <GameComments />
-            <GameAllComments />
+      <div id="gamepage" style={backgroundStyle}>
+        {error && <Link to="/">Erreur de chargement des données. Cliquez ici pour retourner à l'accueil</Link>}
+        {!error && (
+          <div>
+            {loading && <div>Chargement</div>}
+            {!loading && (
+              <div>
+                <div className="first">
+                  <GameHeader />
+                  <GameComments />
+                </div>
+                <div className="second">
+                  <GameAllComments />
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

@@ -2,6 +2,7 @@ const initialState = {
   listAdd: { list: [], load: true, title: 'Je les ai' },
   listWant: { list: [], load: true, title: 'Je les veux' },
   listWish: { list: [], load: true, title: 'Je les attends' },
+  displayedProfile: false,
 };
 
 // Action Type
@@ -20,6 +21,8 @@ const RECEIVED = 'RECEIVED';
 // const RECEIVED_WANT = 'RECEIVED_WANT';
 // const RECEIVED_WISH = 'RECEIVED_WISH';
 
+const DISPLAY_PROFILE = 'DISPLAY_PROFILE';
+
 // Reducer
 const userPagesReducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -34,6 +37,11 @@ const userPagesReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [nameList]: { ...state[nameList], list: gameList, load: false },
+      };
+    case DISPLAY_PROFILE:
+      return {
+        ...state,
+        displayedProfile: !state.displayedProfile,
       };
     default:
       return state;
@@ -55,6 +63,10 @@ export const received = (nameList, gameList) => ({
   type: RECEIVED,
   nameList,
   gameList,
+});
+
+export const displayProfile = () => ({
+  type: DISPLAY_PROFILE,
 });
 
 export default userPagesReducer;

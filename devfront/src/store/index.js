@@ -5,12 +5,14 @@ import homeMiddleware from './middlewares/homeMiddleware';
 import navbarMiddleware from './middlewares/navbarMiddleware';
 import gamePageMiddleware from './middlewares/gamePageMiddleware';
 import userPagesMiddleware from './middlewares/userPagesMiddleware';
+import addGameMiddleware from './middlewares/addGameMiddleware';
 
 const appliedMiddlewares = applyMiddleware(
   navbarMiddleware,
   homeMiddleware,
   gamePageMiddleware,
   userPagesMiddleware,
+  addGameMiddleware,
 );
 
 

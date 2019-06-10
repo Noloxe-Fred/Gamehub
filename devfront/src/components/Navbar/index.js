@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { Icon, Input, Transition } from 'semantic-ui-react';
+import { Icon, Input, Transition, } from 'semantic-ui-react';
 
 import ModalConnect from 'src/containers/Navbar/ModalConnect';
 import ModalSubscribe from 'src/containers/Navbar/ModalSubscribe';
@@ -38,11 +39,17 @@ const Navbar = ({ connect, disconnectUser, displayInput }) => (
 );
 
 const Disconnect = () => (
-  <div className='nav-connect'>
+  <div className="nav-connect">
     <ModalConnect text="Se connecter" />
     <ModalSubscribe />
   </div>
 
 );
+
+Navbar.propTypes = {
+  connect: PropTypes.bool.isRequired,
+  disconnectUser: PropTypes.func.isRequired,
+  displayInput: PropTypes.bool.isRequired,
+};
 
 export default Navbar;
