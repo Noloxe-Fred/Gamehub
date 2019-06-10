@@ -19,8 +19,9 @@ const addGameMiddleware = store => next => (action) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        user,
-        gameId,
+        game: {
+          id: gameId,
+        },
       })
         .then((response) => {
           console.log('Reponse verify have', response);
@@ -35,29 +36,68 @@ const addGameMiddleware = store => next => (action) => {
         });
       break;
     case SUBMIT:
-        store.dispatch(loadSubmit());
-        const game = action.gameId;
-        const {wichList, score, commentTitle, commentContent } = store.getState().addGameReducer;
+      store.dispatch(loadSubmit());
+      const game = action.gameId;
+      const {wichList, score, commentTitle, commentContent } = store.getState().addGameReducer;
 
-        axios.post('http://api.gamehub.com/api/game/state/add', {
+      // 1ere requete: ajout du jeu en bibliotheque
+      axios.post('http://api.gamehub.com/api/game/state/add', {
         headers: {
           'Content-Type': 'application/json',
         },
         user,
+        game: {
+          id: game,
+        },
         status: wichList,
-        score,
-        title: commentTitle,
-        content: commentContent,
       })
         .then((response) => {
           console.log('Reponse submit add', response);
-
-          store.dispatch(receivedSubmit(true));
+          
+          // 2eme requete: ajout du commentaire, une fois que le jeu est bien ajouté en bibliotheque
+          axios.post('http://api.gamehub.com/api/comment/new', {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            'game':{
+              'id': game,
+            },
+            'title': commentTitle,
+            'content': commentContent,
+          })
+            .then((response) => {
+              console.log('Reponse submit add', response);
+              
+              // 3eme requete: ajout du score, une fois le commentaire bien ajouté, puis envoi de l'info au state
+              axios.post('http://api.gamehub.com/api/score/new', {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                'game':{
+                  'id': game,
+                },
+                'value': score,
+              })
+                .then((response) => {
+                  console.log('Reponse submit add', response);
+        
+                  store.dispatch(receivedSubmit(true));
+                })
+                .catch((error) => {
+                  console.log('Erreur Ajout Score', error);
+                  store.dispatch(receivedSubmit(false));
+                });
+            })
+            .catch((error) => {
+              console.log('Erreur Ajout Commentaire', error);
+              store.dispatch(receivedSubmit(false));
+            });
         })
         .catch((error) => {
-          console.log('Erreur Ajout', error);
+          console.log('Erreur Ajout Jeu', error);
           store.dispatch(receivedSubmit(false));
         });
+
       break;
     default:
       next(action);

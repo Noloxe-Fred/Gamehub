@@ -21,7 +21,7 @@ const homeMiddleware = store => next => (action) => {
     case REQUEST_COMING_SOON:
       store.dispatch(loadComingSoon());
 
-      axios.get('http://api.gamehub.com/api/game/nextmonth', {
+      axios.get('http://api.gamehub.com/api/game/list/nextmonth', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -33,15 +33,14 @@ const homeMiddleware = store => next => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          
         });
-       // store.dispatch(receivedComingSoon(gameList));
+        // store.dispatch(receivedComingSoon(gameList));
 
       break;
     case REQUEST_LAST_RELEASED:
       store.dispatch(loadLastReleased());
       // requete axios en attente!
-      axios.get('http://api.gamehub.com//api/game/list/lastmonth', {
+      axios.get('http://api.gamehub.com/api/game/list/lastmonth', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -63,7 +62,7 @@ const homeMiddleware = store => next => (action) => {
     case REQUEST_RANDOM:
       store.dispatch(loadRandom());
       // requete axios en attente!
-      axios.get('http://api.gamehub.com//api/game/list/random', {
+      axios.get('http://api.gamehub.com/api/game/list/random', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -89,7 +88,6 @@ const homeMiddleware = store => next => (action) => {
     default:
       next(action);
   }
-
 };
 
 export default homeMiddleware;
