@@ -1,6 +1,6 @@
 const initialState = {
   loadVerifyHave: false,
-  alreadyHave: false,
+  alreadyHave: true,
   available: true,
   wichList: '', //'have' or 'want' | 'waiting' if not available
   loadSubmit: '',

@@ -28,9 +28,9 @@ class AddGame extends Component {
     return (
       <div>
         {loadVerify && <Loader active inline='centered' />}
-        {alreadyHave && <Icon name="gamepad" color="green" />}
+        {alreadyHave && <i class="fas fa-gamepad" />}
         {!alreadyHave && (
-          <Popup trigger={<Icon name="plus circle" />} flowing hoverable>
+          <Popup trigger={<i class="fas fa-plus-circle" />} flowing hoverable>
             <div>
               <Header>Choisissez une liste{receivedSubmit && <p className="confirm-message">Le jeu à bien été ajouté</p>}</Header>
               <div>
