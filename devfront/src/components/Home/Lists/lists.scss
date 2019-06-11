@@ -57,6 +57,13 @@ h3 {
   .content {
     padding: .3em;
   }
+  .plus {
+    z-index: 1;
+    color: #FFFDD9 ;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+  }
 }
 
 .meta {
@@ -75,6 +82,27 @@ h3 {
 }
 
 .mainCard {
+  overflow: hidden;
+  .add--collection {
+    a {
+      z-index: 1;
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      display: none;
+      font-size: .5em; 
+    }
+  }
+  .see--more {
+    a {
+      z-index: 1;
+      position: absolute;
+      top: 2.5em;
+      right: 1em;
+      display: none;
+      font-size: .5em;
+    }
+  }
   img {
     width: 100%;
     height: 9em;
@@ -99,8 +127,10 @@ h3 {
   }
 }
 
+
 // Card style pour la secondary card
 .secondaryCard {
+  overflow: hidden;
   height: 100%;
   img {
     width: 100%;
@@ -129,6 +159,7 @@ h3 {
 // Card style pour les petites cards
 
 .otherCard {
+  overflow: hidden;
   img {
     width: 100%;
     height: 2em;
@@ -144,6 +175,7 @@ h3 {
   .description {
     font-size: .4em;
     text-align: left;
+    overflow: hidden;
   }
   .meta {
     text-align: right;
@@ -151,6 +183,10 @@ h3 {
   .meta a {
     font-size: .5em;
   }
+}
+
+.grid--four--othercards {
+  padding-bottom: .4em !important;
 }
 
 
