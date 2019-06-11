@@ -26,7 +26,7 @@ class AddGame extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="plus">
         {loadVerify && <Loader active inline='centered' />}
         {alreadyHave && <i class="fas fa-gamepad" />}
         {!alreadyHave && (

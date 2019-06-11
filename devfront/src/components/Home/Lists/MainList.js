@@ -35,10 +35,10 @@ class MainList extends Component {
                 <Grid.Column>
 
                   <Card className="mainCard">
+                    <AddGame gameId={displayList[0].id} />
                     <img src={displayList[0].illustration} alt={displayList[0].name}/>
                     <Card.Content>
                       <Card.Header>{displayList[0].name}</Card.Header>
-                      <AddGame gameId={displayList[0].id} />
                       <Card.Description>
                         {displayList[0].description}
                         <Link to={"/game/"+displayList[0].id}>Voir la fiche du jeu</Link>
@@ -54,7 +54,7 @@ class MainList extends Component {
                   {displayList[1] && (
                     <Link to={"/game/"+displayList[1].id}>
                       <Card className="secondaryCard">
-                        <div className="plus"><i class="fas fa-plus-circle"></i></div>
+                      <AddGame gameId={displayList[1].id} />
                         <Image src={displayList[1].illustration} alt={displayList[1].name} wrapped />
                         <Card.Content>
                           <Card.Header>{displayList[1].name}</Card.Header>
@@ -74,7 +74,7 @@ class MainList extends Component {
                         {displayList[2] && (
                           <Link to={"/game/"+displayList[2].id}>
                             <Card className="otherCard">
-                              <div className="plus"><i class="fas fa-plus-circle"></i></div>
+                            <AddGame gameId={displayList[2].id} />
                               <Image src={displayList[2].illustration} alt={displayList[2].name} wrapped />
                               <Card.Content>
                                 <Card.Header>{displayList[2].name}</Card.Header>
@@ -91,7 +91,7 @@ class MainList extends Component {
                         {displayList[3] && (
                           <Link to={"/game/"+displayList[3].id}>
                             <Card className="otherCard">
-                              <div className="plus"><i class="fas fa-plus-circle"></i></div>
+                            <AddGame gameId={displayList[3].id} />
                               <Image src={displayList[3].illustration} alt={displayList[3].name} wrapped />
                               <Card.Content>
                                 <Card.Header>{displayList[3].name}</Card.Header>
@@ -110,7 +110,7 @@ class MainList extends Component {
                         {displayList[4] && (
                           <Link to={"/game/"+displayList[4].id}>
                             <Card className="otherCard">
-                              <div className="plus"><i class="fas fa-plus-circle"></i></div>
+                            <AddGame gameId={displayList[4].id} />
                               <Image src={displayList[4].illustration} alt={displayList[4].name} wrapped />
                               <Card.Content>
                                 <Card.Header>{displayList[4].name}</Card.Header>
@@ -127,7 +127,7 @@ class MainList extends Component {
                         {displayList[5] && (
                           <Link to={"/game/"+displayList[5].id}>
                             <Card className="otherCard">
-                              <div className="plus"><i class="fas fa-plus-circle"></i></div>
+                            <AddGame gameId={displayList[5].id} />
                               <Image src={displayList[5].illustration} alt={displayList[5].name} wrapped />
                               <Card.Content>
                                 <Card.Header>{displayList[5].name}</Card.Header>
