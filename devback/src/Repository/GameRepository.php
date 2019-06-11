@@ -31,8 +31,8 @@ class GameRepository extends ServiceEntityRepository
         ->setParameter('array', array_values($array))
         ->getQuery()
         ->getResult();
-        return $qb;
 
+        return $qb;
     }
 
     public function findAllGames(){
@@ -139,6 +139,7 @@ class GameRepository extends ServiceEntityRepository
     public function findGamesByBestScore(){
 
         $qb = $this->createQueryBuilder('g')
+            ->where('g.score >= 0')
             ->orderBy('g.score', 'DESC')
             ->setMaxResults(18)
             ->getQuery()
@@ -150,6 +151,7 @@ class GameRepository extends ServiceEntityRepository
     public function findGamesByWorstScore(){
 
         $qb = $this->createQueryBuilder('g')
+            ->where('g.score >= 0')
             ->orderBy('g.score', 'ASC')
             ->setMaxResults(18)
             ->getQuery()
@@ -165,6 +167,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart->format('Y m d'))
             ->setParameter('dateEnd', $dateEnd->format('Y m d'))
             ->orderBy('g.score', 'DESC')
@@ -182,6 +185,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart->format('Y m d'))
             ->setParameter('dateEnd', $dateEnd->format('Y m d'))
             ->orderBy('g.score', 'ASC')
@@ -199,6 +203,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart->format('Y m d'))
             ->setParameter('dateEnd', $dateEnd->format('Y m d'))
             ->orderBy('g.score', 'DESC')
@@ -216,6 +221,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart->format('Y m d'))
             ->setParameter('dateEnd', $dateEnd->format('Y m d'))
             ->orderBy('g.score', 'ASC')
@@ -233,6 +239,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart->format('Y m d'))
             ->setParameter('dateEnd', $dateEnd->format('Y m d'))
             ->orderBy('g.score', 'DESC')
@@ -250,6 +257,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart->format('Y m d'))
             ->setParameter('dateEnd', $dateEnd->format('Y m d'))
             ->orderBy('g.score', 'ASC')
@@ -267,6 +275,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart)
             ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'DESC')
@@ -284,6 +293,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart)
             ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'ASC')
@@ -301,6 +311,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart)
             ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'DESC')
@@ -318,6 +329,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart)
             ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'ASC')
@@ -335,6 +347,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart)
             ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'DESC')
@@ -352,6 +365,7 @@ class GameRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('g')
             ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->where('g.score >= 0')
             ->setParameter('dateStart', $dateStart)
             ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'ASC')

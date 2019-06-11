@@ -7,16 +7,14 @@ use App\Form\Api\StateType;
 use App\Repository\GameRepository;
 use App\Repository\UserRepository;
 use App\Repository\StateRepository;
-use App\Repository\CommentRepository;
-use App\Repository\ScoreRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ApiStateController extends FOSRestController
 {
