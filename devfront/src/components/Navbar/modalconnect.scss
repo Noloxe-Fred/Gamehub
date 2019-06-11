@@ -14,8 +14,8 @@ Ca aura pour effet d'assurer un rendu "identique" à votre travail actuel,
 plutôt qu'adopter les tailles de polices, couleurs (textes + backgrounds)
 instaurés par Semantic UI (<- quel gros relou)
 */
-
-.modal {
+ 
+.modalConnect {
   top: 25%;
   margin: 0 auto!important;
   right: 0;
@@ -33,7 +33,9 @@ instaurés par Semantic UI (<- quel gros relou)
     height: fit-content;
   }
   .content {
-    background-color: rgb(54, 54, 128)!important;
+    background-color: #2C3E50!important;
+    padding-bottom: 50px;
+    
     form {
       text-align: center;
       .field {
@@ -47,7 +49,7 @@ instaurés par Semantic UI (<- quel gros relou)
           border: none;
           padding: 0;
           padding-bottom: .5em;
-          text-transform: uppercase;
+          
           &:focus, &:active {
             background: none;
             color: white;
@@ -60,8 +62,8 @@ instaurés par Semantic UI (<- quel gros relou)
         }
       }
       button {
-        color: rgb(54, 54, 128)!important;
-        background: white;
+        color: #363680!important;
+        background: #FFFDD8;
         border-radius: 6px;
         padding: .5em;
         text-transform: uppercase;

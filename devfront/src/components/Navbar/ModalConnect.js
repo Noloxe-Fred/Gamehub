@@ -5,6 +5,8 @@ import {
   Modal,
   Form,
   Icon,
+  Container,
+  Divider,
 } from 'semantic-ui-react';
 
 // Icones Semantic UI React
@@ -42,7 +44,9 @@ class ModalConnect extends Component {
       errorMessage,
     } = this.props;
     return (
+      
       <Modal className="modalConnect" trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal} >
+        
         <Modal.Content>
           <Modal.Description>
             <Header>Se connecter</Header>
@@ -50,7 +54,7 @@ class ModalConnect extends Component {
             <Form onSubmit= {this.onSubmit}>
               <Form.Field>
                 <input
-                  placeholder="pseudo"
+                  placeholder="Email..."
                   name="connectPseudo"
                   onChange={this.handleChange}
                   value={connectPseudo}
@@ -60,7 +64,7 @@ class ModalConnect extends Component {
               </Form.Field>
               <Form.Field>
                 <input
-                  placeholder="mot de passe"
+                  placeholder="Mot de passe..."
                   name="connectPassword"
                   onChange={this.handleChange}
                   value={connectPassword}
@@ -74,8 +78,11 @@ class ModalConnect extends Component {
             </Form>
           </Modal.Description>
         </Modal.Content>
+        
       </Modal>
+      
     );
+    
   }
 };
 
