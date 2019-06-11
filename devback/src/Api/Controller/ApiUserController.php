@@ -11,6 +11,8 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -70,8 +72,8 @@ class ApiUserController extends FOSRestController
 
         $form = $this->createForm(UserType::class, $user);
         $form->submit($request->request->all());
-        
-        if(is_null($user->getPassword())){
+
+        if(is_null($request->request->get('password'))){
 
             $hash = $oldPassword;
 
@@ -81,7 +83,6 @@ class ApiUserController extends FOSRestController
             $user->setPassword($hash);
         }
 
-        // $user->setPassword($request->request->get('password'));
         $user->setUpdatedAt(new \DateTime());
 
         $em->flush();
@@ -91,16 +92,18 @@ class ApiUserController extends FOSRestController
             ]);
     }
 
-    // /**
-    //  * @Rest\Post(path = "user/profil", name="user")
-    //  */
-    // public function getUserAction(User $user, UserRepository $userRepository, Request $request)
-    // {   
+    /**
+     * @Rest\Post(path = "user/profil", name="user_profil")
+     */
+    public function getUserAction(UserRepository $userRepository, Request $request, SerializerInterface $serializer)
+    {   
         
-    //     $user = $userRepository->findOneById($request->request->get('id'));
+        $user = $userRepository->findOneById($request->request->get('id'));
 
-    //     return $this->view($user, Response::HTTP_OK, [
-            
-    //         ]);
-    // }
+        $user = $serializer->serialize($user, 'json', [
+            'groups' => 'profil_read',
+        ]);
+
+        return JsonResponse::fromJsonString($user);
+    }
 }

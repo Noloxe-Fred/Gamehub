@@ -2,20 +2,19 @@
 
 namespace App\Api\Controller;
 
-use App\Entity\User;
 use App\Entity\State;
 use App\Form\Api\StateType;
 use App\Repository\GameRepository;
 use App\Repository\UserRepository;
 use App\Repository\StateRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ApiStateController extends FOSRestController
 {
@@ -31,7 +30,7 @@ class ApiStateController extends FOSRestController
 
         if($stateRepository->findOneByUser($user) != null && $stateRepository->findOneByGame($game) != null){
 
-            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+            return $this->view('', Response::HTTP_FORBIDDEN);
         }
         
         $state = new State();
@@ -60,7 +59,7 @@ class ApiStateController extends FOSRestController
 
         if($state->getUser() != $user || $state->getGame() != $game){
 
-            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+            return $this->view('', Response::HTTP_FORBIDDEN);
         }
 
         $form = $this->createForm(StateType::class, $state);
@@ -84,7 +83,7 @@ class ApiStateController extends FOSRestController
 
         if($state->getUser() != $user || $state->getGame() != $game){
 
-            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+            return $this->view('', Response::HTTP_FORBIDDEN);
         }
 
         $em->remove($state);
@@ -96,11 +95,12 @@ class ApiStateController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "game/list/have", name = "games_have")
+     * @Rest\Post(path = "game/list/have", name = "state_games_have")
      */ 
-    public function showGamesListHave(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+    public function getGamesListHave(StateRepository $stateRepository, UserRepository $userRepository, GameRepository $gameRepository,Request $request, SerializerInterface $serializer){
 
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        // $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $games = $stateRepository->findGamesListByStatus($user, 'have');
 
         $gamesListHave = $serializer->serialize($games, 'json', [
@@ -111,9 +111,9 @@ class ApiStateController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "game/list/want", name = "games_want")
+     * @Rest\Post(path = "game/list/want", name = "state_games_want")
      */ 
-    public function showGamesListWant(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+    public function getGamesListWant(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
 
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $games = $stateRepository->findGamesListByStatus($user, 'want');
@@ -126,12 +126,29 @@ class ApiStateController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "game/list/waiting", name = "games_waiting")
+     * @Rest\Post(path = "game/list/waiting", name = "state_games_waiting")
      */ 
-    public function showGamesListWaiting(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+    public function getGamesListWaiting(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
 
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $games = $stateRepository->findGamesListByStatus($user, 'waiting');
+
+        $gamesListWaiting = $serializer->serialize($games, 'json', [
+            'groups' => 'status_read',
+        ]);
+
+        return JsonResponse::fromJsonString($gamesListWaiting);
+    }
+
+    /**
+     * @Rest\Post(path = "game/state", name = "state_game")
+     */ 
+    public function getGameState(StateRepository $stateRepository, GameRepository $gameRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+
+        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+
+        $games = $stateRepository->findGameState($user, $game);
 
         $gamesListWaiting = $serializer->serialize($games, 'json', [
             'groups' => 'status_read',

@@ -35,7 +35,7 @@ class ApiScoreController extends FOSRestController
 
         if($scoreRepository->findOneByUser($user) != null && $scoreRepository->findOneByGame($game) != null){
 
-            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+            return $this->view('', Response::HTTP_FORBIDDEN);
         }
 
         $score = new Score();
@@ -69,7 +69,7 @@ class ApiScoreController extends FOSRestController
 
         if($score->getUser() != $user || $score->getGame() != $game){
 
-            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+            return $this->view('', Response::HTTP_FORBIDDEN);
         }
         
         $form = $this->createForm(ScoreType::class, $score);
@@ -97,7 +97,7 @@ class ApiScoreController extends FOSRestController
         
         if($score->getUser() != $user || $score->getGame() != $game){
 
-            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+            return $this->view('', Response::HTTP_FORBIDDEN);
         }
 
         $game->setScore((int)$gameRepository->averageScore($game)[0][1]);

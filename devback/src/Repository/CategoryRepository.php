@@ -19,34 +19,38 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
-    // /**
-    //  * @return Category[] Returns an array of Category objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findAllCategories()
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Category
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('c')
+        ->getQuery()
+        ->getResult();
 
-    
+        return $qb;
+    }
+
+    // public function findGamesByCategory($array = []){
+
+    //     $qb = $this->createQueryBuilder('c')
+    //     ->where(':array  = c.id')
+    //     ->setParameter('array', $array)
+    //     ->getQuery()
+    //     ->getResult();
+    //     return $qb;
+    // }
+
+    public function findGamesByCategory($array){
+
+        $values = array_values($array['id']);
+
+        $qb = $this->createQueryBuilder('c')
+        ->join('c.games', 'g')
+        ->andWhere('c.id IN(:array)')
+        ->setParameter('array', $values)
+        ->groupBy('c.id')
+        ->getQuery()
+        ->getResult();
+
+        return $qb;
+    }
 }

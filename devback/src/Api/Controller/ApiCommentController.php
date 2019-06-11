@@ -36,7 +36,7 @@ class ApiCommentController extends FOSRestController
 
         if($commentRepository->findOneByUser($user) != null && $commentRepository->findOneByGame($game) != null){
 
-            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+            return $this->view('', Response::HTTP_FORBIDDEN);
         }
 
         $comment = new Comment();
@@ -71,7 +71,7 @@ class ApiCommentController extends FOSRestController
 
         if($comment->getUser() != $user || $comment->getGame() != $game){
 
-            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+            return $this->view('', Response::HTTP_FORBIDDEN);
         }
 
         $form = $this->createForm(CommentType::class, $comment);
@@ -98,7 +98,7 @@ class ApiCommentController extends FOSRestController
 
         if($comment->getUser() != $user || $comment->getGame() != $game){
 
-            return $this->view("Tu es un vilain toi !", Response::HTTP_FORBIDDEN);
+            return $this->view('', Response::HTTP_FORBIDDEN);
         }
 
         $em->remove($comment);
@@ -112,7 +112,7 @@ class ApiCommentController extends FOSRestController
     /**
      * @Rest\Post(path = "comment/last", name="comments_last")
      */
-    public function lastCommentAction(CommentRepository $commentRepository, GameRepository $gameRepository, SerializerInterface $serializer, Request $request, EntityManagerInterface $em)
+    public function getlastCommentAction(CommentRepository $commentRepository, GameRepository $gameRepository, SerializerInterface $serializer, Request $request, EntityManagerInterface $em)
     {   
         $game = $gameRepository->findOneById($request->request->get('id'));
         $comments = $commentRepository->lastComments($game);

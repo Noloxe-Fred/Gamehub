@@ -34,4 +34,35 @@ class StateRepository extends ServiceEntityRepository
 
         return $qb;
     }
+
+    public function findGameInfo($user, $game){
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.user', 'u')
+            ->join('s.game', 'g')
+            ->where('u.id = :user')
+            ->andWhere('g.id = :game')
+            ->setParameter('user', $user)
+            ->setParameter('game', $game)
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function findGameState($user, $game){
+
+        $qb = $this->createQueryBuilder('s')
+        ->join('s.user', 'u')
+        ->join('s.game', 'g')
+        ->where('u.id = :user')
+        ->andWhere('g.id = :game')
+        ->setParameter('user', $user)
+        ->setParameter('game', $game)
+        ->getQuery()
+        ->getResult();
+
+        return $qb;
+    }
 }

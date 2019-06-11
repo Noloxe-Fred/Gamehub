@@ -20,42 +20,20 @@ class ScoreRepository extends ServiceEntityRepository
     }
 
 
-    public function findfirstscore(){
+    public function findGameInfo($user, $game){
 
         $qb = $this->createQueryBuilder('s')
-        ->where('s.id = :id')
-        ->setParameter('id', 1)
-        ->getQuery()
-        ->getResult();
+            ->join('s.user', 'u')
+            ->join('s.game', 'g')
+            ->where('u.id = :user')
+            ->andWhere('g.id = :game')
+            ->setParameter('user', $user)
+            ->setParameter('game', $game)
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
 
         return $qb;
     }
-    // /**
-    //  * @return Score[] Returns an array of Score objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Score
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

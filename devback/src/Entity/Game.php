@@ -19,14 +19,14 @@ class Game
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"game_read", "category_games", "comment_read", "status_read"})
+     * @Groups({"game_read", "category_games", "comment_read", "status_read", "game_info"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Groups({"game_read", "category_games", "comment_read", "status_read"})
+     * @Groups({"game_read", "category_games", "comment_read", "status_read", "game_info"})
      */
     private $name;
 
@@ -44,7 +44,7 @@ class Game
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"game_read", "status_read"})
+     * @Groups({"game_read", "status_read", "game_info"})
      */
     private $cover;
 

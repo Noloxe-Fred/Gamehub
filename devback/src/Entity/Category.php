@@ -16,13 +16,13 @@ class Category
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"game_read"})
+     * @Groups({"game_read", "category_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
-     * @Groups({"game_read"})
+     * @Groups({"game_read", "category_read"})
      */
     private $name;
 
@@ -44,7 +44,7 @@ class Category
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Type", inversedBy="categories", cascade={"persist"})
-     * @Groups({"game_read"})
+     * @Groups({"category_read"})
      */
     private $type;
 
