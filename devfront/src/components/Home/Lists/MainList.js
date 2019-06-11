@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import { Loader, Grid, Image, Icon, Card  } from 'semantic-ui-react';
 
-
+import AddGame from 'src/containers/User/addgameContainer';
 import './lists.scss';
 
 
@@ -20,7 +21,7 @@ class MainList extends Component {
     return (
       <div id="main-list">
         {load && <Loader active inline="centered" />}
-        {!load && (
+        {(!load && displayList.length > 0) && (
           <div id="list">
             <div id="title-main-list">
               <h3>Les prochaines sorties</h3>
@@ -29,10 +30,12 @@ class MainList extends Component {
                 {!(count + 7 > gameList.length) && <Icon name="angle right" size="large" onClick={this.props.increaseCount} />}
               </div>
             </div> 
-            <Grid>
+            <Grid doubling columns={2}>
               <Grid.Row columns={1}>
                 <Grid.Column>
+
                   <Card className="mainCard">
+                    <AddGame gameId={displayList[0].id} />
                     <img src={displayList[0].illustration} alt={displayList[0].name}/>
                     <Card.Content>
                       <Card.Header>{displayList[0].name}</Card.Header>
@@ -42,88 +45,98 @@ class MainList extends Component {
                       </Card.Description>
                     </Card.Content>
                   </Card>
+
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2}>
                 <Grid.Column>
                   {!displayList[1] && <div></div>}
                   {displayList[1] && (
-                    <Card className="secondaryCard">
-                      <Image src={displayList[1].illustration} alt={displayList[1].name} wrapped />
-                      <Card.Content>
-                        <Card.Header>{displayList[1].name}</Card.Header>
-                        <Card.Description>
-                          {displayList[1].description}
-                          <Link to={"/game/"+displayList[1].id}>Voir la fiche du jeu</Link>
-                        </Card.Description>
-                      </Card.Content>
-                    </Card>
+                    <Link to={"/game/"+displayList[1].id}>
+                      <Card className="secondaryCard">
+                      <AddGame gameId={displayList[1].id} />
+                        <Image src={displayList[1].illustration} alt={displayList[1].name} wrapped />
+                        <Card.Content>
+                          <Card.Header>{displayList[1].name}</Card.Header>
+                          <Card.Description>
+                            {displayList[1].description}                  
+                          </Card.Description>
+                        </Card.Content>
+                      </Card>
+                    </Link>
                   )}
                 </Grid.Column>
-                <Grid.Column >
-                  <Grid>
+                <Grid.Column>
+                  <Grid className="grid--four--othercards">
                     <Grid.Row columns={2}>
-                      <Grid.Column>
+                      <Grid.Column sm={16}>
                         {!displayList[2] && <div></div>}
                         {displayList[2] && (
-                          <Card className="otherCard">
-                            <Image src={displayList[2].illustration} alt={displayList[2].name} wrapped />
-                            <Card.Content>
-                              <Card.Header>{displayList[2].name}</Card.Header>
-                              <Card.Description>
-                                {displayList[2].description}
-                                <Link to={"/game/"+displayList[2].id}>Voir la fiche du jeu</Link>
-                              </Card.Description>
-                            </Card.Content>
-                          </Card>
+                          <Link to={"/game/"+displayList[2].id}>
+                            <Card className="otherCard">
+                            <AddGame gameId={displayList[2].id} />
+                              <Image src={displayList[2].illustration} alt={displayList[2].name} wrapped />
+                              <Card.Content>
+                                <Card.Header>{displayList[2].name}</Card.Header>
+                                <Card.Description>
+                                  {displayList[2].description}
+                                </Card.Description>
+                              </Card.Content>
+                            </Card>
+                          </Link>
                         )}
                       </Grid.Column>
-                      <Grid.Column>
+                      <Grid.Column sm={16}>
                         {!displayList[3] && <div></div>}
                         {displayList[3] && (
-                          <Card className="otherCard">
-                            <Image src={displayList[3].illustration} alt={displayList[3].name} wrapped />
-                            <Card.Content>
-                              <Card.Header>{displayList[3].name}</Card.Header>
-                              <Card.Description>
-                                {displayList[3].description}
-                                <Link to={"/game/"+displayList[3].id}>Voir la fiche du jeu</Link>
-                              </Card.Description>
-                            </Card.Content>
-                          </Card>
+                          <Link to={"/game/"+displayList[3].id}>
+                            <Card className="otherCard">
+                            <AddGame gameId={displayList[3].id} />
+                              <Image src={displayList[3].illustration} alt={displayList[3].name} wrapped />
+                              <Card.Content>
+                                <Card.Header>{displayList[3].name}</Card.Header>
+                                <Card.Description>
+                                  {displayList[3].description}     
+                                </Card.Description>
+                              </Card.Content>
+                            </Card>
+                          </Link>
                         )}
                       </Grid.Column>
                     </Grid.Row>
                     <Grid.Row columns={2}>
-                      <Grid.Column>
+                      <Grid.Column sm={16}>
                         {!displayList[4] && <div></div>}
                         {displayList[4] && (
-                          <Card className="otherCard">
-                            <Image src={displayList[4].illustration} alt={displayList[4].name} wrapped />
-                            <Card.Content>
-                              <Card.Header>{displayList[4].name}</Card.Header>
-                              <Card.Description>
-                                {displayList[4].description}
-                                <Link to={"/game/"+displayList[4].id}>Voir la fiche du jeu</Link>
-                              </Card.Description>
-                            </Card.Content>
-                          </Card>
+                          <Link to={"/game/"+displayList[4].id}>
+                            <Card className="otherCard">
+                            <AddGame gameId={displayList[4].id} />
+                              <Image src={displayList[4].illustration} alt={displayList[4].name} wrapped />
+                              <Card.Content>
+                                <Card.Header>{displayList[4].name}</Card.Header>
+                                <Card.Description>
+                                  {displayList[4].description}
+                                </Card.Description>
+                              </Card.Content>
+                            </Card>
+                          </Link>
                         )}
                       </Grid.Column>
-                      <Grid.Column>
+                      <Grid.Column sm={16}>
                         {!displayList[5] && <div></div>}
                         {displayList[5] && (
-                          <Card className="otherCard">
-                            <Image src={displayList[5].illustration} alt={displayList[5].name} wrapped />
-                            <Card.Content>
-                              <Card.Header>{displayList[5].name}</Card.Header>
-                              <Card.Description>
-                                {displayList[5].description}
-                                <Link to={"/game/"+displayList[5].id}>Voir la fiche du jeu</Link>
-                              </Card.Description>
-                              
-                            </Card.Content>
-                          </Card>
+                          <Link to={"/game/"+displayList[5].id}>
+                            <Card className="otherCard">
+                            <AddGame gameId={displayList[5].id} />
+                              <Image src={displayList[5].illustration} alt={displayList[5].name} wrapped />
+                              <Card.Content>
+                                <Card.Header>{displayList[5].name}</Card.Header>
+                                <Card.Description>
+                                  {displayList[5].description}
+                                </Card.Description>
+                              </Card.Content>
+                            </Card>
+                          </Link>
                         )}
                       </Grid.Column>
                     </Grid.Row>
@@ -138,6 +151,7 @@ class MainList extends Component {
   }
 }
 
+// les prochaines sorties ( avec les fl)
 MainList.propTypes = {
   requestComingSoon: PropTypes.func.isRequired,
   load: PropTypes.bool.isRequired,

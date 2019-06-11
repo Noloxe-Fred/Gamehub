@@ -26,10 +26,10 @@ const addGameMiddleware = store => next => (action) => {
       })
         .then((response) => {
           console.log('Reponse verify have', response);
-          const { status } = response.data;
+          const { status, available } = response.data;
           const alreadyHave = status === '' ? false : true;
 
-          store.dispatch(checkedVerify(alreadyHave));
+          store.dispatch(checkedVerify(alreadyHave, available));
         })
         .catch((error) => {
           console.log('Erreur Verification', error);

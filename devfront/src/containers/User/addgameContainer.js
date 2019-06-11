@@ -1,14 +1,23 @@
 import { connect } from 'react-redux';
 import AddGame from 'src/Library/FullComponent/AddGame';
 
-import {  } from 'src/store/reducers/addGameReducer';
+import { verifyHave, submitForm } from 'src/store/reducers/addGameReducer';
 
 const mapStateToProps = state => ({
-
+  loadVerify: state.addGameReducer.loadVerifyHave,
+  alreadyHave: state.addGameReducer.alreadyHave,
+  available: state.addGameReducer.available,
+  loadSubmit: state.addGameReducer.loadSubmit,
+  receivedSubmit: state.addGameReducer.receivedSubmit,
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  verifyHave: (id) => {
+    dispatch(verifyHave(id));
+  },
+  submitForm: (gameId, type) => {
+    dispatch(submitForm(gameId, type));
+  },
 });
 
 // L'appel à connect nous renvoie une nouvelle fonction
