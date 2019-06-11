@@ -5,6 +5,7 @@ import { Icon, Header, Popup, Grid, Loader, Button } from 'semantic-ui-react';
 import './addgame.scss';
 import { verifyHave } from '../../store/reducers/addGameReducer';
 
+
 class AddGame extends Component {
 
   componentDidMount() {
@@ -25,12 +26,17 @@ class AddGame extends Component {
       receivedSubmit,
     } = this.props;
 
+    const stylePopup = {
+      opacity: 0.8,
+      textAlign: 'center',
+    };
+
     return (
       <div className="plus">
         {loadVerify && <Loader active inline='centered' />}
         {alreadyHave && <i class="fas fa-gamepad" />}
         {!alreadyHave && (
-          <Popup trigger={<i class="fas fa-plus-circle" />} flowing hoverable>
+          <Popup trigger={<i class="fas fa-plus-circle" />} flowing hoverable inverted style={stylePopup}>
             <div>
               <Header>Choisissez une liste{receivedSubmit && <p className="confirm-message">Le jeu à bien été ajouté</p>}</Header>
               <div>
@@ -40,26 +46,26 @@ class AddGame extends Component {
                     {available && (
                       <Grid centered columns={3}>
                       <Grid.Column textAlign='center'>
-                        <Button basic color='green' onClick={this.addGame('have')}>Je l'ai</Button>
+                        <button className="add-button" onClick={this.addGame('have')}>Je l'ai</button>
                       </Grid.Column>
                       <Grid.Column textAlign='center'>
-                        <Button basic color='orange' onClick={this.addGame('want')}>Je le veux</Button>
+                        <button className="add-button" onClick={this.addGame('want')}>Je le veux</button>
                       </Grid.Column>
                       <Grid.Column textAlign='center'>
-                        <Button basic className="not-available">Je l'attends</Button>
+                        <button className="not-available add-button">Je l'attends</button>
                       </Grid.Column>
                       </Grid>
                     )}
                     {!available && (
                       <Grid centered columns={3}>
                       <Grid.Column textAlign='center'>
-                        <Button basic className="not-available">Je l'ai</Button>
+                        <button className="not-available add-button">Je l'ai</button>
                       </Grid.Column>
                       <Grid.Column textAlign='center'>
-                        <Button basic className="not-available">Je le veux</Button>
+                        <button className="not-available add-button">Je le veux</button>
                       </Grid.Column>
                       <Grid.Column textAlign='center'>
-                        <Button basic color='red' onClick={this.addGame('waiting')}>Je l'attends</Button>
+                        <button className="add-button" onClick={this.addGame('waiting')}>Je l'attends</button>
                       </Grid.Column>
                       </Grid>
                     )}

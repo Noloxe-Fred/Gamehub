@@ -1,6 +1,25 @@
+
+.add-button {
+border: 1px solid #FFFDD8;
+border-radius: 4px;
+background: none;
+color: #FFFDD8;
+font-family: 'Reem Kufi', sans-serif;
+font-weight: bold;
+margin-right: 1em;
+width: 8em;
+padding: 1em;
+background-color: #2C3E50;
+  &:hover {
+    transform: scale(1.05);
+    transition: .2s;
+  }
+}
+
+
 .not-available {
   text-decoration: line-through;
-  cursor: not-allowed;
+  cursor: none;
 }
 
 .confirm-message {
