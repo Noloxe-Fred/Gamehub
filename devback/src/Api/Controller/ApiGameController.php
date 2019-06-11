@@ -16,16 +16,8 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Get(path = "game/list", name = "games_list")
      */
-    public function showGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
+    public function getGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
     {   
-
-        
-        $array = [
-            'categories1' => '18',
-            'categories2' => '19',
-
-            // 'id1' => 59
-        ];
         
         $games = $gameRepository->findAllGames();
 
@@ -39,7 +31,7 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Post(path = "game/show", name = "game_show")
      */
-    public function showGameAction(GameRepository $gameRepository, SerializerInterface $serializer, Request $request)
+    public function getGameAction(GameRepository $gameRepository, SerializerInterface $serializer, Request $request)
     {   
 
         $game = $gameRepository->findOneById($request->request->get('id'));
@@ -55,7 +47,7 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Get(path = "game/list/nextmonth", name = "games_next_month")
      */
-    public function showNextMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
+    public function getNextMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
     {
 
         $games = $gameRepository->findNextMonthGames();
@@ -70,7 +62,7 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Get(path = "game/list/lastmonth", name = "games_last_month")
      */
-    public function showLastMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
+    public function getLastMonthGamesAction(GameRepository $gameRepository, SerializerInterface $serializer)
     {
 
         $games = $gameRepository->findLastMonthGames();
@@ -85,7 +77,7 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Get(path = "game/list/random", name = "games_random")
      */ 
-    public function showRandomGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+    public function getRandomGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
         $games = $gameRepository->findRandomGamesList();
 
@@ -99,7 +91,7 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Get(path = "game/list/bestever", name = "games_best_ever")
      */ 
-    public function showBestEverGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+    public function getBestEverGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
         $games = $gameRepository->findGamesByBestScore();
 
@@ -113,7 +105,7 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Get(path = "game/list/worstever", name = "games_worst_ever")
      */ 
-    public function showWorstEverGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+    public function getWorstEverGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
         $games = $gameRepository->findGamesByWorstScore();
 
@@ -125,68 +117,171 @@ class ApiGameController extends FOSRestController
     }
 
 
-    // /**
-    //  * @Rest\Get(path = "game/list/bestlastyear", name = "games_best_last_year")
-    //  */ 
-    // public function showBestLastYearGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+    /**
+     * @Rest\Get(path = "game/list/bestlastyear", name = "games_best_last_year")
+     */ 
+    public function getBestLastYearGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
-    //     $games = $gameRepository->findGamesByBestYearScore();
+        $games = $gameRepository->findGamesByBestLastYearScore();
 
+        $bestGamesLastYear = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
 
-    //     $bestGamesLastYear = $serializer->serialize($games, 'json', [
-    //                 'groups' => 'game_read',
-    //             ]);
+        return JsonResponse::fromJsonString($bestGamesLastYear);
+    }
 
-    //             return JsonResponse::fromJsonString($bestGamesLastYear);
+    /**
+     * @Rest\Get(path = "game/list/worstlastyear", name = "games_worst_last_year")
+     */ 
+    public function getWorstLastYearGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
-    // }
+        $games = $gameRepository->findGamesByWorstLastYearScore();
 
-    // /**
-    //  * @Rest\Get(path = "game/list/worstlastyear", name = "games_worst_last_year")
-    //  */ 
-    // public function showWorstLastYearGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+        $worstGamesLastYear = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
 
-    //     $games = $gameRepository->findGamesByWorstYearScore();
+        return JsonResponse::fromJsonString($worstGamesLastYear);
+    }
 
+    /**
+     * @Rest\Get(path = "game/list/bestlastmonth", name = "games_best_last_month")
+     */ 
+    public function getBestLastMonthGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
-    //     $worstgameslastmonth = $serializer->serialize($games, 'json', [
-    //                 'groups' => 'game_read',
-    //             ]);
+        $games = $gameRepository->findGamesByBestLastMonthScore();
 
-    //             return JsonResponse::fromJsonString($worstgameslastmonth);
+        $bestGamesLastMonth = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
 
-    // }
+        return JsonResponse::fromJsonString($bestGamesLastMonth);
+    }
 
+    /**
+     * @Rest\Get(path = "game/list/worstlastmonth", name = "games_worst_last_month")
+     */ 
+    public function getWorstLastMonthGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
-    // /**
-    //  * @Rest\Get(path = "game/list/bestlastmonth", name = "games_best_last_month")
-    //  */ 
-    // public function showBestLastMonthGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+        $games = $gameRepository->findGamesByWorstLastMonthScore();
 
-    //     $games = $gameRepository->findGamesByBestMonthScore();
+        $worstGamesLastMonth = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
 
+       return JsonResponse::fromJsonString($worstGamesLastMonth);
+    }
 
-    //     $bestGamesLastMonth = $serializer->serialize($games, 'json', [
-    //                 'groups' => 'game_read',
-    //             ]);
+    /**
+     * @Rest\Get(path = "game/list/bestlastweek", name = "games_best_last_week")
+     */ 
+    public function getBestLastWeekGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
-    //             return JsonResponse::fromJsonString($bestGamesLastMonth);
+        $games = $gameRepository->findGamesByBestLastWeekScore();
 
-    // }
+        $bestGamesLastWeek = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
 
-    // /**
-    //  * @Rest\Get(path = "game/list/worstlastmonth", name = "games_worst_last_month")
-    //  */ 
-    // public function showWorstLastMonthGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+       return JsonResponse::fromJsonString($bestGamesLastWeek);
+    }
 
-    //     $games = $gameRepository->findGamesByWorstMonthScore();
+    /**
+     * @Rest\Get(path = "game/list/worstlastweek", name = "games_worst_last_week")
+     */ 
+    public function getWorstLastWeekGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
+        $games = $gameRepository->findGamesByWorstLastWeekScore();
 
-    //     $worstGamesLastMonth = $serializer->serialize($games, 'json', [
-    //                 'groups' => 'game_read',
-    //             ]);
+        $worstGamesLastWeek = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
 
-    //             return JsonResponse::fromJsonString($worstGamesLastMonth);
+       return JsonResponse::fromJsonString($worstGamesLastWeek);
+    }
+    
+    /**
+     * @Rest\Get(path = "game/list/bestyear", name = "games_best_year")
+     */ 
+    public function getBestYearGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
 
-    // }
+        $games = $gameRepository->findGamesByBestYearScore();
+
+        $bestGamesYear = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
+
+        return JsonResponse::fromJsonString($bestGamesYear);
+    }
+
+    /**
+     * @Rest\Get(path = "game/list/worstyear", name = "games_worst_year")
+     */ 
+    public function getWorstYearGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $games = $gameRepository->findGamesByWorstYearScore();
+
+        $worstGamesYear = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
+
+        return JsonResponse::fromJsonString($worstGamesYear);
+    }
+
+    /**
+     * @Rest\Get(path = "game/list/bestmonth", name = "games_best_month")
+     */ 
+    public function getBestMonthGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $games = $gameRepository->findGamesByBestMonthScore();
+
+        $bestGamesMonth = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
+
+        return JsonResponse::fromJsonString($bestGamesMonth);
+    }
+
+    /**
+     * @Rest\Get(path = "game/list/worstmonth", name = "games_worst_month")
+     */ 
+    public function getWorstMonthGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $games = $gameRepository->findGamesByWorstMonthScore();
+
+        $worstGamesMonth = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
+
+        return JsonResponse::fromJsonString($worstGamesMonth);
+    }
+
+    /**
+     * @Rest\Get(path = "game/list/bestweek", name = "games_best_week")
+     */ 
+    public function getBestWeekGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $games = $gameRepository->findGamesByBestWeekScore();
+
+        $bestGamesWeek = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
+
+        return JsonResponse::fromJsonString($bestGamesWeek);
+    }
+
+    /**
+     * @Rest\Get(path = "game/list/worstweek", name = "games_worst_week")
+     */ 
+    public function getWorstWeekGamesList(GameRepository $gameRepository, SerializerInterface $serializer){
+
+        $games = $gameRepository->findGamesByWorstWeekScore();
+
+        $worstGamesWeek = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
+
+        return JsonResponse::fromJsonString($worstGamesWeek);
+    }
 }

@@ -98,10 +98,11 @@ class ApiStateController extends FOSRestController
     /**
      * @Rest\Post(path = "game/list/have", name = "games_have")
      */ 
-    public function showGamesListHave(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+    public function getGamesListHave(StateRepository $stateRepository, UserRepository $userRepository, GameRepository $gameRepository,Request $request, SerializerInterface $serializer){
 
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
-        $games = $stateRepository->findGamesListByStatus($user, 'have');
+        // $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+        $games = $stateRepository->findGamesListHave($user, 'have');
 
         $gamesListHave = $serializer->serialize($games, 'json', [
             'groups' => 'status_read',
@@ -113,7 +114,7 @@ class ApiStateController extends FOSRestController
     /**
      * @Rest\Post(path = "game/list/want", name = "games_want")
      */ 
-    public function showGamesListWant(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+    public function getGamesListWant(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
 
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $games = $stateRepository->findGamesListByStatus($user, 'want');
@@ -128,7 +129,7 @@ class ApiStateController extends FOSRestController
     /**
      * @Rest\Post(path = "game/list/waiting", name = "games_waiting")
      */ 
-    public function showGamesListWaiting(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
+    public function getGamesListWaiting(StateRepository $stateRepository, UserRepository $userRepository, Request $request, SerializerInterface $serializer){
 
         $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $games = $stateRepository->findGamesListByStatus($user, 'waiting');

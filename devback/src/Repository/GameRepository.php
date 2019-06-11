@@ -35,13 +35,13 @@ class GameRepository extends ServiceEntityRepository
 
     }
 
-
     public function findAllGames()
     {
 
         $qb = $this->createQueryBuilder('g')
         ->getQuery()
         ->getResult();
+
         return $qb;
     }
 
@@ -58,14 +58,14 @@ class GameRepository extends ServiceEntityRepository
 
     public function findNextMonthGames(){
 
-        $dateStart = new DateTime('now');
-        $dateEnd = new DateTime('now + 1 month');
+        $dateStart = date('Y-m-d', strtotime('first day of +1 month'));
+        $dateEnd = date('Y-m-d', strtotime('last day of +1 month'));
 
         $qb = $this->createQueryBuilder('g')
-        ->where('g.releasedAt >= :dateStart')
-        ->andWhere('g.releasedAt <= :dateEnd')
-        ->setParameter('dateStart', $dateStart->format('Y m d'))
-        ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+        ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+        ->setParameter('dateStart', $dateStart)
+        ->setParameter('dateEnd', $dateEnd)
+        ->orderBy('g.releasedAt', 'ASC')
         ->getQuery()
         ->getResult();
 
@@ -74,14 +74,14 @@ class GameRepository extends ServiceEntityRepository
 
     public function  findLastMonthGames(){
 
-        $dateStart = new DateTime('now');
-        $dateEnd = new DateTime('now - 1 month');
+        $dateStart = date('Y-m-d', strtotime('first day of -1 month'));
+        $dateEnd = date('Y-m-d', strtotime('last day of -1 month'));
 
         $qb = $this->createQueryBuilder('g')
-        ->where('g.releasedAt <= :dateStart')
-        ->andWhere('g.releasedAt >= :dateEnd')
-        ->setParameter('dateStart', $dateStart->format('Y m d'))
-        ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+        ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+        ->setParameter('dateStart', $dateStart)
+        ->setParameter('dateEnd', $dateEnd)
+        ->orderBy('g.releasedAt', 'ASC')
         ->getQuery()
         ->getResult();
 
@@ -139,8 +139,6 @@ class GameRepository extends ServiceEntityRepository
 
     public function findGamesByWorstScore(){
 
-   
-
         $qb = $this->createQueryBuilder('g')
             ->orderBy('g.score', 'ASC')
             ->setMaxResults(18)
@@ -150,15 +148,13 @@ class GameRepository extends ServiceEntityRepository
         return $qb;
     }
 
+    public function findGamesByBestLastYearScore(){
 
-    public function findGamesByBestMonthScore(){
-
-        $dateStart = new DateTime('now');
-        $dateEnd = new DateTime('now - 1 month');
+        $dateStart = new DateTime('now - 1 year');
+        $dateEnd = new DateTime('now');
 
         $qb = $this->createQueryBuilder('g')
-            ->where('g.releasedAt <= :dateStart')
-            ->andWhere('g.releasedAt >= :dateEnd')
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
             ->setParameter('dateStart', $dateStart->format('Y m d'))
             ->setParameter('dateEnd', $dateEnd->format('Y m d'))
             ->orderBy('g.score', 'DESC')
@@ -169,14 +165,13 @@ class GameRepository extends ServiceEntityRepository
         return $qb;
     }
 
-    public function findGamesByWorstMonthScore(){
+    public function findGamesByWorstLastYearScore(){
 
-        $dateStart = new DateTime('now');
-        $dateEnd = new DateTime('now - 1 month');
+        $dateStart = new DateTime('now - 1 year');
+        $dateEnd = new DateTime('now');
 
         $qb = $this->createQueryBuilder('g')
-            ->where('g.releasedAt <= :dateStart')
-            ->andWhere('g.releasedAt >= :dateEnd')
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
             ->setParameter('dateStart', $dateStart->format('Y m d'))
             ->setParameter('dateEnd', $dateEnd->format('Y m d'))
             ->orderBy('g.score', 'ASC')
@@ -186,16 +181,84 @@ class GameRepository extends ServiceEntityRepository
 
         return $qb;
     }
-    public function findGamesByBestYearScore(){
 
-        $dateStart = new DateTime('now');
-        $dateEnd = new DateTime('now - 1 year');
+    public function findGamesByBestLastMonthScore(){
+
+        $dateStart = new DateTime('now - 1 month');
+        $dateEnd = new DateTime('now');
 
         $qb = $this->createQueryBuilder('g')
-            ->where('g.releasedAt <= :dateStart')
-            ->andWhere('g.releasedAt >= :dateEnd')
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
             ->setParameter('dateStart', $dateStart->format('Y m d'))
             ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->orderBy('g.score', 'DESC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function findGamesByWorstLastMonthScore(){
+
+        $dateStart = new DateTime('now - 1 month');
+        $dateEnd = new DateTime('now');
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart->format('Y m d'))
+            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->orderBy('g.score', 'ASC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function findGamesByBestLastWeekScore(){
+
+        $dateStart = new DateTime('now - 1 week');
+        $dateEnd = new DateTime('now');
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart->format('Y m d'))
+            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->orderBy('g.score', 'DESC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function findGamesByWorstLastWeekScore(){
+
+        $dateStart = new DateTime('now - 1 week');
+        $dateEnd = new DateTime('now');
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart->format('Y m d'))
+            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->orderBy('g.score', 'ASC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function findGamesByBestYearScore(){
+
+        $dateStart = date('Y-m-d', strtotime('first day of this year'));
+        $dateEnd = date('Y-m-d', strtotime('last day of this year'));
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart)
+            ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'DESC')
             ->setMaxResults(18)
             ->getQuery()
@@ -206,14 +269,13 @@ class GameRepository extends ServiceEntityRepository
 
     public function findGamesByWorstYearScore(){
 
-        $dateStart = new DateTime('now');
-        $dateEnd = new DateTime('now - 1 year');
+        $dateStart = date('Y-m-d', strtotime('first day of this year'));
+        $dateEnd = date('Y-m-d', strtotime('last day of this year'));
 
         $qb = $this->createQueryBuilder('g')
-            ->where('g.releasedAt <= :dateStart')
-            ->andWhere('g.releasedAt >= :dateEnd')
-            ->setParameter('dateStart', $dateStart->format('Y m d'))
-            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart)
+            ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'ASC')
             ->setMaxResults(18)
             ->getQuery()
@@ -222,17 +284,49 @@ class GameRepository extends ServiceEntityRepository
         return $qb;
     }
 
+    public function findGamesByBestMonthScore(){
+
+        $dateStart = date('Y-m-d', strtotime('first day of this month'));
+        $dateEnd = date('Y-m-d', strtotime('last day of this month'));
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart)
+            ->setParameter('dateEnd', $dateEnd)
+            ->orderBy('g.score', 'DESC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function findGamesByWorstMonthScore(){
+
+        $dateStart = date('Y-m-d', strtotime('first day of this month'));
+        $dateEnd = date('Y-m-d', strtotime('last day of this month'));
+
+        $qb = $this->createQueryBuilder('g')
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart)
+            ->setParameter('dateEnd', $dateEnd)
+            ->orderBy('g.score', 'ASC')
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
 
     public function findGamesByBestWeekScore(){
 
-        $dateStart = new DateTime('now');
-        $dateEnd = new DateTime('now - 1 week');
+        $dateStart = date('Y-m-d', strtotime('first day of this week'));
+        $dateEnd = date('Y-m-d', strtotime('last day of this week'));
 
         $qb = $this->createQueryBuilder('g')
-            ->where('g.releasedAt <= :dateStart')
-            ->andWhere('g.releasedAt >= :dateEnd')
-            ->setParameter('dateStart', $dateStart->format('Y m d'))
-            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart)
+            ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'DESC')
             ->setMaxResults(18)
             ->getQuery()
@@ -243,14 +337,13 @@ class GameRepository extends ServiceEntityRepository
 
     public function findGamesByWorstWeekScore(){
 
-        $dateStart = new DateTime('now');
-        $dateEnd = new DateTime('now - 1 week');
+        $dateStart = date('Y-m-d', strtotime('first day of this week'));
+        $dateEnd = date('Y-m-d', strtotime('last day of this week'));
 
         $qb = $this->createQueryBuilder('g')
-            ->where('g.releasedAt <= :dateStart')
-            ->andWhere('g.releasedAt >= :dateEnd')
-            ->setParameter('dateStart', $dateStart->format('Y m d'))
-            ->setParameter('dateEnd', $dateEnd->format('Y m d'))
+            ->where('g.releasedAt BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart)
+            ->setParameter('dateEnd', $dateEnd)
             ->orderBy('g.score', 'ASC')
             ->setMaxResults(18)
             ->getQuery()

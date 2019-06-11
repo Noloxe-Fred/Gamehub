@@ -34,4 +34,21 @@ class StateRepository extends ServiceEntityRepository
 
         return $qb;
     }
+
+    public function findGamesListHave($user, $status){
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.user', 'u')
+            ->join('u.scores', 'su')
+            ->orderBy('s.updatedAt', 'DESC')
+            ->where('u.id = :user')
+            ->andWhere('s.status = :status')
+            ->setParameter('user', $user)
+            ->setParameter('status', $status)
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
 }

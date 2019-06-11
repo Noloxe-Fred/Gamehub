@@ -35,6 +35,7 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Groups({"profil_read"})
      */
     private $password;
 
@@ -91,7 +92,6 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
-     * @Groups({"profil_read"})
      */
     private $comments;
 
