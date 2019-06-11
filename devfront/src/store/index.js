@@ -6,6 +6,7 @@ import navbarMiddleware from './middlewares/navbarMiddleware';
 import gamePageMiddleware from './middlewares/gamePageMiddleware';
 import userPagesMiddleware from './middlewares/userPagesMiddleware';
 import addGameMiddleware from './middlewares/addGameMiddleware';
+import advancedSearchPageMiddleware from './middlewares/advancedSearchPageMiddleware';
 
 const appliedMiddlewares = applyMiddleware(
   navbarMiddleware,
@@ -13,6 +14,7 @@ const appliedMiddlewares = applyMiddleware(
   gamePageMiddleware,
   userPagesMiddleware,
   addGameMiddleware,
+  advancedSearchPageMiddleware,
 );
 
 

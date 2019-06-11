@@ -9,6 +9,7 @@ import Navbar from 'src/containers/Navbar/Navbar';
 import Home from 'src/components/Home';
 import GamePage from 'src/containers/GamePage/gamePageContainer';
 import Collection from 'src/containers/User/CollectionContainer';
+import AdvancedSearchPage from 'src/components/AdvancedSearchPage';
 import Page404 from 'src/components/Page404';
 
 // == Composant
@@ -40,9 +41,13 @@ class App extends Component {
             path="/game/:id"
             component={GamePage}
           />
-          <Route 
+          <Route
             path="/collection"
             component={Collection}
+          />
+          <Route
+            path="/advancedsearch"
+            component={AdvancedSearchPage}
           />
           <Route
             component={Page404}

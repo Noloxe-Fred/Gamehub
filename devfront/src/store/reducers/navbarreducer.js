@@ -42,7 +42,7 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loadingConnect: true,
-      }
+      };
     case RECEIVED_CONNECT:
       return {
         ...state,
@@ -50,8 +50,7 @@ const navbarreducer = (state = initialState, action = {}) => {
         loadingConnect: false,
         openConnect: false,
       };
-
-    case ERROR_CONNECT: 
+    case ERROR_CONNECT:
       return {
         ...state,
         connect: false,
