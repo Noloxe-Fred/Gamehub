@@ -20,11 +20,13 @@ class State
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"status_read", "game_info"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, columnDefinition="ENUM('have', 'want', 'waiting')")
+     * @Groups({"status_read", "game_info"})
      */
     private $status;
 

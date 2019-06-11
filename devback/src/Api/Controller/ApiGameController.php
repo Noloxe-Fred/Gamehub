@@ -3,10 +3,13 @@
 namespace App\Api\Controller;
 
 use App\Repository\GameRepository;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
+use App\Repository\UserRepository;
+use App\Repository\ScoreRepository;
+use App\Repository\StateRepository;
+use App\Repository\CommentRepository;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -42,6 +45,43 @@ class ApiGameController extends FOSRestController
         ]);
 
         return JsonResponse::fromJsonString($showGame);
+    }
+
+    /**
+     * @Rest\Post(path = "game/search", name = "game_search")
+     */
+    public function getSearchGamesAction(GameRepository $gameRepository, Request $request, SerializerInterface $serializer)
+    {   
+        $search = $request->request->get('name');
+        
+        $games = $gameRepository->findGames($search);
+
+        $allGames = $serializer->serialize($games, 'json', [
+            'groups' => 'game_read',
+        ]);
+    
+       return JsonResponse::fromJsonString($allGames);
+    }
+
+    /**
+     * @Rest\Post(path = "game/edit", name = "game_edit")
+     */ 
+    public function getGameEdit(StateRepository $stateRepository, ScoreRepository $scoreRepository, CommentRepository $commentRepository, UserRepository $userRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer){
+
+        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+
+        $state = $stateRepository->findGameInfo($user, $game);
+        $comment = $commentRepository->findGameInfo($user, $game);
+        $score = $scoreRepository->findGameInfo($user, $game);
+
+        $game = ["game" => $game, "info" => ["state" => $state, "comment" => $comment, "score" => $score]];
+
+        $gamesListWaiting = $serializer->serialize($game, 'json', [
+            'groups' => 'game_info',
+        ]);
+
+        return JsonResponse::fromJsonString($gamesListWaiting);
     }
 
     /**

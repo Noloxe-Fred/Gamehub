@@ -32,4 +32,20 @@ class CommentRepository extends ServiceEntityRepository
 
         return $qb;
     }
+
+    public function findGameInfo($user, $game){
+
+        $qb = $this->createQueryBuilder('c')
+            ->join('c.user', 'u')
+            ->join('c.game', 'g')
+            ->where('u.id = :user')
+            ->andWhere('g.id = :game')
+            ->setParameter('user', $user)
+            ->setParameter('game', $game)
+            ->setMaxResults(18)
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
 }

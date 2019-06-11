@@ -16,13 +16,13 @@ class Type
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"game_read"})
+     * @Groups({"category_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
-     * @Groups({"game_read"})
+     * @Groups({"category_read"})
      */
     private $name;
 

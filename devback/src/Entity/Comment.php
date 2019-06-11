@@ -22,19 +22,19 @@ class Comment
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"game_read", "comment_read"})
+     * @Groups({"game_read", "comment_read", "game_info"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"game_read", "comment_read"})
+     * @Groups({"game_read", "comment_read", "game_info"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"game_read", "comment_read"})
+     * @Groups({"game_read", "comment_read", "game_info"})
      */
     private $content;
 

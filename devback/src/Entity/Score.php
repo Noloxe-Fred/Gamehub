@@ -20,24 +20,23 @@ class Score
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"game_read"})
+     * @Groups({"game_info"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="smallint")
+     * @Groups({"game_info"})
      */
     private $value;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"game_read"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"game_read"})
      */
     private $updatedAt;
 
