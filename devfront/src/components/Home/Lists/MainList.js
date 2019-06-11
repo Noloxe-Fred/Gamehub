@@ -34,7 +34,7 @@ class MainList extends Component {
               <Grid.Row columns={1}>
                 <Grid.Column>
                     <Card className="mainCard">
-                      <div className="plus"><i class="fas fa-plus-circle"></i></div>
+                      <AddGame gameid={displayList[0].id} />
                       <img src={displayList[0].illustration} alt={displayList[0].name}/>
                       <Card.Content>
                         <Card.Header><h2>{displayList[0].name}</h2></Card.Header>
