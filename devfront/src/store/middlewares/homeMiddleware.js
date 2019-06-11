@@ -29,13 +29,14 @@ const homeMiddleware = store => next => (action) => {
         .then((response) => {
           console.log('next month',response.data);
 
-          //store.dispatch(receivedComingSoon(response.data));
+          store.dispatch(receivedComingSoon(response.data));
         })
         .catch((error) => {
           console.log(error);
         });
+
         // requete temporaire pour local
-        store.dispatch(receivedComingSoon(gameList));
+        //store.dispatch(receivedComingSoon(gameList));
 
       break;
     case REQUEST_LAST_RELEASED:
@@ -49,7 +50,7 @@ const homeMiddleware = store => next => (action) => {
         .then((response) => {
           console.log('last month', response.data);
 
-          //store.dispatch(receivedLastReleased(response.data));
+          store.dispatch(receivedLastReleased(response.data));
         })
         .catch((error) => {
           console.log(error);
@@ -57,7 +58,7 @@ const homeMiddleware = store => next => (action) => {
         });
 
       // requete test local
-      store.dispatch(receivedLastReleased(gameList));
+      //store.dispatch(receivedLastReleased(gameList));
 
       break;
     case REQUEST_RANDOM:

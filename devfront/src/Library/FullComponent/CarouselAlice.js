@@ -6,11 +6,18 @@ import './carouselAlice.scss';
 const CarouselAlice = ({ gameList }) => {
   const handleOnDragStart = e => e.preventDefault();
 
-  const CarouselList = [
-    gameList.slice(0, 6),
-    gameList.slice(6, 12),
-    gameList.slice(12, 18),
-  ];
+  const sliceList = (list) => {
+    if (list.length > 12) {
+      return [list.slice(0, 6), list.slice(6, 12), list.slice(12, 18)];
+    }
+    if (list.length > 6) {
+      return [list.slice(0, 6), list.slice(6, 12)];
+    }
+    if (list.length <= 6) {
+      return [list.slice(0, 6)];
+    }
+  };
+  const CarouselList = sliceList(gameList);
 
   return (
     <AliceCarousel

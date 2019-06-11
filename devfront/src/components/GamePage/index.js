@@ -30,6 +30,7 @@ class GamePage extends Component {
       backgroundImage: `url(${background})`,
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
+      backgroundSize: 'cover',
     };
 
     return (
