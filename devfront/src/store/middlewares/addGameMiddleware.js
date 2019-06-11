@@ -44,11 +44,12 @@ const addGameMiddleware = store => next => (action) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        user,
         game: {
           id: gameId,
         },
-        status: wichList,
+        status: {
+          status: wichList,
+        },
       })
         .then((response) => {
           console.log('Reponse submit add', response);
