@@ -22,7 +22,7 @@ const Navbar = ({ connect, disconnectUser, displayInput }) => (
           />
         )}
       </Transition.Group>   
-      <NavLink to="advancedsearch" className="advancedSearch">Recherche avancée...</NavLink>
+      <NavLink to="/advancedsearch" className="advancedSearch">Recherche avancée</NavLink>
       {connect
         ? (
           <div className="nav-connect">

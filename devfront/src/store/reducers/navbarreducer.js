@@ -45,7 +45,7 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loadingConnect: true,
-      }
+      };
     case RECEIVED_CONNECT:
       return {
         ...state,
