@@ -1,10 +1,74 @@
+/*
+Après un yarn build:prod =>
+Éditer le fichier index.html (dossier dist/) et inverser l'ordre des fichiers CSS
+
+  <link href="/1.css" rel="stylesheet"><link href="/app.css" rel="stylesheet">
+deviendra
+  <link href="/app.css" rel="stylesheet"><link href="/1.css" rel="stylesheet">
+
+
+Pour simplifier : 1.css correspond aux fichiers SCSS que vous avez codés,
+app.css lui correspondra à Semantic UI React
+
+Ca aura pour effet d'assurer un rendu "identique" à votre travail actuel,
+plutôt qu'adopter les tailles de polices, couleurs (textes + backgrounds)
+instaurés par Semantic UI (<- quel gros relou)
+*/
+
 .modal {
   top: 25%;
-  left: 25%;
-  height: 45%;
+  margin: 0 auto!important;
+  right: 0;
+  left: 0;
+  width: 95%;
+  max-width: 400px;
+  height: fit-content;
+  background: transparent!important;
+  .ui.header {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+  }
+  &.modalConnect {
+    height: fit-content;
+  }
+  .content {
+    background-color: rgb(54, 54, 128)!important;
+    form {
+      text-align: center;
+      .field {
+        display: flex;
+        align-content: baseline;
+        border-bottom: 1px solid white;
+        input {
+          width: 100%;
+          background: transparent;
+          color: white;
+          border: none;
+          padding: 0;
+          padding-bottom: .5em;
+          text-transform: uppercase;
+          &:focus, &:active {
+            background: none;
+            color: white;
+          }
+        }
+        .icon {
+          font-size: 1.25em;
+          color: green;
+          padding-bottom: 1.25em;
+        }
+      }
+      button {
+        color: rgb(54, 54, 128)!important;
+        background: white;
+        border-radius: 6px;
+        padding: .5em;
+        text-transform: uppercase;
+      }
+    }
+  }
 }
 
-.modalConnect {
-  height: 20em;
-}
+
 

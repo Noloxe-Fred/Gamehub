@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { Button, Header, Modal, Form } from 'semantic-ui-react';
+import {
+  Button,
+  Header,
+  Modal,
+  Form,
+  Icon,
+} from 'semantic-ui-react';
+
+// Icones Semantic UI React
+// https://react.semantic-ui.com/elements/icon/
 
 import './modalconnect.scss';
 
@@ -24,43 +33,50 @@ class ModalConnect extends Component {
   }
  
   render() {
-
-    const { connectPseudo, connectPassword, text, openConnect, loadingConnect, errorMessage } = this.props;
+    const {
+      connectPseudo,
+      connectPassword,
+      text,
+      openConnect,
+      loadingConnect,
+      errorMessage,
+    } = this.props;
     return (
-  <Modal className="modalConnect" trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal} >
-    <Modal.Content>
-      <Modal.Description>
-        <Header>Se connecter</Header>
-        {/* {errorMessage && <Modal.Descritpion>Erreur d'authentification</Modal.Descritpion>} */}
-        <Form onSubmit= {this.onSubmit}>
-          <Form.Field>
-            <label>Votre pseudo</label>
-            <input 
-              placeholder='pseudo'
-              name='connectPseudo'
-              onChange= {this.handleChange}
-              value= {connectPseudo}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Votre mot de passe</label>
-            <input
-              placeholder='mot de passe'
-              name='connectPassword'
-              onChange={this.handleChange}
-              value={connectPassword}
-            />
-          </Form.Field>
-          {!loadingConnect 
-            ? <Button type='submit' basic color='green'>Se connecter</Button>
-            : <Button loading>Loading</Button>
-          }
-        </Form>
-      </Modal.Description>
-    </Modal.Content>
-  </Modal>
-    )
-  } 
+      <Modal className="modalConnect" trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal} >
+        <Modal.Content>
+          <Modal.Description>
+            <Header>Se connecter</Header>
+            {/* {errorMessage && <Modal.Descritpion>Erreur d'authentification</Modal.Descritpion>} */}
+            <Form onSubmit= {this.onSubmit}>
+              <Form.Field>
+                <input
+                  placeholder="pseudo"
+                  name="connectPseudo"
+                  onChange={this.handleChange}
+                  value={connectPseudo}
+                />
+                <Icon className="user outline" />
+                {/* mail outline */}
+              </Form.Field>
+              <Form.Field>
+                <input
+                  placeholder="mot de passe"
+                  name="connectPassword"
+                  onChange={this.handleChange}
+                  value={connectPassword}
+                />
+                <Icon className="eye" />
+              </Form.Field>
+              {!loadingConnect
+                ? <Button type="submit">Se connecter</Button>
+                : <Button loading>Loading</Button>
+              }
+            </Form>
+          </Modal.Description>
+        </Modal.Content>
+      </Modal>
+    );
+  }
 };
 
 export default ModalConnect;
