@@ -1,12 +1,10 @@
 const initialState = {
-  loadVerifyHave: true,
-  alreadyHave: false,
-  available: '',
+  loadVerifyHave: false,
+  alreadyHave: true,
+  available: true,
   wichList: '', //'have' or 'want' | 'waiting' if not available
-  verifyCheckWich: false,
   loadSubmit: '',
   receivedSubmit: '',
-  openPopover: false,
 };
 
 // Action Type
@@ -68,13 +66,10 @@ export const loadVerify = () => ({
   type: LOAD_VERIFY,
 });
 
-export const checkedVerify = (alreadyHave, available, title, content, score) => ({
+export const checkedVerify = (alreadyHave, available) => ({
   type: CHECKED_VERIFY,
   alreadyHave,
   available,
-  title,
-  content,
-  score,
 });
 
 export const selectWichList = nameList => ({
@@ -86,10 +81,10 @@ export const loadSubmit = () => ({
   type: LOAD_SUBMIT,
 });
 
-export const submitForm = (gameId, type) => ({
+export const submitForm = (gameId, list) => ({
   type: SUBMIT,
   gameId,
-  type,
+  list,
 });
 
 export const receivedSubmit = status => ({

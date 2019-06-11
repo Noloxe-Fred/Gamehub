@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Loader, Grid, Image, Icon, Card  } from 'semantic-ui-react';
 
-
+import AddGame from 'src/containers/User/addgameContainer';
 import './lists.scss';
 
 
@@ -21,7 +21,7 @@ class MainList extends Component {
     return (
       <div id="main-list">
         {load && <Loader active inline="centered" />}
-        {!load && (
+        {(!load && displayList.length > 0) && (
           <div id="list">
             <div id="title-main-list">
               <h3>Les prochaines sorties</h3>
@@ -33,18 +33,19 @@ class MainList extends Component {
             <Grid doubling columns={2}>
               <Grid.Row columns={1}>
                 <Grid.Column>
-                  
-                    <Card className="mainCard">
-                      <div className="plus"><i class="fas fa-plus-circle"></i></div>
-                      <img src={displayList[0].illustration} alt={displayList[0].name}/>
-                      <Card.Content>
-                        <Card.Header>{displayList[0].name}</Card.Header>
-                        <Card.Description>
-                          {displayList[0].description}
-                        </Card.Description>
-                      </Card.Content>
-                    </Card>
-                  
+
+                  <Card className="mainCard">
+                    <img src={displayList[0].illustration} alt={displayList[0].name}/>
+                    <Card.Content>
+                      <Card.Header>{displayList[0].name}</Card.Header>
+                      <AddGame gameId={displayList[0].id} />
+                      <Card.Description>
+                        {displayList[0].description}
+                        <Link to={"/game/"+displayList[0].id}>Voir la fiche du jeu</Link>
+                      </Card.Description>
+                    </Card.Content>
+                  </Card>
+
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2}>

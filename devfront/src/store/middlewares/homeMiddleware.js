@@ -34,6 +34,7 @@ const homeMiddleware = store => next => (action) => {
         .catch((error) => {
           console.log(error);
         });
+
         // requete temporaire pour local
         store.dispatch(receivedComingSoon(gameList));
 
