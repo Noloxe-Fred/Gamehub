@@ -6,6 +6,7 @@ const initialState = {
   connectPseudo: '',
   connectPassword: '',
   checkRemember: false,
+  openSubscribe: false,
   subfirstname: '',
   sublastname: '',
   subpseudo: '',
@@ -30,6 +31,8 @@ export const DISCONNECT = 'DISCONNECT';
 const RECEIVED_DISCONNECT = 'RECEIVED_DISCONNECT';
 const CHECK_REMEMBER = 'CHECK_REMEMBER';
 
+const OPEN_MODAL_SUB = 'OPEN_MODAL_SUB';
+const CLOSE_MODAL_SUB = 'CLOSE_MODAL_SUB';
 export const SUBSCRIBE = 'SUBSCRIBE';
 
 export const CHANGE_INPUT = 'CHANGE_INPUT';
@@ -50,8 +53,7 @@ const navbarreducer = (state = initialState, action = {}) => {
         loadingConnect: false,
         openConnect: false,
       };
-
-    case ERROR_CONNECT: 
+    case ERROR_CONNECT:
       return {
         ...state,
         connect: false,
@@ -63,6 +65,7 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         openConnect: true,
+        openSubscribe: false,
       };
     case CHECK_REMEMBER:
       return {
@@ -73,6 +76,16 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         openConnect: false,
+      };
+    case OPEN_MODAL_SUB:
+      return {
+        ...state,
+        openSubscribe: true,
+      };
+    case CLOSE_MODAL_SUB:
+      return {
+        ...state,
+        openSubscribe: false,
       };
     case RECEIVED_SUBSCRIBE:
       return {
@@ -128,6 +141,14 @@ export const openModalConnect = () => ({
 
 export const closeModal = () => ({
   type: CLOSE_MODAL,
+});
+
+export const openModSub = () => ({
+  type: OPEN_MODAL_SUB,
+});
+
+export const closeModSub = () => ({
+  type: CLOSE_MODAL_SUB,
 });
 
 export const subscribeUser = () => ({

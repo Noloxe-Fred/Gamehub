@@ -33,7 +33,8 @@ class ModalConnect extends Component {
     const {
       connectPseudo,
       connectPassword,
-      text, openConnect,
+      text, 
+      openConnect,
       loadingConnect,
       errorMessage
     } = this.props;

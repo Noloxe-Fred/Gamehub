@@ -22,10 +22,10 @@ export default class ModalSubscribe extends Component {
 
 	render() {
 
-  const { subpseudo, subemail, subpassword, subconfirmpassword, confirmSubscribe  } = this.props;
+  const { subpseudo, subemail, subpassword, subconfirmpassword, confirmSubscribe, openModSub, openSubscribe, closeModSub  } = this.props;
 
   return (
-    <Modal trigger={<button className="subscribeButton">S'inscrire</button>}>
+    <Modal trigger={<button className="subscribeButton" onClick={openModSub}>S'inscrire</button>} open={openSubscribe} onClose={closeModSub}>
       <Modal.Content>
         <Modal.Description>
             <Form onSubmit= {this.onSubmit}>

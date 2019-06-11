@@ -84,8 +84,27 @@ const homeMiddleware = store => next => (action) => {
       break;
     case REQUEST_TAB_LIST:
       store.dispatch(loadingTabList());
-      // requete axios en attente!
-      store.dispatch(receivedTabList(gameList));
+      const tabs = ['bestever', 'worstever', 'bestyear', 'worstyear', 'bestmonth', 'worstmonth'];
+      
+      tabs.map(tab => (
+        axios.get(`http://api.gamehub.com/api/game/list/${tab}`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((response) => {
+            console.log('request tab', response.data);
+  
+            store.dispatch(receivedTabList(`load${tab}`, tab, response.data));
+          })
+          .catch((error) => {
+            console.log(error);
+            
+          })
+      ));
+
+      // affichage temporaire en local:
+      // store.dispatch(receivedTabList(gameList));
       break;
     default:
       next(action);
