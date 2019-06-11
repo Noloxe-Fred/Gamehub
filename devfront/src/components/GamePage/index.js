@@ -14,6 +14,7 @@ import GameAllComments from 'src/containers/GamePage/gameAllCommentsContainer';
 class GamePage extends Component {
   // Lancement de la fonction request game avec Component did mount 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.requestGame();
   }
 
