@@ -4,6 +4,7 @@ import './gamepage.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const GameHeader = ({ datas }) => {
+  const {cover, name, score, categories, editor, developer, released, desc } = datas;
   return (
     
     <Container className="container">
@@ -11,24 +12,24 @@ const GameHeader = ({ datas }) => {
         <Row>
           <Col lg={5} sm={12} xs={12} className="d-flex align-items-start">
             <div className="illustration">
-              <img src={datas.cover} alt="cover" />
+              <img src={cover} alt="cover" />
             </div>
           </Col>
           <Col lg={7} sm={12} xs={12} className="d-flex align-items-start">
             <div className="title">
-              <div className="title--title">{datas.name}</div>
-              <div className="title--score">{datas.score}%</div>
-              <a href="#" className="fav"><span><i class="far fa-star"></i></span>Ajouter à ma collection</a>
+              <div className="title--title">{name}</div>
+              {score && <div className="title--score">{score}%</div>} {!score && <div className="title--not-score">Pas de notes</div>}
+              <a href="#" className="fav"><span><i className="far fa-star"></i></span>Ajouter à ma collection</a>
               <div className="categories">
-                <button type="button">{datas.categories[0].name}</button>
+                <button type="button">{categories[0].name}</button>
                 <div>/</div>
-                <button type="button">{datas.categories[1].name}</button>
+                <button type="button">{categories[1].name}</button>
               </div>
-              <div className="title--editor">Éditeur : {datas.editor}</div>
-              <div className="title--developer">Développeur : {datas.developer}</div>
-              <div className="title--released">Date de sortie : {datas.released}</div>
+              <div className="title--editor">Éditeur : {editor}</div>
+              <div className="title--developer">Développeur : {developer}</div>
+              <div className="title--released">Date de sortie : {released}</div>
               <div className="description">
-                <div className="description--description">{datas.desc}</div>
+                <div className="description--description">{desc}</div>
               </div>
             </div>
           </Col>
