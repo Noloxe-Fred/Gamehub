@@ -11,24 +11,39 @@ class TabList extends React.Component {
   };
 
   render() {
-    const { tabList, load } = this.props;
+    const {
+      bestever,
+      worstever,
+      bestyear,
+      worstyear,
+      bestmonth,
+      worstmonth,
+      loadbestever,
+      loadworstever,
+      loadbestyear,
+      loadworstyear,
+      loadbestmonth,
+      loadworstmonth,
+     } = this.props;
 
     const panes = [
-      { menuItem: 'Les Tops et Flops de la semaine', render: () => (
+      { menuItem: 'Les Tops et Flops du mois', render: () => (
       <Tab.Pane>
         <div className="tabContent">
           <div className="partOfOneTab">
             <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
-            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {loadbestmonth && <Loader active inline='centered' /> }
+            {!loadbestmonth && bestmonth.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
           <div className="partOfOneTab">
             <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
-            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {loadworstmonth && <Loader active inline='centered' /> }
+            {!loadworstmonth && worstmonth.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
         </div>
       </Tab.Pane> 
       )},
-      { menuItem: 'Les Tops et Flops du mois',
+      { menuItem: 'Les Tops et Flops de l\'année',
       render: () => (
         <Tab.Pane>
           <div className="tabContent">
@@ -36,25 +51,29 @@ class TabList extends React.Component {
               <div className="icone good">
                 <i className="fas fa-thumbs-up" />
               </div>
-              {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+              {loadbestyear && <Loader active inline='centered' /> }
+              {!loadbestyear && bestyear.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
             </div>
             <div className="partOfOneTab">
               <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
-              {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+              {loadworstyear && <Loader active inline='centered' /> }
+              {!loadworstyear && worstyear.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
             </div>
           </div>
         </Tab.Pane>
         ) },
-      { menuItem: 'Les Tops et Flops de l\'année', render: () => (
+      { menuItem: 'Les Tops et Flops ever!', render: () => (
       <Tab.Pane>
         <div className="tabContent">
           <div className="partOfOneTab">
             <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
-            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {loadbestever && <Loader active inline='centered' /> }
+            {!loadbestever && bestever.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
           <div className="partOfOneTab">
             <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
-            {tabList.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {loadworstever && <Loader active inline='centered' /> }
+            {!loadworstever && worstever.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
           </div>
         </div>
       </Tab.Pane>
@@ -63,8 +82,6 @@ class TabList extends React.Component {
 
     return (
       <div>
-        {load && <Loader active inline='centered' />}
-        {!load && (
           <div className="section">
             <Grid columns={2}>
               <div className="tab">
@@ -72,18 +89,13 @@ class TabList extends React.Component {
               </div>
             </Grid>
           </div>
-        )}
       </div>
     );
   };
 };
 
 TabList.propTypes = {
-  load: PropTypes.bool.isRequired,
   requestTabList: PropTypes.func.isRequired,
-  tabList: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-  })).isRequired,
 };
 
 export default TabList;
