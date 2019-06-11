@@ -1,5 +1,31 @@
+// Variables
+
+$text-color: white;
+$background-color: #34495e;
+
+$title-font: 'Oswald', sans-serif;
+$text-font: 'Reem Kufi', sans-serif;
+
+
 #main-list {
   margin-bottom: 5em;
+}
+
+h2 {
+  color: $text-color;
+  font-family: $title-font;
+}
+h3 {
+  color: $background-color;
+  font-family: $title-font;
+}
+h6 {
+  color: $text-color;
+  font-family: $text-font;
+}
+
+#button-main-list {
+  color: #34495e;
 }
 
 #title-main-list {
@@ -18,7 +44,7 @@ h3 {
 }
 
 #list {
-  color: black;
+  color: #FFFDD9;
   font-size: 1.7em;
   display: flex;
   flex-wrap: wrap;
@@ -51,11 +77,15 @@ h3 {
 
 .ui.card {
   width: 100%;
+  background-color: $background-color;
+  // color: #FFFDD9;
   .header {
     font-family: 'Oswald', sans-serif !important;
+    color: #FFFDD9;
   }
   .content {
     padding: .3em;
+    color: #FFFDD9;
   }
   .plus {
     z-index: 1;
@@ -83,6 +113,7 @@ h3 {
 
 .mainCard {
   overflow: hidden;
+  color: #FFFDD9 !important;
   .add--collection {
     a {
       z-index: 1;
@@ -130,6 +161,7 @@ h3 {
 
 // Card style pour la secondary card
 .secondaryCard {
+  color: #FFFDD9 !important;
   overflow: hidden;
   height: 100%;
   img {
@@ -159,7 +191,11 @@ h3 {
 // Card style pour les petites cards
 
 .otherCard {
+  color: #FFFDD9 !important;
   overflow: hidden;
+  h2 {
+    font-size: .5em;
+  }
   img {
     width: 100%;
     height: 2em;
@@ -169,7 +205,7 @@ h3 {
     height: 2.4em;
   }
   .header {
-    font-size: .5em !important;
+    font-size: .2em;
     text-align: left;
   }
   .description {
@@ -188,8 +224,5 @@ h3 {
 .grid--four--othercards {
   padding-bottom: .4em !important;
 }
-
-
-
 
 
