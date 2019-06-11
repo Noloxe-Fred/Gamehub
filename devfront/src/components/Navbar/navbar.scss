@@ -1,3 +1,5 @@
+$text-color: white;
+
 nav { 
   width: 100%;
   height: 3em;
@@ -12,7 +14,7 @@ nav {
   z-index: 2;
   h2 {
     font-family: 'Open Sans', sans-serif;
-    color: #FFFDD8;
+    color: $text-color;
   }
   .logo {
     margin: 0 2em;
@@ -28,7 +30,7 @@ nav {
   .advancedSearch, .mycollection {
     text-decoration: none;
     margin-right: 6em;
-    color: #FFFDD8;
+    color: $text-color;
     font-family: 'Reem Kufi', sans-serif;
   }
   .advancedSearch:hover {
@@ -37,16 +39,16 @@ nav {
   .connectButton {
     margin-right: 1em;
     background: none;
-    color: #FFFDD8;
+    color: $text-color;
     font-family: 'Reem Kufi', sans-serif;
     border: none;
   }
   .subscribeButton {
-    border: 1px solid #FFFDD8;
+    border: 1px solid $text-color;
     padding: .2em;
     border-radius: 4px;
     background: none;
-    color: #FFFDD8;
+    color: $text-color;
     font-family: 'Reem Kufi', sans-serif;
     margin-right: 1em;
   }

@@ -38,9 +38,9 @@ class MainList extends Component {
                       <div className="plus"><i class="fas fa-plus-circle"></i></div>
                       <img src={displayList[0].illustration} alt={displayList[0].name}/>
                       <Card.Content>
-                        <Card.Header>{displayList[0].name}</Card.Header>
+                        <Card.Header><h2>{displayList[0].name}</h2></Card.Header>
                         <Card.Description>
-                          {displayList[0].description}
+                          <h6>{displayList[0].description}</h6>
                         </Card.Description>
                       </Card.Content>
                     </Card>
@@ -56,9 +56,9 @@ class MainList extends Component {
                         <div className="plus"><i class="fas fa-plus-circle"></i></div>
                         <Image src={displayList[1].illustration} alt={displayList[1].name} wrapped />
                         <Card.Content>
-                          <Card.Header>{displayList[1].name}</Card.Header>
+                          <Card.Header><h2>{displayList[1].name}</h2></Card.Header>
                           <Card.Description>
-                            {displayList[1].description}                  
+                            <h6>{displayList[1].description}</h6>                  
                           </Card.Description>
                         </Card.Content>
                       </Card>
@@ -76,9 +76,9 @@ class MainList extends Component {
                               <div className="plus"><i class="fas fa-plus-circle"></i></div>
                               <Image src={displayList[2].illustration} alt={displayList[2].name} wrapped />
                               <Card.Content>
-                                <Card.Header>{displayList[2].name}</Card.Header>
+                                <Card.Header><h2>{displayList[2].name}</h2></Card.Header>
                                 <Card.Description>
-                                  {displayList[2].description}
+                                  <h6>{displayList[2].description}</h6>
                                 </Card.Description>
                               </Card.Content>
                             </Card>
@@ -93,9 +93,9 @@ class MainList extends Component {
                               <div className="plus"><i class="fas fa-plus-circle"></i></div>
                               <Image src={displayList[3].illustration} alt={displayList[3].name} wrapped />
                               <Card.Content>
-                                <Card.Header>{displayList[3].name}</Card.Header>
+                                <Card.Header><h2>{displayList[3].name}</h2></Card.Header>
                                 <Card.Description>
-                                  {displayList[3].description}     
+                                  <h6>{displayList[3].description}</h6>     
                                 </Card.Description>
                               </Card.Content>
                             </Card>
@@ -112,9 +112,9 @@ class MainList extends Component {
                               <div className="plus"><i class="fas fa-plus-circle"></i></div>
                               <Image src={displayList[4].illustration} alt={displayList[4].name} wrapped />
                               <Card.Content>
-                                <Card.Header>{displayList[4].name}</Card.Header>
+                                <Card.Header><h2>{displayList[4].name}</h2></Card.Header>
                                 <Card.Description>
-                                  {displayList[4].description}
+                                  <h6>{displayList[4].description}</h6>
                                 </Card.Description>
                               </Card.Content>
                             </Card>
@@ -129,9 +129,9 @@ class MainList extends Component {
                               <div className="plus"><i class="fas fa-plus-circle"></i></div>
                               <Image src={displayList[5].illustration} alt={displayList[5].name} wrapped />
                               <Card.Content>
-                                <Card.Header>{displayList[5].name}</Card.Header>
+                                <Card.Header><h2>{displayList[5].name}</h2></Card.Header>
                                 <Card.Description>
-                                  {displayList[5].description}
+                                  <h6>{displayList[5].description}</h6>
                                 </Card.Description>
                               </Card.Content>
                             </Card>

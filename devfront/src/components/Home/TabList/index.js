@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tab, Loader } from 'semantic-ui-react';
+import { Tab, Loader, Grid } from 'semantic-ui-react';
 
 import './tabList.scss';
 
@@ -65,8 +65,12 @@ class TabList extends React.Component {
       <div>
         {load && <Loader active inline='centered' />}
         {!load && (
-          <div className="tab">
-            <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+          <div className="section">
+            <Grid columns={2}>
+              <div className="tab">
+                <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+              </div>
+            </Grid>
           </div>
         )}
       </div>
