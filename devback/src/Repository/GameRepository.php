@@ -46,9 +46,11 @@ class GameRepository extends ServiceEntityRepository
 
     public function findGames($name){
 
+        $word = wordwrap($name, 1, "%", false);
+
         $qb = $this->createQueryBuilder('g')
         ->where('g.name LIKE :name')
-        ->setParameter('name', '%'.$name.'%')
+        ->setParameter('name', '%'.$word.'%')
         ->getQuery()
         ->getResult();
 
