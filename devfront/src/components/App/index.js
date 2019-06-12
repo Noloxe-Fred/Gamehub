@@ -10,6 +10,7 @@ import Home from 'src/components/Home';
 import GamePage from 'src/containers/GamePage/gamePageContainer';
 import Collection from 'src/containers/User/CollectionContainer';
 import SearchResult from 'src/containers/searchResultContainer';
+import AdvancedSearchPage from 'src/components/AdvancedSearchPage';
 import Page404 from 'src/components/Page404';
 
 // == Composant
@@ -49,6 +50,10 @@ class App extends Component {
           <Route
             path="/search"
             component={SearchResult}
+          />
+          <Route
+            path="/advancedsearch"
+            component={AdvancedSearchPage}
           />
           <Route
             component={Page404}
