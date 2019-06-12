@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './gamepage.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 
+import AddGame from 'src/containers/User/addgameContainer';
+
 const GameHeader = ({ datas }) => {
-  const {cover, name, score, categories, editor, developer, released, desc } = datas;
+  const {cover, name, score, categories, editor, developer, released, desc, id } = datas;
   return (
     
     <Container className="container">
@@ -19,7 +21,7 @@ const GameHeader = ({ datas }) => {
             <div className="title">
               <div className="title--title">{name}</div>
               {score && <div className="title--score">{score}%</div>} {!score && <div className="title--not-score">Pas de notes</div>}
-              <a href="#" className="fav"><span><i className="far fa-star"></i></span>Ajouter à ma collection</a>
+              <AddGame gameId={id} />
               <div className="categories">
                 <button type="button">{categories[0].name}</button>
                 <div>/</div>

@@ -28,6 +28,7 @@ const addGameReducer = (state = initialState, action = {}) => {
         loadVerifyHave: true,
       };
     case CHECKED_VERIFY:
+      console.log('VERIF OKKKKKKK')
       return {
         ...state,
         alreadyHave: action.alreadyHave,
