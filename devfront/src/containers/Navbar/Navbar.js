@@ -3,6 +3,7 @@ import Navbar from 'src/components/Navbar/';
 
 import {
   disconnectUser,
+  cancelRedirect,
 } from 'src/store/reducers/navbarreducer';
 
 const mapStateToProps = state => ({

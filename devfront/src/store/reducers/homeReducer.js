@@ -2,8 +2,18 @@ const initialState = {
   loadingComingSoon: true,
   listComingSoon: [],
   countComingSoon: 0,
-  loadingTabList: true,
-  tabList: [],
+  loadingbestever: true,
+  loadingworstever: true,
+  loadingbestyear: true,
+  loadingworstyear: true,
+  loadingbestmonth: true,
+  loadingworstmonth: true,
+  bestever: [],
+  worstever: [],
+  bestyear: [],
+  worstyear: [],
+  bestmonth: [],
+  worstmonth: [],
   loadingLastReleased: true,
   lastReleasedList: [],
   randomList: [],
@@ -40,13 +50,13 @@ const homeReducer = (state = initialState, action = {}) => {
     case LOAD_TAB_LIST:
       return {
         ...state,
-        loadingTabList: true,
+        [action.load]: true,
       };
     case RECEIVED_TAB_LIST:
       return {
         ...state,
-        loadingTabList: false,
-        tabList: action.tabList,
+        [action.load]: false,
+        [action.tab]: action.list,
       };
     case LOAD_COMING_SOON:
       return {
@@ -105,13 +115,16 @@ const homeReducer = (state = initialState, action = {}) => {
 // Action creator (qui passeront tous dans le middleware ) 
 
 // Action creator
-export const loadingTabList = () => ({
+export const loadingTabList = load => ({
   type: LOAD_TAB_LIST,
+  load,
 });
 
-export const receivedTabList = tabList => ({
+export const receivedTabList = (load, tab, list) => ({
   type: RECEIVED_TAB_LIST,
-  tabList,
+  load,
+  tab,
+  list,
 });
 
 export const requestTabList = () => ({

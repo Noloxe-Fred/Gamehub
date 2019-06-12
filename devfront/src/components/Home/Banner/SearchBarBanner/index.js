@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { Icon, Input } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
+import SearchBar from 'src/containers/SearchBarContainer';
 import './searchBar.scss';
 
-class SearchBar extends Component {
+class SearchBarBanner extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
     this.props.display(false);
+    if (sessionStorage.getItem('disconnect')) {
+      sessionStorage.clear();
+    }
   }
 
   componentWillUnmount() {
@@ -25,7 +28,7 @@ class SearchBar extends Component {
     // const TwitterButton = document.getElementById('twitter-button');
     // Je récupère toutes les infos de taille et de position
     // du bouton twitter
-    const bannerInput = document.getElementById('inputbanner');
+    const bannerInput = document.querySelector('.banniere');
     const boundingClientRect = bannerInput.getBoundingClientRect();
     const positionTop = boundingClientRect.top;
     //console.log(positionTop);
@@ -36,31 +39,23 @@ class SearchBar extends Component {
     // Le bouton sera bientot visible, il est temps de lancer l'appel au script
     const { displayInput, display } = this.props;
    
-    if (positionTop < 0 && !displayInput) {
+    if (positionTop < -340 && !displayInput) {
       display(true);
     }
-    else if (positionTop > 0 && displayInput) {
+    else if (positionTop > -340 && displayInput) {
       display(false);
     }
   }
 
   render() {
     return (
-      <Input
-        // ref={(laReferenceAMonElementDansLeDom) => {
-        //   this.bannerInput = laReferenceAMonElementDansLeDom;
-        // }}
-        id="inputbanner"
-        icon={<Icon name='search' link color="blue" />} 
-        placeholder="Rechercher un jeu" 
-        className="searchBar"
-      />
+      <SearchBar />
     );
   }
 }
 
-SearchBar.propTypes = {
+SearchBarBanner.propTypes = {
   display: PropTypes.func.isRequired,
   displayInput: PropTypes.bool.isRequired,
 };
-export default SearchBar;
+export default SearchBarBanner;

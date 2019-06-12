@@ -33,19 +33,18 @@ class MainList extends Component {
             <Grid doubling columns={2}>
               <Grid.Row columns={1}>
                 <Grid.Column>
-
-                  <Card className="mainCard">
-                    <AddGame gameId={displayList[0].id} />
-                    <img src={displayList[0].illustration} alt={displayList[0].name}/>
-                    <Card.Content>
-                      <Card.Header>{displayList[0].name}</Card.Header>
-                      <Card.Description>
-                        {displayList[0].description}
-                        <Link to={"/game/"+displayList[0].id}>Voir la fiche du jeu</Link>
-                      </Card.Description>
-                    </Card.Content>
-                  </Card>
-
+                  <Link to={"/game/"+displayList[0].id}>
+                    <Card className="mainCard">
+                      <AddGame gameid={displayList[0].id} />
+                      <img src={displayList[0].illustration} alt={displayList[0].name}/>
+                      <Card.Content>
+                        <Card.Header><h2>{displayList[0].name}</h2></Card.Header>
+                        <Card.Description>
+                          <h6>{displayList[0].description}</h6>
+                        </Card.Description>
+                      </Card.Content>
+                    </Card>
+                  </Link>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2}>
@@ -57,9 +56,9 @@ class MainList extends Component {
                       <AddGame gameId={displayList[1].id} />
                         <Image src={displayList[1].illustration} alt={displayList[1].name} wrapped />
                         <Card.Content>
-                          <Card.Header>{displayList[1].name}</Card.Header>
+                          <Card.Header><h2>{displayList[1].name}</h2></Card.Header>
                           <Card.Description>
-                            {displayList[1].description}                  
+                            <h6>{displayList[1].description}</h6>                  
                           </Card.Description>
                         </Card.Content>
                       </Card>
@@ -77,9 +76,9 @@ class MainList extends Component {
                             <AddGame gameId={displayList[2].id} />
                               <Image src={displayList[2].illustration} alt={displayList[2].name} wrapped />
                               <Card.Content>
-                                <Card.Header>{displayList[2].name}</Card.Header>
+                                <Card.Header><h2>{displayList[2].name}</h2></Card.Header>
                                 <Card.Description>
-                                  {displayList[2].description}
+                                  <h6>{displayList[2].description}</h6>
                                 </Card.Description>
                               </Card.Content>
                             </Card>
@@ -94,9 +93,9 @@ class MainList extends Component {
                             <AddGame gameId={displayList[3].id} />
                               <Image src={displayList[3].illustration} alt={displayList[3].name} wrapped />
                               <Card.Content>
-                                <Card.Header>{displayList[3].name}</Card.Header>
+                                <Card.Header><h2>{displayList[3].name}</h2></Card.Header>
                                 <Card.Description>
-                                  {displayList[3].description}     
+                                  <h6>{displayList[3].description}</h6>     
                                 </Card.Description>
                               </Card.Content>
                             </Card>
@@ -113,9 +112,9 @@ class MainList extends Component {
                             <AddGame gameId={displayList[4].id} />
                               <Image src={displayList[4].illustration} alt={displayList[4].name} wrapped />
                               <Card.Content>
-                                <Card.Header>{displayList[4].name}</Card.Header>
+                                <Card.Header><h2>{displayList[4].name}</h2></Card.Header>
                                 <Card.Description>
-                                  {displayList[4].description}
+                                  <h6>{displayList[4].description}</h6>
                                 </Card.Description>
                               </Card.Content>
                             </Card>
@@ -130,9 +129,9 @@ class MainList extends Component {
                             <AddGame gameId={displayList[5].id} />
                               <Image src={displayList[5].illustration} alt={displayList[5].name} wrapped />
                               <Card.Content>
-                                <Card.Header>{displayList[5].name}</Card.Header>
+                                <Card.Header><h2>{displayList[5].name}</h2></Card.Header>
                                 <Card.Description>
-                                  {displayList[5].description}
+                                  <h6>{displayList[5].description}</h6>
                                 </Card.Description>
                               </Card.Content>
                             </Card>

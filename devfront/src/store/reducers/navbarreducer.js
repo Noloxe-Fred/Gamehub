@@ -6,6 +6,7 @@ const initialState = {
   connectPseudo: '',
   connectPassword: '',
   checkRemember: false,
+  openSubscribe: false,
   subfirstname: '',
   sublastname: '',
   subpseudo: '',
@@ -13,6 +14,10 @@ const initialState = {
   subpassword: '',
   subconfirmpassword: '',
   confirmSubscribe: 'noSubscribtion',
+  inputSearch: '',
+  searchList: [],
+  loadSearch: true,
+  redirectSearch: false,
 };
 
 // Action Type
@@ -30,10 +35,18 @@ export const DISCONNECT = 'DISCONNECT';
 const RECEIVED_DISCONNECT = 'RECEIVED_DISCONNECT';
 const CHECK_REMEMBER = 'CHECK_REMEMBER';
 
+const OPEN_MODAL_SUB = 'OPEN_MODAL_SUB';
+const CLOSE_MODAL_SUB = 'CLOSE_MODAL_SUB';
 export const SUBSCRIBE = 'SUBSCRIBE';
 
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 const SET_INPUT = 'SET_INPUT';
+
+const CHANGE_INPUT_SEARCH = 'CHANGE_INPUT_SEARCH';
+export const SUBMIT_SEARCH = 'SUBMIT_SEARCH';
+const RECEIVED_SEARCH = 'RECEIVED_SEARCH';
+const LOAD_SEARCH = 'LOAD_SEARCH';
+const CANCEL_REDIRECT = 'CANCEL_REDIRECT';
 
 // Reducer
 const navbarreducer = (state = initialState, action = {}) => {
@@ -42,7 +55,7 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loadingConnect: true,
-      }
+      };
     case RECEIVED_CONNECT:
       return {
         ...state,
@@ -50,8 +63,7 @@ const navbarreducer = (state = initialState, action = {}) => {
         loadingConnect: false,
         openConnect: false,
       };
-
-    case ERROR_CONNECT: 
+    case ERROR_CONNECT:
       return {
         ...state,
         connect: false,
@@ -63,6 +75,7 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         openConnect: true,
+        openSubscribe: false,
       };
     case CHECK_REMEMBER:
       return {
@@ -73,6 +86,16 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         openConnect: false,
+      };
+    case OPEN_MODAL_SUB:
+      return {
+        ...state,
+        openSubscribe: true,
+      };
+    case CLOSE_MODAL_SUB:
+      return {
+        ...state,
+        openSubscribe: false,
       };
     case RECEIVED_SUBSCRIBE:
       return {
@@ -92,8 +115,31 @@ const navbarreducer = (state = initialState, action = {}) => {
         [name]: value,
       };
     case RECEIVED_DISCONNECT:
+      // sessionStorage.setItem('disconnect', true);
       return {
         initialState,
+      };
+    case CHANGE_INPUT_SEARCH:
+      return {
+        ...state,
+        inputSearch: action.value,
+      };
+    case RECEIVED_SEARCH:
+      return {
+        ...state,
+        searchList: action.list,
+        loadSearch: false,
+      };
+    case LOAD_SEARCH:
+      return {
+        ...state,
+        loadSearch: true,
+        redirectSearch: true,
+      };
+    case CANCEL_REDIRECT:
+      return {
+        ...state,
+        redirectSearch: false,
       };
     default:
       return state;
@@ -128,6 +174,14 @@ export const openModalConnect = () => ({
 
 export const closeModal = () => ({
   type: CLOSE_MODAL,
+});
+
+export const openModSub = () => ({
+  type: OPEN_MODAL_SUB,
+});
+
+export const closeModSub = () => ({
+  type: CLOSE_MODAL_SUB,
 });
 
 export const subscribeUser = () => ({
@@ -165,6 +219,28 @@ export const receivedDisconnect = () => ({
 
 export const disconnectUser = () => ({
   type: DISCONNECT,
+});
+
+export const changeInput = value => ({
+  type: CHANGE_INPUT_SEARCH,
+  value,
+});
+
+export const submitSearch = () => ({
+  type: SUBMIT_SEARCH,
+});
+
+export const receivedSubmit = list => ({
+  type: RECEIVED_SEARCH,
+  list,
+});
+
+export const loadSearch = () => ({
+  type: LOAD_SEARCH,
+});
+
+export const cancelRedirect = () => ({
+  type: CANCEL_REDIRECT,
 });
 
 export default navbarreducer;

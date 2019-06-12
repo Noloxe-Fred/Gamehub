@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
 import './carouselAlice.scss';
 
+import AddGame from 'src/containers/User/addgameContainer';
+
 const CarouselAlice = ({ gameList }) => {
   const handleOnDragStart = e => e.preventDefault();
 
@@ -32,6 +34,7 @@ const CarouselAlice = ({ gameList }) => {
         <div id={slicedList[0].id} className="slider">
           {slicedList.map(game => (
             <div id={game.id} className="uneImage">
+              <AddGame gameId={game.id} />
               <Link to={`/game/${game.id}`}>
                 <img src={game.cover} onDragStart={handleOnDragStart} className="images" />
               </Link>

@@ -16,9 +16,10 @@ const addGameMiddleware = store => next => (action) => {
       const { gameId } = action;
       const user = localStorage.getItem('user');
       // requete axios avec token (localstorage)
-      axios.get('http://api.gamehub.com/api/user/game/info_verify', {
+      axios.post('http://api.gamehub.com/api/game/state', {
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + user,
         },
         game: {
           id: gameId,

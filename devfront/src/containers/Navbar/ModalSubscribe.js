@@ -5,6 +5,8 @@ import {
   setInput, 
   subscribeUser,
   closeModal,
+  openModSub,
+  closeModSub,
 } from 'src/store/reducers/navbarreducer';
 
 const mapStateToProps = state => ({
@@ -13,6 +15,7 @@ const mapStateToProps = state => ({
   subpassword: state.navbarreducer.subpassword,
   subconfirmpassword: state.navbarreducer.subconfirmpassword,
   confirmSubscribe: state.navbarreducer.confirmSubscribe,
+  openSubscribe: state.navbarreducer.openSubscribe,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -24,6 +27,12 @@ const mapDispatchToProps = dispatch => ({
   },
   closeModal: () => {
     dispatch(closeModal());
+  },
+  openModSub: () => {
+    dispatch(openModSub());
+  },
+  closeModSub: () => {
+    dispatch(closeModSub());
   },
 });
 

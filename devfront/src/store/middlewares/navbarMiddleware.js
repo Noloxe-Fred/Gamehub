@@ -5,11 +5,15 @@ import {
   SUBSCRIBE,
   CONNECT_SAVED_USER,
   DISCONNECT,
+  SUBMIT_SEARCH,
   receivedSubscribe,
   receivedConnect,
   loadingConnection,
   receivedDisconnect,
   errorConnect,
+  receivedSubmit,
+  loadSearch,
+  redirectSearchPage,
 } from 'src/store/reducers/navbarreducer';
 
 const navbarMiddleware = store => next => (action) => {
@@ -93,6 +97,26 @@ const navbarMiddleware = store => next => (action) => {
     case DISCONNECT:
       localStorage.clear();
       store.dispatch(receivedDisconnect());
+      break;
+    case SUBMIT_SEARCH:
+      store.dispatch(loadSearch());
+      const name = store.getState().navbarreducer.inputSearch;
+
+      axios.post('http://api.gamehub.com/api/game/search', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        name,
+      })
+        .then((response) => {
+          console.log('Reponse Submit Search', response);
+
+          store.dispatch(receivedSubmit(response.data));
+        })
+        .catch((error) => {
+          console.log('Erreur Submit Search', error);
+          // store.dispatch();
+        });
       break;
     default:
       next(action);
