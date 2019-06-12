@@ -41,14 +41,12 @@ class AddGame extends Component {
       textAlign: 'center',
     };
 
-    console.log('addgame connect', connect);
-
     return (
       <div className="plus">
         {loadVerify && <Loader active />}
         {alreadyHave && <i class="fas fa-gamepad" />}
         {!alreadyHave && !loadVerify && (
-          <Popup trigger={<i class="fas fa-plus-circle" />} flowing hoverable inverted style={stylePopup}>
+          <Popup trigger={<i className="fas fa-plus-circle" />} flowing hoverable inverted style={stylePopup}>
           {!connect && <div>Veuillez {<ModalConnect text="vous connecter" />} pour ajouter ce jeu à votre collection</div>} 
           {connect && (
               <div>

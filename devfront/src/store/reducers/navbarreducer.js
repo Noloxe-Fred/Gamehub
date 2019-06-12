@@ -115,6 +115,7 @@ const navbarreducer = (state = initialState, action = {}) => {
         [name]: value,
       };
     case RECEIVED_DISCONNECT:
+      // sessionStorage.setItem('disconnect', true);
       return {
         initialState,
       };
