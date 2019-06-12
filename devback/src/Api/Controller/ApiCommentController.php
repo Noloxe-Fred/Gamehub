@@ -8,14 +8,15 @@ use App\Repository\GameRepository;
 use App\Repository\UserRepository;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations as Rest;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ApiCommentController extends FOSRestController
 {
@@ -24,20 +25,24 @@ class ApiCommentController extends FOSRestController
      * @Rest\Post(path = "comment/new", name="comment_new")
      * @ParamConverter("comment", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "create"}})
      */
-    public function newCommentAction(Comment $comment, CommentRepository $commentRepository, UserRepository $userRepository, GameRepository $gameRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations)
+    public function newCommentAction(Comment $comment, TokenStorageInterface $storage, CommentRepository $commentRepository, UserRepository $userRepository, GameRepository $gameRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations)
     {   
         if(count($violations)){
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
 
-        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+
+        $user = $storage->getToken()->getUser();
+
+        // $user = $userRepository->findOneById($request->request->get('user', 'id'));
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
         if($commentRepository->findOneByUser($user) != null && $commentRepository->findOneByGame($game) != null){
 
             return $this->view('', Response::HTTP_FORBIDDEN);
         }
+
 
         $comment = new Comment();
         $comment->setUser($user);
