@@ -14,6 +14,9 @@ const initialState = {
   subpassword: '',
   subconfirmpassword: '',
   confirmSubscribe: 'noSubscribtion',
+  inputSearch: '',
+  searchList: [],
+  loadSearch: true,
 };
 
 // Action Type
@@ -38,6 +41,12 @@ export const SUBSCRIBE = 'SUBSCRIBE';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 const SET_INPUT = 'SET_INPUT';
 
+const CHANGE_INPUT_SEARCH = 'CHANGE_INPUT_SEARCH';
+export const SUBMIT_SEARCH = 'SUBMIT_SEARCH';
+const RECEIVED_SEARCH = 'RECEIVED_SEARCH';
+const LOAD_SEARCH = 'LOAD_SEARCH';
+const CANCEL_REDIRECT = 'CANCEL_REDIRECT';
+
 // Reducer
 const navbarreducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -45,7 +54,7 @@ const navbarreducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loadingConnect: true,
-      }
+      };
     case RECEIVED_CONNECT:
       return {
         ...state,
@@ -107,6 +116,28 @@ const navbarreducer = (state = initialState, action = {}) => {
     case RECEIVED_DISCONNECT:
       return {
         initialState,
+      };
+    case CHANGE_INPUT_SEARCH:
+      return {
+        ...state,
+        inputSearch: action.value,
+      };
+    case RECEIVED_SEARCH:
+      return {
+        ...state,
+        searchList: action.list,
+        loadSearch: false,
+        redirectSearch: true,
+      };
+    case LOAD_SEARCH:
+      return {
+        ...state,
+        loadSearch: true,
+      };
+    case CANCEL_REDIRECT:
+      return {
+        ...state,
+        redirectSearch: false,
       };
     default:
       return state;
@@ -186,6 +217,28 @@ export const receivedDisconnect = () => ({
 
 export const disconnectUser = () => ({
   type: DISCONNECT,
+});
+
+export const changeInput = value => ({
+  type: CHANGE_INPUT_SEARCH,
+  value,
+});
+
+export const submitSearch = () => ({
+  type: SUBMIT_SEARCH,
+});
+
+export const receivedSubmit = list => ({
+  type: RECEIVED_SEARCH,
+  list,
+});
+
+export const loadSearch = () => ({
+  type: LOAD_SEARCH,
+});
+
+export const cancelRedirect = () => ({
+  type: CANCEL_REDIRECT,
 });
 
 export default navbarreducer;

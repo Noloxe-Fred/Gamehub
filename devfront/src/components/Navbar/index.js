@@ -5,9 +5,16 @@ import { Icon, Input, Transition, } from 'semantic-ui-react';
 
 import ModalConnect from 'src/containers/Navbar/ModalConnect';
 import ModalSubscribe from 'src/containers/Navbar/ModalSubscribe';
+import SearchBar from 'src/containers/SearchBarContainer';
 import './navbar.scss';
 
-const Navbar = ({ connect, disconnectUser, displayInput }) => (
+const Navbar = ({ connect, disconnectUser, displayInput, searchValue, changeInputSearch }) => {
+
+  const handleChange = (evt) => {
+    changeInputSearch(evt.target.value);
+  };
+
+  return (
   <nav>
     <div className="logo">
       <NavLink to="/"><h2>G<i className="fas fa-headset"></i>MEHUB</h2></NavLink>
@@ -15,11 +22,7 @@ const Navbar = ({ connect, disconnectUser, displayInput }) => (
     <div className="menu">
       <Transition.Group animation="slide up" duration='500'>
         { displayInput && (
-          <Input
-            icon={<Icon name="search" link color="blue" />} 
-            placeholder="Rechercher un jeu"
-            className="searchBarNav"
-          />
+          <SearchBar />
         )}
       </Transition.Group>   
       <NavLink to="advancedsearch" className="advancedSearch">Recherche avancée...</NavLink>
@@ -36,7 +39,7 @@ const Navbar = ({ connect, disconnectUser, displayInput }) => (
         : <Disconnect />}
     </div>
   </nav>
-);
+)};
 
 const Disconnect = () => (
   <div className="nav-connect">

@@ -1,19 +1,22 @@
 import { connect } from 'react-redux';
-import SearchBar from 'src/components/Home/Banner/SearchBar';
+import SearchBar from 'src/Library/FullComponent/SearchBar';
 
-import { displayInputInNavbar } from 'src/store/reducers/homeReducer';
+import { changeInput, submitSearch } from 'src/store/reducers/navbarreducer';
 
 const mapStateToProps = state => ({
-  displayInput: state.homeReducer.displayInput,
+  inputValue: state.navbarreducer.inputSearch,
 });
 
 const mapDispatchToProps = dispatch => ({
-  display: (bool) => {
-    dispatch(displayInputInNavbar(bool));
+  changeInput: (value) => {
+    dispatch(changeInput(value));
+  },
+  submitSearch: () => {
+    dispatch(submitSearch());
   },
 });
 
-// L'FirstCarouselel à connect nous renvoie une nouvelle fonction
+// L'SearchBarel à connect nous renvoie une nouvelle fonction
 const composantAEnrichir = connect(mapStateToProps, mapDispatchToProps);
 // Cette nouvelle fonction attend qu'on lui donne un composant à enrichir
 const SearchBarContainer = composantAEnrichir(SearchBar);
