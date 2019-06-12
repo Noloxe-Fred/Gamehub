@@ -33,6 +33,7 @@ class MainList extends Component {
             <Grid doubling columns={2}>
               <Grid.Row columns={1}>
                 <Grid.Column>
+                  <Link to={"/game/"+displayList[0].id}>
                     <Card className="mainCard">
                       <AddGame gameid={displayList[0].id} />
                       <img src={displayList[0].illustration} alt={displayList[0].name}/>
@@ -43,6 +44,7 @@ class MainList extends Component {
                         </Card.Description>
                       </Card.Content>
                     </Card>
+                  </Link>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2}>

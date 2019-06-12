@@ -15,18 +15,18 @@ class Navbar extends Component {
 
   render() {
     const { connect, disconnectUser, displayInput } = this.props;
-
+    console.log('Navbar', displayInput)
     return (
       <nav>
         <div className="logo">
           <NavLink to="/"><h2>G<i className="fas fa-headset"></i>MEHUB</h2></NavLink>
         </div>
-        <div className="menu">
-          <Transition.Group animation="slide up" duration='500'>
-            { displayInput && (
-              <SearchBar />
+        { displayInput && (
+          <Transition.Group animation="slide up" duration="500">
+            <div id="nav--search"><SearchBar /></div>
+          </Transition.Group>
             )}
-          </Transition.Group>   
+        <div className="menu">
           <NavLink to="advancedsearch" className="advancedSearch">Recherche avancée...</NavLink>
           {connect
             ? (

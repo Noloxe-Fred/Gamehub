@@ -16,6 +16,12 @@ nav {
     font-family: 'Open Sans', sans-serif;
     color: $text-color;
   }
+  #nav--search {
+    position: absolute;
+    width: 100vw;
+    text-align: center;
+    z-index: -1;
+  }
   .logo {
     margin: 0 2em;
     i{

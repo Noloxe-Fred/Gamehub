@@ -32,6 +32,7 @@ class App extends Component {
     return (
       <div id="app">
         {this.props.redirectSearch && <Redirect to="/search" />}
+        {/* {sessionStorage.getItem('disconnect') && <Redirect to="/" />} */}
         <Navbar />
         <Switch>
           <Route
