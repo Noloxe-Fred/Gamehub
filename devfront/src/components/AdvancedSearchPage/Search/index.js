@@ -8,7 +8,15 @@ class Search extends React.Component {
 
   componentDidMount() {
     this.props.requestCategories();
+
   }
+
+  handleClick = categoryName => () => {
+    const { checkedCategories, requestByCategories } = this.props;
+    console.log(categoryName);
+    checkedCategories(categoryName);
+    requestByCategories();
+  };
 
   render() {
     const { loading, categoriesDatas } = this.props;
@@ -20,30 +28,30 @@ class Search extends React.Component {
     return (
       <Grid className="grid--advanced--search">
         <Grid.Row columns={3} divided>
-          {loading && <div>PROUUUUUUT</div>}
+          {loading && <div>Chargement</div>}
           {!loading && (
             <React.Fragment>
-              <Grid.Column as="div" mobile={16} tablet={16} computer={8} className="left--part">
+              <Grid.Column as="div" mobile={16} tablet={16} computer={16} className="left--part">
                 <div className="column--left--style">
                   {
-                    types.map((type, id) => {
+                    types.map((type) => {
                     return (
-                      <div className="one--checkbox">
-                        <input type="checkbox" key={id} />
+                      <div key={type.id} className="one--checkbox">
+                        <input type="checkbox" onClick={this.handleClick(type.name)}/>
                         {type.name}
                       </div>  
                     )})
                   }
                 </div>
               </Grid.Column>  
-              <Grid.Column as="div" mobile={16} tablet={16} computer={8}>
+              <Grid.Column as="div" mobile={16} tablet={16} computer={16}>
                 <Grid.Row className="row--players">
                   <div className="column--central--style">
                     {
-                      players.map((player, id) => {
+                      players.map((player) => {
                       return (
-                        <div className="one--central--button">
-                          <button key={id}>{player.name}</button>
+                        <div key={player.id} className="one--central--button">
+                          <button onClick={this.handleClick(player.name)} classname="btn">{player.name}</button>
                         </div>
                       )})
                     }
@@ -52,10 +60,10 @@ class Search extends React.Component {
                 <Grid.Row>
                   <div className="column--right--style">
                     {
-                      tags.map((tag, id) => {
+                      tags.map((tag) => {
                       return (
-                        <div className="one--right--button">
-                          <button key={id}>{tag.name}</button>
+                        <div key={tag.id} className="one--right--button">
+                          <button onClick={this.handleClick(tag.name)} classname="btn">{tag.name}</button>
                         </div>
                       )})
                     }

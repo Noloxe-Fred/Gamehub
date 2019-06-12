@@ -4,6 +4,7 @@ const initialState = {
   loadingGames: true,
   categoriesDatas: [],
   gamesDatas: [],
+  checkedCategories: [],
 };
 
 // Action Type   3. Definition de la Const Load_Game
@@ -11,9 +12,12 @@ const LOAD_GAMES = 'LOAD_GAMES';
 export const REQUEST_GAMES = 'REQUEST_GAMES';
 const RECEIVED_GAMES = 'RECEIVED_GAMES';
 
+export const REQUEST_BY_CATEGORIES = 'REQUEST_BY_CATEGORIES';
+
 const LOAD_CATEGORIES = 'LOAD_CATEGORIES';
 export const REQUEST_CATEGORIES = 'REQUEST_CATEGORIES';
 const RECEIVED_CATEGORIES = 'RECEIVED_CATEGORIES';
+const CHECKED_CATEGORIES = 'CHECKED_CATEGORIES';
 
 
 const advancedSearchPageReducer = (state = initialState, action = {}) => {
@@ -39,6 +43,20 @@ const advancedSearchPageReducer = (state = initialState, action = {}) => {
         ...state,
         categoriesDatas: action.categoriesDatas,
         loadingCategories: false,
+        checkedCategories: action.eachCatFalse,
+      };
+    case CHECKED_CATEGORIES:
+      const newCategories = state.checkedCategories.map((category) => {
+        if (category.category == action.category) {
+          console.log('je rentre dans le if!!!!')
+          category.status = !category.status;
+          return category;
+        }
+        return category;
+      })
+      return {
+        ...state,
+        checkedCategories: newCategories,
       };
     default:
       return state;
@@ -62,9 +80,17 @@ export const receivedGames = gamesDatas => ({
 export const requestCategories = () => ({
   type: REQUEST_CATEGORIES,
 });
-export const receivedCategories = categoriesDatas => ({
+export const receivedCategories = (categoriesDatas, eachCatFalse) => ({
   type: RECEIVED_CATEGORIES,
   categoriesDatas,
+  eachCatFalse,
+});
+export const requestByCategories = () => ({
+  type: REQUEST_BY_CATEGORIES,
+});
+export const checkedCategories = category => ({
+  type: CHECKED_CATEGORIES,
+  category,
 });
 
 export default advancedSearchPageReducer;

@@ -16,6 +16,7 @@
   flex-flow: wrap;
   text-align: left;
   padding-left: 2em;
+  margin-left: 1em;
   .one--checkbox {
     width: 150px;
     padding-bottom: 1em;
@@ -40,8 +41,9 @@
 .column--right--style {
   display: flex;
   flex-flow: wrap;
-  justify-content: center;
-  margin-top: 2em;
+  justify-content: flex-start;
+  margin-top: 1em;
+  margin-left: 1em;
   button {
     margin: 0 1em;
     margin-bottom: 1em;
@@ -53,8 +55,8 @@
 
 .row--players {
   display: flex;
-  justify-content: center;
-  border-bottom: 1px solid lightgray;
+  justify-content: flex-start;
   padding-bottom: 2em;
   margin-top: 1em;
+  margin-left: 1em;
 }
