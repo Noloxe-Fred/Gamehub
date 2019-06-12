@@ -6,7 +6,7 @@ import '@babel/polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 /**
  * Local import
@@ -18,9 +18,9 @@ import store from 'src/store';
  */
 const rootComponent = (
   <Provider store={store}>
-    <Router>
+    <HashRouter>
       <App />
-    </Router>
+    </HashRouter>
   </Provider>
 );
 
