@@ -9,6 +9,7 @@ const mapStateToProps = state => ({
   available: state.addGameReducer.available,
   loadSubmit: state.addGameReducer.loadSubmit,
   receivedSubmit: state.addGameReducer.receivedSubmit,
+  connect: state.navbarreducer.connect,
 });
 
 const mapDispatchToProps = dispatch => ({

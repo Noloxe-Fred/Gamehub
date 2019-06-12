@@ -6,6 +6,14 @@ $color-text: #fffdd8;
 
 #gamepage {
   height: 100vh;
+  .fa-plus-circle {
+    margin-bottom: 1em;
+    text-align: center;
+    animation: shadowFloat 1.2s linear alternate infinite;
+    border-radius: 50px;
+    color: #fffdd8;
+    font-size: 1.3em;
+  }
 }
 
 .first {

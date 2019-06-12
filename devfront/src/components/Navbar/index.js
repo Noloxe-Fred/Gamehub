@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Redirect } from 'react-router-dom';
-import { Icon, Input, Transition, } from 'semantic-ui-react';
+import { Icon, Input, Transition } from 'semantic-ui-react';
 
 import ModalConnect from 'src/containers/Navbar/ModalConnect';
 import ModalSubscribe from 'src/containers/Navbar/ModalSubscribe';

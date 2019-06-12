@@ -36,7 +36,7 @@ class ModalConnect extends Component {
       text, 
       openConnect,
       loadingConnect,
-      errorMessage
+      errorMessage,
     } = this.props;
 
     return (
@@ -49,7 +49,7 @@ class ModalConnect extends Component {
               <Form.Field>
                 <label>Votre email</label>
                 <input 
-                  placeholder='emil...'
+                  placeholder='email...'
                   name='connectPseudo'
                   onChange= {this.handleChange}
                   value= {connectPseudo}
