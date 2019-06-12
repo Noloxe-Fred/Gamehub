@@ -58,7 +58,7 @@ const homeMiddleware = store => next => (action) => {
         });
 
       // requete test local
-      //store.dispatch(receivedLastReleased(gameList));
+      // store.dispatch(receivedLastReleased(gameList));
 
       break;
     case REQUEST_RANDOM:
