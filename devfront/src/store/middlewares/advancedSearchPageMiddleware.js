@@ -15,7 +15,7 @@ const advancedSearchPageMiddleware = store => next => (action) => {
       })
         .then((response) => {
           console.log('request categories', response.data);
-          const categoriesDatas = response.data;
+          const categoriesDatas = response.data;        
           store.dispatch(receivedCategories(categoriesDatas));
         })
         .catch((error) => {

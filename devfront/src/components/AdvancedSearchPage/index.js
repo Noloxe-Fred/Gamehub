@@ -10,7 +10,7 @@ const AdvancedSearchPage = gamesDatas => (
   <div id="advanced--search">
     <h2 id="titre">Recherche avancée</h2>
     <Search />
-    <List result={gamesDatas} />
+    {/* <List result={gamesDatas} /> */}
   </div>
 );
 
