@@ -4,7 +4,8 @@ import AdvancedSearchPage from 'src/components/AdvancedSearchPage';
 import { requestGames } from 'src/store/reducers/advancedSearchPageReducer';
 
 const mapStateToProps = state => ({
-  gamesDatas: state.homeReducer.gamesDatas,
+  gamesDatas: state.advancedSearchPageReducer.gamesDatas,
+  loading: state.advancedSearchPageReducer.loadingGames,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,6 +17,6 @@ const mapDispatchToProps = dispatch => ({
 // L'MainListel à connect nous renvoie une nouvelle fonction
 const composantAEnrichir = connect(mapStateToProps, mapDispatchToProps);
 // Cette nouvelle fonction attend qu'on lui donne un composant à enrichir
-const AdvancedSearchContainer = composantAEnrichir(AdvancedSearchPage);
+const AdvancedSearchPageContainer = composantAEnrichir(AdvancedSearchPage);
 
-export default AdvancedSearchContainer;
+export default AdvancedSearchPageContainer;

@@ -9,8 +9,12 @@ import Navbar from 'src/containers/Navbar/Navbar';
 import Home from 'src/components/Home';
 import GamePage from 'src/containers/GamePage/gamePageContainer';
 import Collection from 'src/containers/User/CollectionContainer';
+
+import AdvancedSearchPage from 'src/containers/AdvancedSearchPage';
+
 import SearchResult from 'src/containers/searchResultContainer';
-import AdvancedSearchPage from 'src/components/AdvancedSearchPage';
+
+
 import Page404 from 'src/components/Page404';
 
 // == Composant

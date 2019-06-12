@@ -3,3 +3,29 @@
   font-size: 35px;
   margin-top: 2em !important;
 }
+
+.partie--gauche {
+  height: 100vh;
+  z-index: 1;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  border-right: 1px solid black;
+}
+
+.partie--droite {
+  height: 1600px;
+  margin-left: 30%;
+}
+
+@media screen and (max-width: 600px) {
+  .partie--droite {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .partie--droite {
+    margin-left: 0;
+  }
+}

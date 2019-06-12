@@ -1,16 +1,25 @@
 import { connect } from 'react-redux';
 import Search from 'src/components/AdvancedSearchPage/Search';
 
-import { requestCategories } from 'src/store/reducers/advancedSearchPageReducer';
+import { requestCategories, requestGames, checkedCategories, requestByCategories } from 'src/store/reducers/advancedSearchPageReducer';
 
 const mapStateToProps = state => ({
-  categoriesDatas: state.homeReducer.categoriesDatas,
-  loading: state.homeReducer.loadingCategories,
+  categoriesDatas: state.advancedSearchPageReducer.categoriesDatas,
+  loading: state.advancedSearchPageReducer.loadingCategories,
 });
 
 const mapDispatchToProps = dispatch => ({
   requestCategories: () => {
     dispatch(requestCategories());
+  },
+  requestGames: () => {
+    dispatch(requestGames());
+  },
+  checkedCategories: (category) => {
+    dispatch(checkedCategories(category));
+  },
+  requestByCategories: () => {
+    dispatch(requestByCategories());
   },
 });
 
