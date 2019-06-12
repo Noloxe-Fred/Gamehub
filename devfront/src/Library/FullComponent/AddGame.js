@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types';
-import { Icon, Header, Popup, Grid, Loader, Button } from 'semantic-ui-react';
+import { Icon, Header, Popup, Grid, Loader } from 'semantic-ui-react';
 
 import './addgame.scss';
 import { verifyHave } from '../../store/reducers/addGameReducer';

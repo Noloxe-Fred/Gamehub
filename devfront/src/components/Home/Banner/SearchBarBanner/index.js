@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Icon, Input } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
+import SearchBar from 'src/containers/SearchBarContainer';
 import './searchBar.scss';
 
-class SearchBar extends Component {
+class SearchBarBanner extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
     this.props.display(false);
@@ -25,10 +25,10 @@ class SearchBar extends Component {
     // const TwitterButton = document.getElementById('twitter-button');
     // Je récupère toutes les infos de taille et de position
     // du bouton twitter
-    const bannerInput = document.getElementById('inputbanner');
+    const bannerInput = document.querySelector('.searchBar');
     const boundingClientRect = bannerInput.getBoundingClientRect();
     const positionTop = boundingClientRect.top;
-    //console.log(positionTop);
+    // console.log(positionTop);
     // Si jamais la distance qui sépare le haut de ma fenetre du bouton
     // est plus petite que la distance entre le haut et le bas de ma fenetre
     // (plus une marge de sécurité de 300 px)
@@ -46,21 +46,13 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <Input
-        // ref={(laReferenceAMonElementDansLeDom) => {
-        //   this.bannerInput = laReferenceAMonElementDansLeDom;
-        // }}
-        id="inputbanner"
-        icon={<Icon name='search' link color="blue" />} 
-        placeholder="Rechercher un jeu" 
-        className="searchBar"
-      />
+      <SearchBar />
     );
   }
 }
 
-SearchBar.propTypes = {
+SearchBarBanner.propTypes = {
   display: PropTypes.func.isRequired,
   displayInput: PropTypes.bool.isRequired,
 };
-export default SearchBar;
+export default SearchBarBanner;
