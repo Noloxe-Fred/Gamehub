@@ -50,7 +50,6 @@ class CategoryRepository extends ServiceEntityRepository
             ->join('c.games', 'g')
             ->andWhere('c.name LIKE :name'.$key)
             ->setParameter('name'.$key, '%'.$name.'%')
-            ->addGroupBy('c.id')
             ->getQuery()
             ->getResult();
 
