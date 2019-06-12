@@ -17,6 +17,7 @@ const initialState = {
   inputSearch: '',
   searchList: [],
   loadSearch: true,
+  redirectSearch: false,
 };
 
 // Action Type
@@ -127,12 +128,12 @@ const navbarreducer = (state = initialState, action = {}) => {
         ...state,
         searchList: action.list,
         loadSearch: false,
-        redirectSearch: true,
       };
     case LOAD_SEARCH:
       return {
         ...state,
         loadSearch: true,
+        redirectSearch: true,
       };
     case CANCEL_REDIRECT:
       return {

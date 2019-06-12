@@ -100,7 +100,7 @@ const navbarMiddleware = store => next => (action) => {
       break;
     case SUBMIT_SEARCH:
       store.dispatch(loadSearch());
-      const name = store.getState().navbarreducer.inputSearch.split(' ');
+      const name = store.getState().navbarreducer.inputSearch;
 
       axios.post('http://api.gamehub.com/api/game/search', {
         headers: {

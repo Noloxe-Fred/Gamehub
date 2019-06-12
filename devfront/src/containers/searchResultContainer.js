@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import SearchResult from 'src/component/SearchResult';
+import SearchResult from 'src/components/SearchResult';
 
 import { cancelRedirect } from 'src/store/reducers/navbarreducer';
 
 const mapStateToProps = state => ({
   searchList: state.navbarreducer.searchList,
+  loadSearch: state.navbarreducer.loadSearch,
 });
 
 const mapDispatchToProps = dispatch => ({

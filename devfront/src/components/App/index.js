@@ -1,7 +1,7 @@
 // == Import : npm
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
@@ -9,6 +9,7 @@ import Navbar from 'src/containers/Navbar/Navbar';
 import Home from 'src/components/Home';
 import GamePage from 'src/containers/GamePage/gamePageContainer';
 import Collection from 'src/containers/User/CollectionContainer';
+import SearchResult from 'src/containers/searchResultContainer';
 import Page404 from 'src/components/Page404';
 
 // == Composant
@@ -29,6 +30,7 @@ class App extends Component {
   render() {
     return (
       <div id="app">
+        {this.props.redirectSearch && <Redirect to="/search" />}
         <Navbar />
         <Switch>
           <Route
@@ -40,9 +42,13 @@ class App extends Component {
             path="/game/:id"
             component={GamePage}
           />
-          <Route 
+          <Route
             path="/collection"
             component={Collection}
+          />
+          <Route
+            path="/search"
+            component={SearchResult}
           />
           <Route
             component={Page404}

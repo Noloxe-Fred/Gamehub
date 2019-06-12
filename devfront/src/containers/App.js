@@ -5,6 +5,7 @@ import { connectSavedUser, disconnectUser } from 'src/store/reducers/navbarreduc
 
 const mapStateToProps = state => ({
   connect: state.navbarreducer.connect,
+  redirectSearch: state.navbarreducer.redirectSearch,
 });
 
 const mapDispatchToProps = dispatch => ({
