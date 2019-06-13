@@ -83,10 +83,9 @@ class ModalConnect extends Component {
         </Modal.Content>
         
       </Modal>
-      
-    );
-    
+    ); 
   }
+}
 
 
 ModalConnect.propTypes = {
