@@ -38,24 +38,4 @@ class CategoryRepository extends ServiceEntityRepository
     //     ->getResult();
     //     return $qb;
     // }
-
-    public function findGamesByCategory($array){
-
-        $string = implode(' ', $array);
-        $categories = explode('%', (wordwrap($string, 1, "%", false)));
-
-        foreach($categories as $key => $name){
-
-            $qb = $this->createQueryBuilder('c')
-            ->join('c.games', 'g')
-            ->andWhere('c.name LIKE :name'.$key)
-            ->setParameter('name'.$key, '%'.$name.'%')
-            ->getQuery()
-            ->getResult();
-
-            $games[] = $qb;
-        }
-
-        return $games;
-    }
 }

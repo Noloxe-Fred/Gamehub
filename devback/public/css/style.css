@@ -1,0 +1,40 @@
+/* Général */
+
+body {
+   display: flex;
+   justify-content: center;
+   font-family: 'Open Sans', sans-serif;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    background-color: #2C3E50;
+}
+
+header h1 {
+    margin-left: 15px;
+    font-size: 1.3em;
+}
+
+header nav {
+
+}
+
+header a {
+    color: #ffffff;
+}
+
+header a:hover {
+    color: #cecece;
+    text-decoration: none;
+}
+
+/* Wrapper */
+
+#wrapper {
+
+}

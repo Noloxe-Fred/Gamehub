@@ -2,6 +2,7 @@
 
 namespace App\Api\Controller;
 
+use App\Repository\GameRepository;
 use App\Repository\CategoryRepository;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -15,12 +16,12 @@ class ApiCategoryController extends FOSRestController
     /**
      * @Rest\Post(path = "category/search ", name = "category_search")
      */
-    public function getGamesByCategoryAction(CategoryRepository $categoryRepository, Request $request, SerializerInterface $serializer)
+    public function getGamesByCategoryAction(GameRepository $gameRepository, Request $request, SerializerInterface $serializer)
     {   
     
-        $categories = $request->request->get('name');
+        $categories = $request->request->get('id');
 
-        $games = $categoryRepository->findGamesByCategory($categories);
+        $games = $gameRepository->filterGamesByCategory($categories);
 
         $gamesByCategory = $serializer->serialize($games, 'json', [
             'groups' => 'category_games',
