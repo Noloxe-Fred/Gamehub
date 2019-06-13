@@ -9,12 +9,13 @@ import {
   receivedSubmit,
 } from 'src/store/reducers/addGameReducer';
 
+const user = localStorage.getItem('user');
+
 const addGameMiddleware = store => next => (action) => {
   switch (action.type) {
     case VERIFY_HAVE:
       store.dispatch(loadVerify());
       const { gameId } = action;
-      const user = localStorage.getItem('user');
       // requete axios avec token (localstorage)
       axios.post('http://api.gamehub.com/api/game/state', {
         headers: {
@@ -44,6 +45,7 @@ const addGameMiddleware = store => next => (action) => {
       axios.post('http://api.gamehub.com/api/game/state/add', {
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + user,
         },
         game: {
           id: gameId,

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { 
+import {
   CONNECT,
   SUBSCRIBE,
   CONNECT_SAVED_USER,
@@ -13,7 +13,6 @@ import {
   errorConnect,
   receivedSubmit,
   loadSearch,
-  redirectSearchPage,
 } from 'src/store/reducers/navbarreducer';
 
 const navbarMiddleware = store => next => (action) => {

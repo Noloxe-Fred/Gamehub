@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Form, Icon } from 'semantic-ui-react'
+import { Input, Form, Icon } from 'semantic-ui-react';
 
 const SearchBar = ({ inputValue, changeInput, submitSearch }) => {
   

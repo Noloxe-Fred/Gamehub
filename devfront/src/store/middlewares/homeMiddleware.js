@@ -36,7 +36,7 @@ const homeMiddleware = store => next => (action) => {
         });
 
         // requete temporaire pour local
-        //store.dispatch(receivedComingSoon(gameList));
+        // store.dispatch(receivedComingSoon(gameList));
 
       break;
     case REQUEST_LAST_RELEASED:

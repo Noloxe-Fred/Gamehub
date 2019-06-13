@@ -22,12 +22,10 @@ class Navbar extends Component {
           <NavLink to="/"><h2>G<i className="fas fa-headset"></i>MEHUB</h2></NavLink>
         </div>
         { displayInput && (
-          <Transition.Group animation="slide up" duration="500">
             <div id="nav--search"><SearchBar /></div>
-          </Transition.Group>
             )}
         <div className="menu">
-          <NavLink to="advancedsearch" className="advancedSearch">Recherche avancée...</NavLink>
+          <NavLink to="/advancedsearch" className="advancedSearch">Recherche avancée...</NavLink>
           {connect
             ? (
               <div className="nav-connect">
