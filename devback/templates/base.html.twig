@@ -18,7 +18,7 @@
 
     <header>
 
-        <div><a href="#"><h1>G<i class="fas fa-headset"></i>MEHUB</h1></a></div>
+        {# <div><a href="#"><h1>G<i class="fas fa-headset"></i>MEHUB</h1></a></div> #}
 
         <nav class="nav">
             <a class="nav-link" href="#">Acceuil</a>
@@ -34,12 +34,87 @@
                     <a class="dropdown-item" href="#">Gestion des développeurs</a>
                 </div>
             </li>
-            <a class="nav-link" href="#">Retour sur GameHub</a>
+            <a class="nav-link" href="#">Retour sur G<i class="fas fa-headset"></i>MEHUB</a>
         </nav>
 
     </header>
 
     <div id="wrapper">
+
+        <div class="global-data">
+
+            <h5>Données globales:</h5>
+
+            <ul>
+                <li>Nombre d'utilisateurs: 5</li>
+                <li>Nombre de jeux: 12</li>
+                <li>Nombre de catégories: 5</li>
+                <li>Nombre de types: 5</li>
+                <li>Nombre de plateformes: 1</li>
+                <li>Nombre d'éditeurs: 8</li>
+                <li>Nombre de développeurs: 6</li>
+            </ul>
+
+        </div>
+
+        <div class="global">
+
+            <div class="left-user">
+    
+                <h5>Chercher un utilisateur</h5>
+    
+                <div class="global-content">
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Rechercher un utilisateur" aria-label="Rechercher un utilisateur" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="input-group-text" id="basic-addon2">Rechercher</button>
+                        </div>
+                    </div>
+    
+                    <div class="data-array">
+                    
+                    </div>
+        
+                    <button type="button" class="btn btn-warning btn-lg btn-block">Bloquer le/les utilisateur(s)</button>
+                    <button type="button" class="btn btn-danger btn-lg btn-block">Supprimer le/les utilisateur(s)</button>
+
+                </div>
+            
+            </div>
+    
+            <div class="right-game">
+    
+                <h5>Chercher un jeu</h5>
+    
+                <div class="global-content">
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Rechercher un jeu" aria-label="Rechercher un jeu" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="input-group-text" id="basic-addon2">Rechercher</button>
+                        </div>
+                    </div>
+    
+                    <div class="data-array">
+                    
+                    </div>
+
+                    <button type="button" class="btn btn-info btn-lg btn-block">Jeux par ordre alphabétique</button>
+                    <button type="button" class="btn btn-dark btn-lg btn-block">Jeux les plus récents</button>
+
+                </div>
+    
+            </div>
+
+        </div>
+
+        <div class="global-game">
+
+            <h5>Ajouter un jeu</h5>
+
+            
+        </div>
     
     </div>
 

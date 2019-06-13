@@ -23,10 +23,9 @@ class GameRepository extends ServiceEntityRepository
 
     public function filterGamesByCategory($array){
 
-        $int = implode(' ', $array);
-        $categories = explode('%', (wordwrap($int, 1, ",", false)));
+        $categories = implode(', ', $array);
 
-        $rawSql = "SELECT game.id, game.name, game.cover, game.score FROM game_category JOIN game ON game_category.game_id = game.id WHERE game_category.category_id IN (".$categories[0].") GROUP BY game.id HAVING count(*) = ".count($array)."";
+        $rawSql = "SELECT game.id, game.name, game.cover, game.score FROM game_category JOIN game ON game_category.game_id = game.id WHERE game_category.category_id IN (".$categories.") GROUP BY game.id HAVING count(*) = ".count($array)."";
         $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
                 
         $stmt->execute([]);
