@@ -1,30 +1,35 @@
 @import "react-alice-carousel/lib/scss/alice-carousel.scss";
 
 .images {
-  width: 10.6em;
+  width: 100%;
   height: 15em;
   object-fit: cover;
-  margin: 0 .5em;
+  // margin: 0 .5em;
 }
 
 .uneImage {
   position: relative;
+  width: 12em;
+  // width: 110%;
   p {
     font-family: 'Oswald', sans-serif;
-    position: absolute;
-    left: 1em;
-    bottom: 1em;
-    color: white;
     display: none;
   }
 }
 
 .uneImage:hover {
   p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
     display: block;
-  }
-  img {
-    filter: blur(2px);
+    background: #35495D;
+    // width: 11.4em;
+    width: 100%;
+    
+    color: white;
+  
   }
 }
 
@@ -33,6 +38,46 @@
   justify-content: center;
 }
 
+
+// css effect on card 
+
+.one--effect {
+  display: flex;
+  justify-content: center;
+  // border: 1px solid black;
+  // margin: .3em;
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale3d(0, 0, 1);
+    transition: transform .3s ease-out 0s;
+    background: rgba(255, 255, 255, .1);
+    content: '';
+    pointer-events: none;
+  }
+
+  &::before {
+    transform-origin: left top;
+  }
+
+  &::after {
+    transform-origin: right bottom;
+  }
+
+  &:hover,
+  &:focus {
+    &::before,
+    &::after {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}
+
+// Media Queries
 
 @media screen and (max-width: 576px) {
   .images {
