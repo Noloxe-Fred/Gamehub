@@ -74,7 +74,51 @@ nav {
   }
 }
 
+.drop {
+  display: none;
+}
+
+.ui.dropdown {
+  .icon {
+    color: white;
+    font-size: 1.5em;
+  }
+  .item {
+    a {
+      color: black !important;
+    }
+  }
+  .text {
+    -webkit-animation: none !important;
+    animation: none !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+  }
+  .content {
+    color: black !important;
+  }
+}
+
+
 @media screen and (max-width: 600px) {
+  .drop {
+    display: block;
+  }
+  .logo {
+    h2 {
+      display: none;
+    }
+  }
+  .logo--alone {
+    margin-left: 1em;
+    display: block;
+    text-decoration: none;
+    font-size: 2em;
+    a {
+      color: white !important;
+    }
+  }      
+
   .advancedSearch {
     display: none;
   }
@@ -85,4 +129,10 @@ nav {
     display: none;
   }
 } 
+
+@media screen and (min-width: 600px) {
+  .logo--alone {
+    display: none;
+  } 
+}
 
