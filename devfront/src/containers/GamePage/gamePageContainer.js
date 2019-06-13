@@ -2,11 +2,12 @@
 import { connect } from 'react-redux';
 import GamePage from 'src/components/GamePage';
 
-import { requestGame } from 'src/store/reducers/gamePageReducer';
+import { requestGame, resetError } from 'src/store/reducers/gamePageReducer';
 // 2. On parametre les const pour qu'elle prenne les infos du state (loading ) du gamePageReducer
 const mapStateToProps = state => ({
   loading: state.gamePageReducer.loading,
   background: state.gamePageReducer.background,
+  error: state.gamePageReducer.errorRequest,
 });
 
 // 3. Au montage du composant on transmet une information / actions au composant
@@ -17,6 +18,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     requestGame: () => {
       dispatch(requestGame(id));
+    },
+    resetError: () => {
+      dispatch(resetError());
     },
   };
 };

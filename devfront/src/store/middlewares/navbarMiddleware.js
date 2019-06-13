@@ -1,17 +1,20 @@
 import axios from 'axios';
 
-import { 
+import {
   CONNECT,
   SUBSCRIBE,
   CONNECT_SAVED_USER,
   DISCONNECT,
+  SUBMIT_SEARCH,
   receivedSubscribe,
   receivedConnect,
   loadingConnection,
   receivedDisconnect,
   errorConnect,
+  receivedSubmit,
+  loadSearch,
 } from 'src/store/reducers/navbarreducer';
- 
+
 const navbarMiddleware = store => next => (action) => {
   switch (action.type) {
     case CONNECT_SAVED_USER:
@@ -23,36 +26,37 @@ const navbarMiddleware = store => next => (action) => {
       // en attente de requete axios
       const email = store.getState().navbarreducer.connectPseudo;
       const password = store.getState().navbarreducer.connectPassword;
-      store.dispatch(receivedConnect());
-      // axios.post('http://api.gamehub.com/api/signin', {
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   username: email,
-      //   password: password
-      // })
-      //   .then((response) => {
-      //     console.log('Reponse Connexion', response);
-      //     localStorage.setItem('connect', true);
-      //     localStorage.setItem('remember', true); // if case cochée!
-      //     localStorage.setItem('user', response.data.token);
-      //     store.dispatch(receivedConnect());
-      //   })
-      //   .catch((error) => {
-      //     console.log('Erreur Connexion', error);
-      //     store.dispatch(errorConnect());
-      //   });
 
+
+      axios.post('http://api.gamehub.com/api/signin', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        username: email,
+        password,
+      })
+        .then((response) => {
+          console.log('Reponse Connexion', response);
+
+          const remember = store.getState().navbarreducer.checkRemember;
+          localStorage.setItem('connect', true);
+          localStorage.setItem('remember', remember); // if case cochée!
+          localStorage.setItem('user', response.data.token);
+
+          store.dispatch(receivedConnect());
+        })
+        .catch((error) => {
+          console.log('Erreur Connexion', error);
+          store.dispatch(errorConnect('Erreur Connexion'));
+        });
       break;
 
     case SUBSCRIBE:
       // requete axios: if subscribe ok =
-      store.dispatch(receivedSubscribe('subscribeOk'));
       const subemail = store.getState().navbarreducer.subemail;
       const subpseudo = store.getState().navbarreducer.subpseudo;
       const subpassword = store.getState().navbarreducer.subpassword;
       const subconfirmpassword = store.getState().navbarreducer.subconfirmpassword;
-      console.log(subpseudo);
 
       axios.post('http://api.gamehub.com/api/signup', {
         headers: {
@@ -66,8 +70,12 @@ const navbarMiddleware = store => next => (action) => {
         .then((response) => {
           console.log('Reponse Subscribe', response.data);
           const { email } = response.data;
-          store.dispatch(receivedSubscribe('subscribeOk', email));
-
+          if (response.data) {
+            store.dispatch(receivedSubscribe('subscribeOk', email));
+          }
+          else {
+            store.dispatch(receivedSubscribe('subscribeError', ''));
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -88,6 +96,26 @@ const navbarMiddleware = store => next => (action) => {
     case DISCONNECT:
       localStorage.clear();
       store.dispatch(receivedDisconnect());
+      break;
+    case SUBMIT_SEARCH:
+      store.dispatch(loadSearch());
+      const name = store.getState().navbarreducer.inputSearch;
+
+      axios.post('http://api.gamehub.com/api/game/search', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        name,
+      })
+        .then((response) => {
+          console.log('Reponse Submit Search', response);
+
+          store.dispatch(receivedSubmit(response.data));
+        })
+        .catch((error) => {
+          console.log('Erreur Submit Search', error);
+          // store.dispatch();
+        });
       break;
     default:
       next(action);

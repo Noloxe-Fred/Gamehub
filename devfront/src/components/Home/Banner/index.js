@@ -1,13 +1,13 @@
 import React from 'react';
 
-import SearchBar from './SearchBar';
+import SearchBarBanner from 'src/containers/Home/SearchBarBanner';
 import './banner.scss';
 
 const Banner = () => {
   return (
     <div>
       <div className="banniere" />
-      <SearchBar className="searchBar" />
+      <SearchBarBanner className="searchBar" />
     </div>
   );
 };

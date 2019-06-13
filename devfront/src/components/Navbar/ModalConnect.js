@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Header,
@@ -9,8 +10,7 @@ import {
   Divider,
 } from 'semantic-ui-react';
 
-// Icones Semantic UI React
-// https://react.semantic-ui.com/elements/icon/
+
 
 import './modalconnect.scss';
 
@@ -19,6 +19,10 @@ class ModalConnect extends Component {
   handleChange = (evt) => {
     const { value, name } = evt.target;
     this.props.changeInput(value, name);
+  };
+
+  handleCheck = (evt) => {
+    this.props.checkRemember();
   };
 
   openModalConnect = () => {
@@ -43,10 +47,9 @@ class ModalConnect extends Component {
       loadingConnect,
       errorMessage,
     } = this.props;
+
     return (
-      
       <Modal className="modalConnect" trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal} >
-        
         <Modal.Content>
           <Modal.Description>
             <Header>Se connecter</Header>
@@ -84,6 +87,19 @@ class ModalConnect extends Component {
     );
     
   }
+
+
+ModalConnect.propTypes = {
+  changeInput: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  connectPassword: PropTypes.string.isRequired,
+  connectPseudo: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  loadingConnect: PropTypes.bool.isRequired,
+  openConnect: PropTypes.bool.isRequired,
+  openModalConnect: PropTypes.func.isRequired,
+  submitForm: PropTypes.func.isRequired,
+  checkRemember: PropTypes.func.isRequired,
 };
 
 export default ModalConnect;

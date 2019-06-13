@@ -7,16 +7,16 @@
   margin: 0 .5em;
 }
 
-p {
-  font-family: 'Oswald', sans-serif;
-  position: absolute;
-  left: 1em;
-  bottom: 1em;
-  color: white;
-  display: none;
-}
 .uneImage {
   position: relative;
+  p {
+    font-family: 'Oswald', sans-serif;
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    color: white;
+    display: none;
+  }
 }
 
 .uneImage:hover {
@@ -34,3 +34,16 @@ p {
 }
 
 
+@media screen and (max-width: 576px) {
+  .images {
+    width: 4em;
+    height: 6em;
+  }
+  p {
+    font-size: .5em;
+    display: block;
+    color: black;
+    position: relative;
+    text-align: left;
+  }
+}

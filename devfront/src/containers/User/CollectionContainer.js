@@ -3,18 +3,30 @@ import Collection from 'src/components/User/Collection';
 
 import {
   request,
+  displayProfile,
+  displayFullList,
 } from 'src/store/reducers/userPagesReducer';
 
 const mapStateToProps = state => {
-  
-  return ({
-    listsDatas: state.userPagesReducer.listsDatas,
-  })
+  console.log(state)
+  return {
+    fullList: state.userPagesReducer.fullList,
+    listAdd: state.userPagesReducer.add,
+    listWant: state.userPagesReducer.want,
+    listWaiting: state.userPagesReducer.waiting,
+    displayedProfile: state.userPagesReducer.displayedProfile,
+  }
 };
 
 const mapDispatchToProps = dispatch => ({
-  request: () => {
-    dispatch(request());
+  request: (nameList) => {
+    dispatch(request(nameList));
+  },
+  displayProfile: () => {
+    dispatch(displayProfile());
+  },
+  displayFullList: (choice) => {
+    dispatch(displayFullList(choice));
   },
 });
 

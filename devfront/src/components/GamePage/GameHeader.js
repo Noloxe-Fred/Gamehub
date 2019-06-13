@@ -3,36 +3,40 @@ import PropTypes from 'prop-types';
 import './gamepage.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 
+import AddGame from 'src/containers/User/addgameContainer';
+
 const GameHeader = ({ datas }) => {
+  console.log('jeu',datas)
+  const {cover, name, score, categories, editor, developer, released, desc, id, website } = datas;
   return (
+    
     <Container className="container">
-      <Row>
-        <Col lg={4} sm={12} xs={12} className="d-flex align-items-start">
-          <div className="illustration">
-            <img src={datas.cover} alt="cover" />
-          </div>
-        </Col>
-        <Col lg={5} sm={12} xs={12} className="d-flex align-items-start">
-          <div className="title">
-            <div className="title--title">{datas.name}</div>
-            <div className="title--score">{datas.score}%</div>
-            <div className="title--editor">Éditeur : {datas.editor}</div>
-            <div className="title--developer">Développeur : {datas.developer}</div>
-            <div className="title--released">Date de sortie : {datas.released}</div>
-          </div>
-        </Col>
-        <Col lg={3} sm={12} xs={12} className="d-flex align-items-center justify-content-center">
-          <div className="categories">
-            <button type="button">{datas.categories[0].name}</button>
-            <button type="button">{datas.categories[1].name}</button>
-          </div>
-        </Col>
-      </Row>
-      <Row lg={12} sm={12} xs={12}>
-        <div className="description">
-          <div className="description--description">{datas.desc}</div>
-        </div>
-      </Row>
+      <div className="firstpart">
+        <Row>
+          <Col lg={5} sm={12} xs={12} className="start">
+            <div className="illustration">
+              <img src={cover} alt="cover" />
+            </div>
+          </Col>
+          <Col lg={7} sm={12} xs={12} className="d-flex align-items-start">
+            <div className="title">
+              <h2 className="title--title">{name}</h2>
+              {score && <div className="title--score">{score}%</div>} {!score && <div className="title--not-score">Pas de notes</div>}
+              <AddGame gameId={id} />
+              <div className="categories">
+                {categories.map(category => <button type="button">{category.name}</button>)}
+              </div>
+              <div className="title--editor">Éditeur : {editor[0].name}</div>
+              <div className="title--developer">Développeur : {developer[0].name}</div>
+              <div className="title--developer"><a href={website} target="blank">Site Officiel</a></div>
+              <div className="title--released">Date de sortie : {released}</div>
+              <div className="description">
+                <div className="description--description">{desc}</div>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </div>
     </Container>
   );
 

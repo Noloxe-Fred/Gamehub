@@ -1,11 +1,14 @@
-
+#home {
+ background-color: lightgray; 
+}
 // Css Chevron
-
+ 
 .chevron--all {
   position: relative;
   width: 24px;
   height: 24px;
   margin: 2em auto;
+  margin-bottom: 5em;
 }
 
 .chevron {
@@ -99,6 +102,12 @@
   margin: 10px;
   width: 200px;
   height: 300px;
+}
+
+.first-carousel {
+  h3 {
+    font-size: 3em;
+  }
 }
 
 

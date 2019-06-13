@@ -1,7 +1,7 @@
 // == Import : npm
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css';
+import PropTypes from 'prop-types';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
@@ -9,6 +9,12 @@ import Navbar from 'src/containers/Navbar/Navbar';
 import Home from 'src/components/Home';
 import GamePage from 'src/containers/GamePage/gamePageContainer';
 import Collection from 'src/containers/User/CollectionContainer';
+
+import AdvancedSearchPage from 'src/containers/AdvancedSearchPage';
+
+import SearchResult from 'src/containers/searchResultContainer';
+
+
 import Page404 from 'src/components/Page404';
 
 // == Composant
@@ -29,6 +35,8 @@ class App extends Component {
   render() {
     return (
       <div id="app">
+        {this.props.redirectSearch && <Redirect to="/search" />}
+        {/* {sessionStorage.getItem('disconnect') && <Redirect to="/" />} */}
         <Navbar />
         <Switch>
           <Route
@@ -40,9 +48,17 @@ class App extends Component {
             path="/game/:id"
             component={GamePage}
           />
-          <Route 
+          <Route
             path="/collection"
             component={Collection}
+          />
+          <Route
+            path="/search"
+            component={SearchResult}
+          />
+          <Route
+            path="/advancedsearch"
+            component={AdvancedSearchPage}
           />
           <Route
             component={Page404}
@@ -52,6 +68,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  connect: PropTypes.bool.isRequired,
+  connectSavedUser: PropTypes.func.isRequired,
+};
 
 // == Export
 export default App;

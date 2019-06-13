@@ -4,12 +4,16 @@ const initialState = {
   headerDatas: [],
   descDatas: [],
   commentsDatas: [],
+  errorRequest: false,
 };
 
 // Action Type   3. Definition de la Const Load_Game
 const LOAD_GAME = 'LOAD_GAME';
 export const REQUEST_GAME = 'REQUEST_GAME';
 const RECEIVED_GAME = 'RECEIVED_GAME';
+
+const ERROR_REQUEST = 'ERROR_REQUEST';
+const RESET_ERROR = 'RESET_ERROR';
 
 // Reducer  2. Creation de l'etat Load_Game qui passera de loading true à loading false une fois la page du jeu chargé
 const gamePageReducer = (state = initialState, action = {}) => {
@@ -27,6 +31,16 @@ const gamePageReducer = (state = initialState, action = {}) => {
         commentsDatas: action.commentsDatas,
         background: action.background,
         loading: false,
+      };
+    case ERROR_REQUEST:
+      return {
+        ...state,
+        errorRequest: true,
+      };
+    case RESET_ERROR:
+      return {
+        ...state,
+        errorRequest: false,
       };
     default:
       return state;
@@ -46,6 +60,14 @@ export const receivedGame = (gameDatas, commentsDatas, background) => ({
   gameDatas,
   commentsDatas,
   background,
+});
+
+export const errorRequest = () => ({
+  type: ERROR_REQUEST,
+});
+
+export const resetError = () => ({
+  type: RESET_ERROR,
 });
 
 export default gamePageReducer;

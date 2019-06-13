@@ -1,29 +1,69 @@
+$font-family-p: 'Reem Kufi', sans-serif;
+$font-family-title: 'Oswald', sans-serif;
+
+$color-text: #fffdd8;
+
+
+#gamepage {
+  height: 100vh;
+  .fa-plus-circle {
+    margin-bottom: 1em;
+    text-align: center;
+    animation: shadowFloat 1.2s linear alternate infinite;
+    border-radius: 50px;
+    color: #fffdd8;
+    font-size: 1.3em;
+  }
+}
+
+.first {
+  height: 100vh;
+}
+.second {
+  height: 100vh;
+}
 .container {
-  margin-top: 3em;
+  margin-top: 1em;
   padding-top: 2em;
   width: 50%;
-  height: 50%;
+  // height: 100vh;
+  color: $color-text;
   .illustration {
+    padding-bottom: 1em;
     img {
       width: 100%;
-      border: 1px solid black;
+      border: 1px solid $color-text;
       border-radius: 14px;
+      height: 27em;
+      object-fit: cover;
     }
   }
   .title {
     display: flex;
     flex-direction: column;
     margin-top: 1em;
+    padding-bottom: 1em;
     text-align: left;
+    a {
+      text-decoration: none;
+      color: #fffdd8;
+      padding-bottom: 1em; 
+    }
     &--title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 3em;
-      margin-bottom: 1em;
+      color: $color-text;
+      font-family: 'Oswald', sans-serif!important;
+      font-size: 3em!important;
+      margin-top: -0.4em;
     }
     &--score {
       font-family: 'Oswald', sans-serif;
       margin-bottom: 1em;
       font-size: 3em;
+    }
+    &--not-score {
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 1em;
+      font-size: 1em;
     }
     &--editor {
       font-family: 'Reem Kufi', sans-serif;
@@ -40,49 +80,91 @@
   }
   .description {
     font-family: 'Reem Kufi', sans-serif;
-    padding: 1em;
+    padding-top: 1em;
     &--description {
-      color: black;
+      color: $color-text;
       font-size: .9em;
       text-align: justify;
+      overflow: hidden;
     }
   }
   .categories {
+    padding-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
     button {
+      color: $color-text ;
       background: none;
-      border: 1px solid black;
+      border: 1px solid $color-text;
       border-radius: 4px;
-      margin: .5em;
+      margin-right: .5em;
+      margin-left: .5em;
     }
   }
 }
 
+.partie--commentaire {
+  background-color: rgba($color: #34495e, $alpha: .7);
+  border: 1px solid #fffdd8;
+  border-radius: 8px;
+  margin-bottom: 4em;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.firstpart {
+  background-color: rgba($color: #34495e, $alpha: .7);
+  border: 1px solid #fffdd8;
+  border-radius: 8px;
+  padding-top: 1em;
+  margin-top: 30px;
+}
+
+.secondpart {
+  height: 100vh;
+  padding-top: 5em;
+  background-color: #34495e;
+  // margin-top: 5em;
+}
+
 .comments--container {
-  margin-top: 0;
+  margin-top: 1em;
   padding-top: 0;
 }
 
 .title--comments {
   text-align: center;
-  margin: 2em 0;
+  margin: 3em 0;
   h2 {
     font-family: 'Oswald', sans-serif;
   }
 }
+// .row--titre--derniers--commentaires{
+//   height: 1em;
+// }
 
 .cell {
-  border-right: 1px solid black;
+  // border-right: 1px solid black;
   height: 3em;
   font-family: 'Reem Kufi', sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   text-align: left;
+  
+}
+
+.derniers--commentaires {
+  background-color: #34495e;
+  width: 100%;
 }
 
 .cell--header {
   border-right: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $color-text;
 }
 
 
@@ -96,8 +178,8 @@
 }
 
 .row--comments:hover {
-  background: #34495e;
-  color: white;
+  background: $color-text;
+  color: #34495e;
   cursor: pointer;
   img {
     border: white;
@@ -111,34 +193,95 @@
 }
 
 
+// Style tableau All Comments
+
+.tableau {
+  padding: 1em;
+  height: 30em;
+  overflow: auto;
+  background-color: #fffdd8;
+  color: #34495e;
+}
 
 
 // Media Queries
 
 @media screen and (max-width: 600px) {
+  #gamepage {
+    height: 100%;
+  }
+  .first {
+    height: 100%;
+  }
+  .second {
+    height: 100%;
+  }
   .container {
     width: 100%;
     .title {
       margin: 1em auto;
       text-align: center;
       &--title {
-        font-size: 2em;
+        font-size: 3em;
       }
     }
   }
   .cell {
     justify-content: center;
+    border-right: none;
   }
   .row--header {
     display: none;
   }
   .row--comments {
-    border-top: 1px solid black;
+    border-top: 1px solid $color-text;
   }
   .cell--number {
     display: none;
   }
   .cell-score {
     border: none;
-  }
+  } 
 } 
+
+.row-all-comments {
+  border-bottom: 1px solid #34495e;
+  &:hover {
+    background-color: #34495e;
+    color: $color-text;
+  }
+
+}
+
+// add to my collection
+
+$shadow-color: #c7c7c7;
+
+.fav {
+  padding-bottom: .3em !important;
+  margin-bottom: 2em;
+  text-align: center;
+  width: 40%;
+  animation: shadowFloat 1.2s linear alternate infinite;
+  border: 1px solid #fffdd8;
+	border-radius: 50px;
+  color: #34495e !important;
+  background-color: #fffdd8;
+	font-size: 13px;
+  i {
+    padding-right: .5em;
+  }
+}
+
+// Animations
+@keyframes shadowFloat {
+   0%   {
+		box-shadow: 0 20px 40px $shadow-color;
+		transform: translateY(-2px);
+	}
+   100% {
+		box-shadow: 0 10px 10px darken($shadow-color, 5%);;
+		transform: translateY(2px); 
+	}
+}
+

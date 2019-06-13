@@ -1,9 +1,9 @@
 const initialState = {
-  listsDatas: [
-    { listAdd: [], loadAdd: true },
-    { listWant: [], loadWant: true },
-    { listWish: [], loadWish: true },
-  ],
+  add: { list: [], load: true, title: 'Je les ai' },
+  want: { list: [], load: true, title: 'Je les veux' },
+  waiting: { list: [], load: true, title: 'Je les attends' },
+  displayedProfile: false,
+  fullList: false,
 };
 
 // Action Type
@@ -22,23 +22,34 @@ const RECEIVED = 'RECEIVED';
 // const RECEIVED_WANT = 'RECEIVED_WANT';
 // const RECEIVED_WISH = 'RECEIVED_WISH';
 
+const DISPLAY_FULL_LIST = 'DISPLAY_FULL_LIST';
+
+const DISPLAY_PROFILE = 'DISPLAY_PROFILE';
+
 // Reducer
 const userPagesReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case LOAD:
+      const list = action.nameList;
       return {
         ...state,
-        listsDatas: [ { [action.nameLoading]: true }, ...listsDatas]
+        [list]: {...state[list], load: true },
       };
     case RECEIVED:
-      const newListsDatas = state.listsDatas.map(list => { 
-        if (list[action.NameList]) {
-          list = {[action.Namelist]: action.list, [action.nameLoading]: false}
-        }
-      });
+      const { nameList, gameList } = action;
       return {
         ...state,
-        listsDatas: newListsDatas,
+        [nameList]: { ...state[nameList], list: gameList, load: false },
+      };
+    case DISPLAY_PROFILE:
+      return {
+        ...state,
+        displayedProfile: !state.displayedProfile,
+      };
+    case DISPLAY_FULL_LIST:
+      return {
+        ...state,
+        fullList: action.choice,
       };
     default:
       return state;
@@ -46,22 +57,29 @@ const userPagesReducer = (state = initialState, action = {}) => {
 };
 
 // Action creator
-export const request = (nameList, nameLoading) => ({
+export const request = nameList => ({
   type: REQUEST,
   nameList,
-  nameLoading,
 });
 
-export const load = nameLoading => ({
+export const load = nameList => ({
   type: LOAD,
-  nameLoading,
+  nameList,
 });
 
-export const received = (nameList, nameLoading, list) => ({
+export const received = (nameList, gameList) => ({
   type: RECEIVED,
   nameList,
-  nameLoading,
-  list,
+  gameList,
+});
+
+export const displayProfile = () => ({
+  type: DISPLAY_PROFILE,
+});
+
+export const displayFullList = choice => ({
+  type: DISPLAY_FULL_LIST,
+  choice,
 });
 
 export default userPagesReducer;

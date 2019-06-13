@@ -21,41 +21,94 @@ const homeMiddleware = store => next => (action) => {
     case REQUEST_COMING_SOON:
       store.dispatch(loadComingSoon());
 
-      axios.get('http://api.gamehub.com/api/game/list', {
+      axios.get('http://api.gamehub.com/api/game/list/nextmonth', {
         headers: {
           'Content-Type': 'application/json',
         },
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log('next month',response.data);
 
           store.dispatch(receivedComingSoon(response.data));
         })
         .catch((error) => {
           console.log(error);
         });
-        store.dispatch(receivedComingSoon(gameList));
 
-      break;
-    case REQUEST_TAB_LIST:
-      store.dispatch(loadingTabList());
-      // requete axios en attente!
-      store.dispatch(receivedTabList(gameList));
+        // requete temporaire pour local
+        // store.dispatch(receivedComingSoon(gameList));
+
       break;
     case REQUEST_LAST_RELEASED:
       store.dispatch(loadLastReleased());
       // requete axios en attente!
-      store.dispatch(receivedLastReleased(gameList));
+      axios.get('http://api.gamehub.com/api/game/list/lastmonth', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => {
+          // console.log('last month', response.data);
+
+          store.dispatch(receivedLastReleased(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+          
+        });
+
+      // requete test local
+      // store.dispatch(receivedLastReleased(gameList));
+
       break;
     case REQUEST_RANDOM:
       store.dispatch(loadRandom());
       // requete axios en attente!
-      store.dispatch(receivedRandom(gameList));
+      axios.get('http://api.gamehub.com/api/game/list/random', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => {
+          // console.log('random list', response.data);
+
+          store.dispatch(receivedRandom(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+          
+        });
+
+      // requete test local
+      // store.dispatch(receivedRandom(gameList));
+      break;
+    case REQUEST_TAB_LIST:
+      store.dispatch(loadingTabList());
+      const tabs = ['bestever', 'worstever', 'bestyear', 'worstyear', 'bestmonth', 'worstmonth'];
+      
+      tabs.map(tab => (
+        axios.get(`http://api.gamehub.com/api/game/list/${tab}`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((response) => {
+            // console.log('request tab', response.data);
+  
+            store.dispatch(receivedTabList(`load${tab}`, tab, response.data));
+          })
+          .catch((error) => {
+            console.log(error);
+            
+          })
+      ));
+
+      // affichage temporaire en local:
+      // store.dispatch(receivedTabList(gameList));
       break;
     default:
       next(action);
   }
-
 };
 
 export default homeMiddleware;

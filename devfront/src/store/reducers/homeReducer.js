@@ -2,12 +2,23 @@ const initialState = {
   loadingComingSoon: true,
   listComingSoon: [],
   countComingSoon: 0,
-  loadingTabList: true,
-  tabList: [],
+  loadingbestever: true,
+  loadingworstever: true,
+  loadingbestyear: true,
+  loadingworstyear: true,
+  loadingbestmonth: true,
+  loadingworstmonth: true,
+  bestever: [],
+  worstever: [],
+  bestyear: [],
+  worstyear: [],
+  bestmonth: [],
+  worstmonth: [],
   loadingLastReleased: true,
   lastReleasedList: [],
   randomList: [],
   loadingRandom: true,
+  displayInput: true,
 };
 
 // Action Type
@@ -30,6 +41,8 @@ export const REQUEST_RANDOM = 'REQUEST_RANDOM';
 const LOAD_RANDOM = 'LOAD_RANDOM';
 const RECEIVED_RANDOM = 'RECEIVED_RANDOM';
 
+const DISPLAY_INPUT = 'DISPLAY_INPUT';
+
 
 // Reducer
 const homeReducer = (state = initialState, action = {}) => {
@@ -37,13 +50,13 @@ const homeReducer = (state = initialState, action = {}) => {
     case LOAD_TAB_LIST:
       return {
         ...state,
-        loadingTabList: true,
+        [action.load]: true,
       };
     case RECEIVED_TAB_LIST:
       return {
         ...state,
-        loadingTabList: false,
-        tabList: action.tabList,
+        [action.load]: false,
+        [action.tab]: action.list,
       };
     case LOAD_COMING_SOON:
       return {
@@ -88,6 +101,11 @@ const homeReducer = (state = initialState, action = {}) => {
         ...state,
         loadingRandom: true,
       };
+    case DISPLAY_INPUT:
+      return {
+        ...state,
+        displayInput: action.bool,
+      };
     default:
       return state;
   }
@@ -97,13 +115,16 @@ const homeReducer = (state = initialState, action = {}) => {
 // Action creator (qui passeront tous dans le middleware ) 
 
 // Action creator
-export const loadingTabList = () => ({
+export const loadingTabList = load => ({
   type: LOAD_TAB_LIST,
+  load,
 });
 
-export const receivedTabList = tabList => ({
+export const receivedTabList = (load, tab, list) => ({
   type: RECEIVED_TAB_LIST,
-  tabList,
+  load,
+  tab,
+  list,
 });
 
 export const requestTabList = () => ({
@@ -153,4 +174,10 @@ export const requestRandom = () => ({
 export const loadRandom = () => ({
   type: LOAD_RANDOM,
 });
+
+export const displayInputInNavbar = bool => ({
+ type: DISPLAY_INPUT,
+ bool,
+});
+
 export default homeReducer;

@@ -6,6 +6,7 @@ import {
   connectUser,
   openModalConnect,
   closeModal,
+  checkRemember,
 } from 'src/store/reducers/navbarreducer';
 
 const mapStateToProps = state => ({
@@ -28,7 +29,10 @@ const mapDispatchToProps = dispatch => ({
   },
   closeModal: () => {
     dispatch(closeModal());
-  }
+  },
+  checkRemember: () => {
+    dispatch(checkRemember());
+  },
 });
 
 // L'appel à connect nous renvoie une nouvelle fonction

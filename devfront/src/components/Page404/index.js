@@ -6,7 +6,7 @@ import 'src/data/images/404/deadlink.png'
 
 const NotFound = () => (
   <div className="contenu">
-    <div className="background">
+   <div className="background">
     <div className="erreur"> 
       <h1>Erreur 404</h1> 
     </div>
@@ -20,8 +20,8 @@ const NotFound = () => (
     <div className="ok"> 
     <Link to="/">Retourner à l'accueil</Link>
     </div>
-    </div>
-     </div>
+   </div>
+  </div>
 );
 
 

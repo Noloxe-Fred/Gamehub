@@ -3,10 +3,12 @@ import Navbar from 'src/components/Navbar/';
 
 import {
   disconnectUser,
+  cancelRedirect,
 } from 'src/store/reducers/navbarreducer';
 
 const mapStateToProps = state => ({
   connect: state.navbarreducer.connect,
+  displayInput: state.homeReducer.displayInput,
 });
 
 const mapDispatchToProps = dispatch => ({
