@@ -5,7 +5,6 @@ namespace App\Api\Controller;
 use App\Entity\Comment;
 use App\Form\Api\CommentType;
 use App\Repository\GameRepository;
-use App\Repository\UserRepository;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -16,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ApiCommentController extends FOSRestController
 {
@@ -24,19 +24,19 @@ class ApiCommentController extends FOSRestController
      * @Rest\Post(path = "comment/new", name="comment_new")
      * @ParamConverter("comment", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "create"}})
      */
-    public function newCommentAction(Comment $comment, CommentRepository $commentRepository, UserRepository $userRepository, GameRepository $gameRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations)
+    public function newCommentAction(Comment $comment, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, TokenStorageInterface $token, EntityManagerInterface $em, ConstraintViolationList $violations)
     {   
         if(count($violations)){
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
 
-        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
         if($commentRepository->findOneByUser($user) != null && $commentRepository->findOneByGame($game) != null){
 
-            return $this->view('', Response::HTTP_FORBIDDEN);
+            return $this->view('403 Forbidden - Commentaire déjà créé pour ce jeu.', Response::HTTP_FORBIDDEN);
         }
 
         $comment = new Comment();
@@ -58,26 +58,26 @@ class ApiCommentController extends FOSRestController
      * @Rest\Put(path = "comment/edit", name="comment_edit")
      * @ParamConverter("comment", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "edit"}})
      */
-    public function editCommentAction(Comment $comment, CommentRepository $commentRepository ,UserRepository $userRepository, GameRepository $gameRepository, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations)
+    public function editCommentAction(Comment $comment, CommentRepository $commentRepository , GameRepository $gameRepository, TokenStorageInterface $token, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations)
     {   
         if(count($violations)){
             
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
 
-        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $comment = $commentRepository->findOneById($request->request->get('id'));
 
         if($comment->getUser() != $user || $comment->getGame() != $game){
 
-            return $this->view('', Response::HTTP_FORBIDDEN);
+            return $this->view('403 Forbidden - Ce commentaire ne vous appartient pas.', Response::HTTP_FORBIDDEN);
         }
+
+        $comment->setUpdatedAt(new \DateTime());
 
         $form = $this->createForm(CommentType::class, $comment);
         $form->submit($request->request->all());
-
-        $comment->setUpdatedAt(new \DateTime());
 
         $em->flush();
 
@@ -89,16 +89,16 @@ class ApiCommentController extends FOSRestController
     /**
      * @Rest\Delete(path = "comment/delete", name="comment_delete")
      */
-    public function deleteCommentAction(CommentRepository $commentRepository ,UserRepository $userRepository, GameRepository $gameRepository, Request $request, EntityManagerInterface $em)
+    public function deleteCommentAction(CommentRepository $commentRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, EntityManagerInterface $em)
     {   
 
-        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $comment = $commentRepository->findOneById($request->request->get('id'));
 
         if($comment->getUser() != $user || $comment->getGame() != $game){
 
-            return $this->view('', Response::HTTP_FORBIDDEN);
+            return $this->view('403 Forbidden - Ce commentaire ne vous appartient pas.', Response::HTTP_FORBIDDEN);
         }
 
         $em->remove($comment);

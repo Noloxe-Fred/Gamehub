@@ -28,6 +28,7 @@ class Developer
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"game_read"})
      */
     private $website;
 

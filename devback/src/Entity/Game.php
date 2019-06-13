@@ -107,18 +107,18 @@ class Game
     private $platforms;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="game")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="game", cascade={"remove"})
      * @Groups({"game_read"})
      */
     private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Score", mappedBy="game")
+     * @ORM\OneToMany(targetEntity="App\Entity\Score", mappedBy="game", cascade={"remove"})
      */
     private $scores;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\State", mappedBy="game")
+     * @ORM\OneToMany(targetEntity="App\Entity\State", mappedBy="game", cascade={"remove"})
      */
     private $states;
 

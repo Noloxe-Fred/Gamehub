@@ -13,8 +13,6 @@ class StateType extends AbstractType
     {
         $builder
             ->add('status')
-            ->add('game')
-            ->add('user')
         ;
     }
 

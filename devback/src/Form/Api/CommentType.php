@@ -2,9 +2,11 @@
 
 namespace App\Form\Api;
 
+use App\Entity\Game;
 use App\Entity\Comment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CommentType extends AbstractType
@@ -14,8 +16,6 @@ class CommentType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
-            ->add('game')
-            ->add('user')
         ;
     }
 

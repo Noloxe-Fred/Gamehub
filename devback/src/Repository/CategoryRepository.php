@@ -38,19 +38,4 @@ class CategoryRepository extends ServiceEntityRepository
     //     ->getResult();
     //     return $qb;
     // }
-
-    public function findGamesByCategory($array){
-
-        $values = array_values($array['id']);
-
-        $qb = $this->createQueryBuilder('c')
-        ->join('c.games', 'g')
-        ->andWhere('c.id IN(:array)')
-        ->setParameter('array', $values)
-        ->groupBy('c.id')
-        ->getQuery()
-        ->getResult();
-
-        return $qb;
-    }
 }

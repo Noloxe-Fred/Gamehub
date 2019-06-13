@@ -4,7 +4,6 @@ namespace App\Api\Controller;
 
 use App\Entity\User;
 use App\Form\Api\UserType;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -15,16 +14,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ApiUserController extends FOSRestController
 {
-    private $passwordEncoder;
-
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
-        {
-            $this->passwordEncoder = $passwordEncoder;
-        }
-
+    
     /**
      * @Rest\Post(path = "signup", name="user_new")
      * @ParamConverter("user", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "create"}})
@@ -64,10 +58,10 @@ class ApiUserController extends FOSRestController
     /**
      * @Rest\Put(path = "user/edit", name="user_edit")
      */
-    public function editUserAction(UserRepository $userRepository, Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $encoder)
+    public function editUserAction(TokenStorageInterface $token, Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $encoder)
     {   
         
-        $user = $userRepository->findOneById($request->request->get('id'));
+        $user = $token->getToken()->getUser();
         $oldPassword = $user->getPassword();
 
         $form = $this->createForm(UserType::class, $user);
@@ -95,10 +89,10 @@ class ApiUserController extends FOSRestController
     /**
      * @Rest\Post(path = "user/profil", name="user_profil")
      */
-    public function getUserAction(UserRepository $userRepository, Request $request, SerializerInterface $serializer)
+    public function getUserAction(TokenStorageInterface $token, SerializerInterface $serializer)
     {   
         
-        $user = $userRepository->findOneById($request->request->get('id'));
+        $user = $token->getToken()->getUser();
 
         $user = $serializer->serialize($user, 'json', [
             'groups' => 'profil_read',

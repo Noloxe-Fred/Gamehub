@@ -3,7 +3,6 @@
 namespace App\Api\Controller;
 
 use App\Repository\GameRepository;
-use App\Repository\UserRepository;
 use App\Repository\ScoreRepository;
 use App\Repository\StateRepository;
 use App\Repository\CommentRepository;
@@ -12,6 +11,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ApiGameController extends FOSRestController
 {
@@ -38,7 +38,6 @@ class ApiGameController extends FOSRestController
     {   
 
         $game = $gameRepository->findOneById($request->request->get('id'));
-        // $game = $gameRepository->findByGame($game);
 
         $showGame = $serializer->serialize($game, 'json', [
             'groups' => 'game_read',
@@ -66,9 +65,9 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Post(path = "game/edit", name = "game_edit")
      */ 
-    public function getGameEdit(StateRepository $stateRepository, ScoreRepository $scoreRepository, CommentRepository $commentRepository, UserRepository $userRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer){
+    public function getGameEdit(StateRepository $stateRepository, ScoreRepository $scoreRepository, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer, TokenStorageInterface $token){
 
-        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
         $state = $stateRepository->findGameInfo($user, $game);

@@ -21,18 +21,16 @@ class GameRepository extends ServiceEntityRepository
         parent::__construct($registry, Game::class);
     }
 
-    public function filterGamesByCategory(array $array){
+    public function filterGamesByCategory($array){
 
-        //BESOIN DE L ID DE LA CATEGORY
+        $int = implode(' ', $array);
+        $categories = explode('%', (wordwrap($int, 1, ",", false)));
 
-        $qb = $this->createQueryBuilder('g')
-        ->where(':array MEMBER OF g.categories')
-        //->where('expr->eq('g.categories', '?1') MEMBER OF g.categories')
-        ->setParameter('array', array_values($array))
-        ->getQuery()
-        ->getResult();
-
-        return $qb;
+        $rawSql = "SELECT game.id, game.name, game.cover, game.score FROM game_category JOIN game ON game_category.game_id = game.id WHERE game_category.category_id IN (".$categories[0].") GROUP BY game.id HAVING count(*) = ".count($array)."";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+                
+        $stmt->execute([]);
+        return $stmt->fetchAll();
     }
 
     public function findAllGames(){
@@ -46,9 +44,11 @@ class GameRepository extends ServiceEntityRepository
 
     public function findGames($name){
 
+        $word = wordwrap($name, 1, "%", false);
+
         $qb = $this->createQueryBuilder('g')
         ->where('g.name LIKE :name')
-        ->setParameter('name', '%'.$name.'%')
+        ->setParameter('name', '%'.$word.'%')
         ->getQuery()
         ->getResult();
 
