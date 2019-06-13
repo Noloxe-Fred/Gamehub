@@ -1,8 +1,9 @@
 const initialState = {
-  listAdd: { list: [], load: true, title: 'Je les ai' },
-  listWant: { list: [], load: true, title: 'Je les veux' },
-  listWish: { list: [], load: true, title: 'Je les attends' },
+  add: { list: [], load: true, title: 'Je les ai' },
+  want: { list: [], load: true, title: 'Je les veux' },
+  waiting: { list: [], load: true, title: 'Je les attends' },
   displayedProfile: false,
+  fullList: false,
 };
 
 // Action Type
@@ -20,6 +21,8 @@ const RECEIVED = 'RECEIVED';
 // const RECEIVED_ADD = 'RECEIVED_ADD';
 // const RECEIVED_WANT = 'RECEIVED_WANT';
 // const RECEIVED_WISH = 'RECEIVED_WISH';
+
+const DISPLAY_FULL_LIST = 'DISPLAY_FULL_LIST';
 
 const DISPLAY_PROFILE = 'DISPLAY_PROFILE';
 
@@ -42,6 +45,11 @@ const userPagesReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         displayedProfile: !state.displayedProfile,
+      };
+    case DISPLAY_FULL_LIST:
+      return {
+        ...state,
+        fullList: action.choice,
       };
     default:
       return state;
@@ -67,6 +75,11 @@ export const received = (nameList, gameList) => ({
 
 export const displayProfile = () => ({
   type: DISPLAY_PROFILE,
+});
+
+export const displayFullList = choice => ({
+  type: DISPLAY_FULL_LIST,
+  choice,
 });
 
 export default userPagesReducer;

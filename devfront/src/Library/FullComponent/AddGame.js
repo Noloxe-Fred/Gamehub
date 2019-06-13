@@ -41,23 +41,21 @@ class AddGame extends Component {
       textAlign: 'center',
     };
 
-    console.log('addgame connect', connect);
-
     return (
       <div className="plus">
         {loadVerify && <Loader active />}
         {alreadyHave && <i class="fas fa-gamepad" />}
         {!alreadyHave && !loadVerify && (
-          <Popup trigger={<i class="fas fa-plus-circle" />} flowing hoverable inverted style={stylePopup}>
+          <Popup trigger={<i className="fas fa-plus-circle" />} flowing hoverable inverted style={stylePopup}>
           {!connect && <div>Veuillez {<ModalConnect text="vous connecter" />} pour ajouter ce jeu à votre collection</div>} 
           {connect && (
               <div>
-                <Header>Choisissez une liste{receivedSubmit && <p className="confirm-message">Le jeu à bien été ajouté</p>}</Header>
+                <Header>Choisissez une liste{receivedSubmit && <div className="confirm-message">Le jeu à bien été ajouté</div>}</Header>
                 <div>
                   {loadSubmit && <Loader active inline='centered' />}
                   {(!loadVerify && !loadSubmit) && (
                     <div>
-                      {available && (
+                      {available == 'available' && (
                         <Grid centered columns={3}>
                         <Grid.Column textAlign='center'>
                           <button className="add-button" onClick={this.addGame('have')}>Je l'ai</button>
@@ -70,7 +68,7 @@ class AddGame extends Component {
                         </Grid.Column>
                         </Grid>
                       )}
-                      {!available && (
+                      {available == 'unavailable' && (
                         <Grid centered columns={3}>
                         <Grid.Column textAlign='center'>
                           <button className="not-available add-button">Je l'ai</button>

@@ -6,29 +6,29 @@ import { Container, Row, Col } from 'react-bootstrap';
 import AddGame from 'src/containers/User/addgameContainer';
 
 const GameHeader = ({ datas }) => {
-  const {cover, name, score, categories, editor, developer, released, desc, id } = datas;
+  console.log('jeu',datas)
+  const {cover, name, score, categories, editor, developer, released, desc, id, website } = datas;
   return (
     
     <Container className="container">
       <div className="firstpart">
         <Row>
-          <Col lg={5} sm={12} xs={12} className="d-flex align-items-start">
+          <Col lg={5} sm={12} xs={12} className="start">
             <div className="illustration">
               <img src={cover} alt="cover" />
             </div>
           </Col>
           <Col lg={7} sm={12} xs={12} className="d-flex align-items-start">
             <div className="title">
-              <div className="title--title">{name}</div>
+              <h2 className="title--title">{name}</h2>
               {score && <div className="title--score">{score}%</div>} {!score && <div className="title--not-score">Pas de notes</div>}
               <AddGame gameId={id} />
               <div className="categories">
-                <button type="button">{categories[0].name}</button>
-                <div>/</div>
-                <button type="button">{categories[1].name}</button>
+                {categories.map(category => <button type="button">{category.name}</button>)}
               </div>
-              <div className="title--editor">Éditeur : {editor}</div>
-              <div className="title--developer">Développeur : {developer}</div>
+              <div className="title--editor">Éditeur : {editor[0].name}</div>
+              <div className="title--developer">Développeur : {developer[0].name}</div>
+              <div className="title--developer"><a href={website} target="blank">Site Officiel</a></div>
               <div className="title--released">Date de sortie : {released}</div>
               <div className="description">
                 <div className="description--description">{desc}</div>

@@ -30,6 +30,7 @@ class MainList extends Component {
                 {!(count + 7 > gameList.length) && <Icon name="angle right" size="large" onClick={this.props.increaseCount} />} */}
               </div>
             </div> 
+
             <Grid columns={2} id="grid--prochaines--sorties">
               <Grid.Row columns={1} id="mainCard">
                 <Grid.Column computer={16} tablet={16} mobile={16}>
@@ -48,6 +49,7 @@ class MainList extends Component {
                         </Card.Description>
                       </Card.Content>
                     </Card>
+                  </Link>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2} id="secondaryCard">

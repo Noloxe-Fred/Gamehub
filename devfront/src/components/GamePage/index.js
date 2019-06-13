@@ -8,12 +8,11 @@ import GameHeader from 'src/containers/GamePage/gameHeaderContainer';
 import GameComments from 'src/containers/GamePage/gameCommentsContainer';
 import GameAllComments from 'src/containers/GamePage/gameAllCommentsContainer';
 
-
-
 // dans cette classe des props vont etre accessible par le container qui sont loading et request game 
 class GamePage extends Component {
   // Lancement de la fonction request game avec Component did mount 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.requestGame();
   }
 

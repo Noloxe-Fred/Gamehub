@@ -1,5 +1,6 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
+import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
 import './carouselAlice.scss';
 
@@ -34,9 +35,9 @@ const CarouselAlice = ({ gameList }) => {
           {slicedList.map(game => (
             <div id={game.id} className="uneImage">
               <AddGame gameId={game.id} />
-              <a href={"/game/"+game.id}>
+              <Link to={`/game/${game.id}`}>
                 <img src={game.cover} onDragStart={handleOnDragStart} className="images" />
-              </a>
+              </Link>
               <p>{game.name}</p>
             </div>
           ))}

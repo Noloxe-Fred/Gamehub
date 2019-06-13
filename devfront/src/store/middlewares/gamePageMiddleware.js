@@ -25,9 +25,9 @@ const gamePageMiddleware = store => next => (action) => {
             cover: game.cover,
             desc: game.description,
             score: game.score,
-            developer: game.developer,
-            editor: game.editor,
-            released: game.released,
+            developer: game.developers,
+            editor: game.editors,
+            released: game.releasedAt,
             website: game.website,
             categories: game.categories,
           };

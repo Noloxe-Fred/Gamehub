@@ -50,9 +50,10 @@ $color-text: #fffdd8;
       padding-bottom: 1em; 
     }
     &--title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 3em;
-      margin-bottom: 1em;
+      color: $color-text;
+      font-family: 'Oswald', sans-serif!important;
+      font-size: 3em!important;
+      margin-top: -0.4em;
     }
     &--score {
       font-family: 'Oswald', sans-serif;
@@ -90,6 +91,7 @@ $color-text: #fffdd8;
   .categories {
     padding-bottom: 1em;
     display: flex;
+    flex-wrap: wrap;
     button {
       color: $color-text ;
       background: none;

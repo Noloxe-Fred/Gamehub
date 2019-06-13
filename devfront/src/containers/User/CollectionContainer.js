@@ -4,14 +4,19 @@ import Collection from 'src/components/User/Collection';
 import {
   request,
   displayProfile,
+  displayFullList,
 } from 'src/store/reducers/userPagesReducer';
 
-const mapStateToProps = state => ({
-  listAdd: state.userPagesReducer.listAdd,
-  listWant: state.userPagesReducer.listWant,
-  listWish: state.userPagesReducer.listWish,
-  displayedProfile: state.userPagesReducer.displayedProfile,
-});
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    fullList: state.userPagesReducer.fullList,
+    listAdd: state.userPagesReducer.add,
+    listWant: state.userPagesReducer.want,
+    listWaiting: state.userPagesReducer.waiting,
+    displayedProfile: state.userPagesReducer.displayedProfile,
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   request: (nameList) => {
@@ -19,6 +24,9 @@ const mapDispatchToProps = dispatch => ({
   },
   displayProfile: () => {
     dispatch(displayProfile());
+  },
+  displayFullList: (choice) => {
+    dispatch(displayFullList(choice));
   },
 });
 
