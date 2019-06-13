@@ -8,12 +8,6 @@ body {
    --radius: 3px;
 }
 
-.btn {
-    display: block;
-    width: 70%;
-    font-size: 0.9em;
-}
-
 /* Header */
 
 header {
@@ -95,30 +89,60 @@ header .dropdown-item:hover {
     justify-content: space-between;
 }
 
-.left-user {
+.right-user--add {
     margin-bottom: 20px;
     border: var(--border);
     border-radius: var(--radius);
-    height: 50em;
+    height: 65em;
     width: 49%;
 }
 
-.left-user h5 {
+.right-user--add h5 {
     padding: 10px;
     font-weight: bold;
     background-color: var(--background);
     color: var(--color-text);
 }
 
-.right-game {
+.left-user--search {
     margin-bottom: 20px;
     border: var(--border);
     border-radius: var(--radius);
-    height: 50em;
+    height: 65em;
     width: 49%;
 }
 
-.right-game h5 {
+.left-user--search h5 {
+    padding: 10px;
+    font-weight: bold;
+    background-color: var(--background);
+    color: var(--color-text);
+}
+
+.right-game--add {
+    margin-bottom: 20px;
+    border: var(--border);
+    border-radius: var(--radius);
+    height: 65em;
+    width: 49%;
+}
+
+.right-game--add h5 {
+    padding: 10px;
+    font-weight: bold;
+    background-color: var(--background);
+    color: var(--color-text);
+}
+
+.left-game--search {
+    margin-bottom: 20px;
+    border: var(--border);
+    border-radius: var(--radius);
+    height: 65em;
+    width: 49%;
+}
+
+.left-game--search h5 {
     padding: 10px;
     font-weight: bold;
     background-color: var(--background);
@@ -128,7 +152,7 @@ header .dropdown-item:hover {
 .global-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     width: 95%;
     margin: auto;
 }
@@ -136,7 +160,17 @@ header .dropdown-item:hover {
 .data-array {
     border: var(--border);
     border-radius: var(--radius);
-    height: 35em;
+    height: 50em;
+    width: 100%;
+}
+
+.home-button {
+    width: 70%;
+    margin-top: 20px;
+}
+
+.home-button button {
+    font-size: 0.9em;
 }
 
 .global-game {
@@ -153,3 +187,12 @@ header .dropdown-item:hover {
     color: var(--color-text);
 }
 
+/* Formulaire */
+
+.game-input {
+    width: 500px;
+}
+
+.user-input {
+    width: 500px;
+}

@@ -14,13 +14,15 @@ class ApiCategoryController extends FOSRestController
 {
 
     /**
-     * @Rest\Get(path = "category/search ", name = "category_search")
+     * @Rest\Post(path = "category/search ", name = "category_search")
      */
     public function getGamesByCategoryAction(GameRepository $gameRepository, Request $request, SerializerInterface $serializer)
     {   
         
-        $data = json_decode($request->getContent(), true);
-        $games = $gameRepository->filterGamesByCategory($data['id']);
+        // $data = json_decode($request->getContent(), true);
+        // $games = $gameRepository->filterGamesByCategory($data['id']);
+
+        $games = $gameRepository->filterGamesByCategory($request->request->get('id'));
 
         $gamesByCategory = $serializer->serialize($games, 'json', [
             'groups' => 'category_games',

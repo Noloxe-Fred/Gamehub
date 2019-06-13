@@ -32,12 +32,14 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\Get(path = "game/show", name = "game_show")
+     * @Rest\Post(path = "game/show", name = "game_show")
      */
     public function getGameAction(GameRepository $gameRepository, SerializerInterface $serializer, Request $request)
     {   
-        $data = json_decode($request->getContent(), true);
-        $game = $gameRepository->findOneById($data['id']);
+        // $data = json_decode($request->getContent(), true);
+        // $game = $gameRepository->findOneById($data['id']);
+
+        $game = $gameRepository->findOneById($request->request->get('id'));
 
         $showGame = $serializer->serialize($game, 'json', [
             'groups' => 'game_read',
@@ -47,13 +49,15 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\Get(path = "game/search", name = "game_search")
+     * @Rest\Post(path = "game/search", name = "game_search")
      */
     public function getSearchGamesAction(GameRepository $gameRepository, Request $request, SerializerInterface $serializer)
     {   
 
-        $data = json_decode($request->getContent(), true);
-        $games = $gameRepository->findGames($data['name']);
+        // $data = json_decode($request->getContent(), true);
+        // $games = $gameRepository->findGames($data['name']);
+
+        $games = $gameRepository->findGames($request->request->get('name'));
 
         $allGames = $serializer->serialize($games, 'json', [
             'groups' => 'game_read',

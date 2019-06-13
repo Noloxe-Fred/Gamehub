@@ -32,6 +32,9 @@ class UserType extends AbstractType
 
                     new NotBlank(),
                     new NotNull(),
+                ],
+                'attr' => [
+                    'class' => 'user-input'
                 ]
             ])
             ->add('roles', ChoiceType::class, [
@@ -43,6 +46,9 @@ class UserType extends AbstractType
                     
                     'Admin' => 'ROLE_ADMIN',
                     'Utilisateur' => 'ROLE_USER',
+                ],
+                'attr' => [
+                    'class' => 'user-input'
                 ]
             ])
             ->add('password', RepeatedType::class, [
@@ -59,17 +65,26 @@ class UserType extends AbstractType
 
                     'label' => 'Vérifier le mot de passe',
                     'empty_data' => '',
+                ],
+                'attr' => [
+                    'class' => 'user-input'
                 ]
             ])
             ->add('firstname', TextType::class, [
 
                 'label' => 'Prénom',
                 'required' => false,
+                'attr' => [
+                    'class' => 'user-input'
+                ]
             ])
             ->add('lastname', TextType::class, [
 
                 'label' => 'Nom',
                 'required' => false,
+                'attr' => [
+                    'class' => 'user-input'
+                ]
             ])
             ->add('pseudo', TextType::class, [
 
@@ -78,18 +93,27 @@ class UserType extends AbstractType
 
                     new NotBlank(),
                     new NotNull(),
+                ],
+                'attr' => [
+                    'class' => 'user-input'
                 ]
             ])
             ->add('photo', UrlType::class, [
 
                 'label' => 'Photo de profil',
                 'required' => false,
+                'attr' => [
+                    'class' => 'user-input'
+                ]
             ])
             ->add('birthdate', BirthdayType::class, [
 
                 'label' => 'Date d\'anniversaire',
                 'widget' => 'single_text',
                 'required' => false,
+                'attr' => [
+                    'class' => 'user-input'
+                ]
             ])
             ->add('isActive', CheckboxType::class, [
 
@@ -99,6 +123,10 @@ class UserType extends AbstractType
 
                 'label' => 'Biographie',
                 'required' => false,
+                'attr' => [
+                    'class' => 'user-input',
+                    'rows' => '9',
+                ]
             ])
         ;
     }
