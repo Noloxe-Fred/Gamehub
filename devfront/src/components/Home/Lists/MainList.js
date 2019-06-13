@@ -33,6 +33,7 @@ class MainList extends Component {
             <Grid columns={2} id="grid--prochaines--sorties">
               <Grid.Row columns={1} id="mainCard">
                 <Grid.Column computer={16} tablet={16} mobile={16}>
+                  <Link to={"/game/"+displayList[0].id}>
                     <Card>
                       <img src={displayList[0].illustration} alt={displayList[0].name}/>
                       <Card.Content>
@@ -45,6 +46,7 @@ class MainList extends Component {
                         </Card.Description>
                       </Card.Content>
                     </Card>
+                  </Link>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2} id="secondaryCard">

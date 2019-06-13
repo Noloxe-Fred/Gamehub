@@ -101,7 +101,7 @@ const navbarMiddleware = store => next => (action) => {
       store.dispatch(loadSearch());
       const name = store.getState().navbarreducer.inputSearch;
 
-      axios.get('http://api.gamehub.com/api/game/search', {
+      axios.post('http://api.gamehub.com/api/game/search', {
         headers: {
           'Content-Type': 'application/json',
         },

@@ -7,7 +7,7 @@ import {
   receivedGames,
   receivedCategories,
   loadGames,
-  loadCategories
+  loadCategories,
 } from 'src/store/reducers/advancedSearchPageReducer';
 
 const advancedSearchPageMiddleware = store => next => (action) => {
@@ -54,11 +54,11 @@ const advancedSearchPageMiddleware = store => next => (action) => {
       });
       const categories = filter.map(category => category.category);
       if (categories.length > 0) {
-        axios.get('http://api.gamehub.com/api/category/search', {
+        axios.post('http://api.gamehub.com/api/category/search', {
           headers: {
             'Content-Type': 'application/json',
           },
-          id: [1, 2],
+          id: categories,
         })
           .then((response) => {
             console.log('request games by categories', response.data);
