@@ -15,8 +15,8 @@ const mapDispatchToProps = dispatch => ({
   requestGames: () => {
     dispatch(requestGames());
   },
-  checkedCategories: (category) => {
-    dispatch(checkedCategories(category));
+  checkedCategories: (categoryId) => {
+    dispatch(checkedCategories(categoryId));
   },
   requestByCategories: () => {
     dispatch(requestByCategories());

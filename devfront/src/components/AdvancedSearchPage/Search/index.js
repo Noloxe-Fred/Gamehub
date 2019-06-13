@@ -37,7 +37,7 @@ class Search extends React.Component {
                     types.map((type) => {
                     return (
                       <div key={type.id} className="one--checkbox">
-                        <input type="checkbox" onClick={this.handleClick(type.name)}/>
+                        <input type="checkbox" onClick={this.handleClick(type.id)}/>
                         {type.name}
                       </div>  
                     )})
@@ -51,7 +51,7 @@ class Search extends React.Component {
                       players.map((player) => {
                       return (
                         <div key={player.id} className="one--central--button">
-                          <button onClick={this.handleClick(player.name)} classname="btn">{player.name}</button>
+                          <button onClick={this.handleClick(player.id)} classname="btn">{player.name}</button>
                         </div>
                       )})
                     }
@@ -63,7 +63,7 @@ class Search extends React.Component {
                       tags.map((tag) => {
                       return (
                         <div key={tag.id} className="one--right--button">
-                          <button onClick={this.handleClick(tag.name)} classname="btn">{tag.name}</button>
+                          <button onClick={this.handleClick(tag.id)} classname="btn">{tag.name}</button>
                         </div>
                       )})
                     }
