@@ -20,5 +20,14 @@
     }
   } 
 }
+@media screen and (max-width: 600px) {
+  #home {
+    .banniere {
+      background-position-x: -12em;
+      background-position-y: .1em;
+      background-size: cover;
+    }
+  } 
+}
 
 
