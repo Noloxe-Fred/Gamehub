@@ -16,7 +16,7 @@ const advancedSearchPageMiddleware = store => next => (action) => {
         .then((response) => {
           console.log('request categories', response.data);
           const categoriesDatas = response.data;
-          const eachCatFalse = response.data.map(({ name }) => ({ category: name, status: false }));
+          const eachCatFalse = response.data.map(({ id }) => ({ category: id, status: false }));
 
           store.dispatch(receivedCategories(categoriesDatas, eachCatFalse));
         })
@@ -46,12 +46,12 @@ const advancedSearchPageMiddleware = store => next => (action) => {
       const filter = store.getState().advancedSearchPageReducer.checkedCategories.filter(category => {
         if(category.status == true) {return category.category}
       });
-      const name = filter.map(category => category.category);
-
+      const categories = filter.map(category => category.category);
       axios.get('http://api.gamehub.com/api/category/search', {
         headers: {
           'Content-Type': 'application/json',
         },
+        id: categories,
       })
         .then((response) => {
           console.log('request games by categories', response.data);

@@ -47,13 +47,13 @@ const advancedSearchPageReducer = (state = initialState, action = {}) => {
       };
     case CHECKED_CATEGORIES:
       const newCategories = state.checkedCategories.map((category) => {
-        if (category.category == action.category) {
-          console.log('je rentre dans le if!!!!')
+        if (category.category == action.categoryId) {
           category.status = !category.status;
           return category;
         }
         return category;
       })
+      console.log(newCategories)
       return {
         ...state,
         checkedCategories: newCategories,
@@ -88,9 +88,9 @@ export const receivedCategories = (categoriesDatas, eachCatFalse) => ({
 export const requestByCategories = () => ({
   type: REQUEST_BY_CATEGORIES,
 });
-export const checkedCategories = category => ({
+export const checkedCategories = categoryId => ({
   type: CHECKED_CATEGORIES,
-  category,
+  categoryId,
 });
 
 export default advancedSearchPageReducer;
