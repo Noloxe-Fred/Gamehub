@@ -49,7 +49,7 @@ class MainList extends Component {
                         </Card.Description>
                       </Card.Content>
                     </Card>
-                  </Link>
+                  
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2} id="secondaryCard">
