@@ -15,7 +15,7 @@ class Navbar extends Component {
 
   render() {
     const { connect, disconnectUser, displayInput } = this.props;
-    console.log('Navbar', displayInput)
+    console.log('Navbar', displayInput);
     return (
       <nav>
         <div className="logo">
@@ -25,7 +25,7 @@ class Navbar extends Component {
             <div id="nav--search"><SearchBar /></div>
             )}
         <div className="menu">
-          <NavLink to="/advancedsearch" className="advancedSearch">Recherche avancée...</NavLink>
+          <NavLink to="/advancedsearch" className="advancedSearch">Recherche avancée</NavLink>
           {connect
             ? (
               <div className="nav-connect">

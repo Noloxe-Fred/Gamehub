@@ -16,7 +16,7 @@ class GamePage extends Component {
     this.props.requestGame();
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     this.props.resetError();
   }
 

@@ -1,4 +1,4 @@
-//import GameList from 'src/data/gameList';
+import GameList from 'src/data/gameList';
 import axios from 'axios';
 
 import { 
@@ -36,25 +36,25 @@ const userPagesMiddleware = store => next => (action) => {
 
       store.dispatch(received(nameList, GameList));
       break;
-    case REQ_USER_GAME_DATAS:
-      store.dispatch(loadReqUsGaDa());
+    // case REQ_USER_GAME_DATAS:
+    //   store.dispatch(loadReqUsGaDa());
 
-      axios.post(`http://api.gamehub.com/api/game/edit`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + user,
-        },
-      })
-        .then((response) => {
-          // console.log('next month',response.data);
+    //   axios.post(`http://api.gamehub.com/api/game/edit`, {
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Authorization': 'Bearer ' + user,
+    //     },
+    //   })
+    //     .then((response) => {
+    //       // console.log('next month',response.data);
 
-          store.dispatch(received(nameList, response.data));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    //       store.dispatch(received(nameList, response.data));
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
 
-      break;
+    //   break;
     default:
       next(action);
   }

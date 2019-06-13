@@ -11,7 +11,7 @@ const gamePageMiddleware = store => next => (action) => {
       store.dispatch(loadGame());
       // requete axios en attente!
       const id = action.gameId;
-      axios.get('http://api.gamehub.com/api/game/show', {
+      axios.post('http://api.gamehub.com/api/game/show', {
         headers: {
           'Content-Type': 'application/json',
         },
