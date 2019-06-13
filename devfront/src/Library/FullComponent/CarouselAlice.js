@@ -34,18 +34,20 @@ const CarouselAlice = ({ gameList }) => {
         <div id={slicedList[0].id} className="slider">
           {slicedList.map(game => (
             <div id={game.id} className="uneImage">
-              <AddGame gameId={game.id} />
+              
               <Link to={`/game/${game.id}`}>
-                <img src={game.cover} onDragStart={handleOnDragStart} className="images" />
+                <div className="one--effect">
+                  <img src={game.cover} onDragStart={handleOnDragStart} className="images" />
+                </div>
               </Link>
-              <p>{game.name}</p>
+              <p>{game.name}<AddGame gameId={game.id} /></p>
             </div>
           ))}
         </div>
       ))}
     </AliceCarousel>
   );
-};
+}; 
 
 CarouselAlice.propTypes = {
   gameList: Proptypes.array.isRequired,
