@@ -32,7 +32,6 @@ class ApiCommentController extends FOSRestController
         }
 
         $user = $token->getToken()->getUser();
-        dd($user);
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
         if($commentRepository->findOneByUser($user) != null && $commentRepository->findOneByGame($game) != null){
