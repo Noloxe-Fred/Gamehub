@@ -65,9 +65,9 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Post(path = "game/edit", name = "game_edit")
      */ 
-    public function getGameEdit(StateRepository $stateRepository, ScoreRepository $scoreRepository, CommentRepository $commentRepository, UserRepository $userRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer){
+    public function getGameEdit(StateRepository $stateRepository, ScoreRepository $scoreRepository, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer, TokenStorageInterface $token){
 
-        $user = $userRepository->findOneById($request->request->get('user', 'id'));
+        $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
         $state = $stateRepository->findGameInfo($user, $game);
