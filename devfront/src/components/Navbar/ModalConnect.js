@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Header, Modal, Form, Checkbox } from 'semantic-ui-react';
+import {
+  Button,
+  Header,
+  Modal,
+  Form,
+  Icon,
+  Container,
+  Divider,
+} from 'semantic-ui-react';
+
+
 
 import './modalconnect.scss';
 
@@ -29,11 +39,10 @@ class ModalConnect extends Component {
   }
  
   render() {
-
     const {
       connectPseudo,
       connectPassword,
-      text, 
+      text,
       openConnect,
       loadingConnect,
       errorMessage,
@@ -47,38 +56,38 @@ class ModalConnect extends Component {
             {/* {errorMessage && <Modal.Descritpion>Erreur d'authentification</Modal.Descritpion>} */}
             <Form onSubmit= {this.onSubmit}>
               <Form.Field>
-                <label>Votre email</label>
-                <input 
-                  placeholder='email...'
-                  name='connectPseudo'
-                  onChange= {this.handleChange}
-                  value= {connectPseudo}
+                <input
+                  placeholder="Email..."
+                  name="connectPseudo"
+                  onChange={this.handleChange}
+                  value={connectPseudo}
                 />
+                <Icon className="user outline" />
+                {/* mail outline */}
               </Form.Field>
               <Form.Field>
-                <label>Votre mot de passe</label>
                 <input
-                  placeholder='mot de passe...'
-                  name='connectPassword'
+                  placeholder="Mot de passe..."
+                  name="connectPassword"
                   onChange={this.handleChange}
                   value={connectPassword}
                 />
+                <Icon className="eye" />
               </Form.Field>
-              <Form.Field>
-                <Checkbox name="remember" label="Se souvenir de moi" onChange={this.handleCheck} />
-              </Form.Field>
-              {!loadingConnect 
-                ? <Button type='submit' basic color='green'>Se connecter</Button>
+              {!loadingConnect
+                ? <Button type="submit">Se connecter</Button>
                 : <Button loading>Loading</Button>
               }
-              {errorMessage !== '' && <p>Erreur de connexion, veuillez vérifier vos informations.</p>}
             </Form>
           </Modal.Description>
         </Modal.Content>
+        
       </Modal>
+      
     );
+    
   }
-}
+
 
 ModalConnect.propTypes = {
   changeInput: PropTypes.func.isRequired,

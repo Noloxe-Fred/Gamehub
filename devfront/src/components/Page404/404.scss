@@ -1,23 +1,49 @@
-#NotFound {
- margin-top: 50px;
-}
+// #NotFound {
+//  margin-top: 50px;
+// }
 
 .contenu {
-  padding-top: 50px;
+  padding-top: 10px;
+  object-fit: cover;
+  height: 10vh;
+  
   
 }
 
-.Titre {
-  color: red;
-  font-size: 5em;
+.erreur {
+  color: #FFFDD8;
+  font-size: 15em;
+  padding-top: 50px;
+  h1 {
+    font-size: 0.3em;
+  }
+  
     
 }
 
-.Ok {
-  padding-top: 30px;
-  font-size: 1.5em;
-  border-bottom: 10px;
+.texte {
+  color: #FFFDD8;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.ok {
+  padding-top: 50px;
+  font-size: 2em;
+  padding-bottom: 10px;
   
+  
+}
+
+.image {
+  padding-top: 50px;
+  object-fit: contain;
+}
+
+.background {
+  background-color: #2C3E50;
+  height: 100vh;
+  object-fit: contain;
 }
 
 

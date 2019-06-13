@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal, Form } from 'semantic-ui-react';
+import { Button, Modal, Form, Icon, Header } from 'semantic-ui-react';
 
-import ModalConnect from 'src/containers/Navbar/ModalConnect';
+import './ModalSubscribe.scss'
 
 export default class ModalSubscribe extends Component {
 
@@ -25,45 +25,47 @@ export default class ModalSubscribe extends Component {
   const { subpseudo, subemail, subpassword, subconfirmpassword, confirmSubscribe, openModSub, openSubscribe, closeModSub  } = this.props;
 
   return (
-    <Modal trigger={<button className="subscribeButton" onClick={openModSub}>S'inscrire</button>} open={openSubscribe} onClose={closeModSub}>
+    <Modal className="inscription" trigger={<button className="subscribeButton" onClick={openModSub}>S'inscrire</button>} open={openSubscribe} onClose={closeModSub}>
       <Modal.Content>
         <Modal.Description>
+        <Header>S'inscrire</Header>
             <Form onSubmit= {this.onSubmit}>
               <Form.Field>
-                <label>Votre pseudo</label>
                 <input
                 name='subpseudo'
-                placeholder='pseudo'
+                placeholder='Votre pseudo'
                 onChange= {this.handleChange}
                 value= {subpseudo}
                 />
+                  <Icon className="user outline" />
               </Form.Field>
               <Form.Field>
-                <label>Votre email</label>
+                
                 <input 
+                placeholder='Votre email'
                 name='subemail'
-                placeholder='email'
                 onChange= {this.handleChange}
                 value= {subemail}
                 />
+                <Icon className="mail outline" />
               </Form.Field>
-              <Form.Field>
-                <label>Votre mot de passe</label>
-                <input
+              <Form.Field>             
+                <input 
+                placeholder='Votre mot de passe'
                 name='subpassword'
-                placeholder='mot de passe'
                 onChange= {this.handleChange}
                 value= {subpassword}
                 />
+                <Icon className="eye" />
               </Form.Field>
               <Form.Field>
-                <label>Confirmer votre mot de passe</label>
-                <input
+                <input 
+                placeholder='Confirmer votre mot de passe'
                 name='subconfirmpassword'
-                placeholder='mot de passe'
                 onChange= {this.handleChange}
                 value= {subconfirmpassword}
                 />
+                <Icon className="eye" />
               </Form.Field>
               {confirmSubscribe !== 'subscribeOk' && (
                 <Button type='submit'>S'inscrire</Button>
