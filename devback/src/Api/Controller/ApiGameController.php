@@ -3,7 +3,6 @@
 namespace App\Api\Controller;
 
 use App\Repository\GameRepository;
-use App\Repository\UserRepository;
 use App\Repository\ScoreRepository;
 use App\Repository\StateRepository;
 use App\Repository\CommentRepository;
@@ -12,6 +11,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ApiGameController extends FOSRestController
 {
