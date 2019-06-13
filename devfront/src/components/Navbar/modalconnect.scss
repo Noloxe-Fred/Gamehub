@@ -24,6 +24,8 @@ instaurés par Semantic UI (<- quel gros relou)
   max-width: 400px;
   height: fit-content;
   background: transparent!important;
+  border: 1px solid #FFFDD8;
+
   .ui.header {
     text-align: center;
     color: white;
@@ -39,6 +41,7 @@ instaurés par Semantic UI (<- quel gros relou)
     form {
       text-align: center;
       .field {
+        margin-top: 20px;
         display: flex;
         align-content: baseline;
         border-bottom: 1px solid white;
@@ -57,16 +60,18 @@ instaurés par Semantic UI (<- quel gros relou)
         }
         .icon {
           font-size: 1.25em;
-          color: green;
+          color: #FFFDD8;
           padding-bottom: 1.25em;
         }
       }
       button {
-        color: #363680!important;
-        background: #FFFDD8;
+        color: #FFFDD8!important;
+        background: none;
         border-radius: 6px;
         padding: .5em;
         text-transform: uppercase;
+        margin-top: 20px;
+       
       }
     }
   }
