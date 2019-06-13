@@ -26,8 +26,8 @@ const GameHeader = ({ datas }) => {
               <div className="categories">
                 {categories.map(category => <button type="button">{category.name}</button>)}
               </div>
-              <div className="title--editor">Éditeur : {editor}</div>
-              <div className="title--developer">Développeur : {developer}</div>
+              <div className="title--editor">Éditeur : {editor[0].name}</div>
+              <div className="title--developer">Développeur : {developer[0].name}</div>
               <div className="title--developer"><a href={website} target="blank">Site Officiel</a></div>
               <div className="title--released">Date de sortie : {released}</div>
               <div className="description">
