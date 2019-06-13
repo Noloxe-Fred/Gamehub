@@ -5,7 +5,6 @@ namespace App\Api\Controller;
 use App\Entity\State;
 use App\Form\Api\StateType;
 use App\Repository\GameRepository;
-use App\Repository\UserRepository;
 use App\Repository\StateRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -113,7 +112,7 @@ class ApiStateController extends FOSRestController
     /**
      * @Rest\Post(path = "game/list/want", name = "state_games_want")
      */ 
-    public function getGamesListWant(StateRepository $stateRepository, TokenStorageInterface $token, Request $request, SerializerInterface $serializer){
+    public function getGamesListWant(StateRepository $stateRepository, TokenStorageInterface $token, SerializerInterface $serializer){
 
         $user = $token->getToken()->getUser();
         $games = $stateRepository->findGamesListByStatus($user, 'want');
@@ -128,7 +127,7 @@ class ApiStateController extends FOSRestController
     /**
      * @Rest\Post(path = "game/list/waiting", name = "state_games_waiting")
      */ 
-    public function getGamesListWaiting(StateRepository $stateRepository, TokenStorageInterface $token, Request $request, SerializerInterface $serializer){
+    public function getGamesListWaiting(StateRepository $stateRepository, TokenStorageInterface $token, SerializerInterface $serializer){
 
         $user = $token->getToken()->getUser();
         $games = $stateRepository->findGamesListByStatus($user, 'waiting');
