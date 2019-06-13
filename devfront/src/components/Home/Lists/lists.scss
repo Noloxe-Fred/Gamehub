@@ -1,6 +1,6 @@
 // Variables
 
-$text-color: white;
+$text-color: #FFFDD9;
 $background-color: #34495e;
 
 $title-font: 'Oswald', sans-serif;
@@ -11,218 +11,365 @@ $text-font: 'Reem Kufi', sans-serif;
   margin-bottom: 5em;
 }
 
-h2 {
-  color: $text-color;
-  font-family: $title-font;
-}
-h3 {
-  color: $background-color;
-  font-family: $title-font;
-}
-h6 {
-  color: $text-color;
-  font-family: $text-font;
-}
-
-#button-main-list {
-  color: #34495e;
-}
-
 #title-main-list {
+  width: 60%;
+  margin: 0 auto;
+  h3 {
+    font-family: $title-font;
+    color: #34495e;
+    font-size: 2em;
+    text-align: left; 
+  }
+}
+
+#grid--prochaines--sorties {
+  width: 60%;
+  margin: 0 auto;
+}
+
+#mainCard {
+  // background: red;
+  .card {
+    width: 100%;
+    margin: 0 auto;
+    img {
+      height: 15em;
+      object-fit: cover;
+    }
+    .content {
+      background: $background-color;
+      overflow: hidden;
+      .header {
+        text-align: left;
+        font-family: $title-font;
+        color: $text-color;
+      }
+      .description {
+        overflow: hidden;
+        text-align: justify;
+        font-family: $text-font;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+#secondaryCard {
+  // background: green;
+  width: 50%;
+  .card {
+    width: 100%;
+    height: 21.5em;
+    margin: 0 auto;
+    img {
+      height: 10em;
+      object-fit: cover;
+    }
+    .content {
+      background: $background-color;
+      overflow: hidden;
+      .header {
+        text-align: left;
+        font-family: $title-font;
+        color: $text-color;
+      }
+      .description {
+        text-align: justify;
+        font-family: $text-font;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+#thirdCard--top--row {
+  // background: yellow;
   width: 100%;
   display: flex;
   justify-content: space-between;
-}
-.list {
-  margin-top: 50px;
-}
-
-h3 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1em;
-  text-transform: uppercase;
+  margin-bottom: 1.5em;
+  .card {
+    height: 10em;
+  }
 }
 
-#list {
-  color: #FFFDD9;
-  font-size: 1.7em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 60%;
-  margin: 30px auto;
-}
-
-//Card Style pour toutes les cards des prochaines sorties
-
-.row {
-  padding-top: .2em !important;
-  padding-right: .2em !important;
-  padding-left: .2em !important;
-}
-.column {
-  padding-top: .2em !important;
-  padding-right: .2em !important;
-  padding-left: .2em !important;
-}
-.two.column.row {
-  padding-bottom: 0;
-  display: flex;
-  align-items: center;
-}
-.grid {
-  display: flex;
-  justify-content: center;
-}
-
-.ui.card {
+#thirdCard--bottom--row {
+  // background: purple;
   width: 100%;
-  background-color: $background-color;
-  // color: #FFFDD9;
-  .header {
-    font-family: 'Oswald', sans-serif !important;
-    color: #FFFDD9;
-  }
-  .content {
-    padding: .3em;
-    color: #FFFDD9;
-  }
-  .plus {
-    z-index: 1;
-    color: #FFFDD9 ;
-    position: absolute;
-    top: .5em;
-    right: .5em;
+  display: flex;
+  justify-content: space-between;
+  .card {
+   height: 10em;
   }
 }
 
-.meta {
-  margin-right: 1em;
+.other--column {
+  width: 48%;
 }
 
-.ui.card:hover {
-  cursor: pointer;
-  -webkit-box-shadow: 0px 0px 14px -2px rgba(158,158,158,1);
-  -moz-box-shadow: 0px 0px 14px -2px rgba(158,158,158,1);
-  box-shadow: 0px 0px 14px -2px rgba(158,158,158,1);
-}
-// Card style pour la main card
-.ui.grid > .row {
-  padding-bottom: 0;
+
+
+
+
+
+@media screen and (max-width: 600px) {
+  #grid--prochaines--sorties {
+    width: 90%;
+  }
 }
 
-.mainCard {
-  overflow: hidden;
-  color: #FFFDD9 !important;
-  .add--collection {
-    a {
-      z-index: 1;
-      position: absolute;
-      top: 1em;
-      right: 1em;
-      display: none;
-      font-size: .5em; 
-    }
-  }
-  .see--more {
-    a {
-      z-index: 1;
-      position: absolute;
-      top: 2.5em;
-      right: 1em;
-      display: none;
-      font-size: .5em;
-    }
-  }
-  img {
-    width: 100%;
-    height: 9em;
-    object-fit: cover;
-  }
-  .content {
-    height: 3em;
-  }
-  .header {
-    font-size: .8em !important;
-    text-align: left;
-  }
-  .description {
-    font-size: .5em;
-    text-align: left;
-  }
-  .meta {
-    text-align: right;
-  }
-  .meta a {
-    font-size: .5em;
+@media screen and (max-width: 1000px) {
+  #four--cards--part {
+    margin-top: 1.5em;
   }
 }
 
 
-// Card style pour la secondary card
-.secondaryCard {
-  color: #FFFDD9 !important;
-  overflow: hidden;
-  height: 100%;
-  img {
-    width: 100%;
-    height: 7em;
-    object-fit: cover;
-  }
-  .content {
-    height: 5.2em;
-  }
-  .header {
-    font-size: .8em !important;
-    text-align: left;
-  }
-  .description {
-    font-size: .5em;
-    text-align: left;
-  }
-  .meta {
-    text-align: right;
-  }
-  .meta a {
-    font-size: .5em;
-  }
-}
-
-// Card style pour les petites cards
-
-.otherCard {
-  color: #FFFDD9 !important;
-  overflow: hidden;
-  h2 {
-    font-size: .5em;
-  }
-  img {
-    width: 100%;
-    height: 2em;
-    object-fit: cover;
-  }
-  .content {
-    height: 2.4em;
-  }
-  .header {
-    font-size: .2em;
-    text-align: left;
-  }
-  .description {
-    font-size: .4em;
-    text-align: left;
-    overflow: hidden;
-  }
-  .meta {
-    text-align: right;
-  }
-  .meta a {
-    font-size: .5em;
-  }
-}
-
-.grid--four--othercards {
-  padding-bottom: .4em !important;
-}
 
 
+// h2 {
+//   color: $text-color;
+//   font-family: $title-font;
+// }
+// h3 {
+//   color: $background-color;
+//   font-family: $title-font;
+// }
+// h6 {
+//   color: $text-color;
+//   font-family: $text-font;
+// }
+
+// #button-main-list {
+//   color: #34495e;
+// }
+
+// #title-main-list {
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+// }
+// .list {
+//   margin-top: 50px;
+// }
+
+// h3 {
+//   font-family: 'Oswald', sans-serif;
+//   font-size: 1em;
+//   text-transform: uppercase;
+// }
+
+// #list {
+//   color: #fffdd9;
+//   font-size: 1.7em;
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-around;
+//   width: 60%;
+//   margin: 30px auto;
+// }
+
+// //Card Style pour toutes les cards des prochaines sorties
+
+// // .row {
+// //   padding-top: .2em !important;
+// //   padding-right: .2em !important;
+// //   padding-left: .2em !important;
+// // }
+// // .column {
+// //   padding-top: .2em !important;
+// //   padding-right: .2em !important;
+// //   padding-left: .2em !important;
+// // }
+// // .two.column.row {
+// //   padding-bottom: 0;
+// //   display: flex;
+// //   align-items: center;
+// // }
+// // .grid {
+// //   display: flex;
+// //   justify-content: center;
+// // }
+
+// .ui.card {
+//   width: 100%;
+//   background-color: $background-color;
+//   // color: #FFFDD9;
+//   .header {
+//     font-family: 'Oswald', sans-serif !important;
+//     color: #FFFDD9;
+//   }
+//   .content {
+//     padding: .3em;
+//     color: #FFFDD9;
+//   }
+//   .plus {
+//     z-index: 1;
+//     color: #FFFDD9 ;
+//     position: absolute;
+//     top: .5em;
+//     right: .5em;
+//   }
+// }
+
+// .meta {
+//   margin-right: 1em;
+// }
+
+// .ui.card:hover {
+//   cursor: pointer;
+//   -webkit-box-shadow: 0px 0px 14px -2px rgba(158,158,158,1);
+//   -moz-box-shadow: 0px 0px 14px -2px rgba(158,158,158,1);
+//   box-shadow: 0px 0px 14px -2px rgba(158,158,158,1);
+// }
+// // Card style pour la main card
+// .ui.grid > .row {
+//   padding-bottom: 0;
+// }
+
+// .mainCard {
+//   overflow: hidden;
+//   color: #FFFDD9 !important;
+//   .add--collection {
+//     a {
+//       z-index: 1;
+//       position: absolute;
+//       top: 1em;
+//       right: 1em;
+//       display: none;
+//       font-size: .5em; 
+//     }
+//   }
+//   .see--more {
+//     a {
+//       z-index: 1;
+//       position: absolute;
+//       top: 2.5em;
+//       right: 1em;
+//       display: none;
+//       font-size: .5em;
+//     }
+//   }
+//   img {
+//     width: 100%;
+//     height: 9em;
+//     object-fit: cover;
+//   }
+//   .content {
+//     height: 3em;
+//   }
+//   .header {
+//     font-size: .8em !important;
+//     text-align: left;
+//   }
+//   .description {
+//     font-size: .5em;
+//     text-align: left;
+//   }
+//   .meta {
+//     text-align: right;
+//   }
+//   .meta a {
+//     font-size: .5em;
+//   }
+// }
+
+
+// // Card style pour la secondary card
+// .secondaryCard {
+//   color: #FFFDD9 !important;
+//   overflow: hidden;
+//   // height: 100%;
+//   // margin-right: 7px !important;
+//   img {
+//     width: 100%;
+//     height: 7em;
+//     object-fit: cover;
+//   }
+//   .content {
+//     height: 5.2em;
+//   }
+//   .header {
+//     font-size: .8em !important;
+//     text-align: left;
+//   }
+//   .description {
+//     font-size: .5em;
+//     text-align: left;
+//   }
+//   .meta {
+//     text-align: right;
+//   }
+//   .meta a {
+//     font-size: .5em;
+//   }
+// }
+
+// // Card style pour les petites cards
+
+// .otherCard {
+//   color: #FFFDD9 !important;
+//   overflow: hidden;
+//   height: 100%;
+//   width: 100% !important;
+//   margin-right: 0 !important;
+//   margin: .5em !important;
+//   h2 {
+//     font-size: .5em;
+//   }
+//   img {
+//     // width: 100%;
+//     height: 1em;
+//     object-fit: contain;
+//   }
+//   .content {
+//     height: 2.4em;
+//   }
+//   .header {
+//     font-size: .2em;
+//     text-align: left;
+//   }
+//   .description {
+//     font-size: .4em;
+//     text-align: left;
+//     overflow: hidden;
+//   }
+//   .meta {
+//     text-align: right;
+//   }
+//   .meta a {
+//     font-size: .5em;
+//   }
+// }
+
+// .grid--four--othercards {
+//   // padding-bottom: .4em !important;
+
+// }
+ 
+// .row--other {
+//   // height: 100%;
+//   padding: 0 !important;
+//   // display: flex;
+  
+//   // width: 100%;
+// }
+
+// .partie--bas--droite {
+//   background: red;
+//   padding: 0 !important;
+// }
+
+// .haut-gauche {
+//   background: green;
+//   height: 100px;
+//   width: 100px
+// }
+
+// .haut-droite {
+//   background: yellow;
+// }
+
+// .ui.grid > .row > .column {
+//   padding-right: 0 !important;
+// }
