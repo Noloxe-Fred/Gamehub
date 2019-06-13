@@ -54,7 +54,7 @@ class ModalConnect extends Component {
           <Modal.Description>
             <Header>Se connecter</Header>
             {/* {errorMessage && <Modal.Descritpion>Erreur d'authentification</Modal.Descritpion>} */}
-            <Form onSubmit= {this.onSubmit}>
+            <Form onSubmit={this.onSubmit}>
               <Form.Field>
                 <input
                   placeholder="Email"

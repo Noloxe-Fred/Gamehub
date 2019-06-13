@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Modal, Form, Icon, Header } from 'semantic-ui-react';
 
-import './ModalSubscribe.scss'
+import ModalConnect from 'src/components/Navbar/ModalConnect';
+import './ModalSubscribe.scss';
 
 export default class ModalSubscribe extends Component {
 
@@ -40,7 +41,6 @@ export default class ModalSubscribe extends Component {
                   <Icon className="user outline" />
               </Form.Field>
               <Form.Field>
-                
                 <input 
                 placeholder='Votre email'
                 name='subemail'
@@ -69,6 +69,7 @@ export default class ModalSubscribe extends Component {
                 />
                 <Icon className="eye" />
               </Form.Field>
+              <p className="password--auth">(Votre mot de passe doit contenir une majuscule, une minuscule, chiffre et avoir au moins 5 caractères)</p>
               {confirmSubscribe !== 'subscribeOk' && (
                 <Button type='submit'>S'inscrire</Button>
               )}

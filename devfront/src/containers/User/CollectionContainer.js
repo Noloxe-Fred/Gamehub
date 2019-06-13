@@ -5,6 +5,7 @@ import {
   request,
   displayProfile,
   displayFullList,
+  reqUserGameDatas,
 } from 'src/store/reducers/userPagesReducer';
 
 const mapStateToProps = state => {
@@ -27,6 +28,9 @@ const mapDispatchToProps = dispatch => ({
   },
   displayFullList: (choice) => {
     dispatch(displayFullList(choice));
+  },
+  reqUserGameDatas: (id) => {
+    dispatch(reqUserGameDatas(id));
   },
 });
 

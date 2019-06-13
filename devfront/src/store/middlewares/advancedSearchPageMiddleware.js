@@ -1,8 +1,14 @@
 import axios from 'axios';
 
-import { REQUEST_CATEGORIES, REQUEST_GAMES, REQUEST_BY_CATEGORIES, receivedGames, receivedCategories, loadGames, loadCategories } from 'src/store/reducers/advancedSearchPageReducer';
-
-
+import { 
+  REQUEST_CATEGORIES,
+  REQUEST_GAMES,
+  REQUEST_BY_CATEGORIES,
+  receivedGames,
+  receivedCategories,
+  loadGames,
+  loadCategories
+} from 'src/store/reducers/advancedSearchPageReducer';
 
 const advancedSearchPageMiddleware = store => next => (action) => {
   switch (action.type) {
@@ -47,20 +53,37 @@ const advancedSearchPageMiddleware = store => next => (action) => {
         if(category.status == true) {return category.category}
       });
       const categories = filter.map(category => category.category);
-      axios.get('http://api.gamehub.com/api/category/search', {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        id: categories,
-      })
-        .then((response) => {
-          console.log('request games by categories', response.data);
-          const gamesDatas = response.data;
-          store.dispatch(receivedGames(gamesDatas));
+      if (categories.length > 0) {
+        axios.get('http://api.gamehub.com/api/category/search', {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          id: [1, 2],
         })
-        .catch((error) => {
-          console.log('request games by categories', error);
-        });
+          .then((response) => {
+            console.log('request games by categories', response.data);
+            const gamesDatas = response.data;
+            store.dispatch(receivedGames(gamesDatas));
+          })
+          .catch((error) => {
+            console.log('request games by categories', error);
+          });
+      }
+      else {
+        axios.get('http://api.gamehub.com/api/game/list', {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((response) => {
+            console.log('request games', response.data);
+            const gamesDatas = response.data;
+            store.dispatch(receivedGames(gamesDatas));
+          })
+          .catch((error) => {
+            console.log('request games', error);
+          });
+      }
       break;
     default:
       next(action);

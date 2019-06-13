@@ -27,7 +27,7 @@ const navbarMiddleware = store => next => (action) => {
       const email = store.getState().navbarreducer.connectPseudo;
       const password = store.getState().navbarreducer.connectPassword;
 
-
+      console.log('Connexion', email, password);
       axios.post('http://api.gamehub.com/api/signin', {
         headers: {
           'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ const navbarMiddleware = store => next => (action) => {
       store.dispatch(loadSearch());
       const name = store.getState().navbarreducer.inputSearch;
 
-      axios.post('http://api.gamehub.com/api/game/search', {
+      axios.get('http://api.gamehub.com/api/game/search', {
         headers: {
           'Content-Type': 'application/json',
         },

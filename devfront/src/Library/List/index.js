@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Col } from 'react-bootstrap';
+import { Transition } from 'semantic-ui-react';
 
 import './list.scss';
 

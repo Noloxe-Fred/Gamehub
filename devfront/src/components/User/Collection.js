@@ -15,6 +15,7 @@ const Collection = ({
   displayProfile,
   fullList,
   displayFullList,
+  reqUserGameDatas,
 }) => {
   const handleShowClick = () => {
     displayProfile();
@@ -61,9 +62,9 @@ const Collection = ({
             {fullList === 'waiting' && <div id="fullList"><Button onClick={handleFullList(false)}>Retour Collection</Button><ListFull gamesDatas={listWaiting.list} /></div>}
             {!fullList && (
               <div id="mycollection">
-                <ListSmall name="add" listDatas={listAdd} request={request} displayFullList={displayFullList}/>
-                <ListSmall name="want" listDatas={listWant} request={request} displayFullList={displayFullList}/>
-                <ListSmall name="waiting" listDatas={listWaiting} request={request} displayFullList={displayFullList}/>
+                <ListSmall name="add" listDatas={listAdd} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
+                <ListSmall name="want" listDatas={listWant} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
+                <ListSmall name="waiting" listDatas={listWaiting} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
               </div>
             )}
           </Segment>
@@ -85,21 +86,24 @@ class ListSmall extends Component {
 
   render() {
     const { list, load, title } = this.props.listDatas;
+    const {name, reqUserGameData } = this.props;
     const shortList = list.slice(0, 12);
     const percent = 70;
     return (
       <div className="collection">
         <h2>{title}:</h2>
-        {list.length > 11 && <Button onClick={this.fullList(this.props.name)}>Voir la liste complète...</Button>}
+        {list.length > 11 && <Button onClick={this.fullList(name)}>Voir la liste complète...</Button>}
         {load && <p>Loading</p>}
         {!load && (
           <div className="list">
-            {shortList.map(game => (
+            {shortList.map(game => {
+              {/* reqUserGameData(game.id); */}
+              return (
               <div id={game.id} className="game">
                 <img src={game.cover} alt="cover game" />
                 <div className="game-score"><Progress percent={percent} indicating /></div>
               </div>
-            ))}
+            )})}
           </div>
         )}
       </div>

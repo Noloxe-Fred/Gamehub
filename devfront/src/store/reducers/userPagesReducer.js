@@ -4,6 +4,8 @@ const initialState = {
   waiting: { list: [], load: true, title: 'Je les attends' },
   displayedProfile: false,
   fullList: false,
+  userGameDatas: [],
+  loadUsGaDa: true,
 };
 
 // Action Type
@@ -25,6 +27,10 @@ const RECEIVED = 'RECEIVED';
 const DISPLAY_FULL_LIST = 'DISPLAY_FULL_LIST';
 
 const DISPLAY_PROFILE = 'DISPLAY_PROFILE';
+
+export const REQ_USER_GAME_DATAS = 'REQ_USER_GAME_DATAS';
+const REC_USER_GAME_DATAS = 'REC_USER_GAME_DATAS';
+const LOAD_US_GA_DA = 'LOAD_US_GA_DA';
 
 // Reducer
 const userPagesReducer = (state = initialState, action = {}) => {
@@ -50,6 +56,17 @@ const userPagesReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         fullList: action.choice,
+      };
+    case REC_USER_GAME_DATAS:
+      return {
+        ...state,
+        userGameDatas: action.datas,
+        loadUsGaDa: false,
+      };
+    case LOAD_US_GA_DA:
+      return {
+        ...state,
+        loasUsGaDa: true,
       };
     default:
       return state;
@@ -80,6 +97,20 @@ export const displayProfile = () => ({
 export const displayFullList = choice => ({
   type: DISPLAY_FULL_LIST,
   choice,
+});
+
+export const reqUserGameDatas = id => ({
+  type: REQ_USER_GAME_DATAS,
+  id,
+});
+
+export const recUserGameDatas = datas => ({
+  type: REC_USER_GAME_DATAS,
+  datas,
+});
+
+export const loadUsGaDa = () => ({
+  type: LOAD_US_GA_DA,
 });
 
 export default userPagesReducer;
