@@ -51,6 +51,7 @@ export default class ModalSubscribe extends Component {
               </Form.Field>
               <Form.Field>             
                 <input 
+                type="password"
                 placeholder='Votre mot de passe'
                 name='subpassword'
                 onChange= {this.handleChange}
@@ -60,6 +61,7 @@ export default class ModalSubscribe extends Component {
               </Form.Field>
               <Form.Field>
                 <input 
+                type="password"
                 placeholder='Confirmer votre mot de passe'
                 name='subconfirmpassword'
                 onChange= {this.handleChange}

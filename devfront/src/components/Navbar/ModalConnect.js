@@ -57,7 +57,7 @@ class ModalConnect extends Component {
             <Form onSubmit= {this.onSubmit}>
               <Form.Field>
                 <input
-                  placeholder="Email..."
+                  placeholder="Email"
                   name="connectPseudo"
                   onChange={this.handleChange}
                   value={connectPseudo}
@@ -67,7 +67,8 @@ class ModalConnect extends Component {
               </Form.Field>
               <Form.Field>
                 <input
-                  placeholder="Mot de passe..."
+                  type="password"
+                  placeholder="Mot de passe"
                   name="connectPassword"
                   onChange={this.handleChange}
                   value={connectPassword}
