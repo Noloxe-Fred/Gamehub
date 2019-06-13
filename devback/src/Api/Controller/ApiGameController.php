@@ -38,7 +38,6 @@ class ApiGameController extends FOSRestController
     {   
 
         $game = $gameRepository->findOneById($request->request->get('id'));
-        // $game = $gameRepository->findByGame($game);
 
         $showGame = $serializer->serialize($game, 'json', [
             'groups' => 'game_read',

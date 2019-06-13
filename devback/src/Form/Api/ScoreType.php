@@ -17,8 +17,6 @@ class ScoreType extends AbstractType
             ->add('value', IntegerType::class, [
                 
             ])
-            ->add('user')
-            ->add('game')
         ;
     }
 
