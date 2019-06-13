@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './searchresult.scss';
 
+import List from 'src/Library/List';
+
 class SearchResult extends Component {
   componentDidMount() {
     this.props.cancelRedirect();
@@ -10,7 +12,8 @@ class SearchResult extends Component {
   render() {
     return (
       <div id="result--search">
-        <h2>Résultat de votre recherche:</h2>
+        <h3>Résultat de votre recherche:</h3>
+        <List gamesDatas={this.props.searchList} />
       </div>
     );
   }

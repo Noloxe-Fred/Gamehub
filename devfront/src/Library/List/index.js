@@ -8,6 +8,7 @@ const List = ({ gamesDatas }) => {
   console.log('List', gamesDatas);
   return (
     <Container fluid className="games--list">
+      {gamesDatas.length === 0 && <p>Pas de résultats</p>}
       {gamesDatas.map((game) => {
         return (
           <Col lg={2} md={5} sm={12} xs={12} className="one--game">
