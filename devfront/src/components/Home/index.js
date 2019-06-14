@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 import MainList from 'src/containers/Home/MainList';
 import FirstCarousel from 'src/containers/Home/FirstCarousel';
 import SecondCarousel from 'src/containers/Home/SecondCarousel';

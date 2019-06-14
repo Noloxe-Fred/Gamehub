@@ -1,0 +1,55 @@
+.footer__content {
+  padding: 2rem;
+  background-color: #2C3E50;
+  font-family: 'Reem Kufi', sans-serif;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  a {
+    color: white;
+  }
+  .left, .right {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    header {
+      text-transform: uppercase;
+      font-weight: bolder;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .left {
+    max-width: 400px;
+    width: 100%;
+    header { font-size: 2rem }
+  }
+  .right {
+    article {
+      margin-right: 2rem;
+      width: 50%;
+      main {
+        display: flex;
+        img { margin-right: .5rem }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  footer .footer__content {
+    .left, .right {
+      width: 100%;
+      border-bottom: 1px dashed rgba(black, .25);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .right article {
+      margin-bottom: 3rem;
+      width: fit-content;
+    }
+  }
+}

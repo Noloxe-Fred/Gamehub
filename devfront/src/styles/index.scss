@@ -3,9 +3,12 @@
 
 body {
   font-family: sans-serif;
+  height: fit-content!important; // Une règle déjà présente écrasait cette valeur, le body ne prenait plus 100% du site
 }
 
 #root {
-  margin: 3em auto;
-  width: 100%;
+  
+  // Pour reduire l'espacement du footer car il etait trop grand je l'ai mis en commentaire 
+  // margin: 3em auto;
+  // width: 100%;
 }

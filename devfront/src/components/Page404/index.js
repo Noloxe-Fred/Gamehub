@@ -14,7 +14,7 @@ const NotFound = () => (
     <h2> Hum... tu n'etais pas censé trouver ce link... </h2>
     </div>
     <div className="image"> 
-    <img src="src/data/images/404/deadlink.png"> 
+    <img src="https://image.noelshack.com/fichiers/2019/24/5/1560515906-deadlink.png"> 
     </img>
     </div>
     <div className="ok"> 
