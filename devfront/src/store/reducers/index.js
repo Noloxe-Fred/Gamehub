@@ -6,6 +6,7 @@ import gamePageReducer from './gamePageReducer';
 import userPagesReducer from './userPagesReducer';
 import addGameReducer from './addGameReducer';
 import advancedSearchPageReducer from './advancedSearchPageReducer';
+import editGameRed from './editGameReducer';
 
 export default combineReducers({
   homeReducer,
@@ -14,4 +15,5 @@ export default combineReducers({
   userPagesReducer,
   addGameReducer,
   advancedSearchPageReducer,
+  editGameRed,
 });
