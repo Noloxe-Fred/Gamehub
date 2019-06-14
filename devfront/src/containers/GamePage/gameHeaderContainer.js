@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import GameHeader from 'src/components/GamePage/GameHeader';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   datas: state.gamePageReducer.gameDatas,
 });
 

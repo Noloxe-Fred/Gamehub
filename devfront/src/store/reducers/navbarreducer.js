@@ -1,7 +1,7 @@
 const initialState = {
   connect: false,
   loadingConnect: false,
-  errorConnect: '',
+  errorConnect: false,
   openConnect: false,
   connectPseudo: '',
   connectPassword: '',
