@@ -5792,6 +5792,10 @@ react-router@5.0.0, react-router@^5.0.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
+react-semantic-ui-range@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-semantic-ui-range/-/react-semantic-ui-range-0.7.0.tgz#54054eaddfe6e45b21863ef02f62022338db66fb"
+
 react-swipeable@4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-4.3.0.tgz#818c0818ac565f5b169348f442153f343abff8bc"

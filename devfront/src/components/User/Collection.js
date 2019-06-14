@@ -4,7 +4,9 @@ import { NavLink, Redirect } from 'react-router-dom';
 import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarPushable, Grid  } from 'semantic-ui-react';
 
 import ListFull from 'src/Library/List';
+import EditGame from 'src/containers/User/editGameCont';
 import './user.scss';
+
 
 const Collection = ({
   listAdd,
@@ -101,6 +103,7 @@ class ListSmall extends Component {
               return (
               <div id={game.id} className="game">
                 <img src={game.cover} alt="cover game" />
+                <EditGame game={game} />
                 <div className="game-score"><Progress percent={percent} indicating /></div>
               </div>
             )})}

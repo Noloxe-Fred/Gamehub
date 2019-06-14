@@ -13,7 +13,7 @@ const initialState = {
 
 // Action Type
 const LOAD_REQUEST_DATAS = 'LOAD_REQUEST_DATAS';
-export const REQUEST_US_GA_DA = 'REQUEST_US_GA_DA';
+export const REQ_US_GA_DA = 'REQ_US_GA_DA';
 const REC_USER_GAME_DATAS = 'REC_USER_GAME_DATAS';
 
 const SET_INPUT = 'SET_INPUT';
@@ -22,6 +22,9 @@ const RECEIVED_SUBMIT = 'RECEIVED_SUBMIT';
 const RECEIVED_DELETE = 'RECEIVED_DELETE';
 
 export const DELETE_DATAS = 'DELETE_DATAS';
+export const DELETE_GAME = 'DELETE_GAME';
+const LOAD_DELETE_GAME = 'LOAD_DELETE_GAME';
+
 const RESET_DELETED_GAME = 'RESET_DELETED_GAME';
 
 // Reducer
@@ -37,7 +40,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         loadRequestDatas: true,
       };
-    case REQ_USER_GAME_DATAS:
+    case REQ_US_GA_DA:
       return {
         ...state,
         status: action.status,
@@ -51,10 +54,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: value,
       };
+    case LOAD_DELETE_GAME:
+      return {
+        ...state,
+        loadDeleteGame: true,
+      };
     case RECEIVED_DELETE:
       return {
         ...state,
         deletedGame: false,
+        loadDeletegame: false,
       };
     case RESET_DELETED_GAME:
       return {
@@ -78,7 +87,7 @@ export const loadRequestDatas = () => ({
 });
 
 export const reqUserGameDatas = id => ({
-  type: REQUEST_US_GA_DA,
+  type: REQ_US_GA_DA,
   id,
 });
 
@@ -96,9 +105,18 @@ export const receivedSubmit = (name, value) => ({
   value,
 });
 
-export const deleteData = name => ({
-  type: DELETE_DATA,
+export const deleteDatas = name => ({
+  type: DELETE_DATAS,
   name,
+});
+
+export const loadDeleteGame = () => ({
+  type: LOAD_DELETE_GAME,
+});
+
+export const deleteGame = id => ({
+  type: DELETE_GAME,
+  id,
 });
 
 export const receivedDelete = value => ({
@@ -106,7 +124,7 @@ export const receivedDelete = value => ({
   value,
 });
 
-export const resetDeletedGame () => ({
+export const resetDeletedGame = () => ({
   type: RESET_DELETED_GAME,
 });
 

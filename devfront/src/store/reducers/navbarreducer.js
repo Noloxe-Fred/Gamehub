@@ -5,7 +5,7 @@ const initialState = {
   openConnect: false,
   connectPseudo: '',
   connectPassword: '',
-  checkRemember: false,
+  checkRemember: true,
   openSubscribe: false,
   subfirstname: '',
   sublastname: '',
