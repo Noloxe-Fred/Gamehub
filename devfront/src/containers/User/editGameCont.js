@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import EditGame from 'src/Library/FullComponent/EditGame';
 
-import { reqUserGameData, setInput deleteGame } from 'src/store/reducers/editGameReducer';
+import { reqUserGameDatas, setInput, deleteGame } from 'src/store/reducers/editGameReducer';
 
 const mapStateToProps = state => ({
-  actualScore: state.editGameRed.actualScore,
-  commentTitle: state.editGameRed.commentTitle,
-  commentContent: state.editGameRed.commentContent,
+  actualScore: state.editGameRed.score,
+  commentTitle: state.editGameRed.title,
+  commentContent: state.editGameRed.content,
 });
 
 const mapDispatchToProps = dispatch => ({
-  reqUserGameData: (gameId) => {
-    dispatch(reqUserGameData(gameId));
+  reqUserGameDatas: (gameId) => {
+    dispatch(reqUserGameDatas(gameId));
   },
   setInput: (name, value) => {
     dispatch(setInput(name, value));

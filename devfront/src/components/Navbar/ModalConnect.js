@@ -8,6 +8,7 @@ import {
   Icon,
   Container,
   Divider,
+  Checkbox
 } from 'semantic-ui-react';
 
 
@@ -75,10 +76,14 @@ class ModalConnect extends Component {
                 />
                 <Icon className="eye" />
               </Form.Field>
+              <Form.Field>
+                <Checkbox name="remember" label="Se souvenir de moi" onChange={this.handleCheck} />
+              </Form.Field>
               {!loadingConnect
                 ? <Button type="submit">Se connecter</Button>
                 : <Button loading>Loading</Button>
               }
+              {errorMessage && <p>Erreur de connexion, veuillez vérifier vos informations.</p>}
             </Form>
           </Modal.Description>
         </Modal.Content>

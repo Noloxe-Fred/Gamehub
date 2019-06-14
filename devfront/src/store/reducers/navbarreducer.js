@@ -1,11 +1,11 @@
 const initialState = {
   connect: false,
   loadingConnect: false,
-  errorConnect: '',
+  errorConnect: false,
   openConnect: false,
   connectPseudo: '',
   connectPassword: '',
-  checkRemember: false,
+  checkRemember: true,
   openSubscribe: false,
   subfirstname: '',
   sublastname: '',
