@@ -91,22 +91,22 @@ class User implements UserInterface
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user", cascade={"remove"})
      */
     private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\CommentLike", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\CommentLike", mappedBy="user", cascade={"remove"})
      */
     private $commentLikes;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Score", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Score", mappedBy="user", cascade={"remove"})
      */
     private $scores;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\State", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\State", mappedBy="user", cascade={"remove"})
      */
     private $states;
 
@@ -426,5 +426,10 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->pseudo;
     }
 }

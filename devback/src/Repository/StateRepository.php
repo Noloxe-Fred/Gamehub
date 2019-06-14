@@ -53,16 +53,13 @@ class StateRepository extends ServiceEntityRepository
 
     public function findGameState($user, $game){
 
-        $qb = $this->createQueryBuilder('s')
-        ->join('s.user', 'u')
-        ->join('s.game', 'g')
-        ->where('u.id = :user')
-        ->andWhere('g.id = :game')
-        ->setParameter('user', $user)
-        ->setParameter('game', $game)
-        ->getQuery()
-        ->getResult();
 
-        return $qb;
+        $rawSql = "SELECT `state`.id, `state`.`status` FROM `state` JOIN game ON `state`.game_id = game.id JOIN `user` ON `state`.`user_id` = `user`.id WHERE `state`.game_id = $game AND `state`.`user_id` = $user";
+
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+                
+        $stmt->execute([]);
+        return $stmt->fetchAll();
+   
     }
 }

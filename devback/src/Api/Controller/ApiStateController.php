@@ -145,10 +145,12 @@ class ApiStateController extends FOSRestController
     public function getGameState(StateRepository $stateRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, SerializerInterface $serializer){
 
         $user = $token->getToken()->getUser();
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
-
-        $games = $stateRepository->findGameState($user, $game);
-
+        
+        $userId = $user->getId();
+        $gameId = $request->request->get('id');
+        
+        $games = $stateRepository->findGameState($userId, $gameId);
+        
         $gamesListWaiting = $serializer->serialize($games, 'json', [
             'groups' => 'status_read',
         ]);
