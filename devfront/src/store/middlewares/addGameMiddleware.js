@@ -19,23 +19,38 @@ const addGameMiddleware = store => next => (action) => {
       const { gameId } = action;
       console.log('Id de la requete', gameId)
       // requete axios avec token (localstorage)
-      axios.post('http://api.gamehub.com/api/game/state', {
+      const instance = axios.create({
+        baseURL: 'http://api.gamehub.com/api/',
+        timeout: 1000,
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + user,
-        },
-        id: gameId
+          'Authorization': 'Bearer '+user
+        }
+      });
+      
+      instance.post('/game/state')
+      .then(response => {
+          console.log(response.data);
       })
-        .then((response) => {
-          // console.log('Reponse verify have', response);
-          const { status, available } = response.data;
-          const alreadyHave = status === '' ? false : true;
 
-          store.dispatch(checkedVerify(alreadyHave, available));
-        })
-        .catch((error) => {
-          console.log('Erreur Verification', error);
-        });
+
+      // axios.post('http://api.gamehub.com/api/game/state', {
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     'Authorization': 'Bearer ' + user,
+      //   },
+      //   id: 5,
+      // })
+      //   .then((response) => {
+      //     // console.log('Reponse verify have', response);
+      //     const { status, available } = response.data;
+      //     const alreadyHave = status === '' ? false : true;
+
+      //     store.dispatch(checkedVerify(alreadyHave, available));
+      //   })
+      //   .catch((error) => {
+      //     console.log('Erreur Verification', error);
+      //   });
       break;
     case SUBMIT:
       store.dispatch(loadSubmit());
