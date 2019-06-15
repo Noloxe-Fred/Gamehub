@@ -32,12 +32,12 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\Get(path = "game/show", name = "game_show")
+     * @Rest\Get(path = "game/{id}", name = "game_show", requirements = {"id" = "\d+"})
      */
-    public function getGameAction(GameRepository $gameRepository, SerializerInterface $serializer, Request $request)
+    public function getGameAction($id, GameRepository $gameRepository, SerializerInterface $serializer)
     {   
-        $data = json_decode($request->getContent(), true);
-        $game = $gameRepository->findOneById($data['id']);
+
+        $game = $gameRepository->findOneById($id);
 
         $showGame = $serializer->serialize($game, 'json', [
             'groups' => 'game_read',
@@ -63,12 +63,12 @@ class ApiGameController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "game/edit", name = "game_edit")
+     * @Rest\Get(path = "game/{id}/edit", name = "game_edit", requirements = {"id" = "\d+"})
      */ 
-    public function getGameEdit(StateRepository $stateRepository, ScoreRepository $scoreRepository, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer, TokenStorageInterface $token){
+    public function getGameEdit($id, StateRepository $stateRepository, ScoreRepository $scoreRepository, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer, TokenStorageInterface $token){
 
         $user = $token->getToken()->getUser();
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+        $game = $gameRepository->findOneById($id);
 
         $state = $stateRepository->findGameInfo($user, $game);
         $comment = $commentRepository->findGameInfo($user, $game);
