@@ -6,7 +6,7 @@ import { Loader, Grid, Image, Icon, Card  } from 'semantic-ui-react';
 
 import AddGame from 'src/containers/User/addgameContainer';
 import './lists.scss';
-
+ 
  
 class MainList extends Component {
   componentDidMount() {
@@ -24,7 +24,8 @@ class MainList extends Component {
         {(!load && displayList.length > 0) && (
           <div>
             <div id="title-main-list">
-              <h3>Les prochaines sorties</h3>
+              <h3><span className="thin">LES </span>PROCHAINES SORTIES</h3>
+              {/* <hr/> */}
               <div id="button-main-list">
                 {count > 0 && <Icon name="angle left" size="large" onClick={this.props.decreaseCount}/>}
                 {!(count + 7 > gameList.length) && <Icon name="angle right" size="large" onClick={this.props.increaseCount} />}

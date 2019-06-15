@@ -12,20 +12,37 @@ $text-font: 'Reem Kufi', sans-serif;
 }
 
 #title-main-list {
-  width: 58%;
-  margin: 0 auto;
+  width: 68em;
+  margin: .5em auto !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: -1em;
   h3 {
-    font-family: $title-font;
+    // height: 2em;
+    font-family: 'Open Sans', sans-serif;
     color: white;
     font-size: 2em;
     text-align: left; 
+    margin: 0 !important;
+    .thin {
+      font-size: 1em;
+      font-weight: 200;
+    }
+    span {
+      font-size: .5em;
+      margin-left: .5em;
+      color: white;
+    }
+  }
+  hr {
+    width: 30em;
+    border-bottom: 1px solid white;
   }
   #button-main-list {
     width: 10%;
+    color: white;
+    font-size: 1.5em;
   }
 }
 
@@ -166,6 +183,9 @@ $text-font: 'Reem Kufi', sans-serif;
 @media screen and (max-width: 600px) {
   #title-main-list {
     width: 80%;
+    h3 {
+      font-size: 1.5em;
+    }
   }
   #grid--prochaines--sorties {
     width: 90%;

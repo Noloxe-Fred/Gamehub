@@ -8,6 +8,15 @@
     background-position-y: -10em;
     position: relative;
     z-index: 1;
+    
+  }
+  h2 {
+    color: white !important;
+    position: absolute;
+    top: 20%;
+    right: 36%;
+    z-index: 1;
+    font-size: 5em;
   }
   .searchBar {
     position: absolute;
@@ -20,6 +29,38 @@
     }
   } 
 }
+
+
+//effet typing
+// .typing {
+//   color: white !important;
+//   font-size: 7em;
+//   font-family: 'Anton', sans-serif;
+//   position: absolute;
+//   // top: 25%;
+//   // left: 35%;
+//   z-index: 3;
+// }
+
+
+// .react-rotating-text-cursor {
+//   animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
+// }
+
+// @keyframes blinking-cursor {
+//   0% {
+//     opacity: 0;
+//   }
+//   50% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 0;
+//   }
+// }
+
+
+
 @media screen and (max-width: 600px) {
   #home {
     .banniere {
@@ -27,7 +68,17 @@
       background-position-y: .1em;
       background-size: cover;
     }
-  } 
+  }
+  .typing {
+    font-size: 3em;
+    left: 25%;
+  }
+  h2 {
+    font-size: 3em !important;
+    width: 100%;
+    top: 50%;
+    right: 0 !important;
+  }
 }
 
 

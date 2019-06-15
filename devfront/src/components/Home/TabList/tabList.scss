@@ -1,14 +1,20 @@
 .section {
-  width: 100%;
+  width: 60%;
+  height: 100%;
   background-color: #1e272e;
-  margin-top: 3em;
-  margin-bottom: 3em;
-}
-
-.tab {
-  width: 68em;
   margin: 3em auto;
+  // margin-bottom: 3em;
+
+}
+ 
+.tab {
+  width: 100%;
+  // margin: 2em auto;
+  height: 30em;
   background-color: #1e272e;
+  border: 1px solid white !important;
+  border-radius: 7px;
+  margin-bottom: 1em !important;
 }
 
 .tabContent {
@@ -53,5 +59,39 @@
 }
 
 .ui.segment {
-  background: none;
+  background: none !important;
+}
+
+
+.ui.tabular.menu .active.item {
+  background: none !important;
+  color: #FCC502 !important;
+  border-color: #FCC502 !important;
+}
+.ui.tabular.menu .item {
+  color: white !important;
+}
+
+.ui.tabular.menu {
+  border-bottom: 1px solid #FCC502 !important;
+}
+
+
+@media screen and (max-width: 600px) {
+  .section {
+    width: 90%;
+    margin-bottom: 2em;
+  }
+  .tab {
+    height: 25em;
+  }
+  .segment {
+    height: 22em;
+  }
+  .ui.tabular.menu .active.item  {
+    width: 10em;
+  }
+  .ui.tabular.menu .item  {
+    width: 10em;
+  }
 }
