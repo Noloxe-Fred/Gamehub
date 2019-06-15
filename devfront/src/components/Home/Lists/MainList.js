@@ -39,7 +39,7 @@ class MainList extends Component {
                       <Card.Content>
                         <Card.Header>
                           <h3>{displayList[0].name}</h3>
-                          <AddGame gameid={displayList[0].id} className="add--game--button"/>
+                          <AddGame gameid={displayList[0].id} className="add--game--button" />
                         </Card.Header>
                         <Card.Description>
                           <p>{displayList[0].description}</p>

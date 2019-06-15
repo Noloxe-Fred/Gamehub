@@ -8,16 +8,13 @@ import {
   reqUserGameDatas,
 } from 'src/store/reducers/userPagesReducer';
 
-const mapStateToProps = state => {
-  console.log(state)
-  return {
+const mapStateToProps = state => ({
     fullList: state.userPagesReducer.fullList,
     listAdd: state.userPagesReducer.add,
     listWant: state.userPagesReducer.want,
     listWaiting: state.userPagesReducer.waiting,
     displayedProfile: state.userPagesReducer.displayedProfile,
-  }
-};
+});
 
 const mapDispatchToProps = dispatch => ({
   request: (nameList) => {

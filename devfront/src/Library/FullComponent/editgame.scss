@@ -1,0 +1,50 @@
+.comment--button {
+  margin-top: .5em !important;
+  background: none !important;
+  border: 1px solid white !important;
+  color: white !important;
+  &:hover {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+// .ui.modal {
+//     max-width: 1500px !important;
+//     display: flex;
+//     justify-content: center;
+//     flex-flow: wrap;
+//     .modal--add-comment {
+//       display: flex;
+//       justify-content: center;
+//       flex-direction: column;
+//     }
+//     .ui.header {
+      // width: 50%;
+    // }
+    // .segment {
+    //   width: 400px;
+    //   margin: 1em 0 !important;
+    // }
+// }
+
+// .caca {
+//   display: flex;
+//   justify-content: center;
+// }
+.ui.modal {
+  max-width: 2000px !important;
+  margin-top: -5% !important;
+}
+.all--parts {
+  background: red;
+  width: 2000px;
+  height: 600px;
+  display: flex !important;
+}
+
+.part--one {
+    .segment {
+      height: 20em !important;
+    }
+}

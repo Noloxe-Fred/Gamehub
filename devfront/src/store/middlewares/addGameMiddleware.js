@@ -15,16 +15,15 @@ const addGameMiddleware = store => next => (action) => {
   switch (action.type) {
     case VERIFY_HAVE:
       store.dispatch(loadVerify());
-      const { gameId } = action;
+      const id = parseInt(action.gameId);
+      // console.log('Verify Have Id', gameId);
       // requete axios avec token (localstorage)
       axios.post('http://api.gamehub.com/api/game/state', {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + user,
         },
-        game: {
-          id: gameId,
-        },
+        id,
       })
         .then((response) => {
           // console.log('Reponse verify have', response);

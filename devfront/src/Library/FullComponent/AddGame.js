@@ -43,7 +43,7 @@ class AddGame extends Component {
 
     return (
       <div className="plus">
-        {loadVerify && <Loader active />}
+        {loadVerify && <Loader className="loader--maincard" active size="small" />}
         {alreadyHave && <i class="fas fa-gamepad" />}
         {!alreadyHave && !loadVerify && (
           <Popup trigger={<i className="fas fa-plus-circle" />} flowing hoverable inverted style={stylePopup}>

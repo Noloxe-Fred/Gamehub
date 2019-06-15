@@ -7,6 +7,13 @@ const mapStateToProps = state => ({
   actualScore: state.editGameRed.score,
   commentTitle: state.editGameRed.title,
   commentContent: state.editGameRed.content,
+  typeSubScore: state.editGameRed.typeSubScore,
+  typeSubComment: state.editGameRed.typeSubComment,
+  loadSubmitScore: state.editGameRed.loadSubmitScore,
+  loadSubmitComment: state.editGameRed.loadSubmitComment,
+  loadReqDat: state.editGameRed.loadRequestDatas,
+  scoreId: state.editGameRed.scoreId,
+  commentId: state.editGameRed.commentId,
 });
 
 const mapDispatchToProps = dispatch => ({
