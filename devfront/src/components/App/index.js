@@ -17,9 +17,10 @@ import SearchResult from 'src/containers/searchResultContainer';
 
 import Page404 from 'src/components/Page404';
 
+import Footer from 'src/components/Footer';
+
 // == Composant
 class App extends Component {
-
   componentDidMount() {
     const rememberUser = localStorage.getItem('remember');
     const { connect, connectSavedUser } = this.props;
@@ -33,9 +34,10 @@ class App extends Component {
   }
 
   render() {
+    const { redirectSearch } = this.props;
     return (
       <div id="app">
-        {this.props.redirectSearch && <Redirect to="/search" />}
+        {redirectSearch && <Redirect to="/search" />}
         {/* {sessionStorage.getItem('disconnect') && <Redirect to="/" />} */}
         <Navbar />
         <Switch>
@@ -64,6 +66,7 @@ class App extends Component {
             component={Page404}
           />
         </Switch>
+        <Footer />
       </div>
     );
   }
@@ -72,6 +75,7 @@ class App extends Component {
 App.propTypes = {
   connect: PropTypes.bool.isRequired,
   connectSavedUser: PropTypes.func.isRequired,
+  redirectSearch: PropTypes.string.isRequired,
 };
 
 // == Export
