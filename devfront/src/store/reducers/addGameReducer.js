@@ -82,9 +82,9 @@ export const loadSubmit = () => ({
   type: LOAD_SUBMIT,
 });
 
-export const submitForm = (gameId, list) => ({
+export const submitForm = (gameIdSubmit, list) => ({
   type: SUBMIT,
-  gameId,
+  gameIdSubmit,
   list,
 });
 

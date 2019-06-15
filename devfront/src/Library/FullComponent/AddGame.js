@@ -58,26 +58,17 @@ class AddGame extends Component {
                 {(!loadVerify && !loadSubmit) && (
                   <div>
                     {available == 'available' && (
-                      <Grid centered columns={3}>
+                      <Grid centered columns={2}>
                       <Grid.Column textAlign='center'>
                         <button className="add-button" onClick={this.addGame('have')}>Je l'ai</button>
                       </Grid.Column>
                       <Grid.Column textAlign='center'>
                         <button className="add-button" onClick={this.addGame('want')}>Je le veux</button>
                       </Grid.Column>
-                      <Grid.Column textAlign='center'>
-                        <button className="not-available add-button">Je l'attends</button>
-                      </Grid.Column>
                       </Grid>
                     )}
                     {available == 'unavailable' && (
-                      <Grid centered columns={3}>
-                      <Grid.Column textAlign='center'>
-                        <button className="not-available add-button">Je l'ai</button>
-                      </Grid.Column>
-                      <Grid.Column textAlign='center'>
-                        <button className="not-available add-button">Je le veux</button>
-                      </Grid.Column>
+                      <Grid centered columns={1}>
                       <Grid.Column textAlign='center'>
                         <button className="add-button" onClick={this.addGame('waiting')}>Je l'attends</button>
                       </Grid.Column>

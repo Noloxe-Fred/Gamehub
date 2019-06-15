@@ -10,15 +10,16 @@ import {
 } from 'src/store/reducers/addGameReducer';
 
 
+const user = localStorage.getItem('user');
 
 const addGameMiddleware = store => next => (action) => {
   switch (action.type) {
     case VERIFY_HAVE:
       store.dispatch(loadVerify());
-      const user = localStorage.getItem('user');
       const { gameId } = action;
       console.log('Id de la requete', gameId)
       // requete axios avec token (localstorage)
+
       const instance = axios.create({
         baseURL: 'http://api.gamehub.com/api/',
         headers: {
@@ -28,53 +29,65 @@ const addGameMiddleware = store => next => (action) => {
       });
       
       instance.get(`/game/${gameId}/state`)
-      .then(response => {
-          console.log(response.data);
-      })
+      .then((response) => {
+          console.log('VERIFY', response.data);
+          const { info, sortie } = response.data;
 
-      // axios.post('http://api.gamehub.com/api/game/state', {
+          const alreadyHave = info === [] ? true : false;
+
+          store.dispatch(checkedVerify(alreadyHave, sortie));
+      })
+      .catch((error) => {
+        console.log('Verify Have error', error);
+      });
+
+      break;
+    case SUBMIT:
+      store.dispatch(loadSubmit());
+      const { list, gameIdSubmit } = action;
+      console.log(user);
+      console.log('Submit Status Add', list, gameIdSubmit)
+      const instanceSubmit = axios.create({
+        baseURL: 'http://api.gamehub.com/api/',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+user
+        },
+      });
+      
+      instanceSubmit.post(`/game/state/add`, {
+        status: list,
+        game: {
+          id: gameIdSubmit,
+        },
+      })
+      .then((response) => {
+        console.log('Reponse submit add', response);
+        store.dispatch(receivedSubmit(true));
+      })
+      .catch((error) => {
+        console.log('Add game error', error);
+      });
+
+      // 1ere requete: ajout du jeu en bibliotheque
+      // axios.post('http://api.gamehub.com/api/game/state/add', {
       //   headers: {
       //     'Content-Type': 'application/json',
       //     'Authorization': 'Bearer ' + user,
       //   },
-      //   id: 5,
+      //   game: {
+      //     id: gameId,
+      //   },
+      //   status: wichList,
       // })
       //   .then((response) => {
-      //     // console.log('Reponse verify have', response);
-      //     const { status, available } = response.data;
-      //     const alreadyHave = status === '' ? false : true;
-
-      //     store.dispatch(checkedVerify(alreadyHave, available));
+      //     console.log('Reponse submit add', response);
+      //     store.dispatch(receivedSubmit(true));
       //   })
       //   .catch((error) => {
-      //     console.log('Erreur Verification', error);
+      //     console.log('Erreur Ajout Jeu', error);
+      //     store.dispatch(receivedSubmit(false));
       //   });
-      break;
-    case SUBMIT:
-      store.dispatch(loadSubmit());
-      const { wichList } = action;
-
-      // 1ere requete: ajout du jeu en bibliotheque
-      axios.post('http://api.gamehub.com/api/game/state/add', {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + user,
-        },
-        game: {
-          id: gameId,
-        },
-        status: {
-          status: wichList,
-        },
-      })
-        .then((response) => {
-          console.log('Reponse submit add', response);
-          store.dispatch(receivedSubmit(true));
-        })
-        .catch((error) => {
-          console.log('Erreur Ajout Jeu', error);
-          store.dispatch(receivedSubmit(false));
-        });
 
       break;
     default:
