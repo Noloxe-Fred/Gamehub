@@ -25,7 +25,7 @@ class TabList extends React.Component {
       loadbestmonth,
       loadworstmonth,
      } = this.props;
-
+ 
     const panes = [
       { menuItem: 'Les Tops et Flops du mois', render: () => (
       <Tab.Pane>
@@ -83,10 +83,12 @@ class TabList extends React.Component {
     return (
       <div>
           <div className="section">
-            <Grid columns={2}>
-              <div className="tab">
-                <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
-              </div>
+            <Grid columns={1}>
+              <Grid.Row className="tab">
+                <Grid.Column>
+                  <Tab menu={{ fluid: true, vertical: false, tabular: true }} panes={panes} />
+                </Grid.Column>
+              </Grid.Row>
             </Grid>
           </div>
       </div>

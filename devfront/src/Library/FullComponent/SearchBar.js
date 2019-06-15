@@ -16,7 +16,7 @@ const SearchBar = ({ inputValue, changeInput, submitSearch }) => {
   return (
     <Form onSubmit={handleSubmit} className="searchBar">
       <Input
-        icon={<Icon name="search" link color="blue" />}
+        icon={<Icon name="search" link color="yellow" />}
         placeholder="Rechercher un jeu"
         value={inputValue}
         onChange={handleChange}
@@ -25,4 +25,4 @@ const SearchBar = ({ inputValue, changeInput, submitSearch }) => {
   );
 };
 
-export default SearchBar;
+export default SearchBar; 

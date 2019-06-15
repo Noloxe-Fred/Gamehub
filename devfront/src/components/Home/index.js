@@ -17,8 +17,8 @@ const Home = () => (
     </div>
     <MainList />
     <FirstCarousel />
-    <TabList />
     <SecondCarousel />
+    <TabList />
   </div>
 );
 
