@@ -14,9 +14,25 @@
     color: white !important;
     position: absolute;
     top: 20%;
-    right: 36%;
+    right: 20%;
     z-index: 1;
     font-size: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      font-size: .5em;
+      margin: 0 1em;
+    }
+    .logo {
+      font-size: .8em;
+      margin: 0 .2em;
+      color: white;
+    }
+    hr {
+      width: 2em;
+      border-bottom: 2px solid white;
+    }
   }
   .searchBar {
     position: absolute;
@@ -78,6 +94,9 @@
     width: 100%;
     top: 50%;
     right: 0 !important;
+    hr {
+      display: none;
+    }
   }
 }
 
