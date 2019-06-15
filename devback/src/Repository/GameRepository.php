@@ -21,9 +21,10 @@ class GameRepository extends ServiceEntityRepository
         parent::__construct($registry, Game::class);
     }
 
-    public function filterGamesByCategory($array){
+    public function filterGamesByCategory($id){
 
-        $categories = implode(', ', $array);
+        $categories = str_replace(" ", ", ", $id);
+        $array = explode(" ", $id);
 
         $rawSql = "SELECT game.id, game.name, game.cover, game.score FROM game_category JOIN game ON game_category.game_id = game.id WHERE game_category.category_id IN (".$categories.") GROUP BY game.id HAVING count(*) = ".count($array)."";
         $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);

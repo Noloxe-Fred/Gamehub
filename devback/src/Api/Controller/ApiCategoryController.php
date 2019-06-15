@@ -19,8 +19,9 @@ class ApiCategoryController extends FOSRestController
     public function getGamesByCategoryAction(GameRepository $gameRepository, Request $request, SerializerInterface $serializer)
     {   
         
-        $data = json_decode($request->getContent(), true);
-        $games = $gameRepository->filterGamesByCategory($data['id']);
+        // $data = json_decode($request->getContent(), true);
+        // dd($request->query->get('id'));
+        $games = $gameRepository->filterGamesByCategory($request->query->get('id'));
 
         $gamesByCategory = $serializer->serialize($games, 'json', [
             'groups' => 'category_games',
