@@ -2,6 +2,7 @@
 
 namespace App\Api\Controller;
 
+use App\Entity\Game;
 use App\Entity\State;
 use App\Form\Api\StateType;
 use App\Repository\GameRepository;
@@ -43,7 +44,7 @@ class ApiStateController extends FOSRestController
         $em->persist($state);
         $em->flush();
 
-        return $this->view('', Response::HTTP_OK, [
+        return $this->view('', Response::HTTP_CREATED, [
             
             ]);
     }
@@ -140,16 +141,39 @@ class ApiStateController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "game/state", name = "state_game")
+     * @Rest\Get(path = "game/{id}/state", name = "state_game", requirements = {"id" = "\d+"})
      */ 
-    public function getGameState(StateRepository $stateRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, SerializerInterface $serializer){
+    public function getGameState($id, StateRepository $stateRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, SerializerInterface $serializer){
 
         $user = $token->getToken()->getUser();
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+        $userId = $user->getId();
 
-        $games = $stateRepository->findGameState($user, $game);
+        $game = $gameRepository->findOneById($id);
+        $releasedAt = $game->getReleasedAt();
+        $now = new \DateTime('now');
 
-        $gamesListWaiting = $serializer->serialize($games, 'json', [
+        if($releasedAt > $now){
+
+            $games = $stateRepository->findGameState($userId, $id);
+            $state = [
+                "sortie" => "unavailable", 
+                "info" => $games];
+
+            $gamesListWaiting = $serializer->serialize($state, 'json', [
+                'groups' => 'status_read',
+            ]);
+    
+            return JsonResponse::fromJsonString($gamesListWaiting);
+
+        }
+
+        $games = $stateRepository->findGameState($userId, $id);
+        $state = [
+            "sortie" => "available",
+            "info" => $games
+        ];
+
+        $gamesListWaiting = $serializer->serialize($state, 'json', [
             'groups' => 'status_read',
         ]);
 

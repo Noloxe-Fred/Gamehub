@@ -108,7 +108,7 @@ class Game
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="game", cascade={"remove"})
-     * @Groups({"game_read"})
+     * 
      */
     private $comments;
 
@@ -455,5 +455,10 @@ class Game
         }
 
         return $this;
+    }
+
+    public function __tostring(){
+
+        $this->$name;
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use PDO;
 use App\Entity\State;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method State|null find($id, $lockMode = null, $lockVersion = null)
@@ -51,18 +52,24 @@ class StateRepository extends ServiceEntityRepository
         return $qb;
     }
 
+   
     public function findGameState($user, $game){
 
-        $qb = $this->createQueryBuilder('s')
-        ->join('s.user', 'u')
-        ->join('s.game', 'g')
-        ->where('u.id = :user')
-        ->andWhere('g.id = :game')
-        ->setParameter('user', $user)
-        ->setParameter('game', $game)
-        ->getQuery()
-        ->getResult();
+        $intuser = intval($user);
+        $intgame = intval($game);
+        
+        
+        
+        $rawSql = "SELECT `list`.id, `list`.`status` FROM `list` JOIN game ON `list`.game_id = game.id JOIN `user` ON `list`.`user_id` = `user`.id WHERE `list`.game_id = $intgame AND `list`.`user_id` = $intuser";
+        
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        
+        $stmt->execute([]);
+     
+        return $stmt->fetchAll();
 
-        return $qb;
+   
     }
+
+
 }
