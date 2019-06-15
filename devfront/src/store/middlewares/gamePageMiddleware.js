@@ -11,16 +11,16 @@ const gamePageMiddleware = store => next => (action) => {
       store.dispatch(loadGame());
       // requete axios en attente!
       const id = action.gameId;
-      axios.post('http://api.gamehub.com/api/game/show', {
+      axios.get(`http://api.gamehub.com/api/game/${id}`, {
         headers: {
           'Content-Type': 'application/json',
         },
-        id,
       })
         .then((response) => {
           console.log('Request One Game ok', response);
           const game = response.data;
           const gameDatas = {
+            id: game.id,
             name: game.name,
             cover: game.cover,
             desc: game.description,

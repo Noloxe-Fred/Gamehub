@@ -21,18 +21,16 @@ const addGameMiddleware = store => next => (action) => {
       // requete axios avec token (localstorage)
       const instance = axios.create({
         baseURL: 'http://api.gamehub.com/api/',
-        timeout: 1000,
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer '+user
-        }
+        },
       });
       
-      instance.post('/game/state')
+      instance.get(`/game/${gameId}/state`)
       .then(response => {
           console.log(response.data);
       })
-
 
       // axios.post('http://api.gamehub.com/api/game/state', {
       //   headers: {
