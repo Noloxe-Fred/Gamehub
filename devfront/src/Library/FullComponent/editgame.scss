@@ -1,14 +1,21 @@
-.comment--button {
-  margin-top: .5em !important;
-  background: none !important;
-  border: 1px solid white !important;
-  color: white !important;
+.edit--button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none !important;
+  font-size: 1.5em;
+  background: #2D3536;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
   &:hover {
-    background: white !important;
-    color: black !important;
+    color: #FCC502 !important;
+    // box-shadow: 5px 5px 20px;
+    // color: black !important;
   }
 }
-
+ 
 // .ui.modal {
 //     max-width: 1500px !important;
 //     display: flex;

@@ -51,7 +51,7 @@ class EditGame extends Component {
     } = this.props;
 
     return (
-      <Modal trigger={<Button className="comment--button">Commenter</Button>} closeIcon className="caca">
+      <Modal trigger={<div className="edit--button"><i className="far fa-edit "></i></div>} closeIcon className="caca">
         <div className="all--parts">
           {loadReqDat && (
             <Segment>
@@ -122,6 +122,6 @@ class EditGame extends Component {
     </Modal>
     );
   }
-}
+} 
 
 export default EditGame;
