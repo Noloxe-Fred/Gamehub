@@ -31,7 +31,7 @@ const userPagesMiddleware = store => next => (action) => {
         },
       });
       
-      instancerequest.get(`/game/list/${nameList}`)
+      instanceRequest.get(`/game/list/${nameList}`)
         .then((response) => {
           console.log('Request Lists',response.data);
 
