@@ -1,9 +1,9 @@
-$text-color: white;
+$text-color: white; 
 
 nav { 
   width: 100%;
   height: 3em;
-  background-color: #2C3E50;
+  background-color: #1e272e;
   margin: 0 auto;
   display: flex!important;
   justify-content: space-between;
@@ -26,6 +26,7 @@ nav {
     margin: 0 2em;
     i{
       margin: 0 .1em;
+      color: #FCC502;
     }
   }
   .menu {
@@ -41,22 +42,26 @@ nav {
   }
   .advancedSearch:hover {
     color: white;
-  }
+  } 
   .connectButton {
     margin-right: 1em;
     background: none;
-    color: $text-color;
+    color:#FCC502;
     font-family: 'Reem Kufi', sans-serif;
     border: none;
   }
   .subscribeButton {
-    border: 1px solid $text-color;
+    border: 1px solid #FCC502;
     padding: .2em;
     border-radius: 4px;
     background: none;
-    color: $text-color;
+    color: #FCC502;
     font-family: 'Reem Kufi', sans-serif;
     margin-right: 1em;
+    &:hover {
+      color: #2d3436 ;
+      background: #FCC502;
+    }
   }
   .nav-connect {
 
@@ -115,7 +120,7 @@ nav {
     text-decoration: none;
     font-size: 2em;
     a {
-      color: white !important;
+      color: #FCC502 !important;
     }
   }      
 
