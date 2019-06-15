@@ -1,4 +1,4 @@
-//import GameList from 'src/data/gameList';
+import GameList from 'src/data/gameList';
 import axios from 'axios';
 
 /*eslint no-case-declarations: "error"*/

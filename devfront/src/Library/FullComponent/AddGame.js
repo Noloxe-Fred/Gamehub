@@ -28,7 +28,7 @@ class AddGame extends Component {
 
   addGame = list => () => {
     const { submitForm, gameId } = this.props;
-    console.log(gameId);
+    console.log(gameId, list);
     submitForm(gameId, list);
   }
 

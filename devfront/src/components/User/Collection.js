@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Redirect } from 'react-router-dom';
-import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarPushable, Grid, Row, Column  } from 'semantic-ui-react';
+import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarPushable, Grid, Row, Column, Input, Form  } from 'semantic-ui-react';
 
 import ListFull from 'src/Library/List/ListUser';
 import EditGame from 'src/containers/User/editGameCont';
@@ -39,19 +39,42 @@ const Collection = ({
           <Grid textAlign='center' className="profile-content">
                 <div>
                   <h4>Paramètres</h4>
-                  <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
-                  <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                  <h6>Vos informations</h6>
+                  <Segment>
+                    <p>Votre pseudo:</p><Button>Modifier votre pseudo</Button>
+                    <p>Votre email:</p>
+                  </Segment>
+                  <Segment>
+                    <h6>Changer votre mot de passe</h6>
+                    <Form>
+                      <Input
+                        placeholder="Ancien mot de passe"
+                      />
+                      <Input
+                        placeholder="Nouveau mot de passe"
+                      />
+                      <Input
+                        placeholder="Confirmation nouveau mot de passe"
+                      />
+                      <Button type="submit">Modifier</Button>
+                    </Form>
+                  </Segment>
                 </div>
                 <div>
                   <h4>Stats</h4>
-                  <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                  <h6>Votre collection</h6>
+                  <Segment>
+                    <p>Vous avez 37 jeux en votre possession</p>
+                    <p>Vous avez 12 jeux en liste d'achats</p>
+                    <p>Vous suivez 12 jeux</p>
+                  </Segment>
                 </div>
                 <div>
                   <h4>Commentaires</h4>
-                  <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
-                  <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
-                  <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
-                  <Segment>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quam quasi tempore laboriosam sapiente, asperiores reiciendis facilis, corrupti cupiditate ratione impedit fugiat adipisci aut hic ipsam vitae beatae? Consequatur, fugiat.</Segment>
+                  <Segment>Commentaire 1</Segment>
+                  <Segment>Commentaire 2</Segment>
+                  <Segment>Commentaire 3</Segment>
+                  <Segment>Commentaire 4</Segment>
                 </div>
           </Grid>
         </Sidebar>

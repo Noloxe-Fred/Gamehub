@@ -25,6 +25,7 @@ const addGameReducer = (state = initialState, action = {}) => {
     case LOAD_VERIFY:
       return {
         ...state,
+        receivedSubmit: false,
         loadVerifyHave: true,
       };
     case CHECKED_VERIFY:
