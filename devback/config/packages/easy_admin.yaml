@@ -272,6 +272,7 @@ easy_admin:
         User:
 
             class: App\Entity\User
+            controller: App\Controller\UserController
             label: 'Utilisateurs'
             list:
                 sort: ['id', 'DESC']
