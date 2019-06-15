@@ -10,7 +10,7 @@ class Search extends React.Component {
     this.props.requestCategories();
 
   }
-
+ 
   handleClick = categoryName => () => {
     const { checkedCategories, requestByCategories } = this.props;
     console.log(categoryName);
@@ -44,8 +44,9 @@ class Search extends React.Component {
                   }
                 </div>
               </Grid.Column>  
-              <Grid.Column as="div" mobile={16} tablet={16} computer={16}>
+              
                 <Grid.Row className="row--players">
+                  <Grid.Column mobile={16} tablet={16} computer={16}>
                   <div className="column--central--style">
                     {
                       players.map((player) => {
@@ -56,20 +57,22 @@ class Search extends React.Component {
                       )})
                     }
                     </div>
+                  </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <div className="column--right--style">
-                    {
-                      tags.map((tag) => {
-                      return (
-                        <div key={tag.id} className="one--right--button">
-                          <button onClick={this.handleClick(tag.id)} classname="btn">{tag.name}</button>
-                        </div>
-                      )})
-                    }
-                  </div>
+                  <Grid.Column mobile={16} tablet={16} computer={16}>
+                    <div className="column--right--style">
+                      {
+                        tags.map((tag) => {
+                        return (
+                          <div key={tag.id} className="one--right--button">
+                            <button onClick={this.handleClick(tag.id)} classname="btn">{tag.name}</button>
+                          </div>
+                        )})
+                      }
+                    </div>
+                  </Grid.Column>
                 </Grid.Row>
-              </Grid.Column>
             </React.Fragment>
           )
         }

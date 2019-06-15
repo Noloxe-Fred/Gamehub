@@ -1,6 +1,6 @@
 .grid--advanced--search {
   margin-top: 3em !important;
-}
+} 
 
 .types {
   margin: 2em auto;
@@ -9,14 +9,18 @@
 .left--part {
   display: flex !important;
   align-items: center !important;
+  margin: none !important;
 }
 
 .column--left--style {
+  width: 100%;
   display: flex;
   flex-flow: wrap;
   text-align: left;
   padding-left: 2em;
-  margin-left: 1em;
+  padding-bottom: 1em;
+  color: white;
+  border-bottom: 1px solid #FCC502;
   .one--checkbox {
     width: 150px;
     padding-bottom: 1em;
@@ -30,33 +34,53 @@
   display: flex;
   justify-content: center;
   // margin-bottom: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  width: 35em;
+  border-bottom: 1px solid #FCC502;
   button {
     margin: 0 1em;
     background: none;
-    border: 1px solid black;
+    color: white;
+    border: 1px solid white;
     border-radius: 4px;
+    &:hover {
+      color:#2D3536;
+      background: #FCC502;
+      border-color: #FCC502;
+    }
   }
 }
 
 .column--right--style {
   display: flex;
   flex-flow: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   margin-top: 1em;
   margin-left: 1em;
+  padding-top: 1em;
   button {
     margin: 0 1em;
     margin-bottom: 1em;
     background: none;
-    border: 1px solid black;
+    color: white;
+    border: 1px solid white;
     border-radius: 4px;
+    &:hover {
+      color:#2D3536;
+      background: #FCC502;
+      border-color: #FCC502;
+    }
   }
 }
 
 .row--players {
   display: flex;
   justify-content: flex-start;
-  padding-bottom: 2em;
-  margin-top: 1em;
-  margin-left: 1em;
+  // padding-bottom: 2em;
+  // margin-top: 1em;
+  // margin-left: 1em;
+  // margin: 2em 5em;
 }
+
+
