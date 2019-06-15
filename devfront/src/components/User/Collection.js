@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Redirect } from 'react-router-dom';
-import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarPushable, Grid  } from 'semantic-ui-react';
+import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarPushable, Grid, Row, Column  } from 'semantic-ui-react';
 
-import ListFull from 'src/Library/List';
+import ListFull from 'src/Library/List/ListUser';
 import EditGame from 'src/containers/User/editGameCont';
 import './user.scss';
 
@@ -29,9 +29,9 @@ const Collection = ({
   return (
     <div>
       {!localStorage.getItem('connect') && <Redirect to="/" />}
-      <Button visible={displayProfile} onClick={handleShowClick}>
+      {/* <Button visible={displayProfile} onClick={handleShowClick}>
         vv Profile vv
-      </Button>
+      </Button> */}
       <Sidebar.Pushable>
 
         <Sidebar as={Segment} animation="overlay" direction="top" visible={displayedProfile}>
@@ -58,16 +58,24 @@ const Collection = ({
 
         <Sidebar.Pusher dimmed={displayedProfile}>
           <Segment basic>
-          <h1 id="collection-title">MA COLLECTION</h1>
-            {fullList === 'have' && <div id="fullList"><Button onClick={handleFullList(false)}>Retour Collection</Button><ListFull gamesDatas={listAdd.list} /></div>}
-            {fullList === 'want' && <div id="fullList"><Button onClick={handleFullList(false)}>Retour Collection</Button><ListFull gamesDatas={listWant.list} /></div>}
-            {fullList === 'waiting' && <div id="fullList"><Button onClick={handleFullList(false)}>Retour Collection</Button><ListFull gamesDatas={listWaiting.list} /></div>}
+          <h1 className="title--collection" ><span><hr></hr></span><span><i class="fas fa-dot-circle"></i></span>MA COLLECTION<span><i class="fas fa-dot-circle"></i></span><span><hr></hr></span></h1>
+            {fullList === 'add' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listAdd.list} /></div>}
+            {fullList === 'want' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listWant.list} /></div>}
+            {fullList === 'waiting' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listWaiting.list} /></div>}
             {!fullList && (
-              <div id="mycollection">
-                <ListSmall name="have" listDatas={listAdd} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
-                <ListSmall name="want" listDatas={listWant} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
-                <ListSmall name="waiting" listDatas={listWaiting} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
-              </div>
+              <Grid columns="three" centered id="mycollection">
+                <Grid.Row>
+                  <Grid.Column computer={5} tablet={5} mobile={16}>
+                    <div><ListSmall name="add" listDatas={listAdd} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} /></div>
+                  </Grid.Column>
+                  <Grid.Column computer={5} tablet={5} mobile={16}>
+                    <div><ListSmall name="want" listDatas={listWant} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} /></div>
+                  </Grid.Column>
+                  <Grid.Column computer={5} tablet={5} mobile={16}>
+                    <div><ListSmall name="waiting" listDatas={listWaiting} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} /></div>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
             )}
           </Segment>
         </Sidebar.Pusher>
@@ -94,17 +102,24 @@ class ListSmall extends Component {
     return (
       <div className="collection">
         <h2>{title}:</h2>
-        {list.length > 11 && <Button onClick={this.fullList(name)}>Voir la liste complète...</Button>}
+        {list.length > 11 && <Button onClick={this.fullList(name)}>Voir la liste complète</Button>}
         {load && <p>Loading</p>}
         {!load && (
           <div className="list">
             {shortList.map(game => {
               {/* reqUserGameData(game.id); */}
               return (
-              <div id={game.id} className="game">
-                <img src={game.cover} alt="cover game" />
-                <EditGame game={game} />
-                <div className="game-score"><Progress percent={percent} indicating /></div>
+              <div className="behind--game">
+                <div id={game.id} className="game">
+                  <img src={game.cover} alt="cover game" />
+                  
+                  <p>{game.name}</p>
+                  <div className="edit"><EditGame game={game} /></div>
+                  
+                </div>
+                <div className="game-score-part">
+                  <div className="game-score"><Progress percent={percent} indicating /></div>
+                </div>
               </div>
             )})}
           </div>
@@ -113,7 +128,7 @@ class ListSmall extends Component {
     );
   }
 };
-
+ 
 Collection.propTypes = {
   listAdd: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,

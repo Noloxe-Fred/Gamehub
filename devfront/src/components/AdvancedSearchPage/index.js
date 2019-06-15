@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react';
 
 
 import Search from 'src/containers/AdvancedSearchPage/Search';
-import List from 'src/Library/List';
+import List from 'src/Library/List/List';
 
 import './advancedsearchpage.scss';
 

@@ -1,0 +1,57 @@
+.edit--button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none !important;
+  font-size: 1.5em;
+  background: #2D3536;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  &:hover {
+    color: #FCC502 !important;
+    // box-shadow: 5px 5px 20px;
+    // color: black !important;
+  }
+}
+ 
+// .ui.modal {
+//     max-width: 1500px !important;
+//     display: flex;
+//     justify-content: center;
+//     flex-flow: wrap;
+//     .modal--add-comment {
+//       display: flex;
+//       justify-content: center;
+//       flex-direction: column;
+//     }
+//     .ui.header {
+      // width: 50%;
+    // }
+    // .segment {
+    //   width: 400px;
+    //   margin: 1em 0 !important;
+    // }
+// }
+
+// .caca {
+//   display: flex;
+//   justify-content: center;
+// }
+.ui.modal {
+  max-width: 2000px !important;
+  margin-top: -5% !important;
+}
+.all--parts {
+  background: red;
+  width: 2000px;
+  height: 600px;
+  display: flex !important;
+}
+
+.part--one {
+    .segment {
+      height: 20em !important;
+    }
+}

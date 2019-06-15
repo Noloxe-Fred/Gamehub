@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './searchresult.scss';
 
-import List from 'src/Library/List';
+import List from 'src/Library/List/List';
 
 class SearchResult extends Component {
   componentDidMount() {

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Col } from 'react-bootstrap';
 import { Transition } from 'semantic-ui-react';
 
+import AddGame from 'src/containers/User/addgameContainer';
 import './list.scss';
 
 class List extends Component {
@@ -22,7 +23,8 @@ class List extends Component {
           return (
             <Col lg={2} md={5} sm={12} xs={12} className="one--game">
               <Link to={"/game/"+game.id}> 
-                <img src={game.cover} alt={game.name} /> 
+                <img src={game.cover} alt={game.name} />
+                <AddGame gameid={game.id} className="add--game--button" />
               </Link>
             </Col>
           );

@@ -1,0 +1,102 @@
+.games--list {
+  margin: 3em auto;
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+// .one--game {
+//   width: 120px;
+//   height: 350px;
+//   margin: .5em;
+//   // border: 1px solid white !important;
+//   padding: .2em;
+//   img {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+//   p {
+//     display: none;
+//   }
+//   &:hover {
+//     p {
+//       text-align: center;
+//       position: absolute;
+//       bottom: 0;
+//       right: 0;
+//       left: 0;
+//       display: block;
+//       background: #35495D;
+//       // width: 11.4em;
+//       // width: 100%;
+//       font-size: 1.2em;
+//       color: white;
+//     }
+//   }
+// }
+
+
+
+
+
+//------------------------
+
+.one--game {
+  p {
+    display: none;
+  }
+  &:hover {
+    p {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin-bottom: .2em !important;
+      display: block;
+      text-align: center;
+      background:#2d3436;
+      // width: 11.4em;
+      width: 100%;
+      color: white;
+    }
+  }
+ 
+  margin: .5em !important;
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity .38s ease-in-out, transform .35s ease-in-out;
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    transform: scale3d(0, 1, 1);
+    transform-origin: left top;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+  }
+
+  &::after {
+    transform: scale3d(1, 0, 1);
+    transform-origin: right top;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+  }
+
+  &:hover,
+  &:focus {
+    &::before,
+    &::after {
+      transform: scale3d(1, 1, 1);
+      opacity: 1;
+    }
+  }
+}
