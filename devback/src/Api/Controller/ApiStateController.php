@@ -43,7 +43,7 @@ class ApiStateController extends FOSRestController
         $em->persist($state);
         $em->flush();
 
-        return $this->view('', Response::HTTP_OK, [
+        return $this->view('', Response::HTTP_CREATED, [
             
             ]);
     }
@@ -95,7 +95,7 @@ class ApiStateController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "game/list/have", name = "state_games_have")
+     * @Rest\Get(path = "game/list/have", name = "state_games_have")
      */ 
     public function getGamesListHave(StateRepository $stateRepository, TokenStorageInterface $token, GameRepository $gameRepository,Request $request, SerializerInterface $serializer){
 
@@ -110,7 +110,7 @@ class ApiStateController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "game/list/want", name = "state_games_want")
+     * @Rest\Get(path = "game/list/want", name = "state_games_want")
      */ 
     public function getGamesListWant(StateRepository $stateRepository, TokenStorageInterface $token, SerializerInterface $serializer){
 
@@ -125,7 +125,7 @@ class ApiStateController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "game/list/waiting", name = "state_games_waiting")
+     * @Rest\Get(path = "game/list/waiting", name = "state_games_waiting")
      */ 
     public function getGamesListWaiting(StateRepository $stateRepository, TokenStorageInterface $token, SerializerInterface $serializer){
 
@@ -140,18 +140,34 @@ class ApiStateController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "game/state", name = "state_game")
+     * @Rest\Get(path = "game/{id}/state", name = "state_game", requirements = {"id" = "\d+"})
      */ 
-    public function getGameState(StateRepository $stateRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, SerializerInterface $serializer){
+    public function getGameState($id, StateRepository $stateRepository, TokenStorageInterface $token, GameRepository $gameRepository, SerializerInterface $serializer){
 
         $user = $token->getToken()->getUser();
-        
         $userId = $user->getId();
-        $gameId = $request->request->get('id');
-        
-        $games = $stateRepository->findGameState($userId, $gameId);
-        
-        $gamesListWaiting = $serializer->serialize($games, 'json', [
+
+        $game = $gameRepository->findOneById($id);
+        $releasedAt = $game->getReleasedAt();
+        $now = new \DateTime('now');
+
+        if($releasedAt > $now){
+
+            $games = $stateRepository->findGameState($userId, $id);
+            $state = ["availability" => "unavailable", "info" => $games];
+
+            $gamesListWaiting = $serializer->serialize($state, 'json', [
+                'groups' => 'status_read',
+            ]);
+    
+            return JsonResponse::fromJsonString($gamesListWaiting);
+
+        }
+
+        $games = $stateRepository->findGameState($userId, $id);
+        $state = ["availability" => "available", "info" => $games];
+
+        $gamesListWaiting = $serializer->serialize($state, 'json', [
             'groups' => 'status_read',
         ]);
 

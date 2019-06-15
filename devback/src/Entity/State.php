@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StateRepository")
  * @Table(
- *      name="State",  
+ *      name="list",  
  *      uniqueConstraints={@UniqueConstraint(columns={"user_id", "game_id"})}
  * )
  */
