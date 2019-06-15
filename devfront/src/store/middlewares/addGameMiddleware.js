@@ -30,11 +30,11 @@ const addGameMiddleware = store => next => (action) => {
       instance.get(`/game/${gameId}/state`)
       .then((response) => {
           console.log('VERIFY', gameId, response.data);
-          const { info, sortie } = response.data;
+          const { info, availability } = response.data;
 
-          const alreadyHave = info === [] ? true : false;
+          const alreadyHave = info[0] ? true : false;
 
-          store.dispatch(checkedVerify(alreadyHave, sortie));
+          store.dispatch(checkedVerify(alreadyHave, availability));
       })
       .catch((error) => {
         console.log('Verify Have error', error);

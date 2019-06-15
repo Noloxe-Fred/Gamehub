@@ -59,12 +59,12 @@ const Collection = ({
         <Sidebar.Pusher dimmed={displayedProfile}>
           <Segment basic>
           <h1 id="collection-title">MA COLLECTION</h1>
-            {fullList === 'add' && <div id="fullList"><Button onClick={handleFullList(false)}>Retour Collection</Button><ListFull gamesDatas={listAdd.list} /></div>}
+            {fullList === 'have' && <div id="fullList"><Button onClick={handleFullList(false)}>Retour Collection</Button><ListFull gamesDatas={listAdd.list} /></div>}
             {fullList === 'want' && <div id="fullList"><Button onClick={handleFullList(false)}>Retour Collection</Button><ListFull gamesDatas={listWant.list} /></div>}
             {fullList === 'waiting' && <div id="fullList"><Button onClick={handleFullList(false)}>Retour Collection</Button><ListFull gamesDatas={listWaiting.list} /></div>}
             {!fullList && (
               <div id="mycollection">
-                <ListSmall name="add" listDatas={listAdd} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
+                <ListSmall name="have" listDatas={listAdd} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
                 <ListSmall name="want" listDatas={listWant} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
                 <ListSmall name="waiting" listDatas={listWaiting} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} />
               </div>

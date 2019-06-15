@@ -1,5 +1,8 @@
-import GameList from 'src/data/gameList';
+//import GameList from 'src/data/gameList';
 import axios from 'axios';
+
+/*eslint no-case-declarations: "error"*/
+/*eslint-env es6*/
 
 import { 
   REQUEST,
@@ -10,51 +13,39 @@ import {
   loadReqUsGaDa,
 } from 'src/store/reducers/userPagesReducer';
 
-const user = localStorage.getItem('user');
 
 const userPagesMiddleware = store => next => (action) => {
   switch (action.type) {
-    case REQUEST:
+    case REQUEST: {
       const { nameList } = action;
+
+      const user = localStorage.getItem('user');
       // requete axios avec token (localstorage)
       store.dispatch(load(nameList));
-      axios.post(`http://api.gamehub.com/api/game/list/${nameList}`, {
+
+      const instanceRequest = axios.create({
+        baseURL: 'http://api.gamehub.com/api/',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + user,
+          'Authorization': 'Bearer '+user
         },
-      })
+      });
+      
+      instancerequest.get(`/game/list/${nameList}`)
         .then((response) => {
-          // console.log('next month',response.data);
+          console.log('Request Lists',response.data);
 
           store.dispatch(received(nameList, response.data));
         })
         .catch((error) => {
-          console.log(error);
+          console.log('Verify Have error', error);
         });
+
       // requete temporaire en local
 
-      store.dispatch(received(nameList, GameList));
+      // store.dispatch(received(nameList, GameList));
       break;
-    // case REQ_USER_GAME_DATAS:
-    //   store.dispatch(loadReqUsGaDa());
-
-    //   axios.post(`http://api.gamehub.com/api/game/edit`, {
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Authorization': 'Bearer ' + user,
-    //     },
-    //   })
-    //     .then((response) => {
-    //       // console.log('next month',response.data);
-
-    //       store.dispatch(received(nameList, response.data));
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-
-    //   break;
+    }
     default:
       next(action);
   }

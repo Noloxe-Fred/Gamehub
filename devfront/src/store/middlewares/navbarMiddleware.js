@@ -36,9 +36,10 @@ const navbarMiddleware = store => next => (action) => {
         password,
       })
         .then((response) => {
-          console.log('Reponse Connexion', response);
+          console.log('Local Storage', localStorage, 'Reponse connexion', response.data)
 
           const remember = store.getState().navbarreducer.checkRemember;
+          console.log('Check Remember',store.getState().navbarreducer, remember)
           localStorage.setItem('connect', true);
           localStorage.setItem('remember', remember); // if case cochée!
           localStorage.setItem('user', response.data.token);
@@ -101,11 +102,11 @@ const navbarMiddleware = store => next => (action) => {
       store.dispatch(loadSearch());
       const name = store.getState().navbarreducer.inputSearch;
 
-      axios.post('http://api.gamehub.com/api/game/search', {
+      axios.get('http://api.gamehub.com/api/game/search', {
         headers: {
           'Content-Type': 'application/json',
         },
-        name,
+        params: {name},
       })
         .then((response) => {
           console.log('Reponse Submit Search', response);

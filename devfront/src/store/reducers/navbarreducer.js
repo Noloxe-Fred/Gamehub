@@ -5,7 +5,7 @@ const initialState = {
   openConnect: false,
   connectPseudo: '',
   connectPassword: '',
-  checkRemember: true,
+  checkRemember: false,
   openSubscribe: false,
   subfirstname: '',
   sublastname: '',
@@ -116,8 +116,9 @@ const navbarreducer = (state = initialState, action = {}) => {
       };
     case RECEIVED_DISCONNECT:
       // sessionStorage.setItem('disconnect', true);
+      console.log('DISCONNECT', initialState);
       return {
-        initialState,
+        ...initialState,
       };
     case CHANGE_INPUT_SEARCH:
       return {
