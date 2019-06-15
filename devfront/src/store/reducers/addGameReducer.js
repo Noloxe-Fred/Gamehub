@@ -1,7 +1,7 @@
 const initialState = {
   loadVerifyHave: false,
   alreadyHave: false,
-  available: 'available',
+  available: '',
   wichList: '', //'have' or 'want' | 'waiting' if not available
   loadSubmit: '',
   receivedSubmit: '',

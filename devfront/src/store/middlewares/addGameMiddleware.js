@@ -17,9 +17,8 @@ const addGameMiddleware = store => next => (action) => {
     case VERIFY_HAVE:
       store.dispatch(loadVerify());
       const { gameId } = action;
-      console.log('Id de la requete', gameId)
-      // requete axios avec token (localstorage)
 
+      // requete axios avec token (localstorage)
       const instance = axios.create({
         baseURL: 'http://api.gamehub.com/api/',
         headers: {
@@ -30,7 +29,7 @@ const addGameMiddleware = store => next => (action) => {
       
       instance.get(`/game/${gameId}/state`)
       .then((response) => {
-          console.log('VERIFY', response.data);
+          console.log('VERIFY', gameId, response.data);
           const { info, sortie } = response.data;
 
           const alreadyHave = info === [] ? true : false;
@@ -45,8 +44,7 @@ const addGameMiddleware = store => next => (action) => {
     case SUBMIT:
       store.dispatch(loadSubmit());
       const { list, gameIdSubmit } = action;
-      console.log(user);
-      console.log('Submit Status Add', list, gameIdSubmit)
+
       const instanceSubmit = axios.create({
         baseURL: 'http://api.gamehub.com/api/',
         headers: {
@@ -68,27 +66,6 @@ const addGameMiddleware = store => next => (action) => {
       .catch((error) => {
         console.log('Add game error', error);
       });
-
-      // 1ere requete: ajout du jeu en bibliotheque
-      // axios.post('http://api.gamehub.com/api/game/state/add', {
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //     'Authorization': 'Bearer ' + user,
-      //   },
-      //   game: {
-      //     id: gameId,
-      //   },
-      //   status: wichList,
-      // })
-      //   .then((response) => {
-      //     console.log('Reponse submit add', response);
-      //     store.dispatch(receivedSubmit(true));
-      //   })
-      //   .catch((error) => {
-      //     console.log('Erreur Ajout Jeu', error);
-      //     store.dispatch(receivedSubmit(false));
-      //   });
-
       break;
     default:
       next(action);
