@@ -29,7 +29,7 @@ export default class ModalSubscribe extends Component {
     <Modal className="inscription" trigger={<button className="subscribeButton" onClick={openModSub}>S'inscrire</button>} open={openSubscribe} onClose={closeModSub}>
       <Modal.Content>
         <Modal.Description>
-        <Header>S'inscrire</Header>
+        <Header><i class="fas fa-dot-circle"></i><h3>INSCRIPTION</h3><i class="fas fa-dot-circle"></i></Header>
             <Form onSubmit= {this.onSubmit}>
               <Form.Field>
                 <input
