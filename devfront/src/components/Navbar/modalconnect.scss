@@ -14,30 +14,48 @@ Ca aura pour effet d'assurer un rendu "identique" à votre travail actuel,
 plutôt qu'adopter les tailles de polices, couleurs (textes + backgrounds)
 instaurés par Semantic UI (<- quel gros relou)
 */
- 
+
+.ui.modal .content {
+  background-color: #1F272F !important;
+}
+
 .modalConnect {
+  background-color: #1F272F !important;
   top: 25%;
   margin: 0 auto!important;
   right: 0;
   left: 0;
-  width: 95%;
+  width: 90%;
   max-width: 400px;
   height: fit-content;
-  background: transparent!important;
-  border: 1px solid #FFFDD8;
+  // background: transparent!important;
+  // border: 1px solid #FFFDD8;
 
   .ui.header {
-    text-align: center;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    // text-align: center;
     color: white;
     text-transform: uppercase;
+    h3 {
+      padding: 0 1em;
+      border-right: 1px solid #FCC502;
+      border-left: 1px solid #FCC502;
+    }
+    
+    i {
+      font-size: .4em;
+      margin: 0 1em;
+      margin-top: 1.5em;
+    }
   }
   &.modalConnect {
     height: fit-content;
   }
   .content {
-    background-color: #2C3E50!important;
     padding-bottom: 50px;
-    
+    background-color: #1F272F !important;
     form {
       text-align: center;
       .field {
@@ -47,35 +65,75 @@ instaurés par Semantic UI (<- quel gros relou)
         border-bottom: 1px solid white;
         input {
           width: 100%;
-          background: transparent;
+          // background: transparent;
           color: white;
           border: none;
           padding: 0;
           padding-bottom: .5em;
-          
           &:focus, &:active {
             background: none;
+            color: white;
+          }
+          &::placeholder {
             color: white;
           }
         }
         .icon {
           font-size: 1.25em;
-          color: #FFFDD8;
+          color: white !important;
           padding-bottom: 1.25em;
         }
       }
       button {
-        color: #FFFDD8!important;
+        color: #FCC502 !important;
         background: none;
         border-radius: 6px;
-        padding: .5em;
-        text-transform: uppercase;
+        padding: .8em;
         margin-top: 20px;
-       
+        &:hover {
+          background: #FCC502;
+          color: #1F272F;
+          border: 1px solid #FCC502;
+        }
       }
     }
   }
 }
+
+
+
+
+.ui.modal .content form button  {
+  color: white;
+}
+
+#remember {
+  text-align: left;
+  padding-top: .5em !important;
+}
+
+.ui.checkbox label, .ui.checkbox + label {
+  border: none !important;
+  color: white !important;
+}
+
+
+@media screen and (min-width: 1000px) {
+  .modalConnect {
+    width: 350px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

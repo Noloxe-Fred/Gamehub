@@ -11,7 +11,7 @@ import {
   Checkbox
 } from 'semantic-ui-react';
 
-
+ 
 
 import './modalconnect.scss';
 
@@ -52,8 +52,9 @@ class ModalConnect extends Component {
     return (
       <Modal className="modalConnect" trigger={<button className="connectButton" onClick={this.openModalConnect}>{text}</button>} open={openConnect} onClose={this.closeModal} >
         <Modal.Content>
+        
           <Modal.Description>
-            <Header>Se connecter</Header>
+            <Header><i class="fas fa-dot-circle"></i><h3>CONNEXION</h3><i class="fas fa-dot-circle"></i></Header>
             {/* {errorMessage && <Modal.Descritpion>Erreur d'authentification</Modal.Descritpion>} */}
             <Form onSubmit={this.onSubmit}>
               <Form.Field>
@@ -76,9 +77,11 @@ class ModalConnect extends Component {
                 />
                 <Icon className="eye" />
               </Form.Field>
-              <Form.Field>
+              <div id="remember">
                 <Checkbox name="remember" label="Se souvenir de moi" onChange={this.handleCheck} />
-              </Form.Field>
+              </div>
+              
+              
               {!loadingConnect
                 ? <Button type="submit">Se connecter</Button>
                 : <Button loading>Loading</Button>
@@ -86,6 +89,7 @@ class ModalConnect extends Component {
               {errorMessage && <p>Erreur de connexion, veuillez vérifier vos informations.</p>}
             </Form>
           </Modal.Description>
+       
         </Modal.Content>
         
       </Modal>

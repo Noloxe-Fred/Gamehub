@@ -5,21 +5,34 @@
           margin: 0 auto!important;
           right: 0;
           left: 0;
-          width: 95%;
+          width: 90%;
           max-width: 400px;
           height: fit-content;
           background: transparent!important;
           border: 1px solid #FFFDD8;
-         
+          background-color: #1F272F;
 
             .content {
-          background-color: #2C3E50!important;
           padding-bottom: 50px;
 
           .ui.header {
+            display: flex;
+            justify-content: center !important;
+            align-items: center;
             text-align: center;
             color: white;
             text-transform: uppercase;
+            h3 {
+              padding: 0 1em;
+              border-right: 1px solid #FCC502;
+              border-left: 1px solid #FCC502;
+            }
+            
+            i {
+              font-size: .4em;
+              margin: 0 1em;
+              margin-top: 1.5em;
+            }
           }
 
           
@@ -42,24 +55,29 @@
                   background: none;
                   color: white;
                 }
+                &::placeholder {
+                  color: white;
+                }
               }
               .icon {
                 font-size: 1.25em;
-                color: #FFFDD8;
+                color: white;
                 padding-bottom: 1.25em;
               }
             }
             button {
-              color: #FFFDD8!important;
+              color: #FCC502 !important;
               border-radius: 6px;
-              padding: .5em;
-              text-transform: uppercase;
-              border: 1px solid #FFFDD8;
-              padding: .2em;
+              padding: .8em;
+              border: 1px solid #FCC502;
               background: none;
-              color: #FFFDD8;
+              color: white;
               margin-top: 20px;
-              
+              &:hover {
+                background: #FCC502;
+                color: #1F272F !important;
+                border: 1px solid #FCC502;
+              }
             }
             .password--auth {
               font-size: .8em;
@@ -69,6 +87,10 @@
           }
         }
     }
-  
 
-  
+
+    @media screen and (min-width: 1000px) {
+      .inscription {
+        width: 350px !important;
+      }
+    }
