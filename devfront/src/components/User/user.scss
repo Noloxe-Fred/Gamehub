@@ -34,6 +34,7 @@
 
 .collection {
   margin-top: 5em;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   h2 {
@@ -67,6 +68,7 @@
 .list {
   // margin: 0 1em;
   // border-top: 1px solid lightgrey;
+  // height: 100vh;
   border-left: 1px solid white;
   display: flex;
   flex-wrap: wrap;

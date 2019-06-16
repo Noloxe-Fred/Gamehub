@@ -35,7 +35,7 @@ class Footer extends Component {
             <article>
               <header>Nous contacter</header>
               <main>
-                <img src="https://picsum.photos/150/100" alt="map" />
+                <img src="https://www.lsa-conso.fr/mediatheque/1/7/5/000330571_5.jpg" alt="map" />
                 <p>
                   28, chemin du jeu<br />
                   Forêt de Brocéliande<br />
@@ -50,5 +50,5 @@ class Footer extends Component {
     );
   }
 }
-
+ 
 export default Footer;
