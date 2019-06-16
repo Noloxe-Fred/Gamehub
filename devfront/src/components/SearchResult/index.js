@@ -19,6 +19,7 @@ class SearchResult extends Component {
       <div id="result--search">
         <h3>Résultat de votre recherche:</h3>
         <List gamesDatas={this.props.searchList} cancelRedirect={this.props.cancelRedirect} />
+        
       </div>
     );
   }
