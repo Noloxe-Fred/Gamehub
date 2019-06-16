@@ -64,16 +64,47 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Get(path = "game/{id}/edit", name = "game_edit", requirements = {"id" = "\d+"})
      */ 
-    public function getGameEdit($id, StateRepository $stateRepository, ScoreRepository $scoreRepository, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer, TokenStorageInterface $token){
+    public function getGameEdit($id, ScoreRepository $scoreRepository, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer, TokenStorageInterface $token){
 
         $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($id);
 
-        $state = $stateRepository->findGameInfo($user, $game);
         $comment = $commentRepository->findGameInfo($user, $game);
         $score = $scoreRepository->findGameInfo($user, $game);
 
-        $game = ["game" => $game, "info" => ["state" => $state, "comment" => $comment, "score" => $score]];
+        if ($score == null && $comment == null){
+
+            $game = ["game" => $game, "info" => ["comment" => null, "score" => null]];
+
+            $gamesListWaiting = $serializer->serialize($game, 'json', [
+                'groups' => 'game_info',
+            ]);
+    
+            return JsonResponse::fromJsonString($gamesListWaiting);
+            
+        } else if($comment == null){
+
+            $game = ["game" => $game, "info" => ["comment" => null, "score" => $score]];
+
+            $gamesListWaiting = $serializer->serialize($game, 'json', [
+                'groups' => 'game_info',
+            ]);
+    
+            return JsonResponse::fromJsonString($gamesListWaiting);
+
+        } else if ($score == null){
+
+            $game = ["game" => $game, "info" => ["comment" => $comment, "score" => null]];
+
+            $gamesListWaiting = $serializer->serialize($game, 'json', [
+                'groups' => 'game_info',
+            ]);
+    
+            return JsonResponse::fromJsonString($gamesListWaiting);
+
+        }
+
+        $game = ["game" => $game, "info" => ["comment" => $comment, "score" => $score]];
 
         $gamesListWaiting = $serializer->serialize($game, 'json', [
             'groups' => 'game_info',

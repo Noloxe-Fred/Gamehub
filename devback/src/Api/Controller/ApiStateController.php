@@ -28,10 +28,10 @@ class ApiStateController extends FOSRestController
         $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
-        if($stateRepository->findOneByUser($user) != null && $stateRepository->findOneByGame($game) != null){
+        // if($stateRepository->findOneByUser($user) != null && $stateRepository->findOneByGame($game) != null){
 
-            return $this->view('403 Forbidden - Vous avez déjà ajouté ce jeu dans votre liste.', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Vous avez déjà ajouté ce jeu dans votre liste.', Response::HTTP_FORBIDDEN);
+        // }
         
         $state = new State();
         $state->setGame($game);
@@ -57,10 +57,10 @@ class ApiStateController extends FOSRestController
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $state = $stateRepository->findOneById($request->request->get('id'));
 
-        if($state->getUser() != $user || $state->getGame() != $game){
+        // if($state->getUser() != $user || $state->getGame() != $game){
 
-            return $this->view('403 Forbidden - Cette liste ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Cette liste ne vous appartient pas.', Response::HTTP_FORBIDDEN);
+        // }
 
         $form = $this->createForm(StateType::class, $state);
         $form->submit($request->request->all());
@@ -81,10 +81,10 @@ class ApiStateController extends FOSRestController
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $state = $stateRepository->findOneById($request->request->get('id'));
 
-        if($state->getUser() != $user || $state->getGame() != $game){
+        // if($state->getUser() != $user || $state->getGame() != $game){
 
-            return $this->view('403 Forbidden - Cette liste ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Cette liste ne vous appartient pas.', Response::HTTP_FORBIDDEN);
+        // }
 
         $em->remove($state);
         $em->flush();

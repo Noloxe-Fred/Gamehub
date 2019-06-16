@@ -33,10 +33,10 @@ class ApiScoreController extends FOSRestController
         $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
-        if($scoreRepository->findOneByUser($user) != null && $scoreRepository->findOneByGame($game) != null){
+        // if($scoreRepository->findOneByUser($user) != null && $scoreRepository->findOneByGame($game) != null){
 
-            return $this->view('403 Forbidden - Vous avez déjà voté pour ce jeu', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Vous avez déjà voté pour ce jeu', Response::HTTP_FORBIDDEN);
+        // }
 
         $score = new Score();
         $score->setUser($user);
@@ -67,10 +67,10 @@ class ApiScoreController extends FOSRestController
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $score = $scoreRepository->findOneById($request->request->get('id'));
 
-        if($score->getUser() != $user || $score->getGame() != $game){
+        // if($score->getUser() != $user || $score->getGame() != $game){
 
-            return $this->view('403 Forbidden - Ce vote ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Ce vote ne vous appartient pas.', Response::HTTP_FORBIDDEN);
+        // }
         
         $form = $this->createForm(ScoreType::class, $score);
         $form->submit($request->request->all());
@@ -95,10 +95,10 @@ class ApiScoreController extends FOSRestController
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $score = $scoreRepository->findOneById($request->request->get('id'));
         
-        if($score->getUser() != $user || $score->getGame() != $game){
+        // if($score->getUser() != $user || $score->getGame() != $game){
 
-            return $this->view('403 Forbidden - Ce vote ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Ce vote ne vous appartient pas.', Response::HTTP_FORBIDDEN);
+        // }
 
         $game->setScore((int)$gameRepository->averageScore($game)[0][1]);
 
