@@ -24,8 +24,8 @@ class List extends Component {
             <Col lg={2} md={5} sm={12} xs={12} className="one--game">
               <Link to={"/game/"+game.id}> 
                 <img src={game.cover} alt={game.name} />
-                <AddGame gameid={game.id} className="add--game--button" />
               </Link>
+              <p>{game.name}<AddGame gameid={game.id} className="add--game--button" /></p>
             </Col>
           );
         })}
