@@ -1,19 +1,17 @@
 import { connect } from 'react-redux';
 import EditGame from 'src/Library/FullComponent/EditGame';
 
-import { reqUserGameDatas, setInput, deleteGame } from 'src/store/reducers/editGameReducer';
+import { reqUserGameDatas, setInput, deleteDatas, onSubmitScore, onSubmitComment } from 'src/store/reducers/editGameReducer';
 
 const mapStateToProps = state => ({
   actualScore: state.editGameRed.score,
   commentTitle: state.editGameRed.title,
   commentContent: state.editGameRed.content,
-  typeSubScore: state.editGameRed.typeSubScore,
-  typeSubComment: state.editGameRed.typeSubComment,
-  loadSubmitScore: state.editGameRed.loadSubmitScore,
-  loadSubmitComment: state.editGameRed.loadSubmitComment,
+  loadSubmit: state.editGameRed.loadSubmit,
   loadReqDat: state.editGameRed.loadRequestDatas,
   scoreId: state.editGameRed.scoreId,
   commentId: state.editGameRed.commentId,
+  receivedSubmit: state.editGameRed.receivedSubmit,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -23,17 +21,16 @@ const mapDispatchToProps = dispatch => ({
   setInput: (name, value) => {
     dispatch(setInput(name, value));
   },
-  // setTitle: (title) => {
-  //   dispatch(setTitle(title));
-  // },
-  // setContent: (content) => {
-  //   dispatch(setContent(content));
-  // },
-  deleteGame: (id) => {
-    dispatch(deleteGame(id));
+  onSubmitScore: (value, gameId) => {
+    dispatch(onSubmitScore(value, gameId));
+  },
+  onSubmitComment: (title, comment, gameId) => {
+    dispatch(onSubmitComment(title, comment, gameId));
+  },
+  deleteDatas: (type, id) => {
+    dispatch(deleteDatas(type, id));
   },
 });
-
 
 const composantAEnrichir = connect(mapStateToProps, mapDispatchToProps);
 

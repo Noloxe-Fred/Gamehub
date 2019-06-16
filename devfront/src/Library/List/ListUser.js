@@ -18,7 +18,7 @@ class ListUser extends Component {
     return (
       <Container  className="games--list">
         {gamesDatas.length === 0 && <p>Pas de résultats</p>}
-        {gamesDatas.map((game) => {
+        {gamesDatas.map(({ game }) => {
           return (
             <Col lg={2} md={5} sm={12} xs={12} className="one--game">
               <Link to={"/game/"+game.id}>

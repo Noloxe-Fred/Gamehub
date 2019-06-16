@@ -1,24 +1,22 @@
 const initialState = {
-  status: '',
   scoreId: '',
-  score: false,
-  commentid: '',
-  title: false,
-  content: false,
+  score: '',
+  commentId: '',
+  title: '',
+  content: '',
   loadRequestDatas: true,
-  typeSubScore: 'add',
-  typeSubComment: 'add',
+  typeSubScore: '',
+  typeSubComment: '',
   loadSubmit: {
     score: false,
     comment: false,
     deletedGame: false,
+    deletedComment: false,
   },
   receivedSubmit: {
-    userDatas: false,
     score: false,
-    deleteScore: false,
     comment: false,
-    deleteComment: false,
+    deletedComment: false,
     deletedGame: false,
   },
 };
@@ -26,16 +24,16 @@ const initialState = {
 // Action Type
 const LOAD_REQUEST_DATAS = 'LOAD_REQUEST_DATAS';
 export const REQ_US_GA_DA = 'REQ_US_GA_DA';
-const REC_USER_GAME_DATAS = 'REC_USER_GAME_DATAS';
+const REC_US_GA_DA = 'REC_US_GA_DA';
 
 const SET_INPUT = 'SET_INPUT';
 
-const RECEIVED_DELETE = 'RECEIVED_DELETE';
+// const RECEIVED_DELETE = 'RECEIVED_DELETE';
 
 export const DELETE_DATAS = 'DELETE_DATAS';
 export const DELETE_GAME = 'DELETE_GAME';
-const LOAD_DELETE_GAME = 'LOAD_DELETE_GAME';
-const RESET_DELETED_GAME = 'RESET_DELETED_GAME';
+
+const RESET_DELETED = 'RESET_DELETED';
 
 export const ON_SUBMIT_SCORE = 'ON_SUBMIT_SCORE';
 export const ON_SUBMIT_COMMENT = 'ON_SUBMIT_COMMENT';
@@ -56,10 +54,9 @@ const editGameRed = (state = initialState, action = {}) => {
         ...state,
         loadRequestDatas: true,
       };
-    case REQ_US_GA_DA:
+    case REC_US_GA_DA:
       return {
         ...state,
-        status: action.status,
         scoreId: action.scoreId,
         score: action.score,
         commentId: action.commentId,
@@ -67,26 +64,27 @@ const editGameRed = (state = initialState, action = {}) => {
         content: action.content,
         loadRequestData: false,
       };
+    case LOAD_SUBMIT:
+      return {
+        ...state,
+        loadSubmit: { ...state.loadSubmit, [action.name]: true }
+      };
     case RECEIVED_SUBMIT:
       return {
         ...state,
-        [action.name]: action.value,
+        receivedSubmit: { ...state.receivedSubmit, [action.name]: action.value },
+        loadSubmit: { ...state.loadSubmit, [action.name]: false }
       };
-    case LOAD_DELETE_GAME:
+    // case RECEIVED_DELETE:
+    //   return {
+    //     ...state,
+    //     receivedDelete: { ...state.receivedDelete, [action.name]: false },
+    //     loadSubmit: { ...state.loadSubmit, [action.name]: false },
+    //   };
+    case RESET_DELETED:
       return {
         ...state,
-        receivedSubmit: { ...state.receivedDelete, deletedGame: true },
-      };
-    case RECEIVED_DELETE:
-      return {
-        ...state,
-        receivedSubmit: { ...state.receivedDelete, deletedGame: false },
-        loadDeletegame: false,
-      };
-    case RESET_DELETED_GAME:
-      return {
-        ...state,
-        receivedSubmit: { ...state.receivedDelete, deletedGame: false },
+        receivedSubmit: { ...state.receivedDelete, [action.name]: false },
       };
     default:
       return state;
@@ -104,25 +102,31 @@ export const loadRequestDatas = () => ({
   type: LOAD_REQUEST_DATAS,
 });
 
-export const reqUserGameDatas = id => ({
+export const reqUserGameDatas = gameId => ({
   type: REQ_US_GA_DA,
-  id,
+  gameId,
 });
 
-export const recUserGamesDatas = (status, score, title, content, scoreId, commentId) => ({
-  type: REC_USER_GAME_DATAS,
-  status,
+export const recUserGamesDatas = (score, title, content, scoreId, commentId, typeSubScore, typeSubComment) => ({
+  type: REC_US_GA_DA,
   score,
   title,
   content,
   scoreId,
   commentId,
+  typeSubScore,
+  typeSubComment,
 });
 
-export const onSubmitScore = (value, type, gameId) => ({
+export const onSubmitScore = gameId => ({
   type: ON_SUBMIT_SCORE,
-  value,
-  type,
+  gameId,
+});
+
+export const onSubmitComment = (title, comment, gameId) => ({
+  type: ON_SUBMIT_COMMENT,
+  title,
+  comment,
   gameId,
 });
 
@@ -131,41 +135,27 @@ export const loadSubmit = name => ({
   name,
 });
 
-export const onSubmitComment = (title, comment, type, gameId) => ({
-  type: ON_SUBMIT_COMMENT,
-  title,
-  comment,
-  type,
-  gameId,
-});
-
 export const receivedSubmit = (name, value) => ({
   type: RECEIVED_SUBMIT,
   name,
   value,
 });
 
-export const deleteDatas = name => ({
+export const deleteDatas = (type, id) => ({
   type: DELETE_DATAS,
-  name,
-});
-
-export const loadDeleteGame = () => ({
-  type: LOAD_DELETE_GAME,
-});
-
-export const deleteGame = id => ({
-  type: DELETE_GAME,
+  type,
   id,
 });
 
-export const receivedDelete = value => ({
-  type: RECEIVED_DELETE,
-  value,
-});
+// export const receivedDelete = (name, value) => ({
+//   type: RECEIVED_DELETE,
+//   name,
+//   value,
+// });
 
-export const resetDeletedGame = () => ({
-  type: RESET_DELETED_GAME,
+export const resetDeleted = name => ({
+  type: RESET_DELETED,
+  name,
 });
 
 export default editGameRed;

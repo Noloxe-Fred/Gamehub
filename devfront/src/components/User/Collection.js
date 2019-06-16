@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarPushable, Grid, Row, Column, Input, Form  } from 'semantic-ui-react';
 
 import ListFull from 'src/Library/List/ListUser';
@@ -9,7 +9,7 @@ import './user.scss';
 
 
 const Collection = ({
-  listAdd,
+  listHave,
   listWant,
   listWaiting,
   request,
@@ -82,14 +82,14 @@ const Collection = ({
         <Sidebar.Pusher dimmed={displayedProfile}>
           <Segment basic>
           <h1 className="title--collection" ><span><hr></hr></span><span><i class="fas fa-dot-circle"></i></span>MA COLLECTION<span><i class="fas fa-dot-circle"></i></span><span><hr></hr></span></h1>
-            {fullList === 'add' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listAdd.list} /></div>}
+            {fullList === 'have' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listAdd.list} /></div>}
             {fullList === 'want' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listWant.list} /></div>}
             {fullList === 'waiting' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listWaiting.list} /></div>}
             {!fullList && (
               <Grid columns="three" centered id="mycollection">
                 <Grid.Row>
                   <Grid.Column computer={5} tablet={5} mobile={16}>
-                    <div><ListSmall name="add" listDatas={listAdd} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} /></div>
+                    <div><ListSmall name="have" listDatas={listHave} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} /></div>
                   </Grid.Column>
                   <Grid.Column computer={5} tablet={5} mobile={16}>
                     <div><ListSmall name="want" listDatas={listWant} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} /></div>
@@ -125,7 +125,7 @@ class ListSmall extends Component {
     return (
       <div className="collection">
         <h2>{title}:</h2>
-        {list.length > 11 && <Button onClick={this.fullList(name)}>Voir la liste complète</Button>}
+        <Button onClick={this.fullList(name)}>Voir la liste complète</Button>
         {load && <p>Loading</p>}
         {!load && (
           <div className="list">
@@ -133,13 +133,13 @@ class ListSmall extends Component {
               console.log('ListSmall', game.game)
               return (
               <div className="behind--game">
-                <div id={game.id} className="game">
-                  <img src={game.game.cover} alt="cover game" />
-                  
-                  <p>{game.game.name}</p>
-                  <div className="edit"><EditGame game={game} /></div>
-                  
-                </div>
+                <Link to={"/game/" + game.game.id}>
+                  <div id={game.id} className="game">
+                    <img src={game.game.cover} alt="cover game" />
+                    <p>{game.game.name}</p>
+                    <div className="edit"><EditGame game={game.game} /></div>
+                  </div>
+                </Link>
                 <div className="game-score-part">
                   <div className="game-score"><Progress percent={percent} indicating /></div>
                 </div>

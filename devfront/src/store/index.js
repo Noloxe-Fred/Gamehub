@@ -7,6 +7,7 @@ import gamePageMiddleware from './middlewares/gamePageMiddleware';
 import userPagesMiddleware from './middlewares/userPagesMiddleware';
 import addGameMiddleware from './middlewares/addGameMiddleware';
 import advancedSearchPageMiddleware from './middlewares/advancedSearchPageMiddleware';
+import editGameMiddleware from './middlewares/editGameMiddleware';
 
 const appliedMiddlewares = applyMiddleware(
   navbarMiddleware,
@@ -15,13 +16,14 @@ const appliedMiddlewares = applyMiddleware(
   userPagesMiddleware,
   addGameMiddleware,
   advancedSearchPageMiddleware,
+  editGameMiddleware,
 );
 
 
 /* eslint-disable no-underscore-dangle */
- const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
- const enhancers = compose(appliedMiddlewares, devTools);
+const enhancers = compose(appliedMiddlewares, devTools);
 
 const store = createStore(
   reducer,
