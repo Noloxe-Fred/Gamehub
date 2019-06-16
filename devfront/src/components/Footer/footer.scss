@@ -1,4 +1,11 @@
+article {
+  height: 100%;
+}
+
 .footer__content {
+  position: sticky;
+  bottom: 0 !important;
+  height: 200px;
   padding: 2rem;
   background-color: #1e272e;
   font-family: 'Reem Kufi', sans-serif;
@@ -12,6 +19,7 @@
   }
   .left, .right {
     width: 50%;
+    height: 50%;
     display: flex;
     justify-content: space-between;
     header {
@@ -19,6 +27,9 @@
       font-weight: bolder;
       font-size: 1.25rem;
       margin-bottom: 1rem;
+      i {
+        color: #FCC502;
+      }
     }
   }
   .left {
@@ -32,7 +43,10 @@
       width: 50%;
       main {
         display: flex;
-        img { margin-right: .5rem }
+        img { 
+          height: 7em;
+          margin-right: .5rem; 
+        }
       }
     }
   }
