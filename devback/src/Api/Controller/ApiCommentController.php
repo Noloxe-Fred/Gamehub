@@ -27,7 +27,7 @@ class ApiCommentController extends FOSRestController
     public function newCommentAction(Comment $comment, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, TokenStorageInterface $token, EntityManagerInterface $em, ConstraintViolationList $violations)
     {   
         if(count($violations)){
-            
+           
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
 
@@ -42,6 +42,9 @@ class ApiCommentController extends FOSRestController
         $comment = new Comment();
         $comment->setUser($user);
         $comment->setGame($game);
+
+
+        dd($request->request->all());
 
         $form = $this->createForm(CommentType::class, $comment);
         $form->submit($request->request->all());

@@ -154,7 +154,11 @@ class ApiStateController extends FOSRestController
         if($releasedAt > $now){
 
             $games = $stateRepository->findGameState($userId, $id);
-            $state = ["availability" => "unavailable", "info" => $games];
+            $state = [
+                "availability" => "unavailable",
+                "info" => $games
+            ];
+
 
             $gamesListWaiting = $serializer->serialize($state, 'json', [
                 'groups' => 'status_read',
@@ -165,7 +169,10 @@ class ApiStateController extends FOSRestController
         }
 
         $games = $stateRepository->findGameState($userId, $id);
-        $state = ["availability" => "available", "info" => $games];
+        $state = [
+            "availability" => "available",
+            "info" => $games
+        ];
 
         $gamesListWaiting = $serializer->serialize($state, 'json', [
             'groups' => 'status_read',
