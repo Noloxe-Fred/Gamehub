@@ -21,8 +21,8 @@ const mapDispatchToProps = dispatch => ({
   setInput: (name, value) => {
     dispatch(setInput(name, value));
   },
-  onSubmitScore: (value, gameId) => {
-    dispatch(onSubmitScore(value, gameId));
+  onSubmitScore: (gameId) => {
+    dispatch(onSubmitScore(gameId));
   },
   onSubmitComment: (title, comment, gameId) => {
     dispatch(onSubmitComment(title, comment, gameId));

@@ -57,12 +57,14 @@ const editGameRed = (state = initialState, action = {}) => {
     case REC_US_GA_DA:
       return {
         ...state,
+        typeSubScore: action.typeSubScore,
+        typeSubComment: action.typeSubComment,
         scoreId: action.scoreId,
         score: action.score,
         commentId: action.commentId,
         title: action.title,
         content: action.content,
-        loadRequestData: false,
+        loadRequestDatas: false,
       };
     case LOAD_SUBMIT:
       return {

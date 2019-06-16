@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarPushable, Grid, Row, Column, Input, Form  } from 'semantic-ui-react';
+
 
 // == Import : local
 import './app.scss';
@@ -39,12 +41,12 @@ class App extends Component {
   }
 
   render() {
-    const { redirectSearch } = this.props;
+    const { redirectSearch, displayedProfile } = this.props;
     return (
       <div id="app">
         {redirectSearch && <Redirect to="/search" />}
         {/* {sessionStorage.getItem('disconnect') && <Redirect to="/" />} */}
-        <Navbar />
+        <Navbar /> 
         <Switch>
           <Route
             exact

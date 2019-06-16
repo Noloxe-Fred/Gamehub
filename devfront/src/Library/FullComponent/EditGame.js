@@ -21,6 +21,7 @@ class EditGame extends Component {
 
   handleSubmitScore = (evt) => {
     evt.preventDefault();
+    console.log('Submit Score')
     this.props.onSubmitScore(this.props.game.id);
   }
 
@@ -60,7 +61,7 @@ class EditGame extends Component {
                 <Segment className="modal--add--comment">
                   <Header icon="gamepad">Notez et donner votre avis sur {name}</Header>
                   <h2>Note:</h2>
-                  <Form submit={this.handleSubmitScore()}>
+                  <Form onSubmit={this.handleSubmitScore}>
                     <Slider
                       name="score"
                       color="#FFFDD8"
@@ -74,10 +75,10 @@ class EditGame extends Component {
                       }}
                     />
                     <Label color="#2C3E50">{actualScore}</Label>
-                    {loadSubmit.score ? <Button type='submit'>Enregistrer Score</Button> : <Button loading>Loading</Button>}
+                    {!loadSubmit.score ? <Button type='submit'>Enregistrer Score</Button> : <Button loading>Loading</Button>}
                   </Form>
                   <Modal.Actions>
-                    {loadSubmit.deletedGame ? (
+                    {!loadSubmit.deletedGame ? (
                       <Button color="red" onClick={this.handleDelete('game', id)}>
                         <Icon name="remove" /> Supprimer le jeu
                       </Button>
@@ -108,8 +109,8 @@ class EditGame extends Component {
                       value={commentContent}
                       onChange={this.handleChange}
                     />
-                    {loadSubmit.comment ? <Button type="submit">Enregistrer Commentaire</Button> : <Button loading>Loading</Button>}
-                    {loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)}>Supprimer Commentaire</Button> : <Button loading>Loading</Button>}
+                    {!loadSubmit.comment ? <Button type="submit">Enregistrer Commentaire</Button> : <Button loading>Loading</Button>}
+                    {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)}>Supprimer Commentaire</Button> : <Button loading>Loading</Button>}
                   </Form>
                 </Segment>
               </div>

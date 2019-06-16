@@ -6,14 +6,22 @@ import {
   cancelRedirect,
 } from 'src/store/reducers/navbarreducer';
 
+import {
+  displayProfile,
+} from 'src/store/reducers/userPagesReducer'; 
+
 const mapStateToProps = state => ({
   connect: state.navbarreducer.connect,
   displayInput: state.homeReducer.displayInput,
+  displayedProfile: state.userPagesReducer.displayedProfile,
 });
 
 const mapDispatchToProps = dispatch => ({
   disconnectUser: () => {
     dispatch(disconnectUser());
+  },
+  displayProfile: () => {
+    dispatch(displayProfile());
   },
 });
 
