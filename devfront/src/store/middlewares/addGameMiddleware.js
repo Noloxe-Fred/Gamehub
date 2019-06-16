@@ -53,6 +53,7 @@ const addGameMiddleware = store => next => (action) => {
         },
       });
       
+      console.log('AJOUT DE JEU:', gameIdSubmit, list)
       instanceSubmit.post(`/game/state/add`, {
         status: list,
         game: {
