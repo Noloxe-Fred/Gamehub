@@ -121,7 +121,7 @@ class ListSmall extends Component {
     const { list, load, title } = this.props.listDatas;
     const {name, reqUserGameData } = this.props;
     const shortList = list.slice(0, 12);
-    const percent = 37;
+    const percent = 80;
     return (
       <div className="collection">
         <h2>{title}:</h2>
