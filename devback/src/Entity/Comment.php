@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
  * @Table(
- *      name = "Comment",  
+ *      name = "commentary",  
  *      uniqueConstraints = {@UniqueConstraint(columns = {"user_id", "game_id"})}
  * )
  */
