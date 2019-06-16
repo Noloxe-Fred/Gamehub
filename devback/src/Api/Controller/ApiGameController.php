@@ -52,8 +52,7 @@ class ApiGameController extends FOSRestController
     public function getSearchGamesAction(GameRepository $gameRepository, Request $request, SerializerInterface $serializer)
     {   
 
-        $data = json_decode($request->getContent(), true);
-        $games = $gameRepository->findGames($data['name']);
+        $games = $gameRepository->findGames($request->query->get('name'));
 
         $allGames = $serializer->serialize($games, 'json', [
             'groups' => 'game_read',
