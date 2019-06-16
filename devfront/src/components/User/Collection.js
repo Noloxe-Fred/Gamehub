@@ -82,6 +82,7 @@ const Collection = ({
         <Sidebar.Pusher dimmed={displayedProfile}>
           <Segment basic>
           <h1 className="title--collection" ><span><hr></hr></span><span><i class="fas fa-dot-circle"></i></span>MA COLLECTION<span><i class="fas fa-dot-circle"></i></span><span><hr></hr></span></h1>
+  
             {fullList === 'have' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listAdd.list} /></div>}
             {fullList === 'want' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listWant.list} /></div>}
             {fullList === 'waiting' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull gamesDatas={listWaiting.list} /></div>}
@@ -133,13 +134,13 @@ class ListSmall extends Component {
               console.log('ListSmall', game.game)
               return (
               <div className="behind--game">
-                <Link to={"/game/" + game.game.id}>
+                {/* <Link to={"/game/" + game.game.id}> */}
                   <div id={game.id} className="game">
                     <img src={game.game.cover} alt="cover game" />
                     <p>{game.game.name}</p>
                     <div className="edit"><EditGame game={game.game} /></div>
                   </div>
-                </Link>
+                {/* </Link> */}
                 <div className="game-score-part">
                   <div className="game-score"><Progress percent={percent} indicating /></div>
                 </div>

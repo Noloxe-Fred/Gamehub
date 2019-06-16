@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App';
 
+
 import { connectSavedUser, disconnectUser } from 'src/store/reducers/navbarreducer';
 
 const mapStateToProps = state => ({
   connect: state.navbarreducer.connect,
   redirectSearch: state.navbarreducer.redirectSearch,
+  displayedProfile: state.userPagesReducer.displayedProfile,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -6,7 +6,7 @@ import {
  ON_SUBMIT_COMMENT,
  DELETE_DATAS,
  loadRequestDatas,
- recUserGameDatas,
+ recUserGamesDatas,
  loadSubmit,
  receivedSubmit,
 } from 'src/store/reducers/editGameReducer';
@@ -37,10 +37,16 @@ const editGameMiddleware = store => next => (action) => {
 
         const { comment, score } = response.data.info;
 
-        const typeSubScore = score.id ? 'edit' : 'new';
-        const typeSubComment = comment.id ? 'edit' : 'new';
+        const typeSubScore = score != null ? 'edit' : 'new';
+        const typeSubComment = comment != null ? 'edit' : 'new';
 
-        store.dispatch(recUserGameDatas(score.value = 0, comment.title = '', comment.content = '', score.id = '', comment.id = '', typeSubScore, typeSubComment));
+        const scoreValue = score != null ? score.value : 0;
+        const commentTitle = comment != null ? comment.title : '';
+        const commentContent = comment != null ? comment.Content : '';
+        const scoreId = score != null ? score.id : '';
+        const commentId = comment != null ? comment.id : '';
+        console.log('Req Us Da Ga', typeSubScore)
+        store.dispatch(recUserGamesDatas(scoreValue, commentTitle, commentContent, scoreId, commentId, typeSubScore, typeSubComment));
       })
       .catch((error) => {
         console.log('Verify Have error', error);
@@ -52,10 +58,11 @@ const editGameMiddleware = store => next => (action) => {
 
       if (store.getState().editGameRed.typeSubScore === 'new') {
         instance.post('/score/new', {
-          id: action.gameId,
-          score: {
-            value: store.getState().editGameRed.score,
+          game: {
+            id: action.gameId,
           },
+          value: store.getState().editGameRed.score,
+
         })
           .then((response) => {
             console.log(response.data);
