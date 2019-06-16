@@ -10,7 +10,7 @@ import {
 
 const mapStateToProps = state => ({
     fullList: state.userPagesReducer.fullList,
-    listAdd: state.userPagesReducer.add,
+    listHave: state.userPagesReducer.have,
     listWant: state.userPagesReducer.want,
     listWaiting: state.userPagesReducer.waiting,
     displayedProfile: state.userPagesReducer.displayedProfile,

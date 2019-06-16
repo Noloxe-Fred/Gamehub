@@ -6,13 +6,9 @@ import axios from 'axios';
 
 import { 
   REQUEST,
-  REQ_USER_GAME_DATAS,
   received,
   load,
-  recUserGameDatas,
-  loadReqUsGaDa,
 } from 'src/store/reducers/userPagesReducer';
-
 
 const userPagesMiddleware = store => next => (action) => {
   switch (action.type) {
@@ -33,7 +29,7 @@ const userPagesMiddleware = store => next => (action) => {
       
       instanceRequest.get(`/game/list/${nameList}`)
         .then((response) => {
-          console.log('Request Lists',response.data);
+          console.log('Request Lists', response.data);
 
           store.dispatch(received(nameList, response.data));
         })

@@ -19,19 +19,13 @@ class EditGame extends Component {
     this.props.setInput('score', evt);
   }
 
-  // handleTitle = evt => {
-  //   const { value } = evt.target;
-  //   this.props.setTitle(value);
-  // }
+  handleSubmitScore = (evt) => {
+    evt.preventDefault();
+    this.props.onSubmitScore(this.props.game.id);
+  }
 
-  // handleContent = evt => {
-  //   const { value } = evt.target;
-  //   this.props.setContent(value);
-  // }
-
-  handleDelete = id => () => {
-    const { value } = evt.target;
-    this.props.deleteGame(id);
+  handleDelete = (name, id) => () => {
+    this.props.deleteDatas(name, id);
   }
 
   render() {
@@ -44,10 +38,8 @@ class EditGame extends Component {
       loadReqDat,
       scoreId,
       commentId,
-      loadSubmitScore,
-      loadSubmitComment,
-      typeSubScore,
-      typeSubComment,
+      loadSubmit,
+      receivedSubmit,
     } = this.props;
 
     return (
@@ -56,7 +48,7 @@ class EditGame extends Component {
           {loadReqDat && (
             <Segment>
               <Dimmer active inverted>
-                <Loader size='medium'>Chargement de vos informations</Loader>
+                <Loader size='medium'>Chargement</Loader>
               </Dimmer>
 
               <Image src='/images/wireframe/paragraph.png' />
@@ -65,63 +57,68 @@ class EditGame extends Component {
           {loadReqDat || (
             <div>
               <div className="part--one">
-              <Segment className="modal--add--comment">
-                <Header icon='gamepad'>Notez et donner votre avis sur {name}</Header>
-                <h2>Note:</h2>
-                <Form>
-                  <Slider
-                    name="score"
-                    color="#FFFDD8"
-                    inverted={false}
-                    settings={{
-                      start: actualScore,
-                      min: 0,
-                      max: 100,
-                      step: 1,
-                      onChange: this.handleChangeScore,
-                    }}
-                  />
-                  <Label color="#2C3E50">{actualScore}</Label>
-                  <Button type='submit'>Enregistrer Score</Button>
-                </Form>
-                <Modal.Actions>
-                  <Button color='red' onClick={this.handleDelete(id)} >
-                    <Icon name='remove' /> Supprimer le jeu
-                  </Button>
-                  <Link to={'/game/'+id}>
-                    <Button color='green'>
-                      <Icon name='checkmark' /> Voir la fiche du jeu
-                    </Button>
-                  </Link>
-                </Modal.Actions>
-              </Segment>
-            </div>
-            <div className="part--two">
-              <Segment className="modal--add--comment">
-                <Form>
-                  <Input 
-                    name="title" 
-                    placeholder="Titre" 
-                    value={commentTitle} 
-                    onChange={this.handleChange}
+                <Segment className="modal--add--comment">
+                  <Header icon="gamepad">Notez et donner votre avis sur {name}</Header>
+                  <h2>Note:</h2>
+                  <Form submit={this.handleSubmitScore()}>
+                    <Slider
+                      name="score"
+                      color="#FFFDD8"
+                      inverted={false}
+                      settings={{
+                        start: actualScore,
+                        min: 0,
+                        max: 100,
+                        step: 1,
+                        onChange: this.handleChangeScore,
+                      }}
                     />
-                  <TextArea 
-                    name="comment" 
-                    placeholder='Votre avis' 
-                    style={{ minHeight: 200 }} 
-                    value={commentContent} 
-                    onChange={this.handleChange} 
+                    <Label color="#2C3E50">{actualScore}</Label>
+                    {loadSubmit.score ? <Button type='submit'>Enregistrer Score</Button> : <Button loading>Loading</Button>}
+                  </Form>
+                  <Modal.Actions>
+                    {loadSubmit.deletedGame ? (
+                      <Button color="red" onClick={this.handleDelete('game', id)}>
+                        <Icon name="remove" /> Supprimer le jeu
+                      </Button>
+                    )
+                      : (<Button loading>Loading</Button>)
+                    }
+                    <Link to={"/game/" + id}>
+                      <Button color="green">
+                        <Icon name="checkmark" /> Voir la fiche du jeu
+                      </Button>
+                    </Link>
+                  </Modal.Actions>
+                </Segment>
+              </div>
+              <div className="part--two">
+                <Segment className="modal--add--comment">
+                  <Form>
+                    <Input
+                      name="title"
+                      placeholder="Titre"
+                      value={commentTitle} 
+                      onChange={this.handleChange}
                     />
-                  <Button type="submit">Enregistrer Commentaire</Button>
-                </Form>
-              </Segment>
+                    <TextArea
+                      name="comment"
+                      placeholder="Votre avis"
+                      style={{ minHeight: 200 }}
+                      value={commentContent}
+                      onChange={this.handleChange}
+                    />
+                    {loadSubmit.comment ? <Button type="submit">Enregistrer Commentaire</Button> : <Button loading>Loading</Button>}
+                    {loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)}>Supprimer Commentaire</Button> : <Button loading>Loading</Button>}
+                  </Form>
+                </Segment>
+              </div>
             </div>
-          </div>
-        )}
-      </div>
-    </Modal>
+          )}
+        </div>
+      </Modal>
     );
   }
-} 
+}
 
 export default EditGame;

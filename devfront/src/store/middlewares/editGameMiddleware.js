@@ -2,37 +2,160 @@ import axios from 'axios';
 
 import {
  REQ_US_GA_DA,
+ ON_SUBMIT_SCORE,
+ ON_SUBMIT_COMMENT,
+ DELETE_DATAS,
  loadRequestDatas,
  recUserGameDatas,
+ loadSubmit,
+ receivedSubmit,
 } from 'src/store/reducers/editGameReducer';
 
-const user = localStorage.getItem('user');
-
 const editGameMiddleware = store => next => (action) => {
+
+  const user = localStorage.getItem('user');
+
+  const instance = axios.create({
+    baseURL: 'http://api.gamehub.com/api/',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+user
+    },
+  });
+
   switch (action.type) {
     case REQ_US_GA_DA:
       store.dispatch(loadRequestDatas());
 
       const { gameId } = action;
       // requete axios avec token (localstorage)
-      axios.post('http://api.gamehub.com/api/game/edit', {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + user,
-        },
-        game: {
-          id: gameId,
-        },
-      })
-        .then((response) => {
-          // console.log('Reponse verify have', response);
-          const { status, score, title, content, scoreId, commentId } = response.data;
+      console.log('Requete Verif Edit Game', user)
+      instance.get(`/game/${gameId}/edit`)
+      .then((response) => {
+        console.log('Request User Game Data', response.data);
 
-          store.dispatch(recUserGameDatas(status, score, title, content, scoreId, commentId ));
+
+        const { comment, score } = response.data.info;
+
+        const typeSubScore = score.id ? 'edit' : 'new';
+        const typeSubComment = comment.id ? 'edit' : 'new';
+
+        store.dispatch(recUserGameDatas(score.value = 0, comment.title = '', comment.content = '', score.id = '', comment.id = '', typeSubScore, typeSubComment));
+      })
+      .catch((error) => {
+        console.log('Verify Have error', error);
+      });
+
+      break;
+    case ON_SUBMIT_SCORE:
+      store.dispatch(loadSubmit('score'));
+
+      if (store.getState().editGameRed.typeSubScore === 'new') {
+        instance.post('/score/new', {
+          id: action.gameId,
+          score: {
+            value: store.getState().editGameRed.score,
+          },
         })
-        .catch((error) => {
-          // console.log('Erreur Verification', error);
-        });
+          .then((response) => {
+            console.log(response.data);
+            store.dispatch(receivedSubmit('score', true));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+      if (store.getState().editGameRed.typeSubScore === 'edit') {
+        instance.put('/score/edit', {
+          id: action.gameId,
+          score: {
+            id: store.getState().editGameRed.scoreId,
+            value: store.getState().editGameRed.score,
+          },
+        })
+          .then((response) => {
+            console.log(response.data);
+            store.dispatch(receivedSubmit('score', true));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      break;
+
+    case ON_SUBMIT_COMMENT:
+      store.dispatch(loadSubmit('comment'));
+
+      if (store.getState().editGameRed.typeSubComment === 'new') {
+        instance.post('/comment/new', {
+          id: action.gameId,
+          comment: {
+            title: store.getState().editGameRed.title,
+            content: store.getState().editGameRed.content,
+          },
+        })
+          .then((response) => {
+            console.log(response.data);
+            store.dispatch(receivedSubmit('comment', true));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+      if (store.getState().editGameRed.typeSubComment === 'edit') {
+        instance.put('/comment/edit', {
+          id: action.gameId,
+          comment: {
+            id: store.getState().editGameRed.commentId,
+            title: store.getState().editGameRed.title,
+            content: store.getState().editGameRed.content,
+          },
+        })
+          .then((response) => {
+            console.log(response.data);
+            store.dispatch(receivedSubmit('comment', true));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      break;
+    case DELETE_DATAS:
+      if (action.type === 'game') {
+        instance.delete('/game/state/delete', {
+          game: {
+            id: action.id,
+            status: store.getState().editGameRed.status,
+            // statusId: store.getState().editGameRed.statusId,
+          },
+        })
+          .then((response) => {
+            console.log(response.data);
+            store.dispatch(receivedSubmit('deletedGame', true));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      if (action.type === 'comment') {
+        instance.delete('/comment/delete', {
+          game: {
+            id: action.id,
+          },
+          comment: {
+            id: store.getState().editGameRed.commentId,
+          },
+        })
+          .then((response) => {
+            console.log(response.data);
+            store.dispatch(receivedSubmit('deletedComment', true));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
       break;
     default:
       next(action);

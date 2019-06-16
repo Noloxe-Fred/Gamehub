@@ -1,5 +1,5 @@
 const initialState = {
-  add: { list: [], load: true, title: 'Je les ai' },
+  have: { list: [], load: true, title: 'Je les ai' },
   want: { list: [], load: true, title: 'Je les veux' },
   waiting: { list: [], load: true, title: 'Je les attends' },
   displayedProfile: false,
