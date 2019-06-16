@@ -12,7 +12,7 @@ class SecondCarousel extends Component {
     const { randomList, load } = this.props;
     return (
       <div id="second-carousel">
-        <h3>Jeux en vrac</h3>
+        <h3 id="titre-carousel">Jeux en vrac</h3>
         {load && <div>Chargement</div>}
         {!load && <CarouselAlice gameList={randomList} />}
       </div>
