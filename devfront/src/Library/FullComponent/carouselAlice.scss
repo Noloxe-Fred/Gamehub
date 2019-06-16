@@ -1,51 +1,27 @@
 @import "react-alice-carousel/lib/scss/alice-carousel.scss";
 
-.images {
-  width: 100%;
-  height: 15em;
-  object-fit: cover;
-  //margin: 0 .5em;
-}
 
-.uneImage {
-  position: relative;
-  width: 12em;
-  // width: 110%;
+.slider--test {
   p {
-    font-family: 'Oswald', sans-serif;
     display: none;
   }
-}
-
-.uneImage:hover {
-  p {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    display: block;
-    background: #35495D;
-    // width: 11.4em;
-    width: 100%;
-    
-    color: white;
-  
+  &:hover {
+    p {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin-bottom: .2em !important;
+      display: block;
+      text-align: center;
+      background:#2d3436;
+      // width: 11.4em;
+      width: 100%;
+      color: white;
+    }
   }
-}
-
-.slider {
-  display: flex;
-  justify-content: center;
-}
-
-
-// css effect on card 
-
-.one--effect {
-  display: flex;
-  justify-content: center;
-  // border: 1px solid black;
-  // margin: .3em;
+ 
+  // margin: .5em !important;
   &::before,
   &::after {
     position: absolute;
@@ -53,19 +29,24 @@
     right: 0;
     bottom: 0;
     left: 0;
-    transform: scale3d(0, 0, 1);
-    transition: transform .3s ease-out 0s;
-    background: rgba(255, 255, 255, .1);
+    transition: opacity .38s ease-in-out, transform .35s ease-in-out;
     content: '';
+    opacity: 0;
     pointer-events: none;
   }
 
   &::before {
+    transform: scale3d(0, 1, 1);
     transform-origin: left top;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
   }
 
   &::after {
-    transform-origin: right bottom;
+    transform: scale3d(1, 0, 1);
+    transform-origin: right top;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
   }
 
   &:hover,
@@ -73,22 +54,39 @@
     &::before,
     &::after {
       transform: scale3d(1, 1, 1);
+      opacity: 1;
     }
   }
 }
 
-// Media Queries
 
-@media screen and (max-width: 576px) {
-  .images {
-    width: 4em;
-    height: 6em;
+
+.alice-carousel {
+  width: 65%;
+  margin: 0 auto;
+}
+.slider--test {
+  width: 100%;
+  height: 100%;
+  // background-color: #2d3436;
+  margin: 0 !important;
+}
+
+img {
+  width: 11em;
+  height: 15em;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 600px) {
+  .alice-carousel {
+    width: 95%;
   }
-  p {
-    font-size: .5em;
-    display: block;
-    color: black;
-    position: relative;
-    text-align: left;
-  }
+  // p {
+  //   font-size: .5em;
+  //   display: block;
+  //   color: black;
+  //   position: relative;
+  //   text-align: left;
+  // }
 }

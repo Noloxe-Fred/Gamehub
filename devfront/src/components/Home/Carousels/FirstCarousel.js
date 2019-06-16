@@ -14,7 +14,7 @@ class FirstCarousel extends Component {
     const { lastReleasedList, load } = this.props;
     return (
       <div id="first-carousel">
-        <h3>Sorties du mois passé</h3>
+        <h3 id="titre-carousel">Sorties du mois passé</h3>
         {load && <div>Chargement</div>}
         {(!load && lastReleasedList[0]) && <CarouselAlice gameList={lastReleasedList} />}
       </div>

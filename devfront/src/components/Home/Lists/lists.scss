@@ -60,7 +60,8 @@ $text-font: 'Reem Kufi', sans-serif;
     margin: 0 auto;
     position: relative !important;
     img {
-      height: 15em;
+      height: 15em !important;
+      width: 100%;
       object-fit: cover;
     }
     .content {
@@ -92,6 +93,7 @@ $text-font: 'Reem Kufi', sans-serif;
     margin: 0 auto;
     img {
       height: 15em;
+      width: 100%;
       object-fit: cover;
     }
     .content {
