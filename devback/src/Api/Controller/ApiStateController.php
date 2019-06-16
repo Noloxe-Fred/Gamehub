@@ -28,10 +28,10 @@ class ApiStateController extends FOSRestController
         $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
-        if($stateRepository->findOneByUser($user) != null && $stateRepository->findOneByGame($game) != null){
+        // if($stateRepository->findOneByUser($user) != null && $stateRepository->findOneByGame($game) != null){
 
-            return $this->view('403 Forbidden - Vous avez déjà ajouté ce jeu dans votre liste.', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Vous avez déjà ajouté ce jeu dans votre liste.', Response::HTTP_FORBIDDEN);
+        // }
         
         $state = new State();
         $state->setGame($game);

@@ -32,6 +32,9 @@ class ApiCommentController extends FOSRestController
         }
 
         $user = $token->getToken()->getUser();
+
+        
+
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
         if($commentRepository->findOneByUser($user) != null && $commentRepository->findOneByGame($game) != null){
@@ -40,11 +43,11 @@ class ApiCommentController extends FOSRestController
         }
 
         $comment = new Comment();
-        $comment->setUser($user);
-        $comment->setGame($game);
+        // $comment->setUser($user);
+        // $comment->setGame($game);
 
 
-        dd($request->request->all());
+        
 
         $form = $this->createForm(CommentType::class, $comment);
         $form->submit($request->request->all());
