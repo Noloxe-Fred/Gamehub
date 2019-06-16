@@ -121,7 +121,7 @@ class ListSmall extends Component {
     const { list, load, title } = this.props.listDatas;
     const {name, reqUserGameData } = this.props;
     const shortList = list.slice(0, 12);
-    const percent = 70;
+    const percent = 37;
     return (
       <div className="collection">
         <h2>{title}:</h2>
@@ -130,13 +130,13 @@ class ListSmall extends Component {
         {!load && (
           <div className="list">
             {shortList.map(game => {
-              {/* reqUserGameData(game.id); */}
+              console.log('ListSmall', game.game)
               return (
               <div className="behind--game">
                 <div id={game.id} className="game">
-                  <img src={game.cover} alt="cover game" />
+                  <img src={game.game.cover} alt="cover game" />
                   
-                  <p>{game.name}</p>
+                  <p>{game.game.name}</p>
                   <div className="edit"><EditGame game={game} /></div>
                   
                 </div>
