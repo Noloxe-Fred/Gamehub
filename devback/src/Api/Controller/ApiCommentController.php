@@ -116,11 +116,11 @@ class ApiCommentController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "comment/last", name="comments_last")
+     * @Rest\Get(path = "comment/last", name="comments_last")
      */
     public function getlastCommentAction(CommentRepository $commentRepository, GameRepository $gameRepository, SerializerInterface $serializer, Request $request, EntityManagerInterface $em)
     {   
-        $game = $gameRepository->findOneById($request->request->get('id'));
+        $game = $gameRepository->findOneById($request->query->get('game_id'));
         $comments = $commentRepository->lastComments($game);
 
         $lastComments = $serializer->serialize($comments, 'json', [
