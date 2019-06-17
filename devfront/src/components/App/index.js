@@ -18,7 +18,7 @@ import SearchResult from 'src/containers/searchResultContainer';
 
 import Page404 from 'src/components/Page404';
 
-import Footer from 'src/components/Footer';
+
 
 // == Composant
 class App extends Component {
@@ -78,7 +78,6 @@ class App extends Component {
                 component={Page404}
               />
             </Switch>
-            <Footer />
 
           </Sidebar.Pusher>
         </Sidebar.Pushable>
