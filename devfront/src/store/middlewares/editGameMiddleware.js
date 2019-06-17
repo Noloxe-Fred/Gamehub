@@ -132,11 +132,27 @@ const editGameMiddleware = store => next => (action) => {
       }
       break;
     case DELETE_DATAS:
-      console.log('Statusid',store.getState().editGameRed.commentId)
+      console.log('Statusid',store.getState().editGameRed.statusId)
+
+      // const id = 
       if (action.name === 'game') {
         instance.delete('/game/state/delete', {
           data: {
             id: store.getState().editGameRed.statusId,
+          },
+        })
+          .then((response) => {
+            console.log(response.data);
+            store.dispatch(receivedSubmit('deletedGame', true));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      if(action.name === 'want&waiting') {
+        instance.delete('/game/state/delete', {
+          data: {
+            id: action.id,
           },
         })
           .then((response) => {

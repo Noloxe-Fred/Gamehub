@@ -1,4 +1,5 @@
 const initialState = {
+  openModal: false,
   statusId: '',
   scoreId: '',
   score: '',
@@ -36,7 +37,7 @@ const SET_INPUT = 'SET_INPUT';
 export const DELETE_DATAS = 'DELETE_DATAS';
 export const DELETE_GAME = 'DELETE_GAME';
 
-const RESET_DELETED = 'RESET_DELETED';
+const RESET = 'RESET';
 
 export const ON_SUBMIT_SCORE = 'ON_SUBMIT_SCORE';
 export const ON_SUBMIT_COMMENT = 'ON_SUBMIT_COMMENT';
@@ -46,9 +47,23 @@ const RECEIVED_SUBMIT = 'RECEIVED_SUBMIT';
 
 export const CHANGE_LIST = 'CHANGE_LIST';
 
+const OPEN_MODAL = 'OPEN_MODAL';
+const CLOSE_MODAL = 'CLOSE_MODAL';
+
 // Reducer
 const editGameRed = (state = initialState, action = {}) => {
   switch (action.type) {
+    case OPEN_MODAL:
+      return {
+        ...state,
+        openModal: true,
+      };
+    case CLOSE_MODAL:
+      return {
+        ...state,
+        openModal: false,
+        loadSubmit: {...state.loadSubmit, deletedGame: false,}
+      };
     case SET_INPUT:
       return {
         ...state,
@@ -83,23 +98,24 @@ const editGameRed = (state = initialState, action = {}) => {
         receivedSubmit: { ...state.receivedSubmit, [action.name]: action.value },
         loadSubmit: { ...state.loadSubmit, [action.name]: false }
       };
-    // case RECEIVED_DELETE:
-    //   return {
-    //     ...state,
-    //     receivedDelete: { ...state.receivedDelete, [action.name]: false },
-    //     loadSubmit: { ...state.loadSubmit, [action.name]: false },
-    //   };
-    case RESET_DELETED:
+    case RESET:
       return {
-        ...state,
-        receivedSubmit: { ...state.receivedDelete, [action.name]: false },
+        initialState,
       };
     default:
-      return state;
+      return initialState;
   }
 };
 
 // Action creator
+export const openModal = () => ({
+  type: OPEN_MODAL,
+});
+
+export const closeModal = () => ({
+  type: CLOSE_MODAL,
+});
+
 export const setInput = (name, value) => ({
   type: SET_INPUT,
   name,
@@ -160,9 +176,8 @@ export const deleteDatas = (name, id) => ({
 //   value,
 // });
 
-export const resetDeleted = name => ({
-  type: RESET_DELETED,
-  name,
+export const reset = () => ({
+  type: RESET,
 });
 
 export const changeList = (nameList, id) => ({
