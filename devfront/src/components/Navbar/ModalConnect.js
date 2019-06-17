@@ -6,12 +6,8 @@ import {
   Modal,
   Form,
   Icon,
-  Container,
-  Divider,
-  Checkbox
+  Checkbox,
 } from 'semantic-ui-react';
-
- 
 
 import './modalconnect.scss';
 
@@ -103,12 +99,13 @@ ModalConnect.propTypes = {
   closeModal: PropTypes.func.isRequired,
   connectPassword: PropTypes.string.isRequired,
   connectPseudo: PropTypes.string.isRequired,
-  errorMessage: PropTypes.string.isRequired,
+  errorMessage: PropTypes.bool.isRequired,
   loadingConnect: PropTypes.bool.isRequired,
   openConnect: PropTypes.bool.isRequired,
   openModalConnect: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
   checkRemember: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default ModalConnect;

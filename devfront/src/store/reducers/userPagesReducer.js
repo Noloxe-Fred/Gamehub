@@ -6,6 +6,8 @@ const initialState = {
   fullList: false,
   userGameDatas: [],
   loadUsGaDa: true,
+  userProfile: [],
+  loadProfile: true,
 };
 
 // Action Type
@@ -23,6 +25,10 @@ const RECEIVED = 'RECEIVED';
 // const RECEIVED_ADD = 'RECEIVED_ADD';
 // const RECEIVED_WANT = 'RECEIVED_WANT';
 // const RECEIVED_WISH = 'RECEIVED_WISH';
+
+export const REQUEST_PROFILE = 'REQUEST_PROFILE';
+const LOAD_PROFILE = 'LOAD_PROFILE';
+const RECEIVED_PROFILE = 'RECEIVED_PROFILE';
 
 const DISPLAY_FULL_LIST = 'DISPLAY_FULL_LIST';
 
@@ -68,6 +74,17 @@ const userPagesReducer = (state = initialState, action = {}) => {
         ...state,
         loasUsGaDa: true,
       };
+    case LOAD_PROFILE:
+      return {
+        ...state,
+        loadProfile: true,
+      };
+    case RECEIVED_PROFILE:
+      return {
+        ...state,
+        userProfile: action.userDatas,
+        loadProfile: false,
+      };
     default:
       return state;
   }
@@ -111,6 +128,19 @@ export const recUserGameDatas = datas => ({
 
 export const loadUsGaDa = () => ({
   type: LOAD_US_GA_DA,
+});
+
+export const requestProfile = () => ({
+  type: REQUEST_PROFILE,
+});
+
+export const loadProfile = () => ({
+  type: LOAD_PROFILE,
+});
+
+export const receivedProfile = userDatas => ({
+  type: RECEIVED_PROFILE,
+  userDatas,
 });
 
 export default userPagesReducer;

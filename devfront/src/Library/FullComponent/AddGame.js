@@ -7,21 +7,6 @@ import ModalConnect from 'src/containers/Navbar/ModalConnect';
 
 class AddGame extends Component {
 
-  componentDidMount() {
-    // const {connect, verifyHave, gameId } = this.props;
-    // if (connect) {
-    //   console.log(gameId);
-    //  verifyHave(gameId);
-    // }
-  }
-
-  componentDidUpdate() {
-    // const {connect, verifyHave, gameId } = this.props;
-    // if (connect) {
-    //  verifyHave(gameId);
-    // }
-  }
-
   handleVerify = gameId => () => {
     this.props.verifyHave(gameId);
   }
@@ -55,37 +40,37 @@ class AddGame extends Component {
             {(connect && loadVerify) && <Loader active size="tiny" />}
             {(connect && !loadVerify) && (
               <div>
-              {alreadyHave && <p>Ce jeu est déjà dans votre JV'thèque</p>}
-              {!alreadyHave && (
-                <div>
-                  <Header>Choisissez une liste{receivedSubmit && <div className="confirm-message">Le jeu à bien été ajouté</div>}</Header>
+                {alreadyHave && <p>Ce jeu est déjà dans votre JV'thèque</p>}
+                {!alreadyHave && (
                   <div>
-                    {loadSubmit && <Loader active inline='centered' size="tiny" />}
-                    {receivedSubmit && <p>Le jeu a bien été ajouté à votre JV'thèque</p>}
-                    {(!loadVerify && !loadSubmit && !receivedSubmit) && (
-                      <div>
-                        {available == 'available' && (
-                          <Grid centered columns={2}>
-                          <Grid.Column textAlign='center'>
-                            <button className="add-button" onClick={this.addGame('have')}>Je l'ai</button>
-                          </Grid.Column>
-                          <Grid.Column textAlign='center'>
-                            <button className="add-button" onClick={this.addGame('want')}>Je le veux</button>
-                          </Grid.Column>
-                          </Grid>
-                        )}
-                        {available == 'unavailable' && (
-                          <Grid centered columns={1}>
-                          <Grid.Column textAlign='center'>
-                            <button className="add-button" onClick={this.addGame('waiting')}>Je l'attends</button>
-                          </Grid.Column>
-                          </Grid>
-                        )}
-                      </div>
-                    )}
+                    <Header>Choisissez une liste{receivedSubmit && <div className="confirm-message">Le jeu à bien été ajouté</div>}</Header>
+                    <div>
+                      {loadSubmit && <Loader active inline='centered' size="tiny" />}
+                      {receivedSubmit && <p>Le jeu a bien été ajouté à votre JV'thèque</p>}
+                      {(!loadVerify && !loadSubmit && !receivedSubmit) && (
+                        <div>
+                          {available == 'available' && (
+                            <Grid centered columns={2}>
+                            <Grid.Column textAlign='center'>
+                              <button className="add-button" onClick={this.addGame('have')}>Je l'ai</button>
+                            </Grid.Column>
+                            <Grid.Column textAlign='center'>
+                              <button className="add-button" onClick={this.addGame('want')}>Je le veux</button>
+                            </Grid.Column>
+                            </Grid>
+                          )}
+                          {available == 'unavailable' && (
+                            <Grid centered columns={1}>
+                            <Grid.Column textAlign='center'>
+                              <button className="add-button" onClick={this.addGame('waiting')}>Je l'attends</button>
+                            </Grid.Column>
+                            </Grid>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
             </div>)}
           </Popup>
       </div>
