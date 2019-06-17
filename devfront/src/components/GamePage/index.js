@@ -44,9 +44,10 @@ class GamePage extends Component {
                   <GameHeader />
                   <GameComments />
                 </div>
-                <div className="second">
+                {/* Désactivé en attendant le like comments */}
+                {/* <div className="second">
                   <GameAllComments />
-                </div>
+                </div> */}
               </div>
             )}
           </div>

@@ -52,13 +52,15 @@ const advancedSearchPageMiddleware = store => next => (action) => {
       const filter = store.getState().advancedSearchPageReducer.checkedCategories.filter(category => {
         if(category.status == true) {return category.category}
       });
-      const categories = filter.map(category => category.category);
-      if (categories.length > 0) {
-        axios.post('http://api.gamehub.com/api/category/search', {
+      const categoriesFilter = filter.map(category => category.category);
+      const category = categoriesFilter.join(' ');
+
+      if (category.length > 0) {
+        axios.get('http://api.gamehub.com/api/category/search', {
           headers: {
             'Content-Type': 'application/json',
           },
-          id: categories,
+          params: {id: category},
         })
           .then((response) => {
             console.log('request games by categories', response.data);

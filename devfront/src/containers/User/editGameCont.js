@@ -24,11 +24,11 @@ const mapDispatchToProps = dispatch => ({
   onSubmitScore: (gameId) => {
     dispatch(onSubmitScore(gameId));
   },
-  onSubmitComment: (title, comment, gameId) => {
-    dispatch(onSubmitComment(title, comment, gameId));
+  onSubmitComment: (gameId) => {
+    dispatch(onSubmitComment(gameId));
   },
-  deleteDatas: (type, id) => {
-    dispatch(deleteDatas(type, id));
+  deleteDatas: (name, id) => {
+    dispatch(deleteDatas(name, id));
   },
 });
 

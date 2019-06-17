@@ -130,19 +130,18 @@ class ListSmall extends Component {
         {load && <p>Loading</p>}
         {!load && (
           <div className="list">
-            {shortList.map(game => {
-              console.log('ListSmall', game.game)
+            {shortList.map(({ game }) => {
               return (
-              <div className="behind--game">
+              <div key={game.id} className="behind--game">
                 {/* <Link to={"/game/" + game.game.id}> */}
-                  <div id={game.id} className="game">
-                    <img src={game.game.cover} alt="cover game" />
-                    <p>{game.game.name}</p>
-                    <div className="edit"><EditGame game={game.game} /></div>
+                  <div className="game">
+                    <img src={game.cover} alt="cover game" />
+                    <p>{game.name}</p>
+                    {name=='have' && <div className="edit"><EditGame game={game} /></div>}
                   </div>
                 {/* </Link> */}
                 <div className="game-score-part">
-                  <div className="game-score"><Progress percent={percent} indicating /></div>
+                  <div className="game-score"><Progress percent={percent} size="tiny" indicating /></div>
                 </div>
               </div>
             )})}

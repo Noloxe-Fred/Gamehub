@@ -1,7 +1,5 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
-
-
 import './search.scss';
 
 class Search extends React.Component {
@@ -19,7 +17,7 @@ class Search extends React.Component {
   };
 
   render() {
-    const { loading, categoriesDatas } = this.props;
+    const { loading, categoriesDatas, checkedCategories } = this.props;
 
     const types = categoriesDatas.filter(category => category.type.id === 1);
     const players = categoriesDatas.filter(category => category.type.id === 2);
@@ -39,7 +37,7 @@ class Search extends React.Component {
                       <div key={type.id} className="one--checkbox">
                         <input type="checkbox" onClick={this.handleClick(type.id)}/>
                         {type.name}
-                      </div>  
+                      </div>
                     )})
                   }
                 </div>

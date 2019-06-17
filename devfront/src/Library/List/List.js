@@ -26,7 +26,7 @@ class List extends Component {
               <Link to={"/game/"+game.id}> 
                 <img src={game.cover} alt={game.name} />
               </Link>
-              <p>{game.name}<AddGame gameid={game.id} className="add--game--button" /></p>
+              <p>{game.name}<AddGame gameId={game.id} className="add--game--button" /></p>
             </Col>
           );
         })}

@@ -31,10 +31,23 @@ const gamePageMiddleware = store => next => (action) => {
             website: game.website,
             categories: game.categories,
           };
-          const commentsDatas = game.comments;
           const background = game.illustration;
-    
-          store.dispatch(receivedGame(gameDatas, commentsDatas, background));
+          // 2e requête imbrique pour les commentaires
+          axios.get(`http://api.gamehub.com/api/comment/last`, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            params: { game_id: id },
+          })
+          .then((responseComment) => {
+            console.log('reponse appel commentaire', responseComment)
+            const comments = responseComment.data;
+            store.dispatch(receivedGame(gameDatas, comments, background));
+          })
+          .catch((error) => {
+            console.log('request one game', error);
+            store.dispatch(errorRequest());
+          });
         })
         .catch((error) => {
           console.log('request one game', error);

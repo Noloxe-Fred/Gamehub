@@ -125,10 +125,8 @@ export const onSubmitScore = gameId => ({
   gameId,
 });
 
-export const onSubmitComment = (title, comment, gameId) => ({
+export const onSubmitComment = gameId => ({
   type: ON_SUBMIT_COMMENT,
-  title,
-  comment,
   gameId,
 });
 
@@ -143,9 +141,9 @@ export const receivedSubmit = (name, value) => ({
   value,
 });
 
-export const deleteDatas = (type, id) => ({
+export const deleteDatas = (name, id) => ({
   type: DELETE_DATAS,
-  type,
+  name,
   id,
 });
 

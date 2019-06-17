@@ -6,11 +6,12 @@ import { Slider } from "react-semantic-ui-range";
 import './editgame.scss';
 
 class EditGame extends Component {
-  componentDidMount() {
+
+  handleRequestDatas = () => {
     this.props.reqUserGameDatas(this.props.game.id);
   }
 
-  handleChange = evt => {
+  handleChangeComment = evt => {
     const { value, name } = evt.target;
     this.props.setInput(name, value);
   }
@@ -23,6 +24,11 @@ class EditGame extends Component {
     evt.preventDefault();
     console.log('Submit Score')
     this.props.onSubmitScore(this.props.game.id);
+  }
+
+  handleSubmitComment = evt => {
+    evt.preventDefault();
+    this.props.onSubmitComment(this.props.game.id);
   }
 
   handleDelete = (name, id) => () => {
@@ -44,7 +50,7 @@ class EditGame extends Component {
     } = this.props;
 
     return (
-      <Modal trigger={<div className="edit--button"><i className="far fa-edit "></i></div>} closeIcon className="caca">
+      <Modal trigger={<div className="edit--button"><i className="far fa-edit "></i></div>} closeIcon onOpen={this.handleRequestDatas} className="caca">
         <div className="all--parts">
           {loadReqDat && (
             <Segment>
@@ -76,6 +82,7 @@ class EditGame extends Component {
                     />
                     <Label color="#2C3E50">{actualScore}</Label>
                     {!loadSubmit.score ? <Button type='submit'>Enregistrer Score</Button> : <Button loading>Loading</Button>}
+                    {receivedSubmit.score && <p>Note enregistré</p>}
                   </Form>
                   <Modal.Actions>
                     {!loadSubmit.deletedGame ? (
@@ -95,19 +102,19 @@ class EditGame extends Component {
               </div>
               <div className="part--two">
                 <Segment className="modal--add--comment">
-                  <Form>
+                  <Form onSubmit={this.handleSubmitComment}>
                     <Input
                       name="title"
                       placeholder="Titre"
                       value={commentTitle} 
-                      onChange={this.handleChange}
+                      onChange={this.handleChangeComment}
                     />
                     <TextArea
-                      name="comment"
+                      name="content"
                       placeholder="Votre avis"
                       style={{ minHeight: 200 }}
                       value={commentContent}
-                      onChange={this.handleChange}
+                      onChange={this.handleChangeComment}
                     />
                     {!loadSubmit.comment ? <Button type="submit">Enregistrer Commentaire</Button> : <Button loading>Loading</Button>}
                     {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)}>Supprimer Commentaire</Button> : <Button loading>Loading</Button>}

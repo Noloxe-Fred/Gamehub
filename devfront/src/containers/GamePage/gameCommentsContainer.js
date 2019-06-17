@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import GameComments from 'src/components/GamePage/GameComments';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+  console.log(state.gamePageReducer.commentsDatas);
+  return {
   datas: state.gamePageReducer.commentsDatas,
-});
+}};
 
 const mapDispatchToProps = dispatch => ({
 

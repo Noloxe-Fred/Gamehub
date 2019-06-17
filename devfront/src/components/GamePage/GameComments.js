@@ -20,7 +20,7 @@ const GameComments = ({ datas }) => (
 
       <Col lg={12} sm={3} xs={3} className="cell cell--header d-flex justify-content-center">
        <div className="profil">
-         <h6>{datas ? 'Le Top des commentaires' : 'Pas encore de commentaires sur ce jeu'}</h6>
+         <h6>{(datas.length > 0) ? 'Les derniers commentaires publiés' : 'Pas encore de commentaires sur ce jeu'}</h6>
        </div>
       </Col>
 {/* 
@@ -42,8 +42,8 @@ const GameComments = ({ datas }) => (
        </div>
       </Col> */}
     </Row>
-    {!datas && <div></div>}
-    {datas && (
+    {datas.length = 0 && <div></div>}
+    {datas.length > 0 && (
       <div>
       <Row className="row--comments">
         <Col lg={1} sm={1} xs={0} className="cell cell--number">
@@ -55,7 +55,7 @@ const GameComments = ({ datas }) => (
           <div className="avatar--comments">
             <img src="https://vice-images.vice.com/images/content-images/2016/07/26/ce-que-votre-photo-de-profil-facebook-dit-de-vous-body-image-1469553008.jpg?output-quality=75" alt=""/>
           </div>
-          <h6>{datas[0].user}</h6>
+          <h6>{datas[0].user.pseudo}</h6>
         </div>
         </Col>
 
@@ -79,7 +79,7 @@ const GameComments = ({ datas }) => (
         </Col>
       </Row>
 
-      <Row className="row--comments">
+      {/* <Row className="row--comments">
         <Col lg={1} sm={1} xs={0} className="cell cell--number">
         2
         </Col>
@@ -143,7 +143,7 @@ const GameComments = ({ datas }) => (
           <h6>{datas[2].score}</h6>
         </div>
         </Col>
-      </Row>
+      </Row> */}
       </div>
     )}
 

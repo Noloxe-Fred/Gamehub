@@ -37,15 +37,14 @@ const editGameMiddleware = store => next => (action) => {
 
         const { comment, score } = response.data.info;
 
-        const typeSubScore = score != null ? 'edit' : 'new';
+        const typeSubScore = score ? 'edit' : 'new';
         const typeSubComment = comment != null ? 'edit' : 'new';
 
-        const scoreValue = score != null ? score.value : 0;
-        const commentTitle = comment != null ? comment.title : '';
-        const commentContent = comment != null ? comment.Content : '';
-        const scoreId = score != null ? score.id : '';
-        const commentId = comment != null ? comment.id : '';
-        console.log('Req Us Da Ga', typeSubScore)
+        const scoreValue = score != null ? score[0].value : 0;
+        const commentTitle = comment != null ? comment[0].title : '';
+        const commentContent = comment != null ? comment[0].content : '';
+        const scoreId = score != null ? score[0].id : '';
+        const commentId = comment != null ? comment[0].id : '';
         store.dispatch(recUserGamesDatas(scoreValue, commentTitle, commentContent, scoreId, commentId, typeSubScore, typeSubComment));
       })
       .catch((error) => {
@@ -55,7 +54,7 @@ const editGameMiddleware = store => next => (action) => {
       break;
     case ON_SUBMIT_SCORE:
       store.dispatch(loadSubmit('score'));
-
+      console.log(store.getState().editGameRed.typeSubScore)
       if (store.getState().editGameRed.typeSubScore === 'new') {
         instance.post('/score/new', {
           game: {
@@ -75,11 +74,11 @@ const editGameMiddleware = store => next => (action) => {
 
       if (store.getState().editGameRed.typeSubScore === 'edit') {
         instance.put('/score/edit', {
-          id: action.gameId,
-          score: {
-            id: store.getState().editGameRed.scoreId,
-            value: store.getState().editGameRed.score,
+          game: {
+            id: action.gameId,
           },
+          id: store.getState().editGameRed.scoreId,
+          value: store.getState().editGameRed.score,
         })
           .then((response) => {
             console.log(response.data);
@@ -96,11 +95,11 @@ const editGameMiddleware = store => next => (action) => {
 
       if (store.getState().editGameRed.typeSubComment === 'new') {
         instance.post('/comment/new', {
-          id: action.gameId,
-          comment: {
-            title: store.getState().editGameRed.title,
-            content: store.getState().editGameRed.content,
+          game: {
+            id: action.gameId,
           },
+          title: store.getState().editGameRed.title,
+          content: store.getState().editGameRed.content,
         })
           .then((response) => {
             console.log(response.data);
@@ -113,12 +112,12 @@ const editGameMiddleware = store => next => (action) => {
 
       if (store.getState().editGameRed.typeSubComment === 'edit') {
         instance.put('/comment/edit', {
-          id: action.gameId,
-          comment: {
-            id: store.getState().editGameRed.commentId,
-            title: store.getState().editGameRed.title,
-            content: store.getState().editGameRed.content,
+          game: {
+            id: action.gameId,
           },
+          id: store.getState().editGameRed.commentId,
+          title: store.getState().editGameRed.title,
+          content: store.getState().editGameRed.content,
         })
           .then((response) => {
             console.log(response.data);
@@ -130,12 +129,13 @@ const editGameMiddleware = store => next => (action) => {
       }
       break;
     case DELETE_DATAS:
-      if (action.type === 'game') {
+      console.log(action.name)
+      if (action.name === 'game') {
         instance.delete('/game/state/delete', {
           game: {
             id: action.id,
             status: store.getState().editGameRed.status,
-            // statusId: store.getState().editGameRed.statusId,
+            statusId: store.getState().editGameRed.statusId,
           },
         })
           .then((response) => {
@@ -146,7 +146,7 @@ const editGameMiddleware = store => next => (action) => {
             console.log(error);
           });
       }
-      if (action.type === 'comment') {
+      if (action.name === 'comment') {
         instance.delete('/comment/delete', {
           game: {
             id: action.id,

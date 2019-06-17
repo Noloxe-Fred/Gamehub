@@ -6,6 +6,7 @@ import { requestCategories, requestGames, checkedCategories, requestByCategories
 const mapStateToProps = state => ({
   categoriesDatas: state.advancedSearchPageReducer.categoriesDatas,
   loading: state.advancedSearchPageReducer.loadingCategories,
+  checkedCategories: state.advancedSearchPageReducer.checkedCategories,
 });
 
 const mapDispatchToProps = dispatch => ({

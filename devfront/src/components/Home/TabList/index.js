@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Tab, Loader, Grid } from 'semantic-ui-react';
 
 import './tabList.scss';
@@ -33,12 +34,12 @@ class TabList extends React.Component {
           <div className="partOfOneTab">
             <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
             {loadbestmonth && <Loader active inline='centered' /> }
-            {!loadbestmonth && bestmonth.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {!loadbestmonth && bestmonth.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
           </div>
           <div className="partOfOneTab">
             <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
             {loadworstmonth && <Loader active inline='centered' /> }
-            {!loadworstmonth && worstmonth.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {!loadworstmonth && worstmonth.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
           </div>
         </div>
       </Tab.Pane> 
@@ -52,12 +53,12 @@ class TabList extends React.Component {
                 <i className="fas fa-thumbs-up" />
               </div>
               {loadbestyear && <Loader active inline='centered' /> }
-              {!loadbestyear && bestyear.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+              {!loadbestyear && bestyear.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
             </div>
             <div className="partOfOneTab">
               <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
               {loadworstyear && <Loader active inline='centered' /> }
-              {!loadworstyear && worstyear.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+              {!loadworstyear && worstyear.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
             </div>
           </div>
         </Tab.Pane>
@@ -68,12 +69,12 @@ class TabList extends React.Component {
           <div className="partOfOneTab">
             <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
             {loadbestever && <Loader active inline='centered' /> }
-            {!loadbestever && bestever.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {!loadbestever && bestever.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
           </div>
           <div className="partOfOneTab">
             <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
             {loadworstever && <Loader active inline='centered' /> }
-            {!loadworstever && worstever.map(game => <div id={game.id}><a href={"/game/"+game.id}>{game.name}</a></div>)}
+            {!loadworstever && worstever.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
           </div>
         </div>
       </Tab.Pane>
