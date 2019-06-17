@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
  * @Table(
- *      name = "Comment",  
+ *      name = "commentary",  
  *      uniqueConstraints = {@UniqueConstraint(columns = {"user_id", "game_id"})}
  * )
  */
@@ -203,5 +203,17 @@ class Comment
     public function __toString()
     {
         return $this->title;
+    }
+
+
+    public function isCommentNonLocked()
+    {
+        return true;
+    }
+
+
+    public function isEnabled()
+    {
+        return $this->isActive;
     }
 }

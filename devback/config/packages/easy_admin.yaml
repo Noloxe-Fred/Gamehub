@@ -12,7 +12,7 @@ easy_admin:
                 path: '/images/favicon.ico'
         menu:
             - label: 'Menu'
-            - { label: 'Retour sur GameHub', icon: 'fas fa-home', url: 'http://92.243.9.237/' }
+            - { label: 'Retour sur GameHub', icon: 'fas fa-home', url: 'http://gamehub.com/' }
             - label: 'Gestion des données'
             - { entity: Game, icon: 'fas fa-gamepad'}
             - { entity: Type, icon: 'fas fa-tenge' }
@@ -266,6 +266,7 @@ easy_admin:
                     - { property: 'isActive', label: 'Actif/Inactif' }
                     - { property: 'title', label: 'Titre' }
                     - { property: 'user', label: 'Utilisateur' }
+                    - { property: 'game', label: 'Jeu' }
                     - { property: 'createdAt', label: 'Ajouté le' }
                     - { property: 'updatedAt', label: 'Mis à jour le' }
 

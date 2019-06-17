@@ -23,8 +23,9 @@ class CommentRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('c')
             ->join('c.game', 'g')
+            ->where('c.isActive = true')
             ->orderBy('c.createdAt', 'DESC')
-            ->where('g.id = :game')
+            ->andWhere('g.id = :game')
             ->setParameter('game', $game)
             ->setMaxResults(18)
             ->getQuery()

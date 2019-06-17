@@ -34,10 +34,10 @@ class ApiCommentController extends FOSRestController
         $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
-        if($commentRepository->findOneByUser($user) != null && $commentRepository->findOneByGame($game) != null){
+        // if($commentRepository->findOneByUser($user) != null && $commentRepository->findOneByGame($game) != null){
 
-            return $this->view('403 Forbidden - Commentaire déjà créé pour ce jeu.', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Commentaire déjà créé pour ce jeu.', Response::HTTP_FORBIDDEN);
+        // }
 
         $comment = new Comment();
         $comment->setUser($user);
@@ -69,10 +69,10 @@ class ApiCommentController extends FOSRestController
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $comment = $commentRepository->findOneById($request->request->get('id'));
 
-        if($comment->getUser() != $user || $comment->getGame() != $game){
+        // if($comment->getUser() != $user || $comment->getGame() != $game){
 
-            return $this->view('403 Forbidden - Ce commentaire ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Ce commentaire ne vous appartient pas.', Response::HTTP_FORBIDDEN);
+        // }
 
         $comment->setUpdatedAt(new \DateTime());
 
@@ -96,15 +96,15 @@ class ApiCommentController extends FOSRestController
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $comment = $commentRepository->findOneById($request->request->get('id'));
 
-        if($comment->getUser() != $user || $comment->getGame() != $game){
+        // if($comment->getUser() != $user || $comment->getGame() != $game){
 
-            return $this->view('403 Forbidden - Ce commentaire ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        }
+        //     return $this->view('403 Forbidden - Ce commentaire ne vous appartient pas.', Response::HTTP_FORBIDDEN);
+        // }
 
         $em->remove($comment);
         $em->flush();
 
-        return $this->view('', Response::HTTP_CREATED, [
+        return $this->view('', Response::HTTP_NO_CONTENT, [
             
             ]);
     }
@@ -114,12 +114,17 @@ class ApiCommentController extends FOSRestController
      */
     public function getlastCommentAction(CommentRepository $commentRepository, SerializerInterface $serializer, Request $request)
     {   
+    
+
 
         $comments = $commentRepository->lastComments($request->query->get('game_id'));
+
 
         $lastComments = $serializer->serialize($comments, 'json', [
             'groups' => 'comment_read',
         ]);
+
+    
     
        return JsonResponse::fromJsonString($lastComments);
     }

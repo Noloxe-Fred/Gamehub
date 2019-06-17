@@ -64,17 +64,18 @@ class ApiGameController extends FOSRestController
     /**
      * @Rest\Get(path = "game/{id}/edit", name = "game_edit", requirements = {"id" = "\d+"})
      */ 
-    public function getGameEdit($id, ScoreRepository $scoreRepository, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer, TokenStorageInterface $token){
+    public function getGameEdit($id, ScoreRepository $scoreRepository, StateRepository $stateRepository, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, SerializerInterface $serializer, TokenStorageInterface $token){
 
         $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($id);
 
         $comment = $commentRepository->findGameInfo($user, $game);
         $score = $scoreRepository->findGameInfo($user, $game);
+        $state = $stateRepository->findGameState($user, $game);
 
         if ($score == null && $comment == null){
 
-            $game = ["game" => $game, "info" => ["comment" => null, "score" => null]];
+            $game = ["game" => $game, "info" => ["state" => $state, "comment" => null, "score" => null]];
 
             $gamesListWaiting = $serializer->serialize($game, 'json', [
                 'groups' => 'game_info',
@@ -84,7 +85,7 @@ class ApiGameController extends FOSRestController
             
         } else if($comment == null){
 
-            $game = ["game" => $game, "info" => ["comment" => null, "score" => $score]];
+            $game = ["game" => $game, "info" => ["state" => $state, "comment" => null, "score" => $score]];
 
             $gamesListWaiting = $serializer->serialize($game, 'json', [
                 'groups' => 'game_info',
@@ -94,7 +95,7 @@ class ApiGameController extends FOSRestController
 
         } else if ($score == null){
 
-            $game = ["game" => $game, "info" => ["comment" => $comment, "score" => null]];
+            $game = ["game" => $game, "info" => ["state" => $state, "comment" => $comment, "score" => null]];
 
             $gamesListWaiting = $serializer->serialize($game, 'json', [
                 'groups' => 'game_info',
@@ -104,7 +105,7 @@ class ApiGameController extends FOSRestController
 
         }
 
-        $game = ["game" => $game, "info" => ["comment" => $comment, "score" => $score]];
+        $game = ["game" => $game, "info" => ["state" => $state, "comment" => $comment, "score" => $score]];
 
         $gamesListWaiting = $serializer->serialize($game, 'json', [
             'groups' => 'game_info',
