@@ -14,7 +14,7 @@
     // box-shadow: 5px 5px 20px;
     // color: black !important;
   }
-}
+} 
  
 // .ui.modal {
 //     max-width: 1500px !important;
@@ -44,14 +44,44 @@
   margin-top: -5% !important;
 }
 .all--parts {
-  background: red;
-  width: 2000px;
+  background: #2D3536;
+  // width: 2000px;
   height: 600px;
   display: flex !important;
+  justify-content: center;
 }
 
 .part--one {
     .segment {
       height: 20em !important;
+    }
+    header {
+      color: white;
+    }
+    .modal--add--comment {
+      color: white;
+      
+      .header--title {
+        text-align: center;
+        font-size: 2em;
+        color: white;
+        span {
+          color: #FCC502;
+        }
+      }
+    }
+    .slider--note {
+      color: red;
+    }
+    .form--note {
+      text-align: center;
+      .label--note {
+        // margin: 1em;
+        width: 3em;
+        height: 3em;
+      }
+      .button--note {
+        margin: 1em;
+      }
     }
 }

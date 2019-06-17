@@ -4,7 +4,7 @@ import { Button, Header, Icon, Modal, Form, TextArea, Label, Segment, Input, Dim
 import { Slider } from "react-semantic-ui-range";
 
 import './editgame.scss';
-
+ 
 class EditGame extends Component {
 
   handleRequestDatas = () => {
@@ -65,13 +65,14 @@ class EditGame extends Component {
             <div>
               <div className="part--one">
                 <Segment className="modal--add--comment">
-                  <Header icon="gamepad">Notez et donner votre avis sur {name}</Header>
+                  <Header icon="gamepad" className="header--title">Notez et donnez votre avis sur <span>{name}</span></Header>
                   <h2>Note:</h2>
-                  <Form onSubmit={this.handleSubmitScore}>
+                  <Form onSubmit={this.handleSubmitScore} className="form--note">
                     <Slider
                       name="score"
                       color="#FFFDD8"
                       inverted={false}
+                      className="slider--note"
                       settings={{
                         start: actualScore,
                         min: 0,
@@ -80,8 +81,8 @@ class EditGame extends Component {
                         onChange: this.handleChangeScore,
                       }}
                     />
-                    <Label color="#2C3E50">{actualScore}</Label>
-                    {!loadSubmit.score ? <Button type='submit'>Enregistrer Score</Button> : <Button loading>Loading</Button>}
+                    <Label color="#2C3E50" className="label--note">{actualScore}</Label>
+                    {!loadSubmit.score ? <Button type='submit' className="button--note">Enregistrer Score</Button> : <Button loading>Loading</Button>}
                     {receivedSubmit.score && <p>Note enregistré</p>}
                   </Form>
                   <Modal.Actions>
