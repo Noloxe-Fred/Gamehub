@@ -131,7 +131,7 @@ const editGameMiddleware = store => next => (action) => {
       }
       break;
     case DELETE_DATAS:
-      console.log('Statusid',store.getState().editGameRed.statusId)
+      console.log('Statusid',store.getState().editGameRed.commentId)
       if (action.name === 'game') {
         instance.delete('/game/state/delete', {
           data: {

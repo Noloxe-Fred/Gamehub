@@ -92,6 +92,7 @@ class EditGame extends Component {
                     )
                       : (<Button loading>Loading</Button>)
                     }
+                    {receivedSubmit.deleteGame && <p>Votre jeu a été retiré de votre JV'thèque</p>}
                     <Link to={"/game/" + id}>
                       <Button color="green">
                         <Icon name="checkmark" /> Voir la fiche du jeu
@@ -117,8 +118,9 @@ class EditGame extends Component {
                       onChange={this.handleChangeComment}
                     />
                     {!loadSubmit.comment ? <Button type="submit">Enregistrer Commentaire</Button> : <Button loading>Loading</Button>}
-                    {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)}>Supprimer Commentaire</Button> : <Button loading>Loading</Button>}
                   </Form>
+                  {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)}>Supprimer Commentaire</Button> : <Button loading>Loading</Button>}
+                  {receivedSubmit.deletedComment && <p>Votre commentaire à bien été supprimé.</p>}
                 </Segment>
               </div>
             </div>
