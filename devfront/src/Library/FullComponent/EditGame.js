@@ -62,7 +62,7 @@ class EditGame extends Component {
             </Segment>
           )}
           {loadReqDat || (
-            <div>
+            <div className="lines">
               <div className="part--one">
                 <Segment className="modal--add--comment">
                   <Header icon="gamepad" className="header--title">Notez et donnez votre avis sur <span>{name}</span></Header>
@@ -81,13 +81,15 @@ class EditGame extends Component {
                         onChange: this.handleChangeScore,
                       }}
                     />
-                    <Label color="#2C3E50" className="label--note">{actualScore}</Label>
-                    {!loadSubmit.score ? <Button type='submit' className="button--note">Enregistrer Score</Button> : <Button loading>Loading</Button>}
-                    {receivedSubmit.score && <p>Note enregistré</p>}
+                    <div className="form--button--all">
+                      <Label color="#2C3E50" className="label--note"><p>{actualScore}</p></Label>
+                      {!loadSubmit.score ? <Button type='submit' className="button--note">Enregistrer Score</Button> : <Button loading>Loading</Button>}
+                      {receivedSubmit.score && <p>Note enregistré</p>}
+                    </div>
                   </Form>
-                  <Modal.Actions>
+                  <Modal.Actions className="form--actions">
                     {!loadSubmit.deletedGame ? (
-                      <Button color="red" onClick={this.handleDelete('game', id)}>
+                      <Button onClick={this.handleDelete('game', id)} className="button--delete">
                         <Icon name="remove" /> Supprimer le jeu
                       </Button>
                     )
@@ -95,7 +97,7 @@ class EditGame extends Component {
                     }
                     {receivedSubmit.deleteGame && <p>Votre jeu a été retiré de votre JV'thèque</p>}
                     <Link to={"/game/" + id}>
-                      <Button color="green">
+                      <Button className="button--see--game">
                         <Icon name="checkmark" /> Voir la fiche du jeu
                       </Button>
                     </Link>
@@ -110,6 +112,7 @@ class EditGame extends Component {
                       placeholder="Titre"
                       value={commentTitle} 
                       onChange={this.handleChangeComment}
+                      className="part--two--title"
                     />
                     <TextArea
                       name="content"
@@ -117,11 +120,16 @@ class EditGame extends Component {
                       style={{ minHeight: 200 }}
                       value={commentContent}
                       onChange={this.handleChangeComment}
+                      className="part--two--content"
                     />
-                    {!loadSubmit.comment ? <Button type="submit">Enregistrer Commentaire</Button> : <Button loading>Loading</Button>}
+                    <div className="buttons-comment">
+                      {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)} className="button--delete--comment">Supprimer le commentaire</Button> : <Button loading>Loading</Button>}
+                      {!loadSubmit.comment ? <Button type="submit" className="button--save--comment">Enregistrer le commentaire</Button> : <Button loading>Loading</Button>} 
+                      {receivedSubmit.deletedComment && <p>Votre commentaire à bien été supprimé.</p>}
+                    </div>
+                    
                   </Form>
-                  {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)}>Supprimer Commentaire</Button> : <Button loading>Loading</Button>}
-                  {receivedSubmit.deletedComment && <p>Votre commentaire à bien été supprimé.</p>}
+                  
                 </Segment>
               </div>
             </div>
