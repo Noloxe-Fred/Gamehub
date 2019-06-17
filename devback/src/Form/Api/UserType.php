@@ -42,7 +42,7 @@ class UserType extends AbstractType
             ])
             ->add('photo', UrlType::class, [
 
-                'empty_data' => '',
+                'empty_data' => 'https://www.loginradius.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png',
                 'required' => false,
             ])
             ->add('birthdate', BirthdayType::class, [

@@ -39,6 +39,7 @@ easy_admin:
                     - { name: 'search', label: 'Rechercher un jeu' }
                 fields: 
                     - 'id'
+                    - { property: 'cover', label: 'Jaquette', type: 'image', base_path: 'http' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'description' }
                     - { property: 'score', label: 'Note' }
@@ -286,6 +287,7 @@ easy_admin:
                 fields: 
                     - 'id'
                     - { property: 'isActive', label: 'Actif/Inactif' }
+                    - { property: 'photo', type: 'image', base_path: 'http' }
                     - { property: 'email' }
                     - { property: 'pseudo', label: 'Pseudo' }
                     - { property: 'roles', label: 'Rôles' }

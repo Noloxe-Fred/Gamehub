@@ -114,18 +114,13 @@ class ApiCommentController extends FOSRestController
      */
     public function getlastCommentAction(CommentRepository $commentRepository, SerializerInterface $serializer, Request $request)
     {   
-    
-
 
         $comments = $commentRepository->lastComments($request->query->get('game_id'));
-
 
         $lastComments = $serializer->serialize($comments, 'json', [
             'groups' => 'comment_read',
         ]);
 
-    
-    
        return JsonResponse::fromJsonString($lastComments);
     }
 
