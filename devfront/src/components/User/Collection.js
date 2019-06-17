@@ -6,6 +6,7 @@ import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarP
 import ListFull from 'src/Library/List/ListUser';
 import EditGame from 'src/containers/User/editGameCont';
 import ChangeList from 'src/Library/FullComponent/ChangeList';
+import Footer from 'src/components/Footer';
 import './user.scss';
 
 
@@ -106,7 +107,9 @@ const Collection = ({
           </Segment>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
+      <Footer />
     </div>
+    
   );
 };
 

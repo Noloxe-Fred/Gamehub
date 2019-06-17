@@ -5,6 +5,7 @@ import FirstCarousel from 'src/containers/Home/FirstCarousel';
 import SecondCarousel from 'src/containers/Home/SecondCarousel';
 import TabList from 'src/containers/Home/TabList';
 import Banner from './Banner';
+import Footer from 'src/components/Footer';
 import './home.scss';
 
 const Home = () => (
@@ -19,6 +20,7 @@ const Home = () => (
     <FirstCarousel />
     <SecondCarousel />
     <TabList />
+    <Footer />
   </div>
 );
 
