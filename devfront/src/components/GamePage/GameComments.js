@@ -42,8 +42,8 @@ const GameComments = ({ datas }) => (
        </div>
       </Col> */}
     </Row>
-    {datas.length = 0 && <div></div>}
-    {datas.length > 0 && (
+    {(datas.length = 0) && <div></div>}
+    {(datas.length > 0) && (
       <div>
       <Row className="row--comments">
         <Col lg={1} sm={1} xs={0} className="cell cell--number">

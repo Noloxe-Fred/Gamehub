@@ -37,7 +37,9 @@ const gamePageMiddleware = store => next => (action) => {
             headers: {
               'Content-Type': 'application/json',
             },
-            params: { game_id: id },
+            params: {
+              game_id: id,
+            },
           })
           .then((responseComment) => {
             console.log('reponse appel commentaire', responseComment)
