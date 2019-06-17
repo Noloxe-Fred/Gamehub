@@ -21,7 +21,7 @@ class ApiCommentController extends FOSRestController
 {
 
     /**
-     * @Rest\Post(path = "comment/new", name="comment_new")
+     * @Rest\Post(path = "comment/new", name = "comment_new")
      * @ParamConverter("comment", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "create"}})
      */
     public function newCommentAction(Comment $comment, CommentRepository $commentRepository, GameRepository $gameRepository, Request $request, TokenStorageInterface $token, EntityManagerInterface $em, ConstraintViolationList $violations)
@@ -55,7 +55,7 @@ class ApiCommentController extends FOSRestController
     }
 
     /**
-     * @Rest\Put(path = "comment/edit", name="comment_edit")
+     * @Rest\Put(path = "comment/edit", name = "comment_edit")
      * @ParamConverter("comment", converter = "fos_rest.request_body", options = {"validator" = {"groups" = "edit"}})
      */
     public function editCommentAction(Comment $comment, CommentRepository $commentRepository , GameRepository $gameRepository, TokenStorageInterface $token, Request $request, EntityManagerInterface $em, ConstraintViolationList $violations)
@@ -87,7 +87,7 @@ class ApiCommentController extends FOSRestController
     }
 
     /**
-     * @Rest\Delete(path = "comment/delete", name="comment_delete")
+     * @Rest\Delete(path = "comment/delete", name = "comment_delete")
      */
     public function deleteCommentAction(CommentRepository $commentRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, EntityManagerInterface $em)
     {   
@@ -110,12 +110,12 @@ class ApiCommentController extends FOSRestController
     }
 
     /**
-     * @Rest\Post(path = "comment/last", name="comments_last")
+     * @Rest\Get(path = "comment/last", name = "comments_last")
      */
-    public function getlastCommentAction(CommentRepository $commentRepository, GameRepository $gameRepository, SerializerInterface $serializer, Request $request, EntityManagerInterface $em)
+    public function getlastCommentAction(CommentRepository $commentRepository, SerializerInterface $serializer, Request $request)
     {   
-        $game = $gameRepository->findOneById($request->request->get('id'));
-        $comments = $commentRepository->lastComments($game);
+
+        $comments = $commentRepository->lastComments($request->query->get('game_id'));
 
         $lastComments = $serializer->serialize($comments, 'json', [
             'groups' => 'comment_read',
@@ -123,4 +123,19 @@ class ApiCommentController extends FOSRestController
     
        return JsonResponse::fromJsonString($lastComments);
     }
+
+    // /**
+    //  * @Rest\Get(path = "game/{id}/comment", name = "comments_last", requirements = {"id" = "\d+"} )
+    //  */
+    // public function getCommentAction($id, CommentRepository $commentRepository, SerializerInterface $serializer)
+    // {   
+
+    //     $comments = $commentRepository->findCommentsByGame($id);
+
+    //     $commentsByGame = $serializer->serialize($comments, 'json', [
+    //         'groups' => 'comment_read',
+    //     ]);
+    
+    //    return JsonResponse::fromJsonString($commentsByGame);
+    // }
 }

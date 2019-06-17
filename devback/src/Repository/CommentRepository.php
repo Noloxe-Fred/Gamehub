@@ -48,4 +48,16 @@ class CommentRepository extends ServiceEntityRepository
 
         return $qb;
     }
+
+    // public function findCommentsByGame($game){
+
+    //     $qb = $this->createQueryBuilder('c')
+    //         ->join('c.game', 'g')
+    //         ->where('g.id = :game')
+    //         ->setParameter('game', $game)
+    //         ->getQuery()
+    //         ->getResult();
+
+    //     return $qb;
+    // }
 }
