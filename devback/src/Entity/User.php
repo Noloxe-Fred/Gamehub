@@ -30,6 +30,7 @@ class User implements AdvancedUserInterface
 
     /**
      * @ORM\Column(type="json")
+     * @Groups({"profil_read"})
      */
     private $roles = [];
 
