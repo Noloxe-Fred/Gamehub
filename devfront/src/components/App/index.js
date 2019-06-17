@@ -23,6 +23,7 @@ import Footer from 'src/components/Footer';
 // == Composant
 class App extends Component {
   componentDidMount() {
+    console.log('Actualisation!!!')
     const rememberUser = localStorage.getItem('remember');
     const { connect, connectSavedUser } = this.props;
 

@@ -5,7 +5,7 @@ import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarP
 
 import ListFull from 'src/Library/List/ListUser';
 import EditGame from 'src/containers/User/editGameCont';
-import ChangeList from 'src/Library/FullComponent/ChangeList';
+import ModifyGame from 'src/containers/User/modifyGameCont';
 import './user.scss';
 
 
@@ -14,8 +14,6 @@ const Collection = ({
   listWant,
   listWaiting,
   request,
-  displayedProfile,
-  displayProfile,
   fullList,
   displayFullList,
   reqUserGameDatas,
@@ -31,57 +29,6 @@ const Collection = ({
   return (
     <div>
       {!localStorage.getItem('connect') && <Redirect to="/" />}
-      {/* <Button visible={displayProfile} onClick={handleShowClick}>
-        vv Profile vv
-      </Button> */}
-      <Sidebar.Pushable>
-
-        <Sidebar as={Segment} animation="overlay" direction="top" visible={displayedProfile}>
-          <Header as='h3'>PROFIL</Header>
-          <Grid textAlign='center' className="profile-content">
-                <div>
-                  <h4>Paramètres</h4>
-                  <h6>Vos informations</h6>
-                  <Segment>
-                    <p>Votre pseudo:</p><Button>Modifier votre pseudo</Button>
-                    <p>Votre email:</p>
-                  </Segment>
-                  <Segment>
-                    <h6>Changer votre mot de passe</h6>
-                    <Form>
-                      <Input
-                        placeholder="Ancien mot de passe"
-                      />
-                      <Input
-                        placeholder="Nouveau mot de passe"
-                      />
-                      <Input
-                        placeholder="Confirmation nouveau mot de passe"
-                      />
-                      <Button type="submit">Modifier</Button>
-                    </Form>
-                  </Segment>
-                </div>
-                <div>
-                  <h4>Stats</h4>
-                  <h6>Votre collection</h6>
-                  <Segment>
-                    <p>Vous avez 37 jeux en votre possession</p>
-                    <p>Vous avez 12 jeux en liste d'achats</p>
-                    <p>Vous suivez 12 jeux</p>
-                  </Segment>
-                </div>
-                <div>
-                  <h4>Commentaires</h4>
-                  <Segment>Commentaire 1</Segment>
-                  <Segment>Commentaire 2</Segment>
-                  <Segment>Commentaire 3</Segment>
-                  <Segment>Commentaire 4</Segment>
-                </div>
-          </Grid>
-        </Sidebar>
-
-        <Sidebar.Pusher dimmed={displayedProfile}>
           <Segment basic>
           <h1 className="title--collection" ><span><hr></hr></span><span><i class="fas fa-dot-circle"></i></span>MA COLLECTION<span><i class="fas fa-dot-circle"></i></span><span><hr></hr></span></h1>
   
@@ -104,8 +51,6 @@ const Collection = ({
               </Grid>
             )}
           </Segment>
-        </Sidebar.Pusher>
-      </Sidebar.Pushable>
     </div>
   );
 };
@@ -122,7 +67,7 @@ class ListSmall extends Component {
 
   render() {
     const { list, load, title } = this.props.listDatas;
-    const {name, reqUserGameData, changeList } = this.props;
+    const {name, reqUserGameData, changeList, request } = this.props;
     const shortList = list.slice(0, 12);
     const percent = 80;
     return (
@@ -140,8 +85,8 @@ class ListSmall extends Component {
                   <div className="game">
                     <img src={game.game.cover} alt="cover game" />
                     <p>{game.game.name}</p>
-                    {name == 'have' && <div className="edit"><EditGame game={game.game} /></div>}
-                    {name == 'want' && <ChangeList changeList={changeList} statusId={game.id} />}
+                    {name == 'have' && <div className="edit"><EditGame game={game.game} request={request} name={name} /></div>}
+                    {name !== 'have' && <div className="edit"><ModifyGame statusId={game.id} name={name} game={game.game} /></div>}
                   </div>
                 {/* </Link> */}
                 <div className="game-score-part">

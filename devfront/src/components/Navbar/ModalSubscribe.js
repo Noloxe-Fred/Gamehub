@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Modal, Form, Icon, Header } from 'semantic-ui-react';
 
-import ModalConnect from 'src/components/Navbar/ModalConnect';
+import ModalConnect from 'src/containers/Navbar/ModalConnect';
 import './ModalSubscribe.scss';
 
 export default class ModalSubscribe extends Component {
