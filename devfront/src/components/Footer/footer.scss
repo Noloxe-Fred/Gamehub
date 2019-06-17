@@ -1,69 +1,73 @@
-article {
-  height: 100%;
-}
-
-.footer__content {
-  position: sticky;
-  bottom: 0 !important;
-  height: 200px;
-  padding: 2rem;
+footer {
+  width: 100%; 
   background-color: #1e272e;
-  font-family: 'Reem Kufi', sans-serif;
-  color: white;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  text-align: left;
-  a {
+  padding: 1em;
+  h5 {
+    font-size: 1.2em;
+  }
+  p {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 1em;
+  }
+  li {
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #FCC502;
+    }
+  }
+  .left--footer {
+    color: white;
+    i {
+      color: #FCC502;
+    }
+  }
+  .central--footer {
+    font-family: 'Reem Kufi', sans-serif;
+    margin-left: 5em;
     color: white;
   }
-  .left, .right {
-    width: 50%;
-    height: 50%;
+  .right--footer {
     display: flex;
-    justify-content: space-between;
-    header {
-      text-transform: uppercase;
-      font-weight: bolder;
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      i {
-        color: #FCC502;
+    align-items: center;
+    color: white;
+    .right--footer--left {
+      margin-right: 1em;
+      img {
+        height: 7em;
       }
     }
-  }
-  .left {
-    max-width: 400px;
-    width: 100%;
-    header { font-size: 2rem }
-  }
-  .right {
-    article {
-      margin-right: 2rem;
-      width: 50%;
-      main {
-        display: flex;
-        img { 
-          height: 7em;
-          margin-right: .5rem; 
-        }
-      }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #FCC502;
     }
   }
 }
 
-@media screen and (max-width: 1080px) {
-  footer .footer__content {
-    .left, .right {
-      width: 100%;
-      border-bottom: 1px dashed rgba(black, .25);
-      padding-bottom: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
+
+@media screen and (max-width: 600px) {
+  footer {
+    h5 {
+      font-size: 1.2em;
     }
-    .right article {
-      margin-bottom: 3rem;
-      width: fit-content;
+    p {
+      font-size: .8em;
+    }
+    .left--footer {
+      padding: 1em;
+      text-align: justify;
+    }
+    .central--footer {
+      margin-left: 0;
+      padding: 1em;
+    }
+    .right--footer {
+      padding: 1em;
     }
   }
 }
