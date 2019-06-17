@@ -1,4 +1,5 @@
 const initialState = {
+  statusId: '',
   scoreId: '',
   score: '',
   commentId: '',
@@ -65,6 +66,7 @@ const editGameRed = (state = initialState, action = {}) => {
         title: action.title,
         content: action.content,
         loadRequestDatas: false,
+        statusId: action.statusId,
       };
     case LOAD_SUBMIT:
       return {
@@ -109,7 +111,7 @@ export const reqUserGameDatas = gameId => ({
   gameId,
 });
 
-export const recUserGamesDatas = (score, title, content, scoreId, commentId, typeSubScore, typeSubComment) => ({
+export const recUserGamesDatas = (score, title, content, scoreId, commentId, typeSubScore, typeSubComment, statusId) => ({
   type: REC_US_GA_DA,
   score,
   title,
@@ -118,6 +120,7 @@ export const recUserGamesDatas = (score, title, content, scoreId, commentId, typ
   commentId,
   typeSubScore,
   typeSubComment,
+  statusId,
 });
 
 export const onSubmitScore = gameId => ({

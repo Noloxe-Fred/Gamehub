@@ -37,6 +37,8 @@ const editGameMiddleware = store => next => (action) => {
 
         const { comment, score } = response.data.info;
 
+        const statusId = response.data.info.state[0].id; // pour la suppression du jeu
+
         const typeSubScore = score ? 'edit' : 'new';
         const typeSubComment = comment != null ? 'edit' : 'new';
 
@@ -45,7 +47,7 @@ const editGameMiddleware = store => next => (action) => {
         const commentContent = comment != null ? comment[0].content : '';
         const scoreId = score != null ? score[0].id : '';
         const commentId = comment != null ? comment[0].id : '';
-        store.dispatch(recUserGamesDatas(scoreValue, commentTitle, commentContent, scoreId, commentId, typeSubScore, typeSubComment));
+        store.dispatch(recUserGamesDatas(scoreValue, commentTitle, commentContent, scoreId, commentId, typeSubScore, typeSubComment, statusId));
       })
       .catch((error) => {
         console.log('Verify Have error', error);
@@ -54,7 +56,7 @@ const editGameMiddleware = store => next => (action) => {
       break;
     case ON_SUBMIT_SCORE:
       store.dispatch(loadSubmit('score'));
-      console.log(store.getState().editGameRed.typeSubScore)
+      console.log( store.getState().editGameRed.typeSubScore)
       if (store.getState().editGameRed.typeSubScore === 'new') {
         instance.post('/score/new', {
           game: {
@@ -129,13 +131,11 @@ const editGameMiddleware = store => next => (action) => {
       }
       break;
     case DELETE_DATAS:
-      console.log(action.name)
+      console.log('Statusid',store.getState().editGameRed.statusId)
       if (action.name === 'game') {
         instance.delete('/game/state/delete', {
-          game: {
-            id: action.id,
-            status: store.getState().editGameRed.status,
-            statusId: store.getState().editGameRed.statusId,
+          data: {
+            id: store.getState().editGameRed.statusId,
           },
         })
           .then((response) => {
@@ -148,10 +148,7 @@ const editGameMiddleware = store => next => (action) => {
       }
       if (action.name === 'comment') {
         instance.delete('/comment/delete', {
-          game: {
-            id: action.id,
-          },
-          comment: {
+          data: {
             id: store.getState().editGameRed.commentId,
           },
         })

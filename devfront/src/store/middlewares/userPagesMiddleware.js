@@ -6,28 +6,34 @@ import axios from 'axios';
 
 import { 
   REQUEST,
+  REQUEST_PROFILE,
   received,
   load,
+  loadProfile,
+  receivedProfile,
 } from 'src/store/reducers/userPagesReducer';
 
 const userPagesMiddleware = store => next => (action) => {
+
+  const user = localStorage.getItem('user');
+
+  const instance = axios.create({
+    baseURL: 'http://api.gamehub.com/api/',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+user
+    },
+  });
+
   switch (action.type) {
     case REQUEST: {
       const { nameList } = action;
 
-      const user = localStorage.getItem('user');
+
       // requete axios avec token (localstorage)
       store.dispatch(load(nameList));
-
-      const instanceRequest = axios.create({
-        baseURL: 'http://api.gamehub.com/api/',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer '+user
-        },
-      });
       
-      instanceRequest.get(`/game/list/${nameList}`)
+      instance.get(`/game/list/${nameList}`)
         .then((response) => {
           console.log('Request Lists', response.data);
 
@@ -42,6 +48,18 @@ const userPagesMiddleware = store => next => (action) => {
       // store.dispatch(received(nameList, GameList));
       break;
     }
+    case REQUEST_PROFILE:
+      store.dispatch(loadProfile());
+
+      instance.post('/user/profil')
+        .then((response) => {
+          store.dispatch(receivedProfile(response.data));
+        })
+        .catch((error) => {
+          console.log('Request Profile error', error);
+        });
+
+      break;
     default:
       next(action);
   }

@@ -21,7 +21,6 @@ class Navbar extends Component {
 
   render() {
     const { connect, disconnectUser, displayInput, displayProfile } = this.props;
-    console.log('Navbar', displayInput);
     return (
       <nav>
         <div className="logo--alone">
@@ -75,6 +74,7 @@ Navbar.propTypes = {
   connect: PropTypes.bool.isRequired,
   disconnectUser: PropTypes.func.isRequired,
   displayInput: PropTypes.bool.isRequired,
+  displayProfile: PropTypes.func.isRequired,
 };
 
 export default Navbar;
