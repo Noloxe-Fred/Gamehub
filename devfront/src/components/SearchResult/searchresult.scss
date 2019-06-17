@@ -11,4 +11,48 @@
       font-family: 'Open Sans', sans-serif;
       padding-top: 1em;
     }
+    .games--list {
+      margin: 3em auto;
+      width: 80%;
+      min-height: 100vh;
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+    }
+    
+    .one--game {
+      width: 10em;
+      height: 20em;
+      margin: .5em;
+      padding: .2em;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      p {
+        display: none;
+      }
+      &:hover {
+        p {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          margin-bottom: .2em !important;
+          display: block;
+          text-align: center;
+          background:#2d3436;
+          // width: 11.4em;
+          width: 100%;
+          color: white;
+        }
+      }
+    }
+    
+    .error--advance {
+      font-size: 3em;
+    }
  }
+
+ 
