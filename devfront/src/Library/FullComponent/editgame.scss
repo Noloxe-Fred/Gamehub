@@ -41,17 +41,26 @@
 // }
 .ui.modal {
   max-width: 2000px !important;
-  margin-top: -5% !important;
+  margin-top: -10% !important;
 }
 .all--parts {
-  background: #2D3536;
+  background:none;
   // width: 2000px;
-  height: 600px;
+  height: 800px;
   display: flex !important;
   justify-content: center;
 }
 
+.lines {
+  // border: 1px solid #FCC502;
+  border-radius: 14px;
+  margin: 3em;
+  padding: 2em;
+  background: #2D3536;
+}
+
 .part--one {
+  margin-bottom: 1em;
     .segment {
       height: 20em !important;
     }
@@ -75,13 +84,109 @@
     }
     .form--note {
       text-align: center;
-      .label--note {
-        // margin: 1em;
-        width: 3em;
-        height: 3em;
+      width: 100%;
+      .form--button--all {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1em;
+        p {
+          margin: 0 auto;
+          border-left: 1px solid #FCC502;
+          border-right: 1px solid #FCC502;
+          width: 30%;
+        }
+        .label--note {
+          // margin: 1em;
+          width: 100%;
+          background: none;
+          border: 1px solid white;
+          color: white;
+          // height: 3em;
+          font-size: 2em;
+          padding: none !important;
+          font-family: 'Oswald', sans-serif;
+        }
+        .button--note {
+          width: 100%;
+          // margin: 1em;
+          margin: 1em auto;
+          background: none !important;
+          border: 1px solid #FCC502;
+          color: #FCC502;
+          &:hover {
+            color: #2D3536;
+            background-color: #FCC502 !important;
+            border: 1px solid #FCC502;
+          }
+        }
       }
-      .button--note {
-        margin: 1em;
+    }
+    .form--actions {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .button--delete {
+        margin-left: 0 !important;
+        color: red;
+        background: none;
+        border: 1px solid red;
+        &:hover {
+          color: #2D3536;
+          background: red;
+          border: 1px solid red;
+        }
+      }
+      .button--see--game {
+        margin-right: 0 !important;
+        color: green;
+        background: none;
+        border: 1px solid green;
+        &:hover {
+          color: #2D3536;
+          background: green;
+          border: 1px solid green;
+        }
       }
     }
 }
+
+.part--two {
+  margin-top: 4em;
+  .modal--add--comment {
+    .part--two--title {
+      width: 100%;
+      margin-bottom: 1em;
+     
+    }
+    .button--save--comment {
+      background: none;
+      border: 1px solid #FCC502 !important;
+      color: #FCC502;
+      &:hover {
+        color: #2D3536;
+        background: #FCC502;
+        border-color: #FCC502
+      }
+    }
+    .button--delete--comment {
+      background: none;
+      border: 1px solid #FCC502 !important;
+      color: #FCC502;
+      &:hover {
+        color: #2D3536;
+        background: #FCC502;
+        border-color: #FCC502
+      }
+    }
+    .part--two--content {
+      width: 100%;
+    }
+  }
+  .buttons-comment {
+    margin-top: 1em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
