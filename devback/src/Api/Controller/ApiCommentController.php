@@ -43,8 +43,8 @@ class ApiCommentController extends FOSRestController
         }
 
         $comment = new Comment();
-        // $comment->setUser($user);
-        // $comment->setGame($game);
+        $comment->setUser($user);
+        $comment->setGame($game);
 
 
         
@@ -120,13 +120,17 @@ class ApiCommentController extends FOSRestController
      */
     public function getlastCommentAction(CommentRepository $commentRepository, GameRepository $gameRepository, SerializerInterface $serializer, Request $request, EntityManagerInterface $em)
     {   
-        $game = $gameRepository->findOneById($request->query->get('game_id'));
-        $comments = $commentRepository->lastComments($game);
+        
+        //$game = $gameRepository->findOneById($request->query->get('game_id'));
+        
+        
+        
+        $comments = $commentRepository->lastComments($request->query->get('game_id'));
 
         $lastComments = $serializer->serialize($comments, 'json', [
             'groups' => 'comment_read',
         ]);
-    
+            
        return JsonResponse::fromJsonString($lastComments);
     }
 }
