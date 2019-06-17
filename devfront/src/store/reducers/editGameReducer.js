@@ -13,12 +13,14 @@ const initialState = {
     comment: false,
     deletedGame: false,
     deletedComment: false,
+    changeList: false,
   },
   receivedSubmit: {
     score: false,
     comment: false,
     deletedComment: false,
     deletedGame: false,
+    changeList: false,
   },
 };
 
@@ -41,6 +43,8 @@ export const ON_SUBMIT_COMMENT = 'ON_SUBMIT_COMMENT';
 
 const LOAD_SUBMIT = 'LOAD_SUBMIT';
 const RECEIVED_SUBMIT = 'RECEIVED_SUBMIT';
+
+export const CHANGE_LIST = 'CHANGE_LIST';
 
 // Reducer
 const editGameRed = (state = initialState, action = {}) => {
@@ -159,6 +163,12 @@ export const deleteDatas = (name, id) => ({
 export const resetDeleted = name => ({
   type: RESET_DELETED,
   name,
+});
+
+export const changeList = (nameList, id) => ({
+  type: CHANGE_LIST,
+  nameList,
+  id,
 });
 
 export default editGameRed;

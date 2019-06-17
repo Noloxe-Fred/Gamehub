@@ -8,6 +8,8 @@ import {
   reqUserGameDatas,
 } from 'src/store/reducers/userPagesReducer';
 
+import { changeList } from 'src/store/reducers/editGameReducer';
+
 const mapStateToProps = state => ({
     fullList: state.userPagesReducer.fullList,
     listHave: state.userPagesReducer.have,
@@ -28,6 +30,9 @@ const mapDispatchToProps = dispatch => ({
   },
   reqUserGameDatas: (id) => {
     dispatch(reqUserGameDatas(id));
+  },
+  changeList: (name, id) => {
+    dispatch(changeList(name, id));
   },
 });
 

@@ -19,6 +19,9 @@ const gamePageMiddleware = store => next => (action) => {
         .then((response) => {
           console.log('Request One Game ok', response);
           const game = response.data;
+          const date = new Date(response.data.releasedAt);
+
+          console.log('date', date.toLocaleDateString())
           const gameDatas = {
             id: game.id,
             name: game.name,
@@ -27,7 +30,7 @@ const gamePageMiddleware = store => next => (action) => {
             score: game.score,
             developer: game.developers,
             editor: game.editors,
-            released: game.releasedAt,
+            released: date.toLocaleDateString(),
             website: game.website,
             categories: game.categories,
           };

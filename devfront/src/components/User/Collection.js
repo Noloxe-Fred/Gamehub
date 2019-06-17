@@ -5,6 +5,7 @@ import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarP
 
 import ListFull from 'src/Library/List/ListUser';
 import EditGame from 'src/containers/User/editGameCont';
+import ChangeList from 'src/Library/FullComponent/ChangeList';
 import './user.scss';
 
 
@@ -18,6 +19,7 @@ const Collection = ({
   fullList,
   displayFullList,
   reqUserGameDatas,
+  changeList,
 }) => {
   const handleShowClick = () => {
     displayProfile();
@@ -90,13 +92,13 @@ const Collection = ({
               <Grid columns="three" centered id="mycollection">
                 <Grid.Row>
                   <Grid.Column computer={5} tablet={5} mobile={16}>
-                    <div><ListSmall name="have" listDatas={listHave} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} /></div>
+                    <div><ListSmall name="have" listDatas={listHave} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} changeList={changeList}/></div>
                   </Grid.Column>
                   <Grid.Column computer={5} tablet={5} mobile={16}>
-                    <div><ListSmall name="want" listDatas={listWant} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} /></div>
+                    <div><ListSmall name="want" listDatas={listWant} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} changeList={changeList}/></div>
                   </Grid.Column>
                   <Grid.Column computer={5} tablet={5} mobile={16}>
-                    <div><ListSmall name="waiting" listDatas={listWaiting} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} /></div>
+                    <div><ListSmall name="waiting" listDatas={listWaiting} request={request} displayFullList={displayFullList} reqUserGameDatas={reqUserGameDatas} changeList={changeList}/></div>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
@@ -120,7 +122,7 @@ class ListSmall extends Component {
 
   render() {
     const { list, load, title } = this.props.listDatas;
-    const {name, reqUserGameData } = this.props;
+    const {name, reqUserGameData, changeList } = this.props;
     const shortList = list.slice(0, 12);
     const percent = 80;
     return (
@@ -130,14 +132,16 @@ class ListSmall extends Component {
         {load && <p>Loading</p>}
         {!load && (
           <div className="list">
-            {shortList.map(({ game }) => {
+            {shortList.map(( game ) => {
+              console.log('collection want', game)
               return (
-              <div key={game.id} className="behind--game">
+              <div key={game.game.id} className="behind--game">
                 {/* <Link to={"/game/" + game.game.id}> */}
                   <div className="game">
-                    <img src={game.cover} alt="cover game" />
-                    <p>{game.name}</p>
-                    {name=='have' && <div className="edit"><EditGame game={game} /></div>}
+                    <img src={game.game.cover} alt="cover game" />
+                    <p>{game.game.name}</p>
+                    {name == 'have' && <div className="edit"><EditGame game={game.game} /></div>}
+                    {name == 'want' && <ChangeList changeList={changeList} statusId={game.id} />}
                   </div>
                 {/* </Link> */}
                 <div className="game-score-part">

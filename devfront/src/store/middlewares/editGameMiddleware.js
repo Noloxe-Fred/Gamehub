@@ -5,6 +5,7 @@ import {
  ON_SUBMIT_SCORE,
  ON_SUBMIT_COMMENT,
  DELETE_DATAS,
+ CHANGE_LIST,
  loadRequestDatas,
  recUserGamesDatas,
  loadSubmit,
@@ -160,6 +161,22 @@ const editGameMiddleware = store => next => (action) => {
             console.log(error);
           });
       }
+      break;
+    case CHANGE_LIST:
+      store.dispatch(loadSubmit('changeList', true));
+
+      instance.put('/game/state/edit', {
+        id: action.id,
+        status: action.nameList,
+      })
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(receivedSubmit('changeList', true));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
       break;
     default:
       next(action);
