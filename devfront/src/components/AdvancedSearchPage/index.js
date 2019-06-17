@@ -18,12 +18,12 @@ class AdvancedSearchPage extends React.Component {
     return (
       <div id="advanced--search">
         <Grid>
-        <Grid.Row>
-          <Grid.Column mobile={16} only="mobile" only="tablet">
-            <h2 id="titre">Recherche avancée</h2>
-            <Search />
-          </Grid.Column>
-        </Grid.Row>
+          <Grid.Row>
+            <Grid.Column mobile={16} only="mobile" only="tablet" className="partie--gauche--mobile">
+              <h2 id="titre">Recherche avancée</h2>
+              <Search />
+            </Grid.Column>
+          </Grid.Row>
           <Grid.Column computer={5} only="computer" className="partie--gauche">
             <div className="gauche--fixed">
               <h2 id="titre">Recherche avancée</h2>

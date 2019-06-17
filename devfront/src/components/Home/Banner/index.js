@@ -2,6 +2,7 @@ import React from 'react';
 import ReactRotatingText from 'react-rotating-text';
 
 import SearchBarBanner from 'src/containers/Home/SearchBarBanner';
+
 import './banner.scss';
 
 const Banner = () => {
