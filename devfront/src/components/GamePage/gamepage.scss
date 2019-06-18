@@ -1,8 +1,8 @@
 $font-family-p: 'Reem Kufi', sans-serif;
 $font-family-title: 'Oswald', sans-serif;
 
-$color-text: #fffdd8;
-
+$color-text: white;
+ 
 
 #gamepage {
   height: 100vh;
@@ -46,11 +46,11 @@ $color-text: #fffdd8;
     text-align: left;
     a {
       text-decoration: none;
-      color: #fffdd8;
+      color: white;
       padding-bottom: 1em; 
     }
     &--title {
-      color: $color-text;
+      color: #FCC502;
       font-family: 'Oswald', sans-serif!important;
       font-size: 3em!important;
       margin-top: -0.4em;
@@ -109,8 +109,8 @@ $color-text: #fffdd8;
 }
 
 .partie--commentaire {
-  background-color: rgba($color: #34495e, $alpha: .7);
-  border: 1px solid #fffdd8;
+  background-color: rgba($color: #2D3536, $alpha: .8);
+  // border: 1px solid #fffdd8;
   border-radius: 8px;
   margin-bottom: 4em;
 }
@@ -121,8 +121,8 @@ $color-text: #fffdd8;
 }
 
 .firstpart {
-  background-color: rgba($color: #34495e, $alpha: .7);
-  border: 1px solid #fffdd8;
+  background-color: rgba($color: #2D3536, $alpha: .8);
+  // border: 1px solid #fffdd8;
   border-radius: 8px;
   padding-top: 1em;
   margin-top: 30px;
@@ -131,7 +131,7 @@ $color-text: #fffdd8;
 .secondpart {
   height: 100vh;
   padding-top: 5em;
-  background-color: #34495e;
+  background-color: #2D3536;
   // margin-top: 5em;
 }
 

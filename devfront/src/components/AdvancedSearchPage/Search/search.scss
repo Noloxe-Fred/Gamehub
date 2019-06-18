@@ -49,6 +49,17 @@
       background: #FCC502;
       border-color: #FCC502;
     }
+    &:active {
+      background: #FCC502;
+    }
+    &:focus {
+      background: #FCC502;
+      color: #2D3536;
+    }
+    &:target {
+      background: #FCC502;
+      color: #2D3536;
+    }
   }
 }
 
