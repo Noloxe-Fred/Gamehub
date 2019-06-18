@@ -2,10 +2,10 @@
 import { connect } from 'react-redux';
 import GamePage from 'src/components/GamePage';
 
-import { requestGame, resetError } from 'src/store/reducers/gamePageReducer';
+import { requestGame, requestComment, resetError } from 'src/store/reducers/gamePageReducer';
 // 2. On parametre les const pour qu'elle prenne les infos du state (loading ) du gamePageReducer
 const mapStateToProps = state => ({
-  loading: state.gamePageReducer.loading,
+  loadingGame: state.gamePageReducer.loadingGaming,
   background: state.gamePageReducer.background,
   error: state.gamePageReducer.errorRequest,
 });
@@ -18,6 +18,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     requestGame: () => {
       dispatch(requestGame(id));
+    },
+    requestComment: () => {
+      dispatch(requestComment(id));
     },
     resetError: () => {
       dispatch(resetError());

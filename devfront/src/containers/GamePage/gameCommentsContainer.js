@@ -4,7 +4,8 @@ import GameComments from 'src/components/GamePage/GameComments';
 const mapStateToProps = state => {
   console.log(state.gamePageReducer.commentsDatas);
   return {
-  datas: state.gamePageReducer.commentsDatas,
+  datas: state.gamePageReducer.gameDatas,
+  loadingGame: state.gamePageReducer.loadingGaming,
 }};
 
 const mapDispatchToProps = dispatch => ({

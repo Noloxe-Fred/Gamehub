@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Import de Request_Game depuis GamepageReducer
-import { REQUEST_GAME, receivedGame, loadGame, errorRequest } from 'src/store/reducers/gamePageReducer';
+import { REQUEST_GAME, REQUEST_COMMENT, receivedGame, receivedComments, loadGame, loadComment, errorRequest } from 'src/store/reducers/gamePageReducer';
 
 // on fait un switch (permet une ou plusieurs conditions comme les IF,else if ect )
 const gamePageMiddleware = store => next => (action) => {
@@ -11,53 +11,62 @@ const gamePageMiddleware = store => next => (action) => {
       store.dispatch(loadGame());
       // requete axios en attente!
       const id = action.gameId;
-      axios.get(`http://api.gamehub.com/api/game/${id}`, {
+      const user = localStorage.getItem('user');
+
+      const instance = axios.create({
+        baseURL: 'http://api.gamehub.com/api/',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+user
+        },
+      });
+
+      instance.get(`/comment/last`, {
+        params: {
+          game_id: action.gameId,
         },
       })
-        .then((response) => {
-          console.log('Request One Game ok', response);
-          const game = response.data;
-          const date = new Date(response.data.releasedAt);
+      .then((response) => {
+          console.log('reponse ap commentaire', response);
+          const comments = response.data;
 
-          console.log('date', date.toLocaleDateString())
-          const gameDatas = {
-            id: game.id,
-            name: game.name,
-            cover: game.cover,
-            desc: game.description,
-            score: game.score,
-            developer: game.developers,
-            editor: game.editors,
-            released: date.toLocaleDateString(),
-            website: game.website,
-            categories: game.categories,
-          };
-          const background = game.illustration;
-          // 2e requête imbrique pour les commentaires
-          axios.get(`http://api.gamehub.com/api/comment/last`, {
+          axios.get(`http://api.gamehub.com/api/game/${id}`, {
             headers: {
               'Content-Type': 'application/json',
             },
-            params: {
-              game_id: id,
-            },
           })
-          .then((responseComment) => {
-              console.log('reponse appel commentaire', response)
-              const comments = responseComment.data;
-              store.dispatch(receivedGame(gameDatas, comments, background));
+            .then((response) => {
+              console.log('Request One Game ok', response);
+              const game = response.data;
+              const date = new Date(response.data.releasedAt);
+    
+              console.log('date', date.toLocaleDateString())
+              const gameDatas = {
+                comments: comments,
+                id: game.id,
+                name: game.name,
+                cover: game.cover,
+                desc: game.description,
+                score: game.score,
+                developer: game.developers,
+                editor: game.editors,
+                released: date.toLocaleDateString(),
+                website: game.website,
+                categories: game.categories,
+              };
+              const background = game.illustration;
+              store.dispatch(receivedGame(gameDatas, background));
             })
             .catch((error) => {
               console.log('request one game', error);
               store.dispatch(errorRequest());
-            });
+            });    
         })
         .catch((error) => {
           console.log('request one game', error);
           store.dispatch(errorRequest());
         });
+          
       // // Pour requete du jeu: id du jeu = action.gameId
       // // scinder datas
       // const gameDatas = {
@@ -75,6 +84,27 @@ const gamePageMiddleware = store => next => (action) => {
       // const background = oneGame.illustration;
 
       // store.dispatch(receivedGame(gameDatas, commentsDatas, background));
+      break;
+    case REQUEST_COMMENT:
+      // store.dispatch(loadComment());
+
+      // const request = axios.get(`http://api.gamehub.com/api/comment/last`, {
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   params: {
+      //     game_id: action.gameId,
+      //   },
+      // })
+      // .then((response) => {
+      //     console.log('reponse ap commentaire', response);
+      //     const comments = response.data;
+      //     store.dispatch(receivedComments(comments));
+      //   })
+      //   .catch((error) => {
+      //     console.log('request one game', error);
+      //     store.dispatch(errorRequest());
+      //   });
       break;
     default:
       next(action);

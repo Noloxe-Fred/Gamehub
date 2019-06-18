@@ -4,9 +4,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import './gamepage.scss'; 
 
-const GameComments = ({ datas }) => (
-  
-  <Container className="comments--container">
+const GameComments = ({ datas, loadingGame }) => (
+  <div>
+  {loadingGame && <div></div>}
+  {!loadingGame && (
+<Container className="comments--container">
   <div className="partie--commentaire">
     {/* <Row className="row--titre--derniers--commentaires">
       <Col lg={12} className="title--comments">
@@ -20,7 +22,7 @@ const GameComments = ({ datas }) => (
 
       <Col lg={12} sm={3} xs={3} className="cell cell--header d-flex justify-content-center">
        <div className="profil">
-         <h6>{(datas.length > 0) ? 'Les derniers commentaires publiés' : 'Pas encore de commentaires sur ce jeu'}</h6>
+         <h6>{datas.comments.length === 0 ? 'Les derniers commentaires publiés' : 'Pas encore de commentaires sur ce jeu'}</h6>
        </div>
       </Col>
 {/* 
@@ -42,8 +44,8 @@ const GameComments = ({ datas }) => (
        </div>
       </Col> */}
     </Row>
-    {(datas.length = 0) && <div></div>}
-    {(datas.length > 0) && (
+    {(!datas.comments === 0) && <div></div>}
+    {(datas.comments.length > 0) && (
       <div>
       <Row className="row--comments">
         <Col lg={1} sm={1} xs={0} className="cell cell--number">
@@ -55,26 +57,26 @@ const GameComments = ({ datas }) => (
           <div className="avatar--comments">
             <img src="https://vice-images.vice.com/images/content-images/2016/07/26/ce-que-votre-photo-de-profil-facebook-dit-de-vous-body-image-1469553008.jpg?output-quality=75" alt=""/>
           </div>
-          <h6>{datas[0].user.pseudo}</h6>
+          <h6>{datas.comments[0].user.pseudo}</h6>
         </div>
         </Col>
 
         <Col lg={4} sm={4} xs={12} className="cell">
         <div>
-          <h6>{datas[0].content}</h6>
+          <h6>{datas.comments[0].content}</h6>
 
         </div>
         </Col>
 
         <Col lg={4} sm={4} xs={12} className="cell">
         <div>
-          <h6>{datas[0].test}</h6>
+          <h6>{datas.comments[0].test}</h6>
         </div>
         </Col>
 
         <Col lg={1} sm={4} xs={12} className="cell cell--score">
         <div>
-          <h6>{datas[0].score}</h6>
+          <h6>{datas.comments[0].score}</h6>
         </div>
         </Col>
       </Row>
@@ -149,6 +151,8 @@ const GameComments = ({ datas }) => (
 
     </div>
   </Container>
+  )}
+  </div>
 
 );
 

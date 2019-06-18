@@ -1,6 +1,7 @@
 //  1. je creer mon initial state qui sera loading (chargment en arrivant sur la page)
 const initialState = {
-  loading: true,
+  loadingGaming: true,
+  loadingComment: false,
   headerDatas: [],
   descDatas: [],
   commentsDatas: [],
@@ -9,8 +10,12 @@ const initialState = {
 
 // Action Type   3. Definition de la Const Load_Game
 const LOAD_GAME = 'LOAD_GAME';
+const LOAD_COMMENT = 'LOAD_COMMENT';
 export const REQUEST_GAME = 'REQUEST_GAME';
+export const REQUEST_COMMENT = 'REQUEST_COMMENT';
 const RECEIVED_GAME = 'RECEIVED_GAME';
+const RECEIVED_COMMENT = 'RECEIVED_COMMENT';
+
 
 const ERROR_REQUEST = 'ERROR_REQUEST';
 const RESET_ERROR = 'RESET_ERROR';
@@ -21,16 +26,26 @@ const gamePageReducer = (state = initialState, action = {}) => {
     case LOAD_GAME:
       return {
         ...state,
-        loading: true,
+        loadingGaming: true,
+      };
+    case LOAD_COMMENT:
+      return {
+        ...state,
+        loadingComment: true,
       };
       // Lorsque l'action Received_Game est prete retourner les GameDatas
     case RECEIVED_GAME:
       return {
         ...state,
         gameDatas: action.gameDatas,
-        commentsDatas: action.commentsDatas,
         background: action.background,
-        loading: false,
+        loadingGaming: false,
+      };
+    case RECEIVED_COMMENT:
+      return {
+        ...state,
+        commentsDatas: action.comments,
+        loadingComment: false,
       };
     case ERROR_REQUEST:
       return {
@@ -51,15 +66,30 @@ const gamePageReducer = (state = initialState, action = {}) => {
 export const loadGame = () => ({
   type: LOAD_GAME,
 });
+
+export const loadComment = () => ({
+  type: LOAD_COMMENT,
+});
+
 export const requestGame = gameId => ({
   type: REQUEST_GAME,
   gameId,
 });
-export const receivedGame = (gameDatas, commentsDatas, background) => ({
+
+export const requestComment = gameId => ({
+  type: REQUEST_COMMENT,
+  gameId,
+});
+
+export const receivedGame = (gameDatas, background) => ({
   type: RECEIVED_GAME,
   gameDatas,
-  commentsDatas,
   background,
+});
+
+export const receivedComments = comments => ({
+  type: RECEIVED_COMMENT,
+  comments,
 });
 
 export const errorRequest = () => ({

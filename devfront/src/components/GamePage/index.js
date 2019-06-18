@@ -6,7 +6,6 @@ import './gamepage.scss';
 
 import GameHeader from 'src/containers/GamePage/gameHeaderContainer';
 import GameComments from 'src/containers/GamePage/gameCommentsContainer';
-import GameAllComments from 'src/containers/GamePage/gameAllCommentsContainer';
 
 // dans cette classe des props vont etre accessible par le container qui sont loading et request game 
 class GamePage extends Component {
@@ -14,6 +13,7 @@ class GamePage extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.requestGame();
+    // this.props.requestComment();
   }
 
   componentWillUnmount() {
@@ -22,7 +22,7 @@ class GamePage extends Component {
 
   // lancer le request game quand le composant et finit de charger 
   render() {
-    const { loading, background, error } = this.props;
+    const { loadingGame, background, error } = this.props;
     // dans ce return on va mettre des conditions
 
     const backgroundStyle = {
@@ -37,8 +37,8 @@ class GamePage extends Component {
         {error && <Link to="/">Erreur de chargement des données. Cliquez ici pour retourner à l'accueil</Link>}
         {!error && (
           <div>
-            {loading && <div>Chargement</div>}
-            {!loading && (
+            {(loadingGame) && <div>Chargement</div>}
+            {(!loadingGame) && (
               <div>
                 <div className="first">
                   <GameHeader />
