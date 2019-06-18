@@ -149,7 +149,8 @@ const editGameMiddleware = store => next => (action) => {
             console.log(error);
           });
       }
-      if(action.name === 'want&waiting') {
+      if (action.name === 'want&waiting') {
+        console.log('Delete from full list', action.id)
         instance.delete('/game/state/delete', {
           data: {
             id: action.id,

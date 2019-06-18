@@ -20,13 +20,13 @@ class ListUser extends Component {
     return (
       <Container  className="games--list">
         {gamesDatas.length === 0 && <p>Pas de résultats</p>}
-        {gamesDatas.map(({ game }) => {
+        {gamesDatas.map(( game ) => {
           return (
-            <Col id={game.id} lg={2} md={5} sm={12} xs={12} className="one--game">
-                {name === 'have' && <EditGame game={game} name={name} />}
-                <ModifyGame game={game} name={name} statusId={game.id} /> // Status Id à déterminer
-                <img src={game.cover} alt={game.name} />
-                <p>{game.name}</p>
+            <Col id={game.game.id} lg={2} md={5} sm={12} xs={12} className="one--game">
+                {name === 'have' && <EditGame game={game.game} name={name} />}
+                <ModifyGame game={game.game} name={game.name} statusId={game.id} /> // Status Id à déterminer
+                <img src={game.game.cover} alt={game.game.name} />
+                <p>{game.game.name}</p>
             </Col>
           );
         })}

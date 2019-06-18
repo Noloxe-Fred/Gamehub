@@ -59,7 +59,7 @@ class GamePage extends Component {
 
 GamePage.propTypes = {
   requestGame: Proptypes.func.isRequired,
-  loading: Proptypes.bool.isRequired,
+  loadingGame: Proptypes.bool.isRequired,
 };
 
 export default GamePage;

@@ -50,7 +50,6 @@ const CANCEL_REDIRECT = 'CANCEL_REDIRECT';
 
 // Reducer
 const navbarreducer = (state = initialState, action = {}) => {
-  console.log(action.type);
   switch (action.type) {
     case LOADING_CONNECT:
       return {

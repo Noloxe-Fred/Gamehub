@@ -100,7 +100,21 @@ const editGameRed = (state = initialState, action = {}) => {
       };
     case RESET:
       return {
-        initialState,
+        ...state,
+        loadSubmit: {
+          score: false,
+          comment: false,
+          deletedGame: false,
+          deletedComment: false,
+          changeList: false,
+        },
+        receivedSubmit: {
+          score: false,
+          comment: false,
+          deletedComment: false,
+          deletedGame: false,
+          changeList: false,
+        },
       };
     default:
       return initialState;

@@ -50,8 +50,11 @@ class EditGame extends Component {
     this.props.deleteDatas(name, id);
   }
 
+  handleReset = () => {
+    setTimeout(this.props.reset, 1000);
+  }
+
   render() {
-    console.log('render edit', this.props.game)
     const { name, cover, id } = this.props.game;
     const { 
       actualScore,
@@ -64,7 +67,7 @@ class EditGame extends Component {
     } = this.props;
 
     return (
-      <Modal trigger={<div className="edit--button"><i className="far fa-edit "></i></div>} onOpen={this.handleRequestDatas} className="caca">
+      <Modal trigger={<div className="edit--button"><i className="far fa-edit "></i></div>} onOpen={this.handleRequestDatas} onUnmount={this.handleReset} className="caca">
         <div className="all--parts">
           {loadReqDat && (
             <Segment>

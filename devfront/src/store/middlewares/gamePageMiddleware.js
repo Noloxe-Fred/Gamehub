@@ -27,7 +27,7 @@ const gamePageMiddleware = store => next => (action) => {
         },
       })
       .then((response) => {
-          console.log('reponse ap commentaire', response);
+          // console.log('reponse ap commentaire', response);
           const comments = response.data;
 
           axios.get(`http://api.gamehub.com/api/game/${id}`, {
@@ -36,7 +36,7 @@ const gamePageMiddleware = store => next => (action) => {
             },
           })
             .then((response) => {
-              console.log('Request One Game ok', response);
+              // console.log('Request One Game ok', response);
               const game = response.data;
               const date = new Date(response.data.releasedAt);
     

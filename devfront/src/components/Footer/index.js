@@ -11,7 +11,7 @@ class Footer extends Component {
   render() {
     return (
       <footer>
-        <Grid columns={3} fluid centered>
+        <Grid columns={3} fluid="true" centered>
           <Grid.Row>
             <Grid.Column computer={5} tablet={16} mobile={16}>
               <div className="left--footer">

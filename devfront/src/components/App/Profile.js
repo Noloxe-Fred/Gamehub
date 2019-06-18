@@ -10,15 +10,17 @@ class Profile extends Component {
  
   render() {
     const { loadProfile, userProfile } = this.props;
+    console.log('Page profil', userProfile)
     return (
       <div id="profile">
-      <Header as='h3'><span><i class="fas fa-dot-circle"></i></span>MES INFORMATIONS PERSONNELLES<span><i class="fas fa-dot-circle"></i></span></Header> 
+      <Header as='h3'><span><i className="fas fa-dot-circle"></i></span>MES INFORMATIONS PERSONNELLES<span><i className="fas fa-dot-circle"></i></span></Header> 
         {loadProfile && <p> Chargement de vos informations personelles</p>}
         {loadProfile || (
           <Grid textAlign='center' className="profile-content">
             <Grid.Row>
               <div className="left--profile">
                 <h4>Paramètres</h4>
+                {userProfile.roles[0] === 'ROLE_ADMIN' && <a href="http://api.gamehub.com/admin"><Button>Page Admin</Button></a>}
                 <Segment className="infos--pseudo">
                   <p>Votre pseudo : <span>{userProfile.pseudo}</span></p><Button>Modifier votre pseudo</Button>
                   <p>Votre email : <span>{userProfile.email}</span></p>

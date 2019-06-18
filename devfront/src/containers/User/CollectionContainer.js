@@ -11,11 +11,11 @@ import {
 import { changeList, openModal } from 'src/store/reducers/editGameReducer';
 
 const mapStateToProps = state => ({
-    fullList: state.userPagesReducer.fullList,
-    listHave: state.userPagesReducer.have,
-    listWant: state.userPagesReducer.want,
-    listWaiting: state.userPagesReducer.waiting,
-    displayedProfile: state.userPagesReducer.displayedProfile,
+  fullList: state.userPagesReducer.fullList,
+  listHave: state.userPagesReducer.have,
+  listWant: state.userPagesReducer.want,
+  listWaiting: state.userPagesReducer.waiting,
+  displayedProfile: state.userPagesReducer.displayedProfile,
 });
 
 const mapDispatchToProps = dispatch => ({

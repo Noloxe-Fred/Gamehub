@@ -157,7 +157,7 @@ const GameComments = ({ datas, loadingGame }) => (
 );
 
 GameComments.propTypes = {
-  datas: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  datas: PropTypes.object.isRequired,
 };
 
 export default GameComments;
