@@ -20,7 +20,7 @@ class Profile extends Component {
             <Grid.Row>
               <div className="left--profile">
                 <h4>Paramètres</h4>
-                {userProfile.roles[0] === 'ROLE_ADMIN' && <a href="http://api.gamehub.com/admin"><Button>Page Admin</Button></a>}
+                {userProfile.roles[0] === 'ROLE_ADMIN' && <a href="http://api.gamehub.com/admin"><Button>Gérer le site</Button></a>}
                 <Segment className="infos--pseudo">
                   <p>Votre pseudo : <span>{userProfile.pseudo}</span></p><Button>Modifier votre pseudo</Button>
                   <p>Votre email : <span>{userProfile.email}</span></p>
