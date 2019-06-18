@@ -47,39 +47,43 @@ const GameComments = ({ datas, loadingGame }) => (
     {(!datas.comments === 0) && <div></div>}
     {(datas.comments.length > 0) && (
       <div>
-      <Row className="row--comments">
-        <Col lg={1} sm={1} xs={0} className="cell cell--number">
-        1
-        </Col>
-
-        <Col lg={2} sm={3} xs={12} className="cell">
-        <div className="profil">
-          <div className="avatar--comments">
-            <img src="https://vice-images.vice.com/images/content-images/2016/07/26/ce-que-votre-photo-de-profil-facebook-dit-de-vous-body-image-1469553008.jpg?output-quality=75" alt=""/>
-          </div>
-          <h6>{datas.comments[0].user.pseudo}</h6>
-        </div>
-        </Col>
-
-        <Col lg={4} sm={4} xs={12} className="cell">
+      {datas.comments.map((comment) => (
         <div>
-          <h6>{datas.comments[0].content}</h6>
+          <Row className="row--comments">
 
-        </div>
-        </Col>
+            <Col lg={2} sm={2} xs={12} className="cell">
+            <div className="profil">
+              <div className="avatar--comments">
+                <img src="https://vice-images.vice.com/images/content-images/2016/07/26/ce-que-votre-photo-de-profil-facebook-dit-de-vous-body-image-1469553008.jpg?output-quality=75" alt=""/>
+              </div>
+              <h6>{comment.user.pseudo}</h6>
+            </div>
+            </Col>
 
-        <Col lg={4} sm={4} xs={12} className="cell">
-        <div>
-          <h6>{datas.comments[0].test}</h6>
-        </div>
-        </Col>
+            <Col lg={8} sm={8} xs={12} className="cell">
+            <div>
+              <h6>{comment.title}</h6>
 
-        <Col lg={1} sm={4} xs={12} className="cell cell--score">
-        <div>
-          <h6>{datas.comments[0].score}</h6>
+            </div>
+            </Col>
+
+            <Col lg={2} sm={2} xs={12} className="cell cell--score">
+            <div>
+              <h6>{comment.score ? comment.score : 'Pas de note'}</h6>
+            </div>
+            </Col>
+          </Row>
+
+          <Row className="row--comments--content">
+            <Col lg={12} sm={12} xs={12} className="cell">
+            <div>
+              <h6>{comment.content}</h6>
+            </div>
+            </Col>
+          </Row>
         </div>
-        </Col>
-      </Row>
+      ))}
+      
 
       {/* <Row className="row--comments">
         <Col lg={1} sm={1} xs={0} className="cell cell--number">
