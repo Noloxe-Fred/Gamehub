@@ -3,6 +3,7 @@ import App from 'src/components/App';
 
 
 import { connectSavedUser, disconnectUser } from 'src/store/reducers/navbarreducer';
+import { requestCategories } from 'src/store/reducers/advancedSearchPageReducer';
 
 const mapStateToProps = state => ({
   connect: state.navbarreducer.connect,
@@ -16,6 +17,9 @@ const mapDispatchToProps = dispatch => ({
   },
   disconnectUser: () => {
     dispatch(disconnectUser());
+  },
+  requestCategories: () => {
+    dispatch(requestCategories());
   },
 });
 

@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import './gamepage.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import AddGame from 'src/containers/User/addgameContainer';
 
-const GameHeader = ({ datas }) => {
+const GameHeader = ({ datas, checkedCategories }) => {
+
+  const handleCheckCat = id => () => {
+    checkedCategories(id);
+  };
   const {cover, name, score, categories, editor, developer, released, desc, id, website } = datas;
   return (
     
@@ -23,7 +29,7 @@ const GameHeader = ({ datas }) => {
               {score && <div className="title--score">{score}%</div>} {!score && <div className="title--not-score">Pas de notes</div>}
               <AddGame gameId={id} />
               <div className="categories">
-                {categories.map(category => <button key={category.name} type="button">{category.name}</button>)}
+                {categories.map(category => <Link to="/advancedsearch" onClick={handleCheckCat(category.id)}> <button key={category.name} type="button">{category.name}</button></Link>)}
               </div>
               <div className="title--editor">Éditeur : {editor[0].name}</div>
               <div className="title--developer">Développeur : {developer[0].name}</div>

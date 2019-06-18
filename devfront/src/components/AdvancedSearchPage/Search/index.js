@@ -1,12 +1,10 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Checkbox, Button } from 'semantic-ui-react';
 import './search.scss';
 
 class Search extends React.Component {
 
   componentDidMount() {
-    this.props.requestCategories();
-
   }
  
   handleClick = categoryName => () => {
@@ -16,13 +14,13 @@ class Search extends React.Component {
   };
 
   render() {
-    const { loading, categoriesDatas, checkedCategoriesArray } = this.props;
+    const { loading, categoriesDatas } = this.props;
 
-    console.log('Advance search', categoriesDatas, checkedCategoriesArray)
+    console.log('Advance search', categoriesDatas)
 
-    const types = categoriesDatas.filter(category => category.type.id === 1);
-    const players = categoriesDatas.filter(category => category.type.id === 2);
-    const tags = categoriesDatas.filter(category => category.type.id === 3);
+    const types = categoriesDatas.filter(category => category.type === 1);
+    const players = categoriesDatas.filter(category => category.type === 2);
+    const tags = categoriesDatas.filter(category => category.type === 3);
     
     return (
       <Grid className="grid--advanced--search">
@@ -36,8 +34,7 @@ class Search extends React.Component {
                     types.map((type) => {
                     return (
                       <div key={type.id} className="one--checkbox">
-                        <input type="checkbox" onClick={this.handleClick(type.id)}/>
-                        {type.name}
+                        <Checkbox label={type.name} checked={type.status} onClick={this.handleClick(type.id)} />
                       </div>
                     )})
                   }
@@ -51,7 +48,7 @@ class Search extends React.Component {
                       players.map((player) => {
                       return (
                         <div key={player.id} className="one--central--button">
-                          <button onClick={this.handleClick(player.id)} classname="btn">{player.name}</button>
+                          <Button active={player.status} onClick={this.handleClick(player.id)} classname="btn">{player.name}</Button>
                         </div>
                       )})
                     }
@@ -65,7 +62,7 @@ class Search extends React.Component {
                         tags.map((tag) => {
                         return (
                           <div key={tag.id} className="one--right--button">
-                            <button onClick={this.handleClick(tag.id)} classname="btn">{tag.name}</button>
+                            <Button active={tag.status} onClick={this.handleClick(tag.id)} classname="btn">{tag.name}</Button>
                           </div>
                         )})
                       }

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AdvancedSearchPage from 'src/components/AdvancedSearchPage';
 
-import { requestGames } from 'src/store/reducers/advancedSearchPageReducer';
+import { requestGames, requestByCategories } from 'src/store/reducers/advancedSearchPageReducer';
 
 const mapStateToProps = state => ({
   gamesDatas: state.advancedSearchPageReducer.gamesDatas,
@@ -11,6 +11,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   requestGames: () => {
     dispatch(requestGames());
+  },
+  requestByCategories: () => {
+    dispatch(requestByCategories());
   },
 });
 

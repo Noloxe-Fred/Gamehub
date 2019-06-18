@@ -1,7 +1,7 @@
 const initialState = {
-  have: { list: [], load: true, title: 'Je les ai' },
-  want: { list: [], load: true, title: 'Je les veux' },
-  waiting: { list: [], load: true, title: 'Je les attends' },
+  have: { list: [], load: true, title: 'Collection Perso' },
+  want: { list: [], load: true, title: 'Ma liste d\'achats' },
+  waiting: { list: [], load: true, title: 'Pas encore dispo, mais cool' },
   displayedProfile: false,
   fullList: false,
   userGameDatas: [],
