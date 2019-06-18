@@ -32,7 +32,7 @@ const Collection = ({
       {/* <Button visible={displayProfile} onClick={handleShowClick}>
         vv Profile vv
       </Button> */}
-      <Sidebar.Pushable>
+      {/* <Sidebar.Pushable> */}
 {/* 
         <Sidebar as={Segment} animation="overlay" direction="top" visible={displayedProfile}>
           
@@ -79,7 +79,7 @@ const Collection = ({
           </Grid>
         </Sidebar> */}
 
-        <Sidebar.Pusher dimmed={displayedProfile}>
+        {/* <Sidebar.Pusher dimmed={displayedProfile}> */}
 
           <Segment basic>
           <h1 className="title--collection" ><span><hr></hr></span><span><i class="fas fa-dot-circle"></i></span>MA COLLECTION<span><i class="fas fa-dot-circle"></i></span><span><hr></hr></span></h1>
