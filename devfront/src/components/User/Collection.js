@@ -59,6 +59,7 @@ const Collection = ({
 class ListSmall extends Component {
   componentDidMount() {
     const { request, name } = this.props;
+    console.log('mount List Small')
     request(name);
   }
 
@@ -87,7 +88,7 @@ class ListSmall extends Component {
                     <img src={game.game.cover} alt="cover game" />
                     <p>{game.game.name}</p>
                     {name == 'have' && <div className="edit"><EditGame game={game.game} request={request} name={name} /></div>}
-                    {name !== 'have' && <div className="edit"><ModifyGame statusId={game.id} name={name} game={game.game} /></div>}
+                    <div className="edit"><ModifyGame statusId={game.id} name={name} game={game.game} /></div>
                   </div>
                 {/* </Link> */}
                 <div className="game-score-part">
@@ -101,7 +102,7 @@ class ListSmall extends Component {
     );
   }
 };
- 
+
 Collection.propTypes = {
   listAdd: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,

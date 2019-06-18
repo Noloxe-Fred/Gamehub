@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Header, Popup, Button } from 'semantic-ui-react';
 
 import './modifygame.scss';
 
-import { Header, Popup, Button } from 'semantic-ui-react';
+import EditGame from 'src/containers/User/editGameCont';
 
 class ModifyGame extends Component { 
 
@@ -27,6 +28,7 @@ class ModifyGame extends Component {
 
   render() {
     const { loadSubmitChange, name, loadDeletedGame, game } = this.props;
+
     const stylePopup = {
       opacity: 0.8,
       textAlign: 'center',
@@ -37,7 +39,6 @@ class ModifyGame extends Component {
         <Popup trigger={<i className="fas fa-edit" />} flowing hoverable inverted style={stylePopup}>
           {name === 'want' && (
             <div>
-              <Header>Envoyer vers la liste:</Header>
               {loadSubmitChange ? <Button loading>Loading</Button> : <Button onClick={this.handleChange}>Je l'ai</Button>}
             </div>
           )}

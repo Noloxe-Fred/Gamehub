@@ -132,6 +132,7 @@ const navbarreducer = (state = initialState, action = {}) => {
         ...state,
         searchList: action.list,
         loadSearch: false,
+        inputSearch: '',
       };
     case LOAD_SEARCH:
       return {
