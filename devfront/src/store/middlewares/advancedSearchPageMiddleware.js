@@ -21,10 +21,10 @@ const advancedSearchPageMiddleware = store => next => (action) => {
       })
         .then((response) => {
           console.log('request categories', response.data);
-          const categoriesDatas = response.data;
-          const eachCatFalse = response.data.map(({ id }) => ({ category: id, status: false }));
+          // const categoriesDatas = response.data;
+          const categoriesDatas = response.data.map(category => ({ id: category.id, name: category.name, type: category.type.id, status: false }));
 
-          store.dispatch(receivedCategories(categoriesDatas, eachCatFalse));
+          store.dispatch(receivedCategories(categoriesDatas));
         })
         .catch((error) => {
           console.log('request categories', error);
@@ -50,11 +50,12 @@ const advancedSearchPageMiddleware = store => next => (action) => {
     case REQUEST_BY_CATEGORIES:
       store.dispatch(loadGames());
       const filter = store.getState().advancedSearchPageReducer.checkedCategories.filter(category => {
-        if(category.status == true) {return category.category}
+        if(category.status == true) {return category.id}
       });
-      const categoriesFilter = filter.map(category => category.category);
+      const categoriesFilter = filter.map(category => category.id);
       const category = categoriesFilter.join(' ');
 
+      console.log( 'REQUEST BY CATEGORIES', store.getState().advancedSearchPageReducer.checkedCategories )
       if (category.length > 0) {
         axios.get('http://api.gamehub.com/api/category/search', {
           headers: {

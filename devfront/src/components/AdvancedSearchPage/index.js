@@ -10,7 +10,7 @@ import './advancedsearchpage.scss';
 
 class AdvancedSearchPage extends React.Component {
   componentDidMount() {
-    this.props.requestGames();
+    this.props.requestByCategories();
   }
 
   render() {

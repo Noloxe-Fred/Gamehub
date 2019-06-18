@@ -43,21 +43,20 @@ const advancedSearchPageReducer = (state = initialState, action = {}) => {
         ...state,
         categoriesDatas: action.categoriesDatas,
         loadingCategories: false,
-        checkedCategories: action.eachCatFalse,
       };
-    case CHECKED_CATEGORIES:
-      const newCategories = state.checkedCategories.map((category) => {
-        if (category.category == action.categoryId) {
+    case CHECKED_CATEGORIES: {
+      const newCategories = state.categoriesDatas.map((category) => {
+        if (category.id == action.categoryId) {
           category.status = !category.status;
           return category;
         }
         return category;
       })
-      console.log(newCategories)
       return {
         ...state,
         checkedCategories: newCategories,
       };
+    }
     default:
       return state;
   }

@@ -30,7 +30,7 @@ const Collection = ({
       {!localStorage.getItem('connect') && <Redirect to="/" />}
 
           <Segment basic>
-          <h1 className="title--collection" ><span><hr></hr></span><span><i className="fas fa-dot-circle"></i></span>MA COLLECTION<span><i className="fas fa-dot-circle"></i></span><span><hr></hr></span></h1>
+          <h1 className="title--collection" ><span><hr></hr></span><span><i className="fas fa-dot-circle"></i></span>MON HUB<span><i className="fas fa-dot-circle"></i></span><span><hr></hr></span></h1>
   
             {fullList === 'have' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull name='have' gamesDatas={listHave.list} /></div>}
             {fullList === 'want' && <div id="fullList"><Button onClick={handleFullList(false)} className="back--button">Retour Collection</Button><ListFull name='want' gamesDatas={listWant.list} /></div>}
@@ -53,14 +53,13 @@ const Collection = ({
           </Segment>
       <Footer />
     </div>
-    
   ); 
 };
 
 class ListSmall extends Component {
   componentDidMount() {
     const { request, name } = this.props;
-    console.log('mount List Small')
+    console.log('mount List Small');
     request(name);
   }
 
@@ -76,7 +75,7 @@ class ListSmall extends Component {
     return (
       <div className="collection">
         <h2>{title}:</h2>
-        <Button onClick={this.fullList(name)}>Voir la liste complète</Button>
+        <Button onClick={this.fullList(name)}>Voir la liste complète <span>({list.length})</span></Button>
         {load && <p>Loading</p>}
         {!load && (
           <div className="list">
