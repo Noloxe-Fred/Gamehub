@@ -50,6 +50,7 @@ class ApiScoreController extends FOSRestController
         
         $average = ((int)$scoreRepository->averageScore($game)[0][1]);
         $game->setScore($average);
+
         $em->persist($game);
         $em->flush();
 
@@ -64,8 +65,7 @@ class ApiScoreController extends FOSRestController
     public function editScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, TokenStorageInterface $token)
     {
 
-        $user = $token->getToken()->getUser();
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+        // $user = $token->getToken()->getUser();
         $score = $scoreRepository->findOneById($request->request->get('id'));
 
         // if($score->getUser() != $user || $score->getGame() != $game){
@@ -76,12 +76,13 @@ class ApiScoreController extends FOSRestController
         $form = $this->createForm(ScoreType::class, $score);
         $form->submit($request->request->all());
         $score->setUpdatedAt(new \DateTime());
-
         
         $em->flush();
-        
+
+        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $game->setScore((int)$scoreRepository->averageScore($game)[0][1]);
         $game->setUpdatedAt(new \DateTime());
+
         $em->flush();
 
         return $this->view('', Response::HTTP_OK, [
@@ -95,7 +96,7 @@ class ApiScoreController extends FOSRestController
     public function deleteScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, TokenStorageInterface $token)
     {
 
-        $user = $token->getToken()->getUser();
+        // $user = $token->getToken()->getUser();
         $score = $scoreRepository->findOneById($request->request->get('id'));
         
         // if($score->getUser() != $user || $score->getGame() != $game){
@@ -107,9 +108,10 @@ class ApiScoreController extends FOSRestController
         $em->flush();
             
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
-        $game->setScore((int)$scoreRepository->averageScore($game)[0][1]);
-        $em->flush();
 
+        $game->setScore((int)$scoreRepository->averageScore($game)[0][1]);
+        $game->setUpdatedAt(new \DateTime());
+        $em->flush();
 
         return $this->view('', Response::HTTP_OK, [
             

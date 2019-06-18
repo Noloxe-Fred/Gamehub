@@ -65,8 +65,8 @@ class ApiCommentController extends FOSRestController
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
 
-        $user = $token->getToken()->getUser();
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+        // $user = $token->getToken()->getUser();
+        // $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $comment = $commentRepository->findOneById($request->request->get('id'));
 
         // if($comment->getUser() != $user || $comment->getGame() != $game){
@@ -92,8 +92,8 @@ class ApiCommentController extends FOSRestController
     public function deleteCommentAction(CommentRepository $commentRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, EntityManagerInterface $em)
     {   
 
-        $user = $token->getToken()->getUser();
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+        // $user = $token->getToken()->getUser();
+        // $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $comment = $commentRepository->findOneById($request->request->get('id'));
 
         // if($comment->getUser() != $user || $comment->getGame() != $game){
