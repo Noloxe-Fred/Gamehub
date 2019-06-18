@@ -36,7 +36,7 @@ class ModifyGame extends Component {
 
     return (
       <div className="change--list">
-        <Popup trigger={<i className="far fa-list-alt" />} hoverable   className="popup--change">
+        <Popup trigger={<i className="far fa-list-alt" />} hoverable basic className="popup--change">
           {name === 'want' && (
             <div>
               {loadSubmitChange ? <Button loading>Loading</Button> : <Button onClick={this.handleChange} className="popup--button--have">Je l'ai</Button>}

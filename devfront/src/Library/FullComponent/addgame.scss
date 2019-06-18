@@ -1,22 +1,4 @@
 
-.add-button {
-border: 1px solid #FFFDD8;
-border-radius: 4px;
-background: none;
-color: #FFFDD8;
-font-family: 'Reem Kufi', sans-serif;
-font-weight: bold;
-margin-right: 1em;
-width: 8em;
-padding: 1em;
-background-color: #2C3E50;
-  &:hover {
-    transform: scale(1.05);
-    transition: .2s;
-  }
-}
-
-
 .not-available {
   text-decoration: line-through;
   cursor: none;
@@ -40,3 +22,81 @@ background-color: #2C3E50;
   }
 }
 
+.popup--add {
+  font-family: 'Reem Kufi', sans-serif;
+  // width: 10em;
+  // display: flex;
+  background-color: #1F272F !important;
+  color: white;
+  position: absolute !important;
+  top: 0 !important;
+  .already--in {
+    color: white;
+  }
+  .add--to--list--ok {
+    color: green;
+  }
+}
+
+.connect--popup {
+  color: white !important;
+  font-family: 'Reem Kufi', sans-serif;
+}
+
+.add--button--wait {
+  font-family: 'Reem Kufi', sans-serif;
+  width: 8em;
+  background: none !important;
+  border: 1px solid #FCC502 !important;
+  color: #FCC502 !important;
+  padding: .5em 1em !important;
+  border-radius: 4px !important;
+  &:hover {
+    color: #1F272F !important;
+    background: #FCC502 !important;
+    border-color: #FCC502 !important;
+  }
+}
+.add--button--have {
+  font-family: 'Reem Kufi', sans-serif;
+  width: 7em;
+  background: none !important;
+  border: 1px solid greenyellow !important;
+  color: greenyellow !important;
+  padding: .5em 1em !important;
+  border-radius: 4px !important;
+  &:hover {
+    color: #1F272F !important;
+    background: greenyellow !important;
+    border-color: greenyellow !important;
+  }
+}
+.add--button--want {
+  font-family: 'Reem Kufi', sans-serif;
+  width: 7em;
+  background: none !important;
+  border: 1px solid #00cec9 !important;
+  color: #00cec9 !important;
+  padding: .5em 1em !important;
+  border-radius: 4px !important;
+  &:hover {
+    color: #1F272F !important;
+    background: #00cec9 !important;
+    border-color: #00cec9 !important;
+  }
+}
+
+.connectButton {
+  margin: 0 .5em;
+  background: none;
+  color:#FCC502;
+  font-family: 'Reem Kufi', sans-serif;
+  border: 1px solid #FCC502;
+  border-radius: 4px;
+  padding: .5em;
+  &:hover {
+    color: #1F272F;
+    background: #FCC502;
+    border-color: #FCC502;
+  }
+}

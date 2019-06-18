@@ -6,6 +6,16 @@ $background-color: #1e272e;
 $title-font: 'Oswald', sans-serif;
 $text-font: 'Reem Kufi', sans-serif;
 
+.add--game--button {
+  position: absolute !important;
+  top: 1em;
+  right: 1em;
+  z-index: 1;
+}
+
+.fa-plus-circle {
+  color: white !important;
+}
 
 #main-list {
   margin-bottom: 5em;
@@ -54,9 +64,10 @@ $text-font: 'Reem Kufi', sans-serif;
   a {
     display:block;
     vertical-align: initial;
+    height: 143%;
   }
 }
-
+ 
 #mainCard {
   // background: red;
   .card {
@@ -125,6 +136,10 @@ $text-font: 'Reem Kufi', sans-serif;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.7em;
+  .link--img {
+    height: 76%;
+    border-bottom: 2px solid white;
+  }
   .card {
     height: 11.5em;
     img {
@@ -151,6 +166,10 @@ $text-font: 'Reem Kufi', sans-serif;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  .link--img {
+    height: 76%;
+    border-bottom: 2px solid white;
+  }
   .card {
    height: 11.7em;
     img {
@@ -166,6 +185,13 @@ $text-font: 'Reem Kufi', sans-serif;
         h3 {
           font-size: .7em;
         }
+        .add--game--button {
+          position: absolute !important;
+          top: 2em !important;
+          right: 1em;
+          z-index: 1;
+          color: white;
+        }
       }
     }
   }
@@ -176,12 +202,7 @@ $text-font: 'Reem Kufi', sans-serif;
 }
 
 
-.add--game--button {
-  position: absolute !important;
-  top: 1em;
-  right: 1em;
-  z-index: 1;
-}
+
 
 
 
