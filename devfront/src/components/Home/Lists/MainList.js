@@ -12,7 +12,7 @@ class MainList extends Component {
   componentDidMount() {
     this.props.requestComingSoon();
   }
-
+ 
   render() {
     const { load, gameList, count } = this.props;
 
@@ -35,7 +35,7 @@ class MainList extends Component {
               <Grid.Row columns={1} id="mainCard">
                 <Grid.Column computer={16} tablet={16} mobile={16}>
                   <Card>
-                    <div className="link--img">
+                    <div className="link--img maincard--image">
                       <Link to={"/game/"+displayList[0].id}>
                         <img src={displayList[0].illustration} alt={displayList[0].name}/>
                       </Link>
@@ -65,7 +65,7 @@ class MainList extends Component {
                       <Card.Content>
                         <Card.Header>
                           <h3>{displayList[1].name}</h3>
-                          <AddGame gameId={displayList[1].id} />
+                          <AddGame gameId={displayList[1].id} className="add--game--button"/>
                         </Card.Header>
                         <Card.Description>
                           <p>{displayList[1].description}</p>                  
@@ -88,7 +88,7 @@ class MainList extends Component {
                             <Card.Content>
                               <Card.Header>
                                 <h3>{displayList[2].name}</h3>
-                                <AddGame gameId={displayList[2].id} />
+                                <AddGame gameId={displayList[2].id} className="add--game--button"/>
                               </Card.Header>
                             </Card.Content>
                           </Card>
@@ -106,7 +106,7 @@ class MainList extends Component {
                             <Card.Content>  
                               <Card.Header>
                                 <h3>{displayList[3].name}</h3>
-                                <AddGame gameId={displayList[3].id} />
+                                <AddGame gameId={displayList[3].id} className="add--game--button"/>
                               </Card.Header>
                             </Card.Content>
                           </Card>
@@ -126,7 +126,7 @@ class MainList extends Component {
                             <Card.Content>  
                               <Card.Header>
                                 <h3>{displayList[4].name}</h3>
-                                <AddGame gameId={displayList[4].id} />
+                                <AddGame gameId={displayList[4].id} className="add--game--button"/>
                               </Card.Header>
                             </Card.Content>
                           </Card>
@@ -144,7 +144,7 @@ class MainList extends Component {
                             <Card.Content>
                               <Card.Header>
                                 <h3>{displayList[5].name}</h3>
-                                <AddGame gameId={displayList[5].id} />
+                                <AddGame gameId={displayList[5].id} className="add--game--button"/>
                               </Card.Header>
                             </Card.Content>
                           </Card>

@@ -28,14 +28,14 @@
   }
   .popup--button--have {
     width: 8em;
-    color: green !important;
+    color: greenyellow !important;
     background: none !important;
-    border: 1px solid green !important;
+    border: 1px solid greenyellow !important;
     margin-bottom: .5em !important;
     &:hover {
       color: #1F272F !important;
-      background: green !important;
-      border-color: green !important;
+      background: greenyellow !important;
+      border-color: greenyellow !important;
     }
   }
 }
