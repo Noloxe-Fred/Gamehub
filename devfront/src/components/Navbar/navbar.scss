@@ -41,7 +41,7 @@ nav {
     font-family: 'Reem Kufi', sans-serif;
   }
   .advancedSearch:hover {
-    color: white;
+    color: #FCC502;
   } 
   .connectButton {
     margin-right: 1em;
@@ -68,13 +68,17 @@ nav {
     display: flex;
     .mycollection {
       align-self: center;
+      &:hover {
+        color: #FCC502;
+      }
     }
     .avatar--home img{
-      width: 2.7em;
-      height: 2.7em;
+      width: 2em;
+      height: 2em;
       border-radius: 50%;
-      border: 1px solid black;
+      border: 1px solid white;
       margin-right: 1em;
+      margin-top: .3em;
     }
   }
 }
