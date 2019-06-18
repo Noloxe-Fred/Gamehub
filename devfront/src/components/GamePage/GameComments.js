@@ -22,7 +22,7 @@ const GameComments = ({ datas, loadingGame }) => (
 
       <Col lg={12} sm={3} xs={3} className="cell cell--header d-flex justify-content-center">
        <div className="profil">
-         <h6>{datas.comments.length === 0 ? 'Les derniers commentaires publiés' : 'Pas encore de commentaires sur ce jeu'}</h6>
+         <h6>{datas.comments.length >1 ? 'Les derniers commentaires publiés' : 'Pas encore de commentaires sur ce jeu'}</h6>
        </div>
       </Col>
 {/* 
