@@ -6,7 +6,6 @@ import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarP
 import ListFull from 'src/Library/List/ListUser';
 import EditGame from 'src/containers/User/editGameCont';
 import ModifyGame from 'src/containers/User/modifyGameCont';
-import ChangeList from 'src/Library/FullComponent/ChangeList';
 import Footer from 'src/components/Footer';
 
 import './user.scss';
@@ -22,9 +21,6 @@ const Collection = ({
   reqUserGameDatas,
   changeList,
 }) => {
-  const handleShowClick = () => {
-    displayProfile();
-  };
 
   const handleFullList = choice => () => {
     displayFullList(choice);
@@ -54,8 +50,6 @@ const Collection = ({
               </Grid>
             )}
           </Segment>
-        </Sidebar.Pusher>
-      </Sidebar.Pushable>
       <Footer />
     </div>
     
@@ -85,7 +79,7 @@ class ListSmall extends Component {
         {!load && (
           <div className="list">
             {shortList.map(( game ) => {
-              console.log('collection want', game)
+              console.log('collection', name, game)
               return (
               <div key={game.game.id} className="behind--game">
                 {/* <Link to={"/game/" + game.game.id}> */}

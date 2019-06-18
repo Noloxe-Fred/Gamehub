@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import './modifygame.scss';
 
 import { Header, Popup, Button } from 'semantic-ui-react';
-import { request } from 'http';
 
 class ModifyGame extends Component { 
 

@@ -9,6 +9,7 @@ class EditGame extends Component {
 
   componentDidUpdate() {
     const { receivedSubmit, request, name } = this.props;
+    console.log('Edit Update',receivedSubmit)
     if (receivedSubmit.deletedGame) {
       setTimeout(this.requestAfterDelete, 3000);
     }
@@ -20,6 +21,7 @@ class EditGame extends Component {
   }
 
   handleRequestDatas = () => {
+    console.log(this.props.game.id)
     this.props.reqUserGameDatas(this.props.game.id);
   }
 
@@ -48,7 +50,7 @@ class EditGame extends Component {
   }
 
   render() {
-    
+    console.log('render edit', this.props.game)
     const { name, cover, id } = this.props.game;
     const { 
       actualScore,
@@ -65,7 +67,7 @@ class EditGame extends Component {
     } = this.props;
 
     return (
-      <Modal trigger={<div onClick={openModalAction} className="edit--button"><i className="far fa-edit "></i></div>} closeIcon open={openModal} onOpen={this.handleRequestDatas} onClose={closeModal} className="caca">
+      <Modal trigger={<div onClick={openModalAction} onClick={this.handleRequestDatas} className="edit--button"><i className="far fa-edit "></i></div>} closeIcon open={openModal} onClose={closeModal} className="caca">
         <div className="all--parts">
           {loadReqDat && (
             <Segment>

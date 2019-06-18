@@ -5,6 +5,7 @@ const initialState = {
   wichList: '', //'have' or 'want' | 'waiting' if not available
   loadSubmit: '',
   receivedSubmit: '',
+  addGameError: false,
 };
 
 // Action Type
@@ -52,6 +53,7 @@ const addGameReducer = (state = initialState, action = {}) => {
         ...state,
         receivedSubmit: action.status,
         loadSubmit: false,
+        addGameError: action.error,
       };
     default:
       return state;
@@ -89,9 +91,10 @@ export const submitForm = (gameIdSubmit, list) => ({
   list,
 });
 
-export const receivedSubmit = status => ({
+export const receivedSubmit = (status, error) => ({
   type: RECEIVED_SUBMIT,
   status,
+  error,
 });
 
 export default addGameReducer;

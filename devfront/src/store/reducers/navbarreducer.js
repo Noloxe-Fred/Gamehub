@@ -120,7 +120,7 @@ const navbarreducer = (state = initialState, action = {}) => {
       // sessionStorage.setItem('disconnect', true);
       console.log('DISCONNECT', initialState);
       return {
-        ...initialState,
+        initialState,
       };
     case CHANGE_INPUT_SEARCH:
       return {

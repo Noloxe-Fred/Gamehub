@@ -9,6 +9,7 @@ const mapStateToProps = state => ({
   available: state.addGameReducer.available,
   loadSubmit: state.addGameReducer.loadSubmit,
   receivedSubmit: state.addGameReducer.receivedSubmit,
+  addGameError: state.addGameReducer.addGameError,
   connect: state.navbarreducer.connect,
 });
 
