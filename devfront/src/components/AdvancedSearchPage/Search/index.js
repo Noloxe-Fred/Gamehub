@@ -8,19 +8,19 @@ class Search extends React.Component {
   }
  
   handleClick = categoryName => () => {
-    const { checkedCategories, requestByCategories } = this.props;
-    checkedCategories(categoryName);
+    const { checkCategories, requestByCategories } = this.props;
+    checkCategories(categoryName);
     requestByCategories();
   };
 
   render() {
-    const { loading, categoriesDatas } = this.props;
+    const { loading, categoriesDatas, checkedCategories } = this.props;
 
-    console.log('Advance search', categoriesDatas)
+    console.log('Advance search', checkedCategories)
 
-    const types = categoriesDatas.filter(category => category.type === 1);
-    const players = categoriesDatas.filter(category => category.type === 2);
-    const tags = categoriesDatas.filter(category => category.type === 3);
+    const types = checkedCategories.filter(category => category.type === 1);
+    const players = checkedCategories.filter(category => category.type === 2);
+    const tags = checkedCategories.filter(category => category.type === 3);
     
     return (
       <Grid className="grid--advanced--search">
@@ -48,7 +48,7 @@ class Search extends React.Component {
                       players.map((player) => {
                       return (
                         <div key={player.id} className="one--central--button">
-                          <Button active={player.status} onClick={this.handleClick(player.id)} classname="btn">{player.name}</Button>
+                          <Button color={player.status ? null : '#FCC502'} active={player.status} onClick={this.handleClick(player.id)} className="btn">{player.name}</Button>
                         </div>
                       )})
                     }
@@ -62,7 +62,7 @@ class Search extends React.Component {
                         tags.map((tag) => {
                         return (
                           <div key={tag.id} className="one--right--button">
-                            <Button active={tag.status} onClick={this.handleClick(tag.id)} classname="btn">{tag.name}</Button>
+                            <Button active={tag.status} onClick={this.handleClick(tag.id)} className="btn">{tag.name}</Button>
                           </div>
                         )})
                       }

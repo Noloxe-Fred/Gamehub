@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { 
+import {
   REQUEST_CATEGORIES,
   REQUEST_GAMES,
   REQUEST_BY_CATEGORIES,
@@ -47,7 +47,7 @@ const advancedSearchPageMiddleware = store => next => (action) => {
           console.log('request games', error);
         });
       break;
-    case REQUEST_BY_CATEGORIES:
+    case REQUEST_BY_CATEGORIES: {
       store.dispatch(loadGames());
       const filter = store.getState().advancedSearchPageReducer.checkedCategories.filter(category => {
         if(category.status == true) {return category.id}
@@ -55,7 +55,7 @@ const advancedSearchPageMiddleware = store => next => (action) => {
       const categoriesFilter = filter.map(category => category.id);
       const category = categoriesFilter.join(' ');
 
-      console.log( 'REQUEST BY CATEGORIES', store.getState().advancedSearchPageReducer.checkedCategories )
+      console.log( 'REQUEST BY CATEGORIES', store.getState().advancedSearchPageReducer.checkedCategories)
       if (category.length > 0) {
         axios.get('http://api.gamehub.com/api/category/search', {
           headers: {
@@ -88,6 +88,7 @@ const advancedSearchPageMiddleware = store => next => (action) => {
           });
       }
       break;
+    }
     default:
       next(action);
   }

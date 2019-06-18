@@ -41,7 +41,7 @@ const advancedSearchPageReducer = (state = initialState, action = {}) => {
     case RECEIVED_CATEGORIES:
       return {
         ...state,
-        categoriesDatas: action.categoriesDatas,
+        checkedCategories: action.categoriesDatas,
         loadingCategories: false,
       };
     case CHECKED_CATEGORIES: {
@@ -79,10 +79,9 @@ export const receivedGames = gamesDatas => ({
 export const requestCategories = () => ({
   type: REQUEST_CATEGORIES,
 });
-export const receivedCategories = (categoriesDatas, eachCatFalse) => ({
+export const receivedCategories = (categoriesDatas) => ({
   type: RECEIVED_CATEGORIES,
   categoriesDatas,
-  eachCatFalse,
 });
 export const requestByCategories = () => ({
   type: REQUEST_BY_CATEGORIES,
