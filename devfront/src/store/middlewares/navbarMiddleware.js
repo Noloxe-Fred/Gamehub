@@ -43,6 +43,7 @@ const navbarMiddleware = store => next => (action) => {
           localStorage.setItem('connect', true);
           localStorage.setItem('remember', remember); // if case cochée!
           localStorage.setItem('user', response.data.token);
+          localStorage.setItem('resfresh', response.data.refresh_token);
 
           store.dispatch(receivedConnect());
         })

@@ -26,6 +26,7 @@ class AddGame extends Component {
       receivedSubmit,
       connect,
       gameId,
+      addGameError,
     } = this.props;
 
     const stylePopup = {
@@ -47,7 +48,8 @@ class AddGame extends Component {
                     <div>
                       {loadSubmit && <Loader active inline='centered' size="tiny" />}
                       {receivedSubmit && <p>Le jeu a bien été ajouté à votre JV'thèque</p>}
-                      {(!loadVerify && !loadSubmit && !receivedSubmit) && (
+                      {addGameError && <p>Erreur lors de l'ajout du jeu</p>}
+                      {(!loadVerify && !loadSubmit && !receivedSubmit && !addGameError) && (
                         <div>
                           {available == 'available' && (
                             <Grid centered columns={2}>

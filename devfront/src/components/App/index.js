@@ -23,6 +23,7 @@ import Page404 from 'src/components/Page404';
 // == Composant
 class App extends Component {
   componentDidMount() {
+    console.log('Actualisation!!!')
     const rememberUser = localStorage.getItem('remember');
     const { connect, connectSavedUser } = this.props;
 

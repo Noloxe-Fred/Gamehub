@@ -45,14 +45,14 @@ const gamePageMiddleware = store => next => (action) => {
             },
           })
           .then((responseComment) => {
-            console.log('reponse appel commentaire', responseComment)
-            const comments = responseComment.data;
-            store.dispatch(receivedGame(gameDatas, comments, background));
-          })
-          .catch((error) => {
-            console.log('request one game', error);
-            store.dispatch(errorRequest());
-          });
+              console.log('reponse appel commentaire', response)
+              const comments = responseComment.data;
+              store.dispatch(receivedGame(gameDatas, comments, background));
+            })
+            .catch((error) => {
+              console.log('request one game', error);
+              store.dispatch(errorRequest());
+            });
         })
         .catch((error) => {
           console.log('request one game', error);

@@ -5,8 +5,9 @@ import { Progress, Button, Header, Icon, Image, Menu, Segment, Sidebar, SidebarP
 
 import ListFull from 'src/Library/List/ListUser';
 import EditGame from 'src/containers/User/editGameCont';
-import ChangeList from 'src/Library/FullComponent/ChangeList';
+import ModifyGame from 'src/containers/User/modifyGameCont';
 import Footer from 'src/components/Footer';
+
 import './user.scss';
 
 
@@ -15,16 +16,11 @@ const Collection = ({
   listWant,
   listWaiting,
   request,
-  displayedProfile,
-  displayProfile,
   fullList,
   displayFullList,
   reqUserGameDatas,
   changeList,
 }) => {
-  const handleShowClick = () => {
-    displayProfile();
-  };
 
   const handleFullList = choice => () => {
     displayFullList(choice);
@@ -32,6 +28,7 @@ const Collection = ({
   return (
     <div>
       {!localStorage.getItem('connect') && <Redirect to="/" />}
+
       {/* <Button visible={displayProfile} onClick={handleShowClick}>
         vv Profile vv
       </Button> */}
@@ -83,6 +80,7 @@ const Collection = ({
         </Sidebar> */}
 
         <Sidebar.Pusher dimmed={displayedProfile}>
+
           <Segment basic>
           <h1 className="title--collection" ><span><hr></hr></span><span><i class="fas fa-dot-circle"></i></span>MA COLLECTION<span><i class="fas fa-dot-circle"></i></span><span><hr></hr></span></h1>
   
@@ -105,8 +103,6 @@ const Collection = ({
               </Grid>
             )}
           </Segment>
-        </Sidebar.Pusher>
-      </Sidebar.Pushable>
       <Footer />
     </div>
     
@@ -116,6 +112,7 @@ const Collection = ({
 class ListSmall extends Component {
   componentDidMount() {
     const { request, name } = this.props;
+    console.log('mount List Small')
     request(name);
   }
 
@@ -125,7 +122,7 @@ class ListSmall extends Component {
 
   render() {
     const { list, load, title } = this.props.listDatas;
-    const {name, reqUserGameData, changeList } = this.props;
+    const {name, reqUserGameData, changeList, request } = this.props;
     const shortList = list.slice(0, 12);
     const percent = 80;
     return (
@@ -136,15 +133,15 @@ class ListSmall extends Component {
         {!load && (
           <div className="list">
             {shortList.map(( game ) => {
-              console.log('collection want', game)
+              console.log('collection', name, game)
               return (
               <div key={game.game.id} className="behind--game">
                 {/* <Link to={"/game/" + game.game.id}> */}
                   <div className="game">
                     <img src={game.game.cover} alt="cover game" />
                     <p>{game.game.name}</p>
-                    {name == 'have' && <div className="edit"><EditGame game={game.game} /></div>}
-                    {name == 'want' && <ChangeList changeList={changeList} statusId={game.id} />}
+                    {name == 'have' && <div className="edit"><EditGame game={game.game} request={request} name={name} /></div>}
+                    <div className="edit"><ModifyGame statusId={game.id} name={name} game={game.game} /></div>
                   </div>
                 {/* </Link> */}
                 <div className="game-score-part">
@@ -158,7 +155,7 @@ class ListSmall extends Component {
     );
   }
 };
- 
+
 Collection.propTypes = {
   listAdd: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,

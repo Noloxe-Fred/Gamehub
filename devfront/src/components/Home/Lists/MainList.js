@@ -34,40 +34,44 @@ class MainList extends Component {
             <Grid columns={2} id="grid--prochaines--sorties">
               <Grid.Row columns={1} id="mainCard">
                 <Grid.Column computer={16} tablet={16} mobile={16}>
-                  <Link to={"/game/"+displayList[0].id}>
-                    <Card>
-                      <img src={displayList[0].illustration} alt={displayList[0].name}/>
-                      <Card.Content>
-                        <Card.Header>
-                          <h3>{displayList[0].name}</h3>
-                          <AddGame gameId={displayList[0].id} className="add--game--button"/>
-                        </Card.Header>
-                        <Card.Description>
-                          <p>{displayList[0].description}</p>
-                        </Card.Description>
-                      </Card.Content>
-                    </Card>
-                  </Link>
+                  <Card>
+                    <div className="link--img">
+                      <Link to={"/game/"+displayList[0].id}>
+                        <img src={displayList[0].illustration} alt={displayList[0].name}/>
+                      </Link>
+                    </div>
+                    <Card.Content>
+                      <Card.Header>
+                        <h3>{displayList[0].name}</h3>
+                        <AddGame gameId={displayList[0].id} className="add--game--button"/>
+                      </Card.Header>
+                      <Card.Description>
+                        <p>{displayList[0].description}</p>
+                      </Card.Description>
+                    </Card.Content>
+                  </Card>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2} id="secondaryCard">
                 <Grid.Column computer={8} tablet={16} mobile={16}>
                   {!displayList[1] && <div></div>}
                   {displayList[1] && (
-                    <Link to={"/game/"+displayList[1].id}>
-                      <Card> 
-                        <img src={displayList[1].illustration} alt={displayList[1].name}/>
-                        <Card.Content>
-                          <Card.Header>
-                            <h3>{displayList[1].name}</h3>
-                            <AddGame gameId={displayList[1].id} />
-                          </Card.Header>
-                          <Card.Description>
-                            <p>{displayList[1].description}</p>                  
-                          </Card.Description>
-                        </Card.Content>
-                      </Card>
-                    </Link>
+                    <Card>
+                      <div className="link--img">
+                        <Link to={"/game/"+displayList[1].id}>
+                          <img src={displayList[1].illustration} alt={displayList[1].name}/>
+                        </Link>
+                      </div>
+                      <Card.Content>
+                        <Card.Header>
+                          <h3>{displayList[1].name}</h3>
+                          <AddGame gameId={displayList[1].id} />
+                        </Card.Header>
+                        <Card.Description>
+                          <p>{displayList[1].description}</p>                  
+                        </Card.Description>
+                      </Card.Content>
+                    </Card>
                   )}
                 </Grid.Column>
                   <Grid.Column computer={8} tablet={16} mobile={16} id="four--cards--part">
@@ -75,33 +79,37 @@ class MainList extends Component {
                       <Grid.Column mobile={16} tablet={16} className="other--column">
                       {!displayList[2] && <div></div>}
                       {displayList[2] && (
-                        <Link to={"/game/"+displayList[2].id}>
                           <Card>
-                            <img src={displayList[2].illustration} alt={displayList[2].name}/>
+                            <div className="link--img">
+                              <Link to={"/game/"+displayList[2].id}>
+                                <img src={displayList[2].illustration} alt={displayList[2].name}/>
+                              </Link>
+                            </div>
                             <Card.Content>
                               <Card.Header>
                                 <h3>{displayList[2].name}</h3>
                                 <AddGame gameId={displayList[2].id} />
                               </Card.Header>
                             </Card.Content>
-                            </Card>
-                          </Link>
+                          </Card>
                         )}
                       </Grid.Column>
                       <Grid.Column mobile={16} tablet={16} className="other--column">
                         {!displayList[3] && <div></div>}
                         {displayList[3] && (
-                          <Link to={"/game/"+displayList[3].id}>
-                            <Card>
-                              <img src={displayList[3].illustration} alt={displayList[3].name}/>
-                              <Card.Content>  
-                                <Card.Header>
-                                  <h3>{displayList[3].name}</h3>
-                                  <AddGame gameId={displayList[3].id} />
-                                </Card.Header>
-                              </Card.Content>
-                            </Card>
-                          </Link>
+                          <Card>
+                            <div className="link--img">
+                              <Link to={"/game/"+displayList[3].id}>
+                                <img src={displayList[3].illustration} alt={displayList[3].name}/>
+                              </Link>
+                            </div>
+                            <Card.Content>  
+                              <Card.Header>
+                                <h3>{displayList[3].name}</h3>
+                                <AddGame gameId={displayList[3].id} />
+                              </Card.Header>
+                            </Card.Content>
+                          </Card>
                         )}
                       </Grid.Column>
                     </Grid.Row>
@@ -109,33 +117,37 @@ class MainList extends Component {
                       <Grid.Column className="other--column">
                         {!displayList[4] && <div></div>}
                         {displayList[4] && (
-                          <Link to={"/game/"+displayList[4].id}>
-                            <Card> 
-                              <img src={displayList[4].illustration} alt={displayList[4].name}/>
-                              <Card.Content>  
-                                <Card.Header>
-                                  <h3>{displayList[4].name}</h3>
-                                  <AddGame gameId={displayList[4].id} />
-                                </Card.Header>
-                              </Card.Content>
-                            </Card>
-                          </Link>
+                          <Card> 
+                          <div className="link--img">
+                              <Link to={"/game/"+displayList[4].id}>
+                                <img src={displayList[4].illustration} alt={displayList[4].name}/>
+                              </Link>
+                            </div>
+                            <Card.Content>  
+                              <Card.Header>
+                                <h3>{displayList[4].name}</h3>
+                                <AddGame gameId={displayList[4].id} />
+                              </Card.Header>
+                            </Card.Content>
+                          </Card>
                         )}
                       </Grid.Column>
                       <Grid.Column className="other--column">
                         {!displayList[5] && <div></div>}
                         {displayList[5] && (
-                          <Link to={"/game/"+displayList[5].id}>
-                            <Card> 
-                              <img src={displayList[5].illustration} alt={displayList[5].name}/>
-                              <Card.Content>
-                                <Card.Header>
-                                  <h3>{displayList[5].name}</h3>
-                                  <AddGame gameId={displayList[5].id} />
-                                </Card.Header>
-                              </Card.Content>
-                            </Card>
-                          </Link>
+                          <Card> 
+                            <div className="link--img">
+                              <Link to={"/game/"+displayList[5].id}>
+                                <img src={displayList[5].illustration} alt={displayList[5].name}/>
+                              </Link>
+                            </div>
+                            <Card.Content>
+                              <Card.Header>
+                                <h3>{displayList[5].name}</h3>
+                                <AddGame gameId={displayList[5].id} />
+                              </Card.Header>
+                            </Card.Content>
+                          </Card>
                         )}
                       </Grid.Column>
                     </Grid.Row>

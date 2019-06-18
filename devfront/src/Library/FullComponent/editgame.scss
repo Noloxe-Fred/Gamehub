@@ -46,7 +46,7 @@
 .all--parts {
   background:none;
   // width: 2000px;
-  height: 800px;
+  height: 900px;
   display: flex !important;
   justify-content: center;
 }
@@ -121,33 +121,7 @@
         }
       }
     }
-    .form--actions {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      .button--delete {
-        margin-left: 0 !important;
-        color: red;
-        background: none;
-        border: 1px solid red;
-        &:hover {
-          color: #2D3536;
-          background: red;
-          border: 1px solid red;
-        }
-      }
-      .button--see--game {
-        margin-right: 0 !important;
-        color: green;
-        background: none;
-        border: 1px solid green;
-        &:hover {
-          color: #2D3536;
-          background: green;
-          border: 1px solid green;
-        }
-      }
-    }
+
 }
 
 .part--two {
@@ -187,6 +161,33 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+  .form--actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .button--delete {
+      margin-left: 0 !important;
+      color: red;
+      background: none;
+      border: 1px solid red;
+      &:hover {
+        color: #2D3536;
+        background: red;
+        border: 1px solid red;
+      }
+    }
+    .button--see--game {
+      margin-right: 0 !important;
+      color: green;
+      background: none;
+      border: 1px solid green;
+      &:hover {
+        color: #2D3536;
+        background: green;
+        border: 1px solid green;
+      }
+    }
   }
 }
 

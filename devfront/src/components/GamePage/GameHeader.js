@@ -27,7 +27,7 @@ const GameHeader = ({ datas }) => {
               </div>
               <div className="title--editor">Éditeur : {editor[0].name}</div>
               <div className="title--developer">Développeur : {developer[0].name}</div>
-              <div className="title--developer"><a href={website} target="blank">Site Officiel</a></div>
+              <div className="title--website"><a href={website} target="blank">Site Officiel</a></div>
               <div className="title--released">Date de sortie : {released}</div>
               <div className="description">
                 <div className="description--description">{desc}</div>
