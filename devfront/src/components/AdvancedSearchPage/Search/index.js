@@ -11,13 +11,14 @@ class Search extends React.Component {
  
   handleClick = categoryName => () => {
     const { checkedCategories, requestByCategories } = this.props;
-    console.log(categoryName);
     checkedCategories(categoryName);
     requestByCategories();
   };
 
   render() {
-    const { loading, categoriesDatas, checkedCategories } = this.props;
+    const { loading, categoriesDatas, checkedCategoriesArray } = this.props;
+
+    console.log('Advance search', categoriesDatas, checkedCategoriesArray)
 
     const types = categoriesDatas.filter(category => category.type.id === 1);
     const players = categoriesDatas.filter(category => category.type.id === 2);

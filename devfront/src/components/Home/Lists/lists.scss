@@ -51,6 +51,10 @@ $text-font: 'Reem Kufi', sans-serif;
 #grid--prochaines--sorties {
   width: 60%;
   margin: 0 auto;
+  a {
+    display:block;
+    vertical-align: initial;
+  }
 }
 
 #mainCard {
