@@ -16,7 +16,7 @@ class Profile extends Component {
         {loadProfile && <p> Chargement de vos informations personelles</p>}
         {loadProfile || (
           <Grid textAlign='center' className="profile-content">
-            <Grid.Row>
+            <Grid.Row> 
               <div className="left--profile">
                 <h4>Paramètres</h4>
                 <Segment className="infos--pseudo">
