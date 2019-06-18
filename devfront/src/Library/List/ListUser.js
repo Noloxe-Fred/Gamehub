@@ -23,10 +23,15 @@ class ListUser extends Component {
         {gamesDatas.map(( game ) => {
           return (
             <Col id={game.game.id} lg={2} md={5} sm={12} xs={12} className="one--game">
+              <img src={game.game.cover} alt={game.game.name} />
+              <p>{game.game.name}</p>
+              <div className="edit--button--complete--collection">
                 {name === 'have' && <EditGame game={game.game} name={name} />}
-                <ModifyGame game={game.game} name={game.name} statusId={game.id} /> // Status Id à déterminer
-                <img src={game.game.cover} alt={game.game.name} />
-                <p>{game.game.name}</p>
+              </div>
+              <div className="see--delete--button--complete--collection">
+                <ModifyGame game={game.game} name={game.name} statusId={game.id} />
+              </div>
+              
             </Col>
           );
         })}
