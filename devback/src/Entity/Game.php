@@ -38,7 +38,7 @@ class Game
 
     /**
      * @ORM\Column(type="smallint", nullable=true, options={"unsigned"=true})
-     * @Groups({"game_read"})
+     * @Groups({"game_read", "status_read"})
      */
     private $score;
 
