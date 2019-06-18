@@ -7,18 +7,19 @@ import './editgame.scss';
  
 class EditGame extends Component {
 
-  componentDidUpdate() {
-    const { receivedSubmit, request, name } = this.props;
-    console.log('Edit Update',receivedSubmit)
-    if (receivedSubmit.deletedGame) {
-      setTimeout(this.requestAfterDelete, 3000);
-    }
-  }
+  // componentDidUpdate() {
+  //   const { receivedSubmit, request, name } = this.props;
 
-  requestAfterDelete = () => {
-    this.props.closeModal();
-    this.props.request('have');
-  }
+  //   if (receivedSubmit.deletedGame) {
+  //     console.log('Edit Update',receivedSubmit)
+  //     setTimeout(this.requestAfterDelete, 3000);
+  //   }
+  // }
+
+  // requestAfterDelete = () => {
+  //   this.props.closeModal();
+  //   this.props.request('have');
+  // }
 
   handleRequestDatas = () => {
     console.log(this.props.game.id)
@@ -57,17 +58,13 @@ class EditGame extends Component {
       commentTitle,
       commentContent,
       loadReqDat,
-      scoreId,
       commentId,
       loadSubmit,
       receivedSubmit,
-      openModalAction,
-      openModal,
-      closeModal,
     } = this.props;
 
     return (
-      <Modal trigger={<div onClick={openModalAction} onClick={this.handleRequestDatas} className="edit--button"><i className="far fa-edit "></i></div>} closeIcon open={openModal} onClose={closeModal} className="caca">
+      <Modal trigger={<div className="edit--button"><i className="far fa-edit "></i></div>} onOpen={this.handleRequestDatas} className="caca">
         <div className="all--parts">
           {loadReqDat && (
             <Segment>
@@ -102,7 +99,7 @@ class EditGame extends Component {
                     <div className="form--button--all">
                       <Label color="#2C3E50" className="label--note"><p>{actualScore}</p></Label>
                       {!loadSubmit.score ? <Button type='submit' className="button--note">Enregistrer Score</Button> : <Button loading>Loading</Button>}
-                      {receivedSubmit.score && <p>Note enregistré</p>}
+                      {receivedSubmit.score && <p>Note enregistrée</p>}
                     </div>
                   </Form>
                   {/* <Modal.Actions className="form--actions">
@@ -144,26 +141,10 @@ class EditGame extends Component {
                     <div className="buttons-comment">
                     {!loadSubmit.comment ? <Button type="submit" className="button--save--comment">Enregistrer le commentaire  {receivedSubmit.comment && <Icon name="check" />}</Button> : <Button loading>Loading</Button>}
                       {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)} className="button--delete--comment">Supprimer le commentaire</Button> : <Button loading>Loading</Button>}
-                       
                       {receivedSubmit.deletedComment && <p>Votre commentaire à bien été supprimé.</p>}
                     </div>
                   </Form>
                 </Segment>
-                <Modal.Actions className="form--actions">
-                  {!loadSubmit.deletedGame ? (
-                    <Button onClick={this.handleDelete('game', id)} className="button--delete">
-                      <Icon name="remove" /> Supprimer le jeu
-                    </Button>
-                  )
-                    : (<Button loading>Loading</Button>)
-                  }
-                  {receivedSubmit.deletedGame && <p>Votre jeu a été retiré de votre JV'thèque. Vous allez être redirigé vers votre Collection.</p>}
-                  <Link to={"/game/" + id}>
-                    <Button className="button--see--game">
-                      <Icon name="checkmark" /> Voir la fiche du jeu
-                    </Button>
-                  </Link>
-                </Modal.Actions>
               </div>
             </div>
           )}
