@@ -10,10 +10,6 @@ class EditGame extends Component {
   // componentDidUpdate() {
   //   const { receivedSubmit, request, name } = this.props;
 
-  //   if (receivedSubmit.deletedGame) {
-  //     console.log('Edit Update',receivedSubmit)
-  //     setTimeout(this.requestAfterDelete, 3000);
-  //   }
   // }
 
   // requestAfterDelete = () => {
@@ -71,11 +67,11 @@ class EditGame extends Component {
         <div className="all--parts">
           {loadReqDat && (
             <Segment>
-              <Dimmer active inverted>
-                <Loader size='medium'>Chargement</Loader>
-              </Dimmer>
+              {/* <Dimmer active inverted>
+                <Loader inverted size='medium'>Chargement</Loader>
+              </Dimmer> */}
 
-              <Image src='/images/wireframe/paragraph.png' />
+              <Image src='https://image.noelshack.com/fichiers/2019/25/3/1560900974-capture-d-ecran-2019-05-25-a-15-43-01.png' />
             </Segment>
           )}
           {loadReqDat || (
@@ -143,10 +139,10 @@ class EditGame extends Component {
                     />
                     <div className="buttons-comment">
                     {!loadSubmit.comment ? <Button type="submit" className="button--save--comment">Enregistrer le commentaire  {receivedSubmit.comment && <Icon name="check" />}</Button> : <Button loading>Loading</Button>}
-                      {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)} className="button--delete--comment">Supprimer le commentaire</Button> : <Button loading>Loading</Button>}
-                      {receivedSubmit.deletedComment && <p>Votre commentaire à bien été supprimé.</p>}
                     </div>
                   </Form>
+                  {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)} className="button--delete--comment">Supprimer le commentaire</Button> : <Button loading>Loading</Button>}
+                  {receivedSubmit.deletedComment && <p>Votre commentaire à bien été supprimé du site</p>}
                 </Segment>
               </div>
             </div>

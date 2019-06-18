@@ -6,4 +6,7 @@
 
 .pushable {
   margin-top: -1em;
+  .ui.segment {
+    margin: 0;
+  }
 }

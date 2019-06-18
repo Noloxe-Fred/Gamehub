@@ -36,11 +36,13 @@ const SET_INPUT = 'SET_INPUT';
 
 export const DELETE_DATAS = 'DELETE_DATAS';
 export const DELETE_GAME = 'DELETE_GAME';
+const RESET_INPUT = 'RESET_INPUT';
 
 const RESET = 'RESET';
 
 export const ON_SUBMIT_SCORE = 'ON_SUBMIT_SCORE';
 export const ON_SUBMIT_COMMENT = 'ON_SUBMIT_COMMENT';
+const CHANGE_TYPE = 'CHANGE_TYPE';
 
 const LOAD_SUBMIT = 'LOAD_SUBMIT';
 const RECEIVED_SUBMIT = 'RECEIVED_SUBMIT';
@@ -98,6 +100,17 @@ const editGameRed = (state = initialState, action = {}) => {
         receivedSubmit: { ...state.receivedSubmit, [action.name]: action.value },
         loadSubmit: { ...state.loadSubmit, [action.name]: false }
       };
+    case CHANGE_TYPE:
+      return {
+        ...state,
+        [action.typeSub]: 'edit',
+      };
+    case RESET_INPUT:
+      return {
+        ...state,
+        title: '',
+        content: '',
+      };
     case RESET:
       return {
         ...state,
@@ -136,6 +149,10 @@ export const setInput = (name, value) => ({
   value,
 });
 
+export const resetInput = () => ({
+  type: RESET_INPUT,
+});
+
 export const loadRequestDatas = () => ({
   type: LOAD_REQUEST_DATAS,
 });
@@ -165,6 +182,11 @@ export const onSubmitScore = gameId => ({
 export const onSubmitComment = gameId => ({
   type: ON_SUBMIT_COMMENT,
   gameId,
+});
+
+export const changeTypeSub = typeSub => ({
+  type: CHANGE_TYPE,
+  typeSub,
 });
 
 export const loadSubmit = name => ({

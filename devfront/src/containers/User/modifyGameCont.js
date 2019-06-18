@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ModifyGame from 'src/Library/FullComponent/ModifyGame';
 
-import { changeList, deleteDatas } from 'src/store/reducers/editGameReducer';
+import { changeList, deleteDatas, reset } from 'src/store/reducers/editGameReducer';
 import { request } from 'src/store/reducers/userPagesReducer';
 
 const mapStateToProps = state => ({
@@ -20,6 +20,9 @@ const mapDispatchToProps = dispatch => ({
   },
   deleteGame: (name, id) => {
     dispatch(deleteDatas(name, id));
+  },
+  resetSubmit: () => {
+    dispatch(reset());
   },
 });
 

@@ -10,6 +10,8 @@ import {
  recUserGamesDatas,
  loadSubmit,
  receivedSubmit,
+ resetInput,
+ reqUserGameDatas,
 } from 'src/store/reducers/editGameReducer';
 
 const editGameMiddleware = store => next => (action) => {
@@ -57,7 +59,7 @@ const editGameMiddleware = store => next => (action) => {
       break;
     case ON_SUBMIT_SCORE:
       store.dispatch(loadSubmit('score'));
-      console.log( store.getState().editGameRed.typeSubScore)
+
       if (store.getState().editGameRed.typeSubScore === 'new') {
         instance.post('/score/new', {
           game: {
@@ -68,6 +70,8 @@ const editGameMiddleware = store => next => (action) => {
         })
           .then((response) => {
             console.log(response.data);
+
+            store.dispatch(reqUserGameDatas(action.gameId));
             store.dispatch(receivedSubmit('score', true));
           })
           .catch((error) => {
@@ -106,6 +110,8 @@ const editGameMiddleware = store => next => (action) => {
         })
           .then((response) => {
             console.log(response.data);
+
+            store.dispatch(reqUserGameDatas(action.gameId));
             store.dispatch(receivedSubmit('comment', true));
           })
           .catch((error) => {
@@ -172,6 +178,7 @@ const editGameMiddleware = store => next => (action) => {
         })
           .then((response) => {
             console.log(response.data);
+            store.dispatch(resetInput());
             store.dispatch(receivedSubmit('deletedComment', true));
           })
           .catch((error) => {

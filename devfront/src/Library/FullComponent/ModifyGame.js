@@ -9,12 +9,19 @@ import EditGame from 'src/containers/User/editGameCont';
 class ModifyGame extends Component { 
 
   componentDidUpdate() {
-    const { receivedChangeList, receivedDelete, request } = this.props;
-    if (receivedChangeList || receivedDelete) {
+    const { receivedChangeList, receivedDelete, request, resetSubmit } = this.props;
+    if (receivedDelete) {
+      console.log(receivedDelete);
+      resetSubmit();
       request('have');
       request('want');
       request('waiting');
     }
+    if (receivedChangeList) {
+      request('have');
+      request('want');
+    }
+    
   }
 
   handleDelete = () => {
