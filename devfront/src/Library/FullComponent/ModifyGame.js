@@ -36,14 +36,14 @@ class ModifyGame extends Component {
 
     return (
       <div className="change--list">
-        <Popup trigger={<i className="fas fa-edit" />} flowing hoverable inverted style={stylePopup}>
+        <Popup trigger={<i className="far fa-list-alt" />} hoverable   className="popup--change">
           {name === 'want' && (
             <div>
-              {loadSubmitChange ? <Button loading>Loading</Button> : <Button onClick={this.handleChange}>Je l'ai</Button>}
+              {loadSubmitChange ? <Button loading>Loading</Button> : <Button onClick={this.handleChange} className="popup--button--have">Je l'ai</Button>}
             </div>
           )}
-          {loadDeletedGame ? <Button loading>Loading</Button> : <Button onClick={this.handleDelete}>Supprimer</Button> }
-          <Link to={`/game/${game.id}`}><Button>Voir le jeu</Button></Link>
+          {loadDeletedGame ? <Button loading>Loading</Button> : <Button onClick={this.handleDelete} className="popup--button--delete">Supprimer</Button> }
+          <Link to={`/game/${game.id}`}><Button className="popup--button--see">Voir le jeu</Button></Link>
         </Popup>
       </div>
     )
@@ -51,3 +51,4 @@ class ModifyGame extends Component {
 };
 // ({ statusId, changeList })
 export default ModifyGame;
+ 

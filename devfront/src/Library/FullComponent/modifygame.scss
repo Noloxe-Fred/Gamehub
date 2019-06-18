@@ -1,0 +1,41 @@
+.popup--change {
+  width: 10em;
+  display: flex;
+  background-color: #1F272F !important;
+  .popup--button--see {
+    width: 8em;
+    color: #FCC502 !important;
+    background: none !important;
+    border: 1px solid #FCC502 !important;
+    margin-bottom: .5em !important;
+    &:hover {
+      color: #1F272F !important;
+      background: #FCC502 !important;
+      border-color: #FCC502 !important;
+    }
+  }
+  .popup--button--delete {
+    width: 8em;
+    color: red !important;
+    background: none !important;
+    border: 1px solid red !important;
+    margin-bottom: .5em !important;
+    &:hover {
+      color: #1F272F !important;
+      background: red !important ;
+      border-color: red !important ;
+    }
+  }
+  .popup--button--have {
+    width: 8em;
+    color: green !important;
+    background: none !important;
+    border: 1px solid green !important;
+    margin-bottom: .5em !important;
+    &:hover {
+      color: #1F272F !important;
+      background: green !important;
+      border-color: green !important;
+    }
+  }
+}
