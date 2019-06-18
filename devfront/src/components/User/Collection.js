@@ -36,9 +36,9 @@ const Collection = ({
         vv Profile vv
       </Button> */}
       <Sidebar.Pushable>
-
+{/* 
         <Sidebar as={Segment} animation="overlay" direction="top" visible={displayedProfile}>
-          <Header as='h3'>PROFIL</Header>
+          
           <Grid textAlign='center' className="profile-content">
                 <div>
                   <h4>Paramètres</h4>
@@ -80,7 +80,7 @@ const Collection = ({
                   <Segment>Commentaire 4</Segment>
                 </div>
           </Grid>
-        </Sidebar>
+        </Sidebar> */}
 
         <Sidebar.Pusher dimmed={displayedProfile}>
           <Segment basic>
@@ -110,7 +110,7 @@ const Collection = ({
       <Footer />
     </div>
     
-  );
+  ); 
 };
 
 class ListSmall extends Component {

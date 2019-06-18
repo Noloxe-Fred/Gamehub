@@ -1,3 +1,148 @@
 #profile {
-  background-color: #1e272e;
+  border-radius: 14px;
+  background-color: #2d3436;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  min-height: 92vh;
+  padding-top: 2em;
+  h3 {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 2em;
+    span {
+      margin: 0 1em;
+    }
+  }
+  .left--profile {
+    background-color: #1e272e;
+    // border-right: 1px solid #FCC502;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1em;
+    padding-top: 2em;
+    border-radius: 14px;
+    h4 {
+      // width: 20em;
+      font-size: 2em;
+      padding: 0 1em;
+      margin-bottom: .5em;
+      border-right: 1px solid #FCC502;
+      border-left: 1px solid #FCC502;
+    }
+    .infos--pseudo {
+      width: 100%;
+      p {
+        font-family: 'Reem Kufi', sans-serif;
+        font-size: 1.4em;
+        width: 20em;
+        margin: 1em auto;
+        span {
+          color: #4cd137;
+          font-style: italic;
+        }
+      }
+      button {
+        font-family: 'Reem Kufi', sans-serif;
+        width: 20em;
+        background: none;
+        border: 1px solid #FCC502;
+        color: #FCC502;
+        // width: 100%;
+        margin-bottom: 1em;
+        &:hover {
+          color: #1e272e;
+          background: #FCC502;
+          border-color: #FCC502;
+        }
+      }
+    }
+    .infos--password {
+      font-family: 'Reem Kufi', sans-serif;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      h6 {
+        font-size: 1.3em;
+        width: 100%;
+        margin-bottom: 1em;
+      }
+      button {
+        background: none;
+        border: 1px solid #FCC502;
+        color: #FCC502;
+        // width: 100%;
+        margin-bottom: 1em;
+        &:hover {
+          color: #1e272e;
+          background: #FCC502;
+          border-color: #FCC502;
+        }
+      }
+      .form--infos--password {
+        font-family: 'Reem Kufi', sans-serif;
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .input {
+          font-family: 'Reem Kufi', sans-serif;
+          width: 20em;
+          margin: .5em auto;
+        }
+        .button {
+          font-family: 'Reem Kufi', sans-serif;
+          margin-top: .5em;
+          width: 20em;
+        }
+      }
+    }
+  }
+  .central--profile {
+    font-family: 'Reem Kufi', sans-serif;
+    background-color: #1e272e;
+    // border-right: 1px solid #FCC502;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1em;
+    padding-top: 2em;
+    h4 {
+      font-size: 2em;
+      padding: 0 1em;
+      margin-bottom: 2em;
+      border-right: 1px solid #FCC502;
+      border-left: 1px solid #FCC502;
+    }
+    .stats--content {
+      width: 20em;
+      font-size: 1.4em;
+      span {
+        color: #4cd137;
+      }
+    }
+  }
+  .right--profile {
+    font-family: 'Reem Kufi', sans-serif;
+    background-color: #1e272e;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1em;
+    padding-top: 2em;
+    border-radius: 14px;
+    h4 {
+      font-size: 2em;
+      padding: 0 1em;
+      margin-bottom: 2em;
+      border-right: 1px solid #FCC502;
+      border-left: 1px solid #FCC502;
+    }
+  }
 }
+ 
