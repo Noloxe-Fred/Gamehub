@@ -140,7 +140,7 @@ class ListSmall extends Component {
                   <div className="game">
                     <img src={game.game.cover} alt="cover game" />
                     <p>{game.game.name}</p>
-                    {name == 'have' && <div className="edit"><EditGame game={game.game} request={request} name={name} /></div>}
+                    {name == 'have' && <div className="note--and--comment"><EditGame game={game.game} request={request} name={name} /></div>}
                     <div className="edit"><ModifyGame statusId={game.id} name={name} game={game.game} /></div>
                   </div>
                 {/* </Link> */}

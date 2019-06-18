@@ -170,6 +170,9 @@
     position: absolute;
     right: 35%;
   }
+  .note--and--comment {
+    display: none;
+  }
   &:hover {
     p {
       position: absolute;
@@ -187,6 +190,26 @@
     .edit {
       display: block;
       z-index: 8;
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      text-align: center;
+      background: black;
+      border: .5px solid white;
+      font-size: 1em;
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 3px;
+      &:hover {
+        color: #FCC502;
+      }
+    }
+    .note--and--comment {
+      display: block;
+      z-index: 8;
+      position: absolute;
+      top: 1em;
+      left: 1em;
     }
   }
  
