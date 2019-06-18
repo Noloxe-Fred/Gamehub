@@ -44,12 +44,13 @@ class ApiScoreController extends FOSRestController
 
         $form = $this->createForm(ScoreType::class, $score);
         $form->submit($request->request->all());
-
-        $average = ((int)$gameRepository->averageScore($game)[0][1]);
-        $game->setScore($average);
-
-        $em->persist($game);
+        
         $em->persist($score);
+        $em->flush();
+        
+        $average = ((int)$scoreRepository->averageScore($game)[0][1]);
+        $game->setScore($average);
+        $em->persist($game);
         $em->flush();
 
         return $this->view('', Response::HTTP_CREATED, [
@@ -74,10 +75,13 @@ class ApiScoreController extends FOSRestController
         
         $form = $this->createForm(ScoreType::class, $score);
         $form->submit($request->request->all());
-
-        $game->setScore((int)$gameRepository->averageScore($game)[0][1]);
         $score->setUpdatedAt(new \DateTime());
 
+        
+        $em->flush();
+        
+        $game->setScore((int)$scoreRepository->averageScore($game)[0][1]);
+        $game->setUpdatedAt(new \DateTime());
         $em->flush();
 
         return $this->view('', Response::HTTP_OK, [
@@ -92,18 +96,20 @@ class ApiScoreController extends FOSRestController
     {
 
         $user = $token->getToken()->getUser();
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $score = $scoreRepository->findOneById($request->request->get('id'));
         
         // if($score->getUser() != $user || $score->getGame() != $game){
-
-        //     return $this->view('403 Forbidden - Ce vote ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        // }
-
-        $game->setScore((int)$gameRepository->averageScore($game)[0][1]);
-
+            
+            //     return $this->view('403 Forbidden - Ce vote ne vous appartient pas.', Response::HTTP_FORBIDDEN);
+            // }
+            
         $em->remove($score);
         $em->flush();
+            
+        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+        $game->setScore((int)$scoreRepository->averageScore($game)[0][1]);
+        $em->flush();
+
 
         return $this->view('', Response::HTTP_OK, [
             

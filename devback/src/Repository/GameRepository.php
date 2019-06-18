@@ -123,18 +123,6 @@ class GameRepository extends ServiceEntityRepository
     //     return $qb;
     // }
 
-    public function averageScore($game){
-
-        $qb = $this->createQueryBuilder('g')
-        ->join('g.scores', 's')
-        ->select('avg(s.value), count(s.value)')
-        ->where('g.id = :game')
-        ->setParameter('game', $game)
-        ->getQuery()
-        ->getResult();
-
-        return $qb;
-    }
 
     public function findGamesByBestScore(){
 
