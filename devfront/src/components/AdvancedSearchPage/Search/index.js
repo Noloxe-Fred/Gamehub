@@ -4,7 +4,8 @@ import './search.scss';
 
 class Search extends React.Component {
 
-  componentDidMount() {
+  componentWillUnmount() {
+    this.props.resetSearch();
   }
  
   handleClick = categoryName => () => {
@@ -14,7 +15,7 @@ class Search extends React.Component {
   };
 
   render() {
-    const { loading, categoriesDatas, checkedCategories } = this.props;
+    const { loading, checkedCategories, resetSearch } = this.props;
 
     console.log('Advance search', checkedCategories)
 
@@ -69,6 +70,7 @@ class Search extends React.Component {
                     </div>
                   </Grid.Column>
                 </Grid.Row>
+              <Button onClick={resetSearch}>Reset</Button>
             </React.Fragment>
           )
         }

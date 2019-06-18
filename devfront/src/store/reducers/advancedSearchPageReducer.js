@@ -19,6 +19,8 @@ export const REQUEST_CATEGORIES = 'REQUEST_CATEGORIES';
 const RECEIVED_CATEGORIES = 'RECEIVED_CATEGORIES';
 const CHECKED_CATEGORIES = 'CHECKED_CATEGORIES';
 
+const RESET_SEARCH = 'RESET_SEARCH';
+
 
 const advancedSearchPageReducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -45,7 +47,7 @@ const advancedSearchPageReducer = (state = initialState, action = {}) => {
         loadingCategories: false,
       };
     case CHECKED_CATEGORIES: {
-      const newCategories = state.categoriesDatas.map((category) => {
+      const newCategories = state.checkedCategories.map((category) => {
         if (category.id == action.categoryId) {
           category.status = !category.status;
           return category;
@@ -55,6 +57,19 @@ const advancedSearchPageReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         checkedCategories: newCategories,
+      };
+    }
+    case RESET_SEARCH: {
+      const resetChecked = state.checkedCategories.map(category => {
+        if(category.status) {
+          category.status = false;
+          return category;
+        }
+        return category
+      })
+      return {
+        ...state,
+        checkedCategories: resetChecked,
       };
     }
     default:
@@ -89,6 +104,10 @@ export const requestByCategories = () => ({
 export const checkedCategories = categoryId => ({
   type: CHECKED_CATEGORIES,
   categoryId,
+});
+
+export const resetSearch = () => ({
+  type: RESET_SEARCH,
 });
 
 export default advancedSearchPageReducer;
