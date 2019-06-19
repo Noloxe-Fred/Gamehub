@@ -16,6 +16,8 @@ class List extends Component {
 
   render() {
     const { gamesDatas } = this.props;
+
+
     return (
       <Container fluid className="games--list">
         {gamesDatas.length === 0 && <p>Pas de résultats</p>}
