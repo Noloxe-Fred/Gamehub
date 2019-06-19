@@ -35,11 +35,13 @@ const CarouselAlice = ({ gameList }) => {
             </Link>
             <p>{game.name}<AddGame gameId={game.id} /></p>
           </div>
-          {game.score ? <div className="game-score"><Progress percent={game.score} size="tiny" indicating /></div> : <div className="game-score"><Progress percent='100' size="tiny" /></div>}
+          <div className="score--carousel">
+            {game.score ? <div className="game-score"><Progress percent={game.score} size="tiny" indicating /></div> : <div className="game-score"><Progress percent='100' size="tiny" /></div>}
+          </div>
         </div>
       ))
       }
-    </AliceCarousel>
+    </AliceCarousel> 
   
   );
 }; 

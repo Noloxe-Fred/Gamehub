@@ -65,20 +65,26 @@
   width: 65%;
   margin: 0 auto;
   .game-score {
-    position: relative;
     z-index: 4;
-    top: .7em;
     background: none!important;
     width: 90%;
     margin: auto;
   }
+  .slider--test {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1em !important;
+    .score-carousel {
+      padding-top: 1em !important;
+      position: absolute;
+      top: 0 !important;
+    }
+  }
+  
 }
-.slider--test {
-  width: 100%;
-  height: 100%;
-  // background-color: #2d3436;
-  margin: 0 !important;
-}
+
+
 
 img {
   width: 11em;
