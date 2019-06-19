@@ -33,11 +33,6 @@ class ApiScoreController extends FOSRestController
         $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
-        // if($scoreRepository->findOneByUser($user) != null && $scoreRepository->findOneByGame($game) != null){
-
-        //     return $this->view('403 Forbidden - Vous avez déjà voté pour ce jeu', Response::HTTP_FORBIDDEN);
-        // }
-
         $score = new Score();
         $score->setUser($user);
         $score->setGame($game);
@@ -61,18 +56,12 @@ class ApiScoreController extends FOSRestController
     /**
      * @Rest\Put(path = "score/edit", name = "score_edit")
      */
-    public function editScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, TokenStorageInterface $token)
+    public function editScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository)
     {
 
-        $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
         $score = $scoreRepository->findOneById($request->request->get('id'));
 
-        // if($score->getUser() != $user || $score->getGame() != $game){
-
-        //     return $this->view('403 Forbidden - Ce vote ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        // }
-        
         $form = $this->createForm(ScoreType::class, $score);
         $form->submit($request->request->all());
         $score->setUpdatedAt(new \DateTime());
@@ -92,16 +81,10 @@ class ApiScoreController extends FOSRestController
     /**
      * @Rest\Delete(path = "score/delete", name = "score_delete")
      */
-    public function deleteScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository, TokenStorageInterface $token)
+    public function deleteScoreAction(Request $request, EntityManagerInterface $em, ScoreRepository $scoreRepository, GameRepository $gameRepository)
     {
 
-        $user = $token->getToken()->getUser();
         $score = $scoreRepository->findOneById($request->request->get('id'));
-        
-        // if($score->getUser() != $user || $score->getGame() != $game){
-            
-            //     return $this->view('403 Forbidden - Ce vote ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-            // }
             
         $em->remove($score);
         $em->flush();

@@ -23,16 +23,11 @@ class ApiStateController extends FOSRestController
      * @Rest\Post(path = "game/state/add", name="state_add")
      * @ParamConverter("state", converter = "fos_rest.request_body")
      */
-    public function addStateGameListAction(State $state, StateRepository $stateRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, EntityManagerInterface $em)
+    public function addStateGameListAction(State $state, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, EntityManagerInterface $em)
     {   
         $user = $token->getToken()->getUser();
         $game = $gameRepository->findOneById($request->request->get('game', 'id'));
 
-        // if($stateRepository->findOneByUser($user) != null && $stateRepository->findOneByGame($game) != null){
-
-        //     return $this->view('403 Forbidden - Vous avez déjà ajouté ce jeu dans votre liste.', Response::HTTP_FORBIDDEN);
-        // }
-        
         $state = new State();
         $state->setGame($game);
         $state->setUser($user);
@@ -51,16 +46,10 @@ class ApiStateController extends FOSRestController
     /**
      * @Rest\Put(path = "game/state/edit", name="state_edit")
      */
-    public function editStateGameListAction(StateRepository $stateRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, EntityManagerInterface $em)
+    public function editStateGameListAction(StateRepository $stateRepository, Request $request, EntityManagerInterface $em)
     {   
-        $user = $token->getToken()->getUser();
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+
         $state = $stateRepository->findOneById($request->request->get('id'));
-
-        // if($state->getUser() != $user || $state->getGame() != $game){
-
-        //     return $this->view('403 Forbidden - Cette liste ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        // }
 
         $form = $this->createForm(StateType::class, $state);
         $form->submit($request->request->all());
@@ -75,16 +64,10 @@ class ApiStateController extends FOSRestController
     /**
      * @Rest\Delete(path = "game/state/delete", name="state_delete")
      */
-    public function deleteStateGameListAction(StateRepository $stateRepository, GameRepository $gameRepository, TokenStorageInterface $token, Request $request, EntityManagerInterface $em)
+    public function deleteStateGameListAction(StateRepository $stateRepository, Request $request, EntityManagerInterface $em)
     {   
-        $user = $token->getToken()->getUser();
-        $game = $gameRepository->findOneById($request->request->get('game', 'id'));
+
         $state = $stateRepository->findOneById($request->request->get('id'));
-
-        // if($state->getUser() != $user || $state->getGame() != $game){
-
-        //     return $this->view('403 Forbidden - Cette liste ne vous appartient pas.', Response::HTTP_FORBIDDEN);
-        // }
 
         $em->remove($state);
         $em->flush();

@@ -30,16 +30,15 @@ class ApiUserController extends FOSRestController
             return $this->view($violations, Response::HTTP_BAD_REQUEST);
         }
 
-        // if($userRepository->findOneByEmail($request->request->get('email'))){
-
-        //     return $this->view("Email déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
-
-        // } else if ($userRepository->findOneByPseudo($request->request->get('pseudo'))){
-
-        //     return $this->view("Pseudo déjà utilisé, veuillez en choisir un autre.", Response::HTTP_BAD_REQUEST);
-        // }
-
         $user = new User();
+
+        $password = $request->request->get('password');
+        $confirmpassword = $request->request->get('confirmpassword');
+
+        if($password != $confirmpassword){
+
+            return $this->view('Mot de passe différent', Response::HTTP_FORBIDDEN);
+        }
 
         $form = $this->createForm(UserType::class, $user);
         $form->submit($request->request->all());
