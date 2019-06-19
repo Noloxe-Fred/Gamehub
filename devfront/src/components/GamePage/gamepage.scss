@@ -2,7 +2,7 @@ $font-family-p: 'Reem Kufi', sans-serif;
 $font-family-title: 'Oswald', sans-serif;
 
 $color-text: white;
- 
+   
 
 #gamepage {
   height: 100vh;
@@ -108,6 +108,15 @@ $color-text: white;
   }
 }
 
+.row {
+  border-bottom: 1px solid white;
+}
+
+.row--comments {
+  // border-bottom: 1px solid white; remettre la bordure ici !!!!!!!!!!!!!!!!!!!!!!!!!
+  color: white;
+}
+
 .partie--commentaire {
   background-color: rgba($color: #2D3536, $alpha: .8);
   // border: 1px solid #fffdd8;
@@ -159,7 +168,14 @@ $color-text: white;
   justify-content: flex-start;
   align-items: center;
   text-align: left;
-  
+  .cell--title {
+    border-left: 1px solid white;
+    padding-left: 1.5em;
+  }
+  .cell--score {
+    border-left: 1px solid white;
+    padding-left: 1.5em;
+  }
 }
 
 .derniers--commentaires {
@@ -168,8 +184,9 @@ $color-text: white;
 }
 
 .cell--header {
+  background: white;
+  color: #2D3536;
   border-right: none;
-  border-bottom: 1px solid $color-text;
 }
 
 
@@ -178,24 +195,44 @@ $color-text: white;
     width: 2em;
     height: 2em;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid white;
     margin-right: 1em;
 }
 
-.row--comments:hover {
-  background: $color-text;
-  color: #34495e;
-  cursor: pointer;
-  img {
-    border: white;
-  }
-}
+// .row--comments:hover {
+//   background: $color-text;
+//   color: #34495e;
+//   cursor: pointer;
+//   img {
+//     border: white;
+//   }
+// }
 
 .profil {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
+
+.row--comments--content {
+  border-bottom: 1px solid white;
+  padding: .5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Style tableau All Comments
@@ -207,6 +244,23 @@ $color-text: white;
   background-color: #fffdd8;
   color: #34495e;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Media Queries

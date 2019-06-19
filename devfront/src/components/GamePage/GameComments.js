@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
-
+ 
 import './gamepage.scss'; 
 
 const GameComments = ({ datas, loadingGame }) => (
@@ -21,7 +21,7 @@ const GameComments = ({ datas, loadingGame }) => (
       {/* <Col lg={1} sm={1} xs={1} className="cell cell--header"></Col> */}
 
       <Col lg={12} sm={3} xs={3} className="cell cell--header d-flex justify-content-center">
-       <div className="profil">
+       <div className="profil--comments">
          <h6>{datas.comments.length >1 ? 'Les derniers commentaires publiés' : 'Pas encore de commentaires sur ce jeu'}</h6>
        </div>
       </Col>
@@ -61,14 +61,14 @@ const GameComments = ({ datas, loadingGame }) => (
             </Col>
 
             <Col lg={8} sm={8} xs={12} className="cell">
-            <div>
+            <div className="cell--title">
               <h6>{comment.title}</h6>
 
             </div>
             </Col>
 
-            <Col lg={2} sm={2} xs={12} className="cell cell--score">
-            <div>
+            <Col lg={2} sm={2} xs={12} className="cell">
+            <div className="cell--score">
               <h6>{comment.score ? comment.score : 'Pas de note'}</h6>
             </div>
             </Col>
