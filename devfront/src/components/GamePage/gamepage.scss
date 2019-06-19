@@ -5,7 +5,7 @@ $color-text: white;
    
 
 #gamepage {
-  height: 100vh;
+  height: 100%;
   .fa-plus-circle {
     margin-bottom: 1em;
     text-align: center;
@@ -17,10 +17,10 @@ $color-text: white;
 }
 
 .first {
-  height: 100vh;
+  height: 100%;
 }
 .second {
-  height: 100vh;
+  // height: 100vh;
 }
 .container {
   margin-top: 1em;
