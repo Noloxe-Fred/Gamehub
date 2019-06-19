@@ -70,9 +70,11 @@ class Search extends React.Component {
                     </div>
                   </Grid.Column>
                 </Grid.Row>
-              <Button onClick={resetSearch}>Reset</Button>
+                <div className="container--button">
+                  <Button onClick={resetSearch} className="reset--button">Reset</Button>
+                </div>
             </React.Fragment>
-          )
+          ) 
         }
       </Grid.Row>
     </Grid>

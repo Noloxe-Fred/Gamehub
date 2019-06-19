@@ -39,12 +39,6 @@ const GameComments = ({ datas, loadingGame }) => (
 
             </div>
             </Col>
-
-            <Col lg={2} sm={2} xs={12} className="cell">
-            <div className="cell--score">
-              <h6>{comment.score ? comment.score : 'Pas de note'}</h6>
-            </div>
-            </Col>
           </Row>
 
           <Row className="row--comments--content">

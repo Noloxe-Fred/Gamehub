@@ -5,7 +5,7 @@ $color-text: white;
    
 
 #gamepage {
-  height: 100%;
+  height: 120vh;
   .fa-plus-circle {
     margin-bottom: 1em;
     text-align: center;
@@ -17,10 +17,10 @@ $color-text: white;
 }
 
 .first {
-  height: 100%;
+  height: 120vh;
 }
 .second {
-  // height: 100vh;
+  // height: 100%;
 }
 .container {
   margin-top: 1em;
@@ -137,12 +137,12 @@ $color-text: white;
   margin-top: 30px;
 }
 
-.secondpart {
-  height: 100vh;
-  padding-top: 5em;
-  background-color: #2D3536;
-  // margin-top: 5em;
-}
+// .secondpart {
+//   height: 100vh;
+//   padding-top: 5em;
+//   background-color: #2D3536;
+//   // margin-top: 5em;
+// }
 
 .comments--container {
   margin-top: 1em;
@@ -260,13 +260,13 @@ $color-text: white;
 
 // Style tableau All Comments
 
-.tableau {
-  padding: 1em;
-  height: 30em;
-  overflow: auto;
-  background-color: #fffdd8;
-  color: #34495e;
-}
+// .tableau {
+//   padding: 1em;
+//   height: 30em;
+//   overflow: auto;
+//   background-color: #fffdd8;
+//   color: #34495e;
+// }
 
 
 

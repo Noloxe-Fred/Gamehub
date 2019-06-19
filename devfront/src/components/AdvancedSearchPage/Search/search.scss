@@ -77,7 +77,7 @@
   //   }
   // }
 }
- 
+  
 .column--right--style {
   display: flex;
   flex-flow: wrap;
@@ -112,3 +112,19 @@
   // margin: 2em 5em;
 }
 
+.container--button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .reset--button {
+    margin-top: 1em !important;
+    background: none !important;
+    border: 1px solid red !important;
+    color: red !important;
+    &:hover {
+      color: #2D3536 !important;
+      border-color: red !important;
+      background: red !important;
+    }
+  }
+}
