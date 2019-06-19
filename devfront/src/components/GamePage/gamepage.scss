@@ -162,7 +162,7 @@ $color-text: white;
 
 .cell {
   // border-right: 1px solid black;
-  height: 3em;
+  // height: 3em;
   font-family: 'Reem Kufi', sans-serif;
   display: flex;
   justify-content: flex-start;
@@ -186,6 +186,7 @@ $color-text: white;
 .cell--header {
   color: white;
   border: none !important;
+  height: 3em;
 }
 
 
@@ -232,6 +233,9 @@ $color-text: white;
   // border-bottom: 1px solid white;
   border-top: 1px solid white;
   padding: .5em;
+  h6 {
+    text-align: justify;
+  }
 }
 
 

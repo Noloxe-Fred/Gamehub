@@ -15,10 +15,13 @@ import {
   loadSearch,
 } from 'src/store/reducers/navbarreducer';
 
+import { requestProfile } from 'src/store/reducers/userPagesReducer';
+
 const navbarMiddleware = store => next => (action) => {
   switch (action.type) {
     case CONNECT_SAVED_USER:
       store.dispatch(receivedConnect());
+      store.dispatch(requestProfile());
       break;
 
     case CONNECT:
@@ -45,6 +48,7 @@ const navbarMiddleware = store => next => (action) => {
           localStorage.setItem('user', response.data.token);
           localStorage.setItem('resfresh', response.data.refresh_token);
 
+          store.dispatch(requestProfile());
           store.dispatch(receivedConnect());
         })
         .catch((error) => {

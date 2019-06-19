@@ -25,6 +25,7 @@ class App extends Component {
   componentDidMount() {
     console.log('Actualisation!!!')
     this.props.requestCategories();
+    
     const rememberUser = localStorage.getItem('remember');
     const { connect, connectSavedUser } = this.props;
 
