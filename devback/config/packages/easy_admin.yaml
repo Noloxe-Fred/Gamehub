@@ -39,6 +39,7 @@ easy_admin:
                     - { name: 'search', label: 'Rechercher un jeu' }
                 fields: 
                     - 'id'
+                    - { property: 'cover', label: 'Jaquette', type: 'image', base_path: 'http' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'description' }
                     - { property: 'score', label: 'Note' }
@@ -284,6 +285,7 @@ easy_admin:
                     - { name: 'search', label: 'Rechercher un utilisateur' }
                 fields: 
                     - 'id'
+                    - { property: 'photo', type: 'image', base_path: 'http' }
                     - { property: 'isActive', label: 'Actif/Inactif' }
                     - { property: 'email' }
                     - { property: 'pseudo', label: 'Pseudo' }
@@ -299,6 +301,7 @@ easy_admin:
                 fields:
                     - { property: 'email' }
                     - { property: 'pseudo', label: 'Pseudo' }
+                    - { property: 'photo' }
                     - { property: 'password', label: 'Mot de passe', type: 'password' }
                     - { property: 'roles', label: 'Rôles', type: 'collection' }
                     - { property: 'firstname', label: 'Prénom' }
@@ -312,6 +315,8 @@ easy_admin:
                 fields:
                     - { property: 'email' }
                     - { property: 'pseudo', label: 'Pseudo' }
+                    - { property: 'photo' }
+                    - { property: 'password', label: 'Mot de passe', type: 'password' }
                     - { property: 'roles', label: 'Rôles', type: 'collection' }
                     - { property: 'firstname', label: 'Prénom' }
                     - { property: 'lastname', label: 'Nom' }

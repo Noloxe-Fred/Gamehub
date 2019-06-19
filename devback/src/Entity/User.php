@@ -61,7 +61,7 @@ class User implements AdvancedUserInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"profil_read"})
+     * @Groups({"profil_read" , "comment_read"})
      */
     private $photo;
 
