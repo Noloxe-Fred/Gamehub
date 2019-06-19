@@ -4,6 +4,8 @@ import Navbar from 'src/components/Navbar/';
 import {
   disconnectUser,
   cancelRedirect,
+  openModalConnect,
+  openModSub,
 } from 'src/store/reducers/navbarreducer';
 
 import {
@@ -14,6 +16,8 @@ const mapStateToProps = state => ({
   connect: state.navbarreducer.connect,
   displayInput: state.homeReducer.displayInput,
   displayedProfile: state.userPagesReducer.displayedProfile,
+  userProfile: state.userPagesReducer.userProfile,
+  loadProfile: state.userPagesReducer.userProfile,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -22,6 +26,12 @@ const mapDispatchToProps = dispatch => ({
   },
   displayProfile: () => {
     dispatch(displayProfile());
+  },
+  openModalConnect: () => {
+    dispatch(openModalConnect());
+  },
+  openModSub: () => {
+    dispatch(openModSub());
   },
 });
 

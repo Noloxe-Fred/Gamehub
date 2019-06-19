@@ -74,7 +74,7 @@ class ListSmall extends Component {
 
     return (
       <div className="collection">
-        <h2>{title}:</h2>
+        <h2>{title}</h2>
         <Button onClick={this.fullList(name)}>Voir la liste complète <span>({list.length})</span></Button>
         {load && <p>Loading</p>}
         {!load && (

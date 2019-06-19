@@ -41,7 +41,7 @@ class Search extends React.Component {
                   }
                 </div>
               </Grid.Column>  
-              
+               
                 <Grid.Row className="row--players">
                   <Grid.Column mobile={16} tablet={16} computer={16}>
                   <div className="column--central--style">
@@ -49,7 +49,7 @@ class Search extends React.Component {
                       players.map((player) => {
                       return (
                         <div key={player.id} className="one--central--button">
-                          <Button color={player.status ? null : '#FCC502'} active={player.status} onClick={this.handleClick(player.id)} className="btn">{player.name}</Button>
+                          <Button color={player.status ? 'yellow' : ''} inverted basic active={player.status} onClick={this.handleClick(player.id)} className="btn">{player.name}</Button>
                         </div>
                       )})
                     }
@@ -63,7 +63,7 @@ class Search extends React.Component {
                         tags.map((tag) => {
                         return (
                           <div key={tag.id} className="one--right--button">
-                            <Button active={tag.status} onClick={this.handleClick(tag.id)} className="btn">{tag.name}</Button>
+                            <Button color={tag.status ? 'yellow' : ''} inverted basic active={tag.status} onClick={this.handleClick(tag.id)} className="btn">{tag.name}</Button>
                           </div>
                         )})
                       }

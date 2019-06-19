@@ -20,7 +20,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const { connect, disconnectUser, displayInput, displayProfile } = this.props;
+    const { connect, disconnectUser, displayInput, displayProfile, userProfile, loadProfile, openModSub, openModalConnect } = this.props;
     return (
       <nav>
         <div className="logo--alone">
@@ -41,22 +41,22 @@ class Navbar extends Component {
               <div className="nav-connect">
                 <NavLink to="/collection" className="mycollection">Mon Hub</NavLink>
                 <div className="avatar--home" onClick={displayProfile}>
-                  <img src="https://vice-images.vice.com/images/content-images/2016/07/26/ce-que-votre-photo-de-profil-facebook-dit-de-vous-body-image-1469553008.jpg?output-quality=75" alt="user-avatar" />
+                  {loadProfile ? <img src="https://www.loginradius.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" alt="user-avatar" /> : <img src={userProfile.photo} alt="user-avatar" />}
                 </div>
                 <button className="connectButton" onClick={disconnectUser}><Icon name="sign-out" size="large" /></button>
               </div>
             )
             : <Disconnect />}
         </div>
-        <div className="drop">
+        <p className="drop">
           <Dropdown icon="bars" labeled className="icon" direction="left">
             <Dropdown.Menu>
               <Dropdown.Item className="item--drop"><NavLink to="/advancedsearch">Recherche avancée</NavLink></Dropdown.Item>
-              <Dropdown.Item className="item--drop"><NavLink to="/advancedsearch">Se connecter</NavLink></Dropdown.Item>
-              <Dropdown.Item className="item--drop"><NavLink to="/advancedsearch">S'inscrire</NavLink></Dropdown.Item>
+              <Dropdown.Item className="item--drop"><p onClick={openModalConnect}>Se connecter</p></Dropdown.Item>
+              <Dropdown.Item className="item--drop"><p onClick={openModSub}>S'inscrire</p></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-        </div>
+        </p>
       </nav>
     );
   }

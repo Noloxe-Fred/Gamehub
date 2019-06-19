@@ -28,22 +28,6 @@ class TabList extends React.Component {
      } = this.props;
  
     const panes = [
-      { menuItem: 'Les Tops et Flops du mois', render: () => (
-      <Tab.Pane>
-        <div className="tabContent">
-          <div className="partOfOneTab">
-            <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
-            {loadbestmonth && <Loader active inline='centered' /> }
-            {!loadbestmonth && bestmonth.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
-          </div>
-          <div className="partOfOneTab">
-            <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
-            {loadworstmonth && <Loader active inline='centered' /> }
-            {!loadworstmonth && worstmonth.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
-          </div>
-        </div>
-      </Tab.Pane> 
-      )},
       { menuItem: 'Les Tops et Flops de l\'année',
       render: () => (
         <Tab.Pane>
@@ -63,6 +47,22 @@ class TabList extends React.Component {
           </div>
         </Tab.Pane>
         ) },
+        { menuItem: 'Les Tops et Flops du mois', render: () => (
+          <Tab.Pane>
+            <div className="tabContent">
+              <div className="partOfOneTab">
+                <div className="icone good"><i className="fas fa-thumbs-up"></i></div>
+                {loadbestmonth && <Loader active inline='centered' /> }
+                {!loadbestmonth && bestmonth.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
+              </div>
+              <div className="partOfOneTab">
+                <div className="icone bad"><i className="fas fa-thumbs-down"></i></div>
+                {loadworstmonth && <Loader active inline='centered' /> }
+                {!loadworstmonth && worstmonth.map(game => <div id={game.id}><Link to={"/game/"+game.id}>{game.name}</Link></div>)}
+              </div>
+            </div>
+          </Tab.Pane> 
+          )},
       { menuItem: 'Les Tops et Flops ever!', render: () => (
       <Tab.Pane>
         <div className="tabContent">

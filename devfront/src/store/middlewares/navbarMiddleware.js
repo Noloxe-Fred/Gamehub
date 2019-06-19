@@ -44,7 +44,7 @@ const navbarMiddleware = store => next => (action) => {
           const remember = store.getState().navbarreducer.checkRemember;
           console.log('Check Remember',store.getState().navbarreducer, remember)
           localStorage.setItem('connect', true);
-          localStorage.setItem('remember', remember); // if case cochée!
+          localStorage.setItem('remember', true); // if case cochée!
           localStorage.setItem('user', response.data.token);
           localStorage.setItem('resfresh', response.data.refresh_token);
 

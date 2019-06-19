@@ -13,7 +13,7 @@ const GameComments = ({ datas, loadingGame }) => (
     <Row className="row--comments row--header">
       <Col lg={12} sm={3} xs={3} className="cell cell--header d-flex justify-content-center">
        <div className="profil--comments">
-         <h5>{datas.comments.length >1 ? 'LES DERNIERS COMMENTAIRES' : 'PAS ENCORE DE COMMENTAIRE SUR CE JEU'}</h5>
+         <h5>{datas.comments.length >= 1 ? 'LES DERNIERS COMMENTAIRES DE LA COMMUNAUTE' : 'PAS ENCORE DE COMMENTAIRE SUR CE JEU'}</h5>
        </div>
       </Col>
     </Row>
@@ -27,7 +27,7 @@ const GameComments = ({ datas, loadingGame }) => (
             <Col lg={2} sm={2} xs={12} className="cell">
             <div className="profil">
               <div className="avatar--comments">
-                <img src="https://vice-images.vice.com/images/content-images/2016/07/26/ce-que-votre-photo-de-profil-facebook-dit-de-vous-body-image-1469553008.jpg?output-quality=75" alt=""/>
+                <img src={comment.user.photo} alt=""/>
               </div>
               <h6>{comment.user.pseudo}</h6>
             </div>

@@ -12,11 +12,14 @@
 .fa-gamepad {
   color: green;
 }
-
+ 
 .fa-plus-circle {
   color: #FFFDD8;
 }
 .plus {
+  p {
+    font-size: 2em;
+  }
   .loader--maincard {
     position: relative!important;
   }
@@ -41,9 +44,11 @@
 .connect--popup {
   color: white !important;
   font-family: 'Reem Kufi', sans-serif;
+  font-size: 1.2em;
 }
 
 .add--button--wait {
+  font-size: 1.2em;
   font-family: 'Reem Kufi', sans-serif;
   width: 8em;
   background: none !important;
@@ -58,6 +63,7 @@
   }
 }
 .add--button--have {
+  font-size: 1.2em;
   font-family: 'Reem Kufi', sans-serif;
   width: 7em;
   background: none !important;
@@ -72,6 +78,7 @@
   }
 }
 .add--button--want {
+  font-size: 1.2em;
   font-family: 'Reem Kufi', sans-serif;
   width: 7em;
   background: none !important;
