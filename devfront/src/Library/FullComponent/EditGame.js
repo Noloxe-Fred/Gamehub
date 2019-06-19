@@ -61,7 +61,7 @@ class EditGame extends Component {
       loadSubmit,
       receivedSubmit,
     } = this.props;
-
+ 
     return (
       <Modal trigger={<div className="edit--button"><i className="far fa-edit "></i></div>} onOpen={this.handleRequestDatas} onUnmount={this.handleReset} className="caca">
         <div className="all--parts">
@@ -141,8 +141,11 @@ class EditGame extends Component {
                     {!loadSubmit.comment ? <Button type="submit" className="button--save--comment">Enregistrer le commentaire  {receivedSubmit.comment && <Icon name="check" />}</Button> : <Button loading>Loading</Button>}
                     </div>
                   </Form>
-                  {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)} className="button--delete--comment">Supprimer le commentaire</Button> : <Button loading>Loading</Button>}
-                  {receivedSubmit.deletedComment && <p>Votre commentaire à bien été supprimé du site</p>}
+                  <div className="button--delete--center">
+                    {!loadSubmit.deletedComment ? <Button onClick={this.handleDelete('comment', commentId)} className="button--delete--comment">Supprimer le commentaire</Button> : <Button loading>Loading</Button>}
+                    {receivedSubmit.deletedComment && <p>Votre commentaire à bien été supprimé du site</p>} 
+                  </div>
+                  
                 </Segment>
               </div>
             </div>

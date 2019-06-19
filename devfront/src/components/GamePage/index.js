@@ -33,13 +33,13 @@ class GamePage extends Component {
     };
 
     return (
-      <div id="gamepage" style={backgroundStyle}>
+      <div id="gamepage" >
         {error && <Link to="/">Erreur de chargement des données. Cliquez ici pour retourner à l'accueil</Link>}
         {!error && (
           <div>
-            {(loadingGame) && <div>Chargement</div>}
-            {(!loadingGame) && (
-              <div>
+            {loadingGame && <div>Chargement</div>}
+            {!loadingGame && (
+              <div style={backgroundStyle}>
                 <div className="first">
                   <GameHeader />
                   <GameComments />
