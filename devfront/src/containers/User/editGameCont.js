@@ -3,6 +3,8 @@ import EditGame from 'src/Library/FullComponent/EditGame';
 
 import { reqUserGameDatas, setInput, deleteDatas, onSubmitScore, onSubmitComment, reset, closeModal, openModal } from 'src/store/reducers/editGameReducer';
 
+import { request } from 'src/store/reducers/userPagesReducer';
+
 const mapStateToProps = state => ({
   actualScore: state.editGameRed.score,
   commentTitle: state.editGameRed.title,
@@ -39,6 +41,9 @@ const mapDispatchToProps = dispatch => ({
   },
   openModalAction: () => {
     dispatch(openModal());
+  },
+  request: () => {
+    dispatch(request('have'));
   },
 });
 

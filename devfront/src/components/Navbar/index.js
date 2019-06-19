@@ -16,7 +16,9 @@ import SearchBar from 'src/containers/SearchBarContainer';
 import './navbar.scss';
 
 class Navbar extends Component {
+
   componentDidMount() {
+
   }
 
   render() {
@@ -43,7 +45,7 @@ class Navbar extends Component {
                 <div className="avatar--home" onClick={displayProfile}>
                   {loadProfile ? <img src="https://www.loginradius.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" alt="user-avatar" /> : <img src={userProfile.photo} alt="user-avatar" />}
                 </div>
-                <button className="connectButton" onClick={disconnectUser}><Icon name="sign-out" size="large" /></button>
+                <NavLink to="/"><button className="connectButton" onClick={disconnectUser}><Icon name="sign-out" size="large" /></button></NavLink>
               </div>
             )
             : <Disconnect />}

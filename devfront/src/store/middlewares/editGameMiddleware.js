@@ -14,6 +14,7 @@ import {
  reqUserGameDatas,
 } from 'src/store/reducers/editGameReducer';
 
+
 const editGameMiddleware = store => next => (action) => {
 
   const user = localStorage.getItem('user');
@@ -89,6 +90,7 @@ const editGameMiddleware = store => next => (action) => {
         })
           .then((response) => {
             console.log(response.data);
+
             store.dispatch(receivedSubmit('score', true));
           })
           .catch((error) => {
@@ -130,6 +132,7 @@ const editGameMiddleware = store => next => (action) => {
         })
           .then((response) => {
             console.log(response.data);
+
             store.dispatch(receivedSubmit('comment', true));
           })
           .catch((error) => {

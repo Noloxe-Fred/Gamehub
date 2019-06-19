@@ -47,6 +47,7 @@ class EditGame extends Component {
   }
 
   handleReset = () => {
+    this.props.request();
     setTimeout(this.props.reset, 1000);
   }
 

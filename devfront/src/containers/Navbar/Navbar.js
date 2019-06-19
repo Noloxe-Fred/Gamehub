@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
   displayInput: state.homeReducer.displayInput,
   displayedProfile: state.userPagesReducer.displayedProfile,
   userProfile: state.userPagesReducer.userProfile,
-  loadProfile: state.userPagesReducer.userProfile,
+  loadProfile: state.userPagesReducer.loadProfile,
 });
 
 const mapDispatchToProps = dispatch => ({
