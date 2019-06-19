@@ -2,6 +2,7 @@ import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
+import { Progress } from 'semantic-ui-react';
 
 import './carouselAlice.scss';
 
@@ -27,11 +28,14 @@ const CarouselAlice = ({ gameList }) => {
       responsive={responsive}
     >
       {gameList.map(game => (
-        <div key={game.id} className="slider--test">
-          <Link to={`/game/${game.id}`}>
-            <img src={game.cover} onDragStart={handleOnDragStart} alt="jaquette" id="test--image"/>
-          </Link>
-          <p>{game.name}<AddGame gameId={game.id} /></p>
+        <div>
+          <div key={game.id} className="slider--test">
+            <Link to={`/game/${game.id}`}>
+              <img src={game.cover} onDragStart={handleOnDragStart} alt="jaquette" id="test--image"/>
+            </Link>
+            <p>{game.name}<AddGame gameId={game.id} /></p>
+          </div>
+          {game.score ? <div className="game-score"><Progress percent={game.score} size="tiny" indicating /></div> : <div className="game-score"><Progress percent='100' size="tiny" /></div>}
         </div>
       ))
       }

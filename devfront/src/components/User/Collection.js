@@ -71,7 +71,7 @@ class ListSmall extends Component {
     const { list, load, title } = this.props.listDatas;
     const {name, reqUserGameData, changeList, request } = this.props;
     const shortList = list.slice(0, 12);
-    const percent = 80;
+
     return (
       <div className="collection">
         <h2>{title}:</h2>
@@ -91,7 +91,7 @@ class ListSmall extends Component {
                   </div>
                 {/* </Link> */}
                 <div className="game-score-part">
-                  <div className="game-score"><Progress percent={percent} size="tiny" indicating /></div>
+                  {game.game.score ? <div className="game-score"><Progress percent={game.game.score} size="tiny" indicating /></div> : <div className="game-score"><Progress percent='100' size="tiny" /></div>}
                 </div>
               </div>
             )})}

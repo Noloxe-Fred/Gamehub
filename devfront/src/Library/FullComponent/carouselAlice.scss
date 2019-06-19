@@ -64,6 +64,14 @@
 .alice-carousel {
   width: 65%;
   margin: 0 auto;
+  .game-score {
+    position: relative;
+    z-index: 4;
+    top: .7em;
+    background: none!important;
+    width: 90%;
+    margin: auto;
+  }
 }
 .slider--test {
   width: 100%;

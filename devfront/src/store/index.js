@@ -21,13 +21,13 @@ const appliedMiddlewares = applyMiddleware(
 
 
 /* eslint-disable no-underscore-dangle */
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+// const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const enhancers = compose(appliedMiddlewares, devTools);
+// const enhancers = compose(appliedMiddlewares, devTools);
 
 const store = createStore(
   reducer,
-  enhancers,
+  appliedMiddlewares,
 );
 
 export default store;
