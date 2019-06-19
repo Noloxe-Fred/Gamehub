@@ -120,7 +120,7 @@ class ApiCommentController extends FOSRestController
         $lastComments = $serializer->serialize($comments, 'json', [
             'groups' => 'comment_read',
         ]);
-
+    
        return JsonResponse::fromJsonString($lastComments);
     }
 

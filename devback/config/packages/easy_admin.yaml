@@ -12,7 +12,7 @@ easy_admin:
                 path: '/images/favicon.ico'
         menu:
             - label: 'Menu'
-            - { label: 'Retour sur GameHub', icon: 'fas fa-home', url: 'http://gamehub.com/' }
+            - { label: 'Retour sur GameHub', icon: 'fas fa-home', url: 'http://92.243.9.237/' }
             - label: 'Gestion des données'
             - { entity: Game, icon: 'fas fa-gamepad'}
             - { entity: Type, icon: 'fas fa-tenge' }
@@ -39,7 +39,6 @@ easy_admin:
                     - { name: 'search', label: 'Rechercher un jeu' }
                 fields: 
                     - 'id'
-                    - { property: 'cover', label: 'Jaquette', type: 'image', base_path: 'http' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'description' }
                     - { property: 'score', label: 'Note' }
@@ -57,7 +56,7 @@ easy_admin:
                     - { property: 'illustration', label: 'Couverture' }
                     - { property: 'pegi', label: 'PEGI' }
                     - { property: 'website', label: 'Site web' }
-                    - { property: 'releasedAt', label: 'Date de sortie' }
+                    - { property: 'releasedAt', label: 'Date de sortie', type_options: { widget: 'single_text' } }
                     - { property: 'categories', label: 'Catégories' }
                     - { property: 'developers', label: 'Développeurs' }
                     - { property: 'editors', label: 'Éditeurs' }
@@ -74,7 +73,7 @@ easy_admin:
                     - { property: 'illustration', label: 'Couverture' }
                     - { property: 'pegi', label: 'PEGI' }
                     - { property: 'website', label: 'Site web' }
-                    - { property: 'releasedAt', label: 'Date de sortie' }
+                    - { property: 'releasedAt', label: 'Date de sortie', type_options: { widget: 'single_text' }  }
                     - { property: 'categories', label: 'Catégories' }
                     - { property: 'developers', label: 'Développeurs' }
                     - { property: 'editors', label: 'Éditeurs' }
@@ -267,7 +266,6 @@ easy_admin:
                     - { property: 'isActive', label: 'Actif/Inactif' }
                     - { property: 'title', label: 'Titre' }
                     - { property: 'user', label: 'Utilisateur' }
-                    - { property: 'game', label: 'Jeu' }
                     - { property: 'createdAt', label: 'Ajouté le' }
                     - { property: 'updatedAt', label: 'Mis à jour le' }
 
@@ -287,7 +285,6 @@ easy_admin:
                 fields: 
                     - 'id'
                     - { property: 'isActive', label: 'Actif/Inactif' }
-                    - { property: 'photo', type: 'image', base_path: 'http' }
                     - { property: 'email' }
                     - { property: 'pseudo', label: 'Pseudo' }
                     - { property: 'roles', label: 'Rôles' }
