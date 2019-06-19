@@ -28,7 +28,7 @@ class App extends Component {
     const rememberUser = localStorage.getItem('remember');
     const { connect, connectSavedUser } = this.props;
 
-    if (!connect && rememberUser === 'false') {
+    if (!connect && rememberUser !== 'true') {
       localStorage.clear();
     }
     if (!connect && rememberUser === 'true') {

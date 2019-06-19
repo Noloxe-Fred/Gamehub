@@ -11,13 +11,11 @@ const gamePageMiddleware = store => next => (action) => {
       store.dispatch(loadGame());
       // requete axios en attente!
       const id = action.gameId;
-      const user = localStorage.getItem('user');
 
       const instance = axios.create({
         baseURL: 'http://api.gamehub.com/api/',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer '+user
         },
       });
 

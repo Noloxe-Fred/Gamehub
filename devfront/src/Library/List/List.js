@@ -25,7 +25,7 @@ class List extends Component {
           
           return (
             <Col lg={2} md={5} sm={12} xs={12} className="one--game">
-              <Link to={"/game/"+game.id}> 
+              <Link to={"/game/"+game.id}>
                 <img src={game.cover} alt={game.name} />
               </Link>
               <p>{game.name}<AddGame gameId={game.id} className="add--game--button" /></p>
