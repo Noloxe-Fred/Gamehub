@@ -26,7 +26,6 @@ class Footer extends Component {
                     <li> <NavLink to="/"> Accueil </NavLink>  </li>
                     <li><NavLink to="/collection">Ma collection</NavLink></li>
                     <li><NavLink to="/advancedsearch">Recherche avancée </NavLink> </li>
-                    <li>Admin</li>
                   </ul>
                 </div>
             </Grid.Column>
