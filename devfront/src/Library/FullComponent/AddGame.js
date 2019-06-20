@@ -33,7 +33,7 @@ class AddGame extends Component {
     //   opacity: 1,
     //   textAlign: 'left',
     // };
-
+ 
     return (
       <div className="plus">
           <Popup className="popup--add" trigger={<i className="fas fa-plus-circle" />} flowing hoverable basic onOpen={this.handleVerify(gameId)} >
@@ -41,13 +41,13 @@ class AddGame extends Component {
             {(connect && loadVerify) && <Loader active size="tiny" />}
             {(connect && !loadVerify) && (
               <div>
-                {alreadyHave && <p className="already--in">Ce jeu est déjà dans votre espace personnel</p>}
+                {alreadyHave && <p className="already--in">Ce jeu est déjà dans votre Hub</p>}
                 {!alreadyHave && (
                   <div>
                     {/* <Header>{receivedSubmit && <div className="confirm-message">Le jeu à bien été ajouté</div>}</Header> */}
                     <div>
                       {loadSubmit && <Loader active inline='centered' size="tiny" />}
-                      {receivedSubmit && <p className="add--to--list--ok">Le jeu a bien été ajouté à votre espace personnel</p>}
+                      {receivedSubmit && <p className="add--to--list--ok">Le jeu a bien été ajouté à votre Hub</p>}
                       {addGameError && <p>Erreur lors de l'ajout du jeu</p>}
                       {(!loadVerify && !loadSubmit && !receivedSubmit && !addGameError) && (
                         <div>

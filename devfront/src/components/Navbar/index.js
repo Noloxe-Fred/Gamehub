@@ -51,13 +51,25 @@ class Navbar extends Component {
             : <Disconnect />}
         </div>
         <p className="drop">
+        {connect
+          ? (
           <Dropdown icon="bars" labeled className="icon" direction="left">
             <Dropdown.Menu>
               <Dropdown.Item className="item--drop"><NavLink to="/advancedsearch">Recherche avancée</NavLink></Dropdown.Item>
-              <Dropdown.Item className="item--drop"><p onClick={openModalConnect}>Se connecter</p></Dropdown.Item>
-              <Dropdown.Item className="item--drop"><p onClick={openModSub}>S'inscrire</p></Dropdown.Item>
+                  <Dropdown.Item className="item--drop"><NavLink to="/collection">Mon Hub</NavLink></Dropdown.Item>
+                  <Dropdown.Item className="item--drop"><NavLink to="/" onClick={disconnectUser}>Déconnexion</NavLink></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          )
+          : (
+            <Dropdown icon="bars" labeled className="icon" direction="left">
+            <Dropdown.Menu>
+              <Dropdown.Item className="item--drop"><NavLink to="/advancedsearch">Recherche avancée</NavLink></Dropdown.Item>
+                  <Dropdown.Item className="item--drop"><p onClick={openModalConnect}>Se connecter</p></Dropdown.Item>
+                  <Dropdown.Item className="item--drop"><p onClick={openModSub}>S'inscrire</p></Dropdown.Item>         
+            </Dropdown.Menu>
+          </Dropdown>
+          )}
         </p>
       </nav>
     );

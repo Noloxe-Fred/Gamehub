@@ -100,4 +100,16 @@
   }
 }
 
+@media screen and (max-width: 1500px) {
+  h2 {
+    font-size: 3em !important;
+    width: 100%;
+    top: 50%;
+    right: 0 !important;
+    hr {
+      display: none;
+    }
+  }
+}
+
 
