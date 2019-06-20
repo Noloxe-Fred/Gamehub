@@ -12,7 +12,7 @@ class AdvancedSearchPage extends React.Component {
   componentDidMount() {
     this.props.requestByCategories();
   }
-
+ 
   render() {
     const { loading, gamesDatas } = this.props;
     return (

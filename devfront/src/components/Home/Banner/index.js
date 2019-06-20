@@ -10,8 +10,10 @@ const Banner = () => {
     <div>
       <div className="banniere" />
       <h2><hr/><i className="fas fa-dot-circle"></i>G <i className="fas fa-headset logo" /> M E H U B<i className="fas fa-dot-circle"></i><hr/></h2>
+      <div className="type--text">
+         <ReactRotatingText items={['Gérez votre collection', 'Suivez vos envies', 'Donnez votre avis']} eraseMode='erase' cursor={true} className="typing" />
+      </div>
       <SearchBarBanner className="searchBar" />
-      {/* <ReactRotatingText items={['BIENVENUE SUR GAMEHUB']} eraseMode='erase' cursor={true} className="typing" /> */}
     </div>
   );
 };
