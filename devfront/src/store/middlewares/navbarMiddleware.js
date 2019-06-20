@@ -74,7 +74,7 @@ const navbarMiddleware = store => next => (action) => {
         confirmpassword: subconfirmpassword,
       })
         .then((response) => {
-          console.log('Reponse Subscribe', response.data);
+          console.log('Reponse Subscribe Ok', response.data);
           const { email } = response.data;
           if (response.data) {
             store.dispatch(receivedSubscribe('subscribeOk', email));
@@ -84,7 +84,23 @@ const navbarMiddleware = store => next => (action) => {
           }
         })
         .catch((error) => {
-          console.log(error);
+          console.log('Reponse subscribe error', error.response);
+          if (error.response.data.detail === "password: Mot de passe non valide.") {
+            store.dispatch(receivedSubscribe('subscribePassWordNotConforme', ''))
+          }
+          else if (error.response.data.detail === "email: L'email n'est pas valide.") {
+            store.dispatch(receivedSubscribe('subscribeEmailInvalid', ''));
+          }
+          else if (error.response.data === "L'email est déjà prit.") {
+            store.dispatch(receivedSubscribe('subscribeEmailExist', ''));
+          }
+          else if (error.response.data === "Mot de passe différent.") {
+            store.dispatch(receivedSubscribe('subscribePassNotPareil', ''));
+          }
+          else if (error.response.data === "Le pseudo est déjà prit.") {
+            store.dispatch(receivedSubscribe("subscribePseudoExist", ''));
+          }
+          else { store.dispatch(receivedSubscribe('subscribeError', '')) }
         });
 
       // if subscribe not ok = erreur
@@ -96,8 +112,6 @@ const navbarMiddleware = store => next => (action) => {
       // il password not conforme:
       // store.dispatch(receivedSubscribe('subscribePassWordNotConforme'));
 
-      // il password not match:
-      // store.dispatch(receivedSubscribe('subscribePassNotPareil'));
       break;
     case DISCONNECT:
       localStorage.clear();

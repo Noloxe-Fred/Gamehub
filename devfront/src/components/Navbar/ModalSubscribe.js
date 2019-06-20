@@ -84,9 +84,33 @@ export default class ModalSubscribe extends Component {
                   
                 </Modal.Content>
               )}
-              {confirmSubscribe === 'subscribeAlreadyExist' && (
+              {confirmSubscribe === 'subscribeEmailExist' && (
                 <Modal.Content id="user-message">
                   <Modal.Description>Cet e-mail correspond déjà à un utilisateur</Modal.Description>
+                  
+                </Modal.Content>
+              )}
+              {confirmSubscribe === 'subscribePassWordNotConforme' && (
+                <Modal.Content id="user-message">
+                  <Modal.Description>Mot de passe non conforme</Modal.Description>
+                  
+                </Modal.Content>
+              )}
+              {confirmSubscribe === 'subscribeEmailInvalid' && (
+                <Modal.Content id="user-message">
+                  <Modal.Description>Email non conforme</Modal.Description>
+                  
+                </Modal.Content>
+              )}
+              {confirmSubscribe === 'subscribePassNotPareil' && (
+                <Modal.Content id="user-message">
+                  <Modal.Description>Erreur confirmation de mot de passe</Modal.Description>
+                  
+                </Modal.Content>
+              )}
+              {confirmSubscribe === "subscribePseudoExist" && (
+                <Modal.Content id="user-message">
+                  <Modal.Description>Ce pseudo est déjà pris</Modal.Description>
                   
                 </Modal.Content>
               )}
