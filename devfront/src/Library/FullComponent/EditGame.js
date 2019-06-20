@@ -68,11 +68,7 @@ class EditGame extends Component {
         <div className="all--parts">
           {loadReqDat && (
             <Segment>
-              {/* <Dimmer active inverted>
-                <Loader inverted size='medium'>Chargement</Loader>
-              </Dimmer> */}
-
-              <Image src='https://image.noelshack.com/fichiers/2019/25/3/1560900974-capture-d-ecran-2019-05-25-a-15-43-01.png' />
+              <Loader inverted size='medium'>Chargement</Loader>
             </Segment>
           )}
           {loadReqDat || (

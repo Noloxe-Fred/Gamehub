@@ -5,7 +5,7 @@ $color-text: white;
    
 
 #gamepage {
-  height: 120vh;
+  min-height: 120vh;
   .fa-plus-circle {
     margin-bottom: 1em;
     text-align: center;
@@ -17,7 +17,7 @@ $color-text: white;
 }
 
 .first {
-  height: 120vh;
+  min-height: 120vh;
 }
 .second {
   // height: 100%;
@@ -146,6 +146,7 @@ $color-text: white;
 
 .comments--container {
   margin-top: 1em;
+  padding-bottom: 2em;
   padding-top: 0;
 }
 
