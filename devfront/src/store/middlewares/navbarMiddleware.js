@@ -134,7 +134,7 @@ const navbarMiddleware = store => next => (action) => {
         })
         .catch((error) => {
           console.log('Erreur Submit Search', error);
-          // store.dispatch();
+          store.dispatch(receivedSubmit([]));
         });
       break;
     default:
