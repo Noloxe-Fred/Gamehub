@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "*",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "bootstrap": "^4.3.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
